@@ -1,6 +1,6 @@
 # LABORATORIO 2: SOLID – Patrones de Diseño – Diagramación UML Clases y POO Avanzada
 
-PREGUNTAS INICIALES: 
+## PREGUNTAS INICIALES: 
 1. ¿Qué ventaja ofrece el polimorfismo en el diseño de clases frente al uso de 
 múltiples condicionales para determinar el comportamiento de un objeto?
 
@@ -33,3 +33,9 @@ El archivo pom.xml es el archivo principal de configuración de un proyecto Mave
 6. ¿Qué diferencia existe entre una interfaz y una clase abstracta?
 
 Una interfaz define un conjunto de métodos que una clase debe implementar, sin proporcionar implementación ni estado. Una clase abstracta puede contener métodos abstractos y métodos con implementación, así como atributos, y sirve como una base común para clases relacionadas.
+
+## Retos completados
+### Reto X – Nombre del Reto
+#### Evidencia del código solución implementado
+#### Evidencia de la respuesta ejecutada
+#### Lo solicitado en cada Reto
