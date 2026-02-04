@@ -8,7 +8,7 @@
 		<version>4.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>edu.dosw.bootcamp.lab</groupId>
+	<groupId>Brayan Leal, Juan Guayazan Clavijo Juan Cruz</groupId>
 	<artifactId>DOSW-Bootcamp-Laboratorio-02</artifactId>
 	<version>1.0</version>
 	<name>DOSW-Bootcamp-Laboratorio-02</name>
