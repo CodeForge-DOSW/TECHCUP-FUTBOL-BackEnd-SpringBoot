@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>edu.dosw.bootcamp.lab</groupId>
 	<artifactId>DOSW-Bootcamp-Laboratorio-02</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>DOSW-Bootcamp-Laboratorio-02</name>
 	<description>Bootcamp – Laboratorio 02</description>
 	<url/>
