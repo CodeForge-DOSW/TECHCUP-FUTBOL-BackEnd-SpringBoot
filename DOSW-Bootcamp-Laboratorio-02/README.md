@@ -67,11 +67,35 @@ Las clases concretas de vehículos (Car, Bike, Moto, Boat, Sailboat, JetSki, Pla
 - Patrón Utilizado: Adapter
 
 ### Justificación
-Se utilizó el patrón Adapter para permitir que distintos servicios de conversión
-de moneda con interfaces incompatibles puedan ser utilizados de manera uniforme
-por el sistema, sin modificar su implementación original.
+
+Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
+de conversión de tasas reales cuya interfaz no coincidía con la forma en que el
+cliente requería realizar las conversiones.
+
+El patrón Adapter permite:
+- Adaptar una clase existente a una nueva interfaz sin modificar su código.
+- Evitar cambios en el código cliente cuando se reemplazan o agregan servicios.
+- Encapsular la lógica de adaptación en una sola clase.
+- Facilitar la extensibilidad del sistema a futuro.
+
+Gracias a este patrón, el sistema puede utilizar diferentes proveedores de tasas
+de cambio sin afectar la lógica principal de las transacciones.
 
 ### ¿Cómo se aplicó?
-Se definió una interfaz común `CurrencyConverter` que es utilizada por el cliente.
-El `ExchangeAdapter` adapta el servicio real de tasas de cambio a esta interfaz,
-permitiendo convertir cualquier moneda a otra usando tasas reales.
+1. **Interfaz Objetivo (Target)**  
+   Se definió la interfaz CurrencyConverter, que representa la forma estándar en
+   que el cliente realiza las conversiones de moneda.
+
+2. **Servicio de Conversión Real (Adaptee)**  
+   Se implementó la clase RealExchangeRateService, encargada de manejar las tasas
+   reales de conversión utilizando una moneda base (USD).
+
+3. **Adaptador (Adapter)**  
+   La clase ExchangeAdapter implementa la interfaz CurrencyConverter y actúa como
+   intermediario entre el cliente y el servicio real de tasas.  
+   Esta clase traduce las solicitudes del cliente a llamadas compatibles con el
+   servicio de conversión real.
+
+4. **Cliente**  
+   El cliente interactúa únicamente con la interfaz CurrencyConverter, sin conocer
+   la implementación concreta ni la fuente de las tasas de cambio.
