@@ -39,3 +39,19 @@ Una interfaz define un conjunto de métodos que una clase debe implementar, sin 
 #### Evidencia del código solución implementado
 #### Evidencia de la respuesta ejecutada
 #### Lo solicitado en cada Reto
+
+## Reto #4  La Estafa de la Casa de Cambio
+### Patrón de Diseño
+
+- Categoría: Patrones Estructurales
+- Patrón Utilizado: Adapter
+
+### Justificación
+Se utilizó el patrón Adapter para permitir que distintos servicios de conversión
+de moneda con interfaces incompatibles puedan ser utilizados de manera uniforme
+por el sistema, sin modificar su implementación original.
+
+### ¿Cómo se aplicó?
+Se definió una interfaz común `CurrencyConverter` que es utilizada por el cliente.
+El `ExchangeAdapter` adapta el servicio real de tasas de cambio a esta interfaz,
+permitiendo convertir cualquier moneda a otra usando tasas reales.
