@@ -40,6 +40,26 @@ Una interfaz define un conjunto de métodos que una clase debe implementar, sin 
 #### Evidencia de la respuesta ejecutada
 #### Lo solicitado en cada Reto
 
+## Reto #3   El Reino de los Vehículos
+### Patrón de Diseño
+
+- Categoría: Patrones Creacionales
+- Patrón Utilizado: Abstract Factory
+
+### Justificación
+
+Se implementó el patrón Abstract Factory con el objetivo de desacoplar el proceso de creación de los distintos tipos de vehículos del resto de la aplicación. Dado que el sistema debe manejar familias de objetos relacionados (vehículos terrestres, acuáticos y aéreos), cada una con múltiples modelos y categorías (Económico, Lujo y Usado), el uso de este patrón permite crear estos objetos sin que el cliente conozca las clases concretas que se están instanciando.
+
+Este enfoque facilita la extensibilidad del sistema, ya que permite agregar nuevos tipos de vehículos o nuevas familias de vehículos sin modificar el código del cliente, cumpliendo con el principio de Abierto/Cerrado y reduciendo el acoplamiento entre componentes. Además, el patrón garantiza la coherencia entre los objetos creados dentro de una misma familia, asegurando que cada vehículo se construya con características acordes a su tipo y categoría.
+
+### ¿Cómo se aplicó?
+El patrón Abstract Factory se aplicó definiendo una interfaz de fábrica abstracta (VehicleFactory) que declara el método para la creación de vehículos sin especificar sus clases concretas. A partir de esta fábrica abstracta, se implementaron fábricas concretas como LandVehicleFactory, WaterVehicleFactory y AirVehicleFactory, cada una responsable de crear una familia específica de vehículos según su medio de operación: terrestre, acuático o aéreo.
+
+Cada fábrica concreta encapsula la lógica de creación de los modelos de vehículos correspondientes a su familia. En el caso de los vehículos terrestres, se crean autos, bicicletas y motos; para los vehículos acuáticos, se crean lanchas, veleros y jet skis; y para los vehículos aéreos, se crean aviones, avionetas y helicópteros. De esta forma, se garantiza que los objetos creados pertenezcan a una misma familia y mantengan coherencia en sus características.
+
+Las clases concretas de vehículos (Car, Bike, Moto, Boat, Sailboat, JetSki, Plane, Avioneta, Helicopter, entre otras) extienden de la clase abstracta Vehicle, la cual define el comportamiento común y las operaciones que deben implementar todos los vehículos, como el cálculo de la velocidad máxima, el equipamiento y el precio final según su categoría. 
+
+
 ## Reto #4  La Estafa de la Casa de Cambio
 ### Patrón de Diseño
 
