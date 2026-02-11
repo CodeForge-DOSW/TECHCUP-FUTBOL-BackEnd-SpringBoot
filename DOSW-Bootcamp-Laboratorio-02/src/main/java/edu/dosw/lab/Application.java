@@ -17,6 +17,8 @@ public class Application {
 
         Reto3.main(args);
 
+        Reto4.main(args);
+
         System.out.println("\nRETO #5: El Café Personalizado\n");
         reto5.run();
 
