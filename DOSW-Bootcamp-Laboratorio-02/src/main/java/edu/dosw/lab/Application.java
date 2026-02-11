@@ -15,6 +15,8 @@ public class Application {
         System.out.println("RETO #2: El chef de 5 estrellas");
         Reto2.main(args);
 
+        Reto3.main(args);
+
         System.out.println("\nRETO #5: El Café Personalizado\n");
         reto5.run();
 
