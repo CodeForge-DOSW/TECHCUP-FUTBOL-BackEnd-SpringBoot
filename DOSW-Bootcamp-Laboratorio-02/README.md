@@ -35,7 +35,30 @@ El archivo pom.xml es el archivo principal de configuración de un proyecto Mave
 Una interfaz define un conjunto de métodos que una clase debe implementar, sin proporcionar implementación ni estado. Una clase abstracta puede contener métodos abstractos y métodos con implementación, así como atributos, y sirve como una base común para clases relacionadas.
 
 ## Retos completados
-### Reto X – Nombre del Reto
+### Reto 2 – El chef de 5 estrellas
 #### Evidencia del código solución implementado
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
 #### Evidencia de la respuesta ejecutada
+![img_6.png](img_6.png)
 #### Lo solicitado en cada Reto
+- Categoría del patrón de diseño: es creacional
+
+-Patrón Utilizado: builder
+- Justificación: la hamburguesa al tener mucho ingrediente tendriamos que
+tener muchos constructores para cada una de sus variantes por eso se utilizo el 
+patron Builder
+o-¿Cómo lo aplicó?
+lo aplique con una interfaz que es la que tiene todos los metodos de
+cntruccion y un se utilizo una clase para que implementara esta interfaz y 
+sobreescribiera todos los metodos de esta y ademas se untilizo un director 
+que es la clase chef
