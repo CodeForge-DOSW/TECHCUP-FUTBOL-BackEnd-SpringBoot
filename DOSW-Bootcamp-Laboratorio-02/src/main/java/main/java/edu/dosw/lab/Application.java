@@ -28,5 +28,7 @@ public class Application {
 
         System.out.println("RETO #6: Habla con Soporte Técnico");
         reto6.ejecutar();
+
+        Reto7.main(args);
     }
 }
