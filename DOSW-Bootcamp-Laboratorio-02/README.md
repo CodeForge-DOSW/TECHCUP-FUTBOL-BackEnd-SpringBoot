@@ -144,4 +144,30 @@ Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
 3. **Adapter:** `ExchangeAdapter`, que implementa `CurrencyConverter` y traduce las llamadas del cliente al formato esperado por el servicio real.
 4. **Cliente:** Interactúa únicamente con `CurrencyConverter`, sin conocer la implementación concreta.
 
+### RETO #5: El Café Personalizado
+#### Evidencia del código solución implementado
+#### Evidencia de la respuesta ejecutada
+#### Lo solicitado en cada Reto
+##### Categoría del patrón de diseño
+COMPORTAMIENTO
+##### Patrón Utilizado
+CHAIN OF RESPONSABILITY
+##### Justificación
+
+##### ¿Cómo lo aplicó?
+
+### RETO #6: Habla con Soporte Técnico
+#### Evidencia del código solución implementado
+#### Evidencia de la respuesta ejecutada
+#### Lo solicitado en cada Reto
+##### Categoría del patrón de diseño
+ESTRUCTURALES
+##### Patrón Utilizado
+DECORATOR
+##### Justificación
+El patrón Decorator permite añadir responsabilidades adicionales a un objeto de manera dinámica sin alterar su estructura original. Esto es útil cuando se desea extender la funcionalidad de una clase sin modificar su código, promoviendo la adherencia al principio de Abierto/Cerrado.
+En este caso de los cafes se utiliza el patrón Decorator para añadir diferentes tipos de ingredientes (como leche, azúcar, etc.) a una bebida base (como café o té) sin modificar las clases originales de las bebidas. evitando la proliferación de subclases para cada combinación posible de ingredientes.
+##### ¿Cómo lo aplicó?
+Se creó una interfaz base para las bebidas y luego se implementaron clases concretas para cada tipo de bebida. A continuación, se crearon clases decoradoras que implementan la misma interfaz y añaden ingredientes adicionales a la bebida base. Cada decorador envuelve una instancia de la bebida original y añade su propio comportamiento (como el costo adicional y la descripción del ingrediente) antes de delegar las llamadas al objeto original.
+
 
