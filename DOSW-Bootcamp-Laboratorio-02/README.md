@@ -35,6 +35,41 @@ El archivo pom.xml es el archivo principal de configuración de un proyecto Mave
 Una interfaz define un conjunto de métodos que una clase debe implementar, sin proporcionar implementación ni estado. Una clase abstracta puede contener métodos abstractos y métodos con implementación, así como atributos, y sirve como una base común para clases relacionadas.
 
 ## Retos completados
+### Reto 1 – El problema de la tienda de Don Pepe
+#### Implementación
+## Cliente
+
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+![img_7.png](img_7.png)
+![img_8.png](img_8.png)
+
+---
+
+
+#### Evidencia de la respuesta ejecutada
+
+![img.png](img.png)
+![img_1.png](img_1.png)
+
+---
+#### Lo solicitado en cada Reto
+
+- ¿Cómo está aplicando en su solución cada uno de los principios SOLID?
+
+En la solución se aplican los principios SOLID porque cada clase tiene una función específica (por ejemplo, Producto solo representa datos y Descuento solo aplica descuentos), y el sistema permite agregar nuevos tipos de descuento sin modificar las clases existentes. Además, la clase Cliente trabaja con la abstracción Descuento en lugar de depender de clases concretas, lo que hace el diseño más flexible y organizado.
+
+- ¿Cómo están aplicando polimorfismo en tu solución?
+
+El polimorfismo se aplica cuando el programa usa la interfaz Descuento sin saber qué tipo específico de descuento está ejecutando. Dependiendo del tipo de cliente, se aplica automáticamente el descuento correspondiente (nuevo o antiguo), sin necesidad de usar condicionales.
+
+---
+
 ### Reto 2 – El chef de 5 estrellas
 #### Evidencia del código solución implementado
 ![img.png](img.png)
