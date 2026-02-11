@@ -16,6 +16,7 @@ public interface Descuento {
      * @param precioNeto valor antes de aplicar descuento
      * @return valor final después de aplicar el descuento
      */
+
     double aplicarDescuento(double precioNeto);
 
 }

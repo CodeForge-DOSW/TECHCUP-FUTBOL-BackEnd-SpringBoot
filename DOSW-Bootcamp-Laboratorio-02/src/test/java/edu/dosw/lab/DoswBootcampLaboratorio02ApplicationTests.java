@@ -1,9 +1,8 @@
-package edu.dosw.bootcamp.lab.DOSW_Bootcamp_Laboratorio_02;
+package src.test.java.edu.dosw.lab;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@src.test.java.edu.dosw.lab.SpringBootTest
 class DoswBootcampLaboratorio02ApplicationTests {
 
 	@Test
