@@ -146,6 +146,17 @@ Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
 
 ### RETO #5: El Café Personalizado
 #### Evidencia del código solución implementado
+<img width="738" height="244" alt="image" src="https://github.com/user-attachments/assets/662e6e03-565e-498d-97c1-9aa4cd2bf2e0" />
+<img width="722" height="331" alt="image" src="https://github.com/user-attachments/assets/5c96b640-e8ca-426e-b1d9-790f240e9e57" />
+<img width="948" height="377" alt="image" src="https://github.com/user-attachments/assets/0c50e128-f242-4c3e-8ade-2a3b67be960f" />
+<img width="961" height="405" alt="image" src="https://github.com/user-attachments/assets/c194e2ce-a21d-4d24-8f69-43bdb3025f2a" />
+<img width="976" height="426" alt="image" src="https://github.com/user-attachments/assets/e58aa7ae-d6a4-4063-b26f-d0729ceff323" />
+<img width="910" height="392" alt="image" src="https://github.com/user-attachments/assets/1ec8e551-4216-4043-a8f4-aefb4efd05a2" />
+<img width="917" height="406" alt="image" src="https://github.com/user-attachments/assets/47aaa317-9c00-41b6-b60d-bee9a46370c3" />
+<img width="1001" height="452" alt="image" src="https://github.com/user-attachments/assets/d2e02d96-0605-4cc1-922e-d2bd4ef2791f" />
+
+
+
 #### Evidencia de la respuesta ejecutada
 #### Lo solicitado en cada Reto
 ##### Categoría del patrón de diseño
