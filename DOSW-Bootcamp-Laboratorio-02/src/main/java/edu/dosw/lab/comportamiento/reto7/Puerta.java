@@ -1,4 +1,4 @@
-package edu.dosw.lab.comportamiento.reto7;
+package edu.dosw.lab.comportamiento.Reto7
 
 public class Puerta {
     public void abrir() {

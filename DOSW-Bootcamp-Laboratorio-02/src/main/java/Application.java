@@ -1,11 +1,10 @@
-package edu.dosw.lab;
-
 import edu.dosw.lab.creacionales.Reto3.Reto3;
 import edu.dosw.lab.estructurales.Reto4.Reto4;
 import src.main.java.edu.dosw.lab.creacionales.reto1.Reto1;
 import src.main.java.edu.dosw.lab.creacionales.reto2.Reto2;
 import edu.dosw.lab.estructurales.reto5.reto5;
 import main.java.edu.dosw.lab.comportamiento.reto6.reto6;
+import edu.dosw.lab.comportamiento.reto7.Reto7;
 
 public class Application {
     public static void main(String[] args) {
@@ -29,6 +28,7 @@ public class Application {
         System.out.println("RETO #6: Habla con Soporte Técnico");
         reto6.ejecutar();
 
+        System.out.println("RETO #7: El control remoto Mágico");
         Reto7.main(args);
     }
 }
