@@ -34,127 +34,114 @@ El archivo pom.xml es el archivo principal de configuración de un proyecto Mave
 
 Una interfaz define un conjunto de métodos que una clase debe implementar, sin proporcionar implementación ni estado. Una clase abstracta puede contener métodos abstractos y métodos con implementación, así como atributos, y sirve como una base común para clases relacionadas.
 
-## Retos completados
-### Reto 1 – El problema de la tienda de Don Pepe
-#### Implementación
-## Cliente
 
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_7.png](img_7.png)
-![img_8.png](img_8.png)
+## Retos completados
 
 ---
 
+### Reto 1 – El problema de la tienda de Don Pepe
+
+#### Evidencia del código solución implementado
+
+![img.png](img.png)
+![img\_1.png](img_1.png)
+![img\_2.png](img_2.png)
+![img\_3.png](img_3.png)
+![img\_4.png](img_4.png)
+![img\_5.png](img_5.png)
+![img\_6.png](img_6.png)
+![img\_7.png](img_7.png)
+![img\_8.png](img_8.png)
 
 #### Evidencia de la respuesta ejecutada
 
 ![img.png](img.png)
-![img_1.png](img_1.png)
+![img\_1.png](img_1.png)
 
----
 #### Lo solicitado en cada Reto
 
-- ¿Cómo está aplicando en su solución cada uno de los principios SOLID?
+**¿Cómo está aplicando en su solución cada uno de los principios SOLID?**
+En la solución se aplican los principios SOLID porque cada clase tiene una función específica (por ejemplo, `Producto` solo representa datos y `Descuento` solo aplica descuentos). Además, el sistema permite agregar nuevos tipos de descuento sin modificar las clases existentes, cumpliendo el principio Abierto/Cerrado. La clase `Cliente` trabaja con la abstracción `Descuento` en lugar de depender de clases concretas, lo que hace el diseño más flexible y organizado.
 
-En la solución se aplican los principios SOLID porque cada clase tiene una función específica (por ejemplo, Producto solo representa datos y Descuento solo aplica descuentos), y el sistema permite agregar nuevos tipos de descuento sin modificar las clases existentes. Además, la clase Cliente trabaja con la abstracción Descuento en lugar de depender de clases concretas, lo que hace el diseño más flexible y organizado.
-
-- ¿Cómo están aplicando polimorfismo en tu solución?
-
-El polimorfismo se aplica cuando el programa usa la interfaz Descuento sin saber qué tipo específico de descuento está ejecutando. Dependiendo del tipo de cliente, se aplica automáticamente el descuento correspondiente (nuevo o antiguo), sin necesidad de usar condicionales.
+**¿Cómo están aplicando polimorfismo en tu solución?**
+El polimorfismo se aplica cuando el programa usa la interfaz `Descuento` sin saber qué tipo específico de descuento está ejecutando. Dependiendo del tipo de cliente, se aplica automáticamente el descuento correspondiente (nuevo o antiguo), sin necesidad de usar condicionales.
 
 ---
 
 ### Reto 2 – El chef de 5 estrellas
+
 #### Evidencia del código solución implementado
+
 ![img.png](img.png)
+![img\_1.png](img_1.png)
+![img\_2.png](img_2.png)
+![img\_3.png](img_3.png)
+![img\_4.png](img_4.png)
+![img\_5.png](img_5.png)
 
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)
-
-![img_3.png](img_3.png)
-
-![img_4.png](img_4.png)
-
-![img_5.png](img_5.png)
 #### Evidencia de la respuesta ejecutada
-![img_6.png](img_6.png)
+
+![img\_6.png](img_6.png)
+
 #### Lo solicitado en cada Reto
-- Categoría del patrón de diseño: es creacional
 
--Patrón Utilizado: builder
-- Justificación: la hamburguesa al tener mucho ingrediente tendriamos que
-  tener muchos constructores para cada una de sus variantes por eso se utilizo el
-  patron Builder
-  o-¿Cómo lo aplicó?
-  lo aplique con una interfaz que es la que tiene todos los metodos de
-  cntruccion y un se utilizo una clase para que implementara esta interfaz y
-  sobreescribiera todos los metodos de esta y ademas se untilizo un director
-  que es la clase chef
+* **Categoría del patrón de diseño:** Creacional
+* **Patrón utilizado:** Builder
 
-## Reto #3   El Reino de los Vehículos
-### Patrón de Diseño
+**Justificación:**
+La hamburguesa tiene muchos ingredientes, por lo que sería necesario crear muchos constructores para cada combinación posible. El patrón Builder permite construir objetos complejos paso a paso, evitando constructores largos y mejorando la legibilidad del código.
 
-- Categoría: Patrones Creacionales
-- Patrón Utilizado: Abstract Factory
+**¿Cómo se aplicó?**
+Se aplicó mediante una interfaz que define todos los métodos de construcción. Luego, una clase concreta implementa esta interfaz y sobreescribe los métodos. Finalmente, se utilizó un director (la clase `Chef`) para controlar el proceso de construcción.
 
-### Justificación
+---
 
-Se implementó el patrón Abstract Factory con el objetivo de desacoplar el proceso de creación de los distintos tipos de vehículos del resto de la aplicación. Dado que el sistema debe manejar familias de objetos relacionados (vehículos terrestres, acuáticos y aéreos), cada una con múltiples modelos y categorías (Económico, Lujo y Usado), el uso de este patrón permite crear estos objetos sin que el cliente conozca las clases concretas que se están instanciando.
+### Reto 3 – El Reino de los Vehículos
 
-Este enfoque facilita la extensibilidad del sistema, ya que permite agregar nuevos tipos de vehículos o nuevas familias de vehículos sin modificar el código del cliente, cumpliendo con el principio de Abierto/Cerrado y reduciendo el acoplamiento entre componentes. Además, el patrón garantiza la coherencia entre los objetos creados dentro de una misma familia, asegurando que cada vehículo se construya con características acordes a su tipo y categoría.
+#### Evidencia del código solución implementado
 
-### ¿Cómo se aplicó?
-El patrón Abstract Factory se aplicó definiendo una interfaz de fábrica abstracta (VehicleFactory) que declara el método para la creación de vehículos sin especificar sus clases concretas. A partir de esta fábrica abstracta, se implementaron fábricas concretas como LandVehicleFactory, WaterVehicleFactory y AirVehicleFactory, cada una responsable de crear una familia específica de vehículos según su medio de operación: terrestre, acuático o aéreo.
+*(Agregar capturas si las tienes)*
 
-Cada fábrica concreta encapsula la lógica de creación de los modelos de vehículos correspondientes a su familia. En el caso de los vehículos terrestres, se crean autos, bicicletas y motos; para los vehículos acuáticos, se crean lanchas, veleros y jet skis; y para los vehículos aéreos, se crean aviones, avionetas y helicópteros. De esta forma, se garantiza que los objetos creados pertenezcan a una misma familia y mantengan coherencia en sus características.
+#### Evidencia de la respuesta ejecutada
 
-Las clases concretas de vehículos (Car, Bike, Moto, Boat, Sailboat, JetSki, Plane, Avioneta, Helicopter, entre otras) extienden de la clase abstracta Vehicle, la cual define el comportamiento común y las operaciones que deben implementar todos los vehículos, como el cálculo de la velocidad máxima, el equipamiento y el precio final según su categoría.
+*(Agregar capturas si las tienes)*
 
+#### Lo solicitado en cada Reto
 
-## Reto #4  La Estafa de la Casa de Cambio
-### Patrón de Diseño
+* **Categoría:** Patrones Creacionales
+* **Patrón utilizado:** Abstract Factory
 
-- Categoría: Patrones Estructurales
-- Patrón Utilizado: Adapter
+**Justificación:**
+Se implementó el patrón Abstract Factory para desacoplar el proceso de creación de los distintos tipos de vehículos del resto de la aplicación. Dado que el sistema maneja familias de objetos relacionados (vehículos terrestres, acuáticos y aéreos), este patrón permite crear dichos objetos sin que el cliente conozca las clases concretas que se instancian. Esto facilita la extensibilidad, cumple con el principio Abierto/Cerrado y reduce el acoplamiento.
 
-### Justificación
+**¿Cómo se aplicó?**
+Se definió una interfaz de fábrica abstracta (`VehicleFactory`) con métodos para crear vehículos. Luego, se implementaron fábricas concretas como `LandVehicleFactory`, `WaterVehicleFactory` y `AirVehicleFactory`, cada una encargada de crear una familia específica de vehículos. Las clases concretas (`Car`, `Bike`, `Boat`, `Plane`, etc.) extienden de una clase abstracta `Vehicle`, garantizando coherencia dentro de cada familia.
 
-Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
-de conversión de tasas reales cuya interfaz no coincidía con la forma en que el
-cliente requería realizar las conversiones.
+---
 
-El patrón Adapter permite:
-- Adaptar una clase existente a una nueva interfaz sin modificar su código.
-- Evitar cambios en el código cliente cuando se reemplazan o agregan servicios.
-- Encapsular la lógica de adaptación en una sola clase.
-- Facilitar la extensibilidad del sistema a futuro.
+### Reto 4 – La Estafa de la Casa de Cambio
 
-Gracias a este patrón, el sistema puede utilizar diferentes proveedores de tasas
-de cambio sin afectar la lógica principal de las transacciones.
+#### Evidencia del código solución implementado
 
-### ¿Cómo se aplicó?
-1. **Interfaz Objetivo (Target)**  
-   Se definió la interfaz CurrencyConverter, que representa la forma estándar en
-   que el cliente realiza las conversiones de moneda.
+*(Agregar capturas si las tienes)*
 
-2. **Servicio de Conversión Real (Adaptee)**  
-   Se implementó la clase RealExchangeRateService, encargada de manejar las tasas
-   reales de conversión utilizando una moneda base (USD).
+#### Evidencia de la respuesta ejecutada
 
-3. **Adaptador (Adapter)**  
-   La clase ExchangeAdapter implementa la interfaz CurrencyConverter y actúa como
-   intermediario entre el cliente y el servicio real de tasas.  
-   Esta clase traduce las solicitudes del cliente a llamadas compatibles con el
-   servicio de conversión real.
+*(Agregar capturas si las tienes)*
 
-4. **Cliente**  
-   El cliente interactúa únicamente con la interfaz CurrencyConverter, sin conocer
-   la implementación concreta ni la fuente de las tasas de cambio.
+#### Lo solicitado en cada Reto
+
+* **Categoría:** Patrones Estructurales
+* **Patrón utilizado:** Adapter
+
+**Justificación:**
+Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio de conversión de tasas reales cuya interfaz no coincidía con la forma en que el cliente requería realizar las conversiones. Este patrón permite adaptar una clase existente a una nueva interfaz sin modificar su código, facilita la extensibilidad y encapsula la lógica de adaptación.
+
+**¿Cómo se aplicó?**
+
+1. **Interfaz objetivo (Target):** `CurrencyConverter`, utilizada por el cliente.
+2. **Adaptee:** `RealExchangeRateService`, encargado de manejar las tasas reales de conversión.
+3. **Adapter:** `ExchangeAdapter`, que implementa `CurrencyConverter` y traduce las llamadas del cliente al formato esperado por el servicio real.
+4. **Cliente:** Interactúa únicamente con `CurrencyConverter`, sin conocer la implementación concreta.
+
 
