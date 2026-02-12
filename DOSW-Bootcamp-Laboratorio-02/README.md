@@ -224,23 +224,20 @@ Se creó una interfaz base para las bebidas y luego se implementaron clases conc
 #### Evidencia de la respuesta ejecutada
 
 * Entrada
-  Creación de ticket con nivel de dificultad y prioridad.
+  <img width="452" height="621" alt="image" src="https://github.com/user-attachments/assets/405b59db-4796-4fac-90af-b814ac728372" />
 
 * Salida
-  Ticket procesado por el técnico correspondiente o escalado al siguiente en la cadena.
+  <img width="952" height="489" alt="image" src="https://github.com/user-attachments/assets/4d359c76-1e7c-45cc-81ca-4599b56d2c58" />
 
 #### Lo solicitado en cada Reto
 
 ##### Categoría del patrón de diseño
-
 COMPORTAMIENTO
 
 ##### Patrón Utilizado
-
 CHAIN OF RESPONSABILITY
 
 ##### Justificación
-
 Se utilizó el patrón **Chain of Responsibility** porque el sistema de soporte técnico requiere que los tickets sean procesados por distintos técnicos según su nivel de dificultad y prioridad, sin que el cliente conozca quién los resolverá específicamente.
 
 Este patrón permite que cada técnico evalúe si puede atender el ticket y, en caso contrario, lo delegue automáticamente al siguiente en la cadena. De esta manera, se logra un diseño desacoplado, flexible y escalable, donde es posible agregar nuevos técnicos o modificar la cadena sin afectar la lógica del cliente.
@@ -248,7 +245,6 @@ Este patrón permite que cada técnico evalúe si puede atender el ticket y, en 
 Además, favorece el cumplimiento de los principios **Open/Closed** (abierto a extensión, cerrado a modificación) y **Responsabilidad Única**, ya que cada técnico se encarga únicamente de validar y procesar los tickets que le corresponden.
 
 ##### ¿Cómo lo aplicó?
-
 Se implementó una interfaz común para los técnicos (Handler), que define el método para procesar el ticket y establecer el siguiente elemento en la cadena.
 
 Posteriormente, se creó una clase base que contiene la referencia al siguiente técnico y la lógica de delegación cuando el ticket no puede ser resuelto.
@@ -256,9 +252,3 @@ Posteriormente, se creó una clase base que contiene la referencia al siguiente 
 Se desarrollaron clases concretas (Técnico Básico, Técnico Intermedio y Técnico Avanzado), donde cada una implementa su propia lógica de validación según el nivel de dificultad y prioridad del ticket. Si el técnico no puede resolverlo, lo pasa al siguiente en la cadena.
 
 El cliente únicamente envía el ticket al primer técnico, permitiendo que el procesamiento fluya dinámicamente hasta que sea resuelto o marcado como pendiente de escalamiento.
-
-
-
-
-
-
