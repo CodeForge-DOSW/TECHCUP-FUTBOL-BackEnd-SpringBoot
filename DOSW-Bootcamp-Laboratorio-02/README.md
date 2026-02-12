@@ -43,23 +43,27 @@ Una interfaz define un conjunto de métodos que una clase debe implementar, sin 
 #### Implementación
 ## Cliente
 
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_7.png](img_7.png)
-![img_8.png](img_8.png)
+<img width="982" height="865" alt="Captura de pantalla 2026-02-11 135812" src="https://github.com/user-attachments/assets/a04f140a-bc7c-4c47-a568-befcf9e83865" />
+
+<img width="849" height="709" alt="Captura de pantalla 2026-02-11 140048" src="https://github.com/user-attachments/assets/7278fb55-8c79-41bd-b3bf-a9b7da1ec1c0" />
+
+<img width="1074" height="771" alt="Captura de pantalla 2026-02-11 140113" src="https://github.com/user-attachments/assets/3b5b4cdf-d7eb-47a6-a9b1-ab6444576ca8" />
+
+<img width="1069" height="721" alt="Captura de pantalla 2026-02-11 135904" src="https://github.com/user-attachments/assets/d36ab847-e051-4498-83bc-691351652b1b" />
+<img width="1047" height="633" alt="Captura de pantalla 2026-02-11 135935" src="https://github.com/user-attachments/assets/b06fc63e-9147-4960-9821-ee427f3cfa36" />
+
+<img width="796" height="602" alt="Captura de pantalla 2026-02-11 140006" src="https://github.com/user-attachments/assets/c07df870-c22c-4564-9b30-49592d2373f2" />
+<img width="865" height="864" alt="Captura de pantalla 2026-02-11 140032" src="https://github.com/user-attachments/assets/8c52e9ee-4484-44f2-8fb7-48c72fa1e138" />
+
+<img width="849" height="709" alt="Captura de pantalla 2026-02-11 140048" src="https://github.com/user-attachments/assets/77690a95-3510-46a7-94e9-c786e334d9ab" />
 
 ---
 
-
 #### Evidencia de la respuesta ejecutada
+<img width="723" height="799" alt="Captura de pantalla 2026-02-11 135131" src="https://github.com/user-attachments/assets/a6773ce3-7ef6-4bcd-90ab-2e1429cd37a4" />
 
-![img.png](img.png)
-![img_1.png](img_1.png)
+<img width="541" height="299" alt="Captura de pantalla 2026-02-11 135159" src="https://github.com/user-attachments/assets/aa97bcfd-16d2-4d37-95e2-950f457211db" />
+
 
 ---
 #### Lo solicitado en cada Reto
