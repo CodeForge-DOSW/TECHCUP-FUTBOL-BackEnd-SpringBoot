@@ -155,20 +155,6 @@ Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
 <img width="917" height="406" alt="image" src="https://github.com/user-attachments/assets/47aaa317-9c00-41b6-b60d-bee9a46370c3" />
 <img width="1001" height="452" alt="image" src="https://github.com/user-attachments/assets/d2e02d96-0605-4cc1-922e-d2bd4ef2791f" />
 
-
-
-#### Evidencia de la respuesta ejecutada
-#### Lo solicitado en cada Reto
-##### Categoría del patrón de diseño
-COMPORTAMIENTO
-##### Patrón Utilizado
-CHAIN OF RESPONSABILITY
-##### Justificación
-
-##### ¿Cómo lo aplicó?
-
-### RETO #6: Habla con Soporte Técnico
-#### Evidencia del código solución implementado
 #### Evidencia de la respuesta ejecutada
 #### Lo solicitado en cada Reto
 ##### Categoría del patrón de diseño
@@ -180,5 +166,44 @@ El patrón Decorator permite añadir responsabilidades adicionales a un objeto d
 En este caso de los cafes se utiliza el patrón Decorator para añadir diferentes tipos de ingredientes (como leche, azúcar, etc.) a una bebida base (como café o té) sin modificar las clases originales de las bebidas. evitando la proliferación de subclases para cada combinación posible de ingredientes.
 ##### ¿Cómo lo aplicó?
 Se creó una interfaz base para las bebidas y luego se implementaron clases concretas para cada tipo de bebida. A continuación, se crearon clases decoradoras que implementan la misma interfaz y añaden ingredientes adicionales a la bebida base. Cada decorador envuelve una instancia de la bebida original y añade su propio comportamiento (como el costo adicional y la descripción del ingrediente) antes de delegar las llamadas al objeto original.
+
+
+
+### RETO #6: Habla con Soporte Técnico
+#### Evidencia del código solución implementado
+
+<img width="1025" height="543" alt="image" src="https://github.com/user-attachments/assets/8e89a2df-2b2b-4c12-b785-b47d9189e735" />
+<img width="964" height="493" alt="image" src="https://github.com/user-attachments/assets/0a5d2ba9-fd38-4ed5-a7f1-d4d60fdeedcd" />
+<img width="928" height="465" alt="image" src="https://github.com/user-attachments/assets/3e9d6999-ba68-4c00-b065-d4c580a50d3a" />
+<img width="1250" height="215" alt="image" src="https://github.com/user-attachments/assets/77fe5b14-d9d6-49b5-a09b-5082633647f5" />
+<img width="926" height="272" alt="image" src="https://github.com/user-attachments/assets/91a14e51-4d03-41a0-a32a-747fb944c765" />
+<img width="979" height="491" alt="image" src="https://github.com/user-attachments/assets/7a5bb9fe-52f5-41d3-92a2-3de82180cb50" />
+<img width="863" height="492" alt="image" src="https://github.com/user-attachments/assets/aeac59ba-7a65-413b-80e7-6399f9009ab4" />
+
+#### Evidencia de la respuesta ejecutada
+#### Lo solicitado en cada Reto
+##### Categoría del patrón de diseño
+COMPORTAMIENTO
+##### Patrón Utilizado
+CHAIN OF RESPONSABILITY
+
+##### Justificación
+Se utilizó el patrón **Chain of Responsibility** porque el sistema de soporte técnico requiere que los tickets sean procesados por distintos técnicos según su nivel de dificultad y prioridad, sin que el cliente conozca quién los resolverá específicamente.
+
+Este patrón permite que cada técnico evalúe si puede atender el ticket y, en caso contrario, lo delegue automáticamente al siguiente en la cadena. De esta manera, se logra un diseño desacoplado, flexible y escalable, donde es posible agregar nuevos técnicos o modificar la cadena sin afectar la lógica del cliente.
+
+Además, favorece el cumplimiento de los principios **Open/Closed** (abierto a extensión, cerrado a modificación) y **Responsabilidad Única**, ya que cada técnico se encarga únicamente de validar y procesar los tickets que le corresponden.
+
+##### ¿Cómo lo aplicó?
+Se implementó una interfaz común para los técnicos (Handler), que define el método para procesar el ticket y establecer el siguiente elemento en la cadena.
+
+Posteriormente, se creó una clase base que contiene la referencia al siguiente técnico y la lógica de delegación cuando el ticket no puede ser resuelto.
+
+Se desarrollaron clases concretas (Técnico Básico, Técnico Intermedio y Técnico Avanzado), donde cada una implementa su propia lógica de validación según el nivel de dificultad y prioridad del ticket. Si el técnico no puede resolverlo, lo pasa al siguiente en la cadena.
+
+El cliente únicamente envía el ticket al primer técnico, permitiendo que el procesamiento fluya dinámicamente hasta que sea resuelto o marcado como pendiente de escalamiento.
+
+
+
 
 
