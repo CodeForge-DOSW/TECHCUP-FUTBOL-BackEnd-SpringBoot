@@ -54,26 +54,21 @@ public class reto5 {
                     switch (opcion) {
                         case 1:
                             miCafe = new leche(miCafe);
-                            System.out.println("Se agregó: Leche");
                             break;
                         case 2:
                             miCafe = new chocolate(miCafe);
-                            System.out.println("Se agregó: Chocolate");
                             break;
                         case 3:
                             miCafe = new caramelo(miCafe);
-                            System.out.println("Se agregó: Caramelo");
                             break;
                         case 4:
                             miCafe = new cremaBatida(miCafe);
-                            System.out.println("Se agregó: Crema Batida");
                             break;
                         case 5:
                             miCafe = new menta(miCafe);
                             System.out.println("Se agregó: Menta");
                             break;
                         case 6:
-                            // Nuevo topping: pedir nombre y precio
                             System.out.print("Ingrese nombre del nuevo topping: ");
                             String nombre = scanner.nextLine().trim();
                             if (nombre.isEmpty()) {
@@ -86,7 +81,7 @@ public class reto5 {
                                 System.out.println("Precio vacío. Se omite el topping nuevo.");
                                 break;
                             }
-                            // Normalizar precio: permitir 1.800 o 1800 o 1,800
+
                             String sanitized = precioStr.replace(".", "").replace(",", "").replace("$", "").trim();
                             long precioVal;
                             try {
@@ -110,10 +105,6 @@ public class reto5 {
                                     return cafe.getPrecio() + precioFinal;
                                 }
                             };
-                            System.out.println("Se agregó: " + nombre + " ($" + precioVal + ")");
-                            break;
-                        default:
-                            System.out.println("Opción no reconocida: " + opcion + " — se ignora.");
                     }
                 }
             }
