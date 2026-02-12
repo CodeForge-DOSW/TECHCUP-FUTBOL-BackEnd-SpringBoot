@@ -1,4 +1,4 @@
-package src.main.java.edu.dosw.lab.creacionales.reto2;
+package edu.dosw.lab.creacionales.reto2;
 
 /**
  * Clase Ingrediente que representa un componente
