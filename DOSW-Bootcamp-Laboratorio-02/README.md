@@ -181,4 +181,46 @@ En este caso de los cafes se utiliza el patrón Decorator para añadir diferente
 ##### ¿Cómo lo aplicó?
 Se creó una interfaz base para las bebidas y luego se implementaron clases concretas para cada tipo de bebida. A continuación, se crearon clases decoradoras que implementan la misma interfaz y añaden ingredientes adicionales a la bebida base. Cada decorador envuelve una instancia de la bebida original y añade su propio comportamiento (como el costo adicional y la descripción del ingrediente) antes de delegar las llamadas al objeto original.
 
+### Reto 1 –  El control remoto Mágico
+
+#### Evidencia del código solución implementado
+
+<img width="1033" height="701" alt="image" src="https://github.com/user-attachments/assets/c59989a3-0ac2-4ab8-bb31-9667b444b11a" />
+
+<img width="1044" height="729" alt="image" src="https://github.com/user-attachments/assets/a7f95dd2-54d4-47b2-9e89-d2c3307c59c4" />
+
+<img width="786" height="273" alt="image" src="https://github.com/user-attachments/assets/b2af39a7-97d3-4394-a906-cae2b0a4b421" />
+
+<img width="1239" height="866" alt="image" src="https://github.com/user-attachments/assets/88c44479-2698-4722-a5b1-da7e6e21dc55" />
+
+<img width="878" height="724" alt="image" src="https://github.com/user-attachments/assets/e50583fe-9095-42e8-9b0b-46393bb8408d" />
+
+<img width="758" height="214" alt="image" src="https://github.com/user-attachments/assets/bf1e8f07-b43c-4949-bd0e-99a4c3a4d1b9" />
+
+<img width="867" height="270" alt="image" src="https://github.com/user-attachments/assets/45c7b73e-e68d-46bf-965c-c8c9d07c3104" />
+
+<img width="770" height="325" alt="image" src="https://github.com/user-attachments/assets/f649876f-7200-4de1-a378-be3f746b4ad8" />
+}<img width="1054" height="798" alt="image" src="https://github.com/user-attachments/assets/50069fb9-c626-49c3-bab4-0570dffe004b" />
+
+<img width="758" height="469" alt="image" src="https://github.com/user-attachments/assets/cbb83c7a-8ae3-4219-a6fb-bddda07e9d7f" />
+
+<img width="1153" height="909" alt="image" src="https://github.com/user-attachments/assets/851f6358-b2d0-4a55-84a9-8fdf2ad7b690" />
+
+
+#### Evidencia de la respuesta ejecutada
+
+<img width="648" height="805" alt="image" src="https://github.com/user-attachments/assets/7efecb67-43fc-44bb-9c60-a2473ac0db32" />
+
+### Lo solicitado en cada Reto
+Categoría del patrón de diseño:
+Comportamental
+
+Patrón utilizado:
+Command
+
+Justificación:
+Permite encapsular cada acción como un objeto, ejecutar y deshacer acciones, registrar historial y asociarlas a un usuario sin acoplar el invocador con los dispositivos.
+
+¿Cómo lo aplicó?
+Se creó una interfaz Command con execute() y undo(), comandos concretos para cada acción (luz, puerta, música, volumen), los dispositivos como receivers, y un ControlRemoto como invoker que ejecuta y guarda el historial.
 
