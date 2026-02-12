@@ -36,27 +36,43 @@ Una interfaz define un conjunto de métodos que una clase debe implementar, sin 
 
 
 ## Retos completados
-
----
-
 ### Reto 1 – El problema de la tienda de Don Pepe
 
 #### Evidencia del código solución implementado
 
-![img.png](img.png)
-![img\_1.png](img_1.png)
-![img\_2.png](img_2.png)
-![img\_3.png](img_3.png)
-![img\_4.png](img_4.png)
-![img\_5.png](img_5.png)
-![img\_6.png](img_6.png)
-![img\_7.png](img_7.png)
-![img\_8.png](img_8.png)
+<p align="center">
+  <img src="img.png" width="45%" />
+  <img src="img_1.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_2.png" width="45%" />
+  <img src="img_3.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_4.png" width="45%" />
+  <img src="img_5.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_6.png" width="45%" />
+  <img src="img_7.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_8.png" width="50%" />
+</p>
+
+---
 
 #### Evidencia de la respuesta ejecutada
 
-![img.png](img.png)
-![img\_1.png](img_1.png)
+<p align="center">
+  <img src="img.png" width="45%" />
+  <img src="img_1.png" width="45%" />
+</p>
+
 
 #### Lo solicitado en cada Reto
 
@@ -72,23 +88,34 @@ El polimorfismo se aplica cuando el programa usa la interfaz `Descuento` sin sab
 
 #### Evidencia del código solución implementado
 
-![img.png](img.png)
-![img\_1.png](img_1.png)
-![img\_2.png](img_2.png)
-![img\_3.png](img_3.png)
-![img\_4.png](img_4.png)
-![img\_5.png](img_5.png)
+<p align="center">
+  <img src="img.png" width="45%" />
+  <img src="img_1.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_2.png" width="45%" />
+  <img src="img_3.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="img_4.png" width="45%" />
+  <img src="img_5.png" width="45%" />
+</p>
 
 #### Evidencia de la respuesta ejecutada
 
-* Entrada
+**Entrada**
+<p align="center">
   <img width="464" height="381" alt="image" src="https://github.com/user-attachments/assets/da5e31be-d7d1-479a-8e40-d5881100e1ac" />
+</p>
 
-* Salida
+**Salida**
+<p align="center">
   <img width="372" height="204" alt="image" src="https://github.com/user-attachments/assets/a0c5ce71-1fcc-4c2d-a0dd-7d083f88ebaf" />
+</p>
 
 #### Lo solicitado en cada Reto
-
 ##### Categoría del patrón de diseño
 Creacional
 
@@ -100,6 +127,8 @@ La hamburguesa tiene muchos ingredientes, por lo que sería necesario crear much
 
 ##### ¿Cómo lo aplicó?
 Se aplicó mediante una interfaz que define todos los métodos de construcción. Luego, una clase concreta implementa esta interfaz y sobreescribe los métodos. Finalmente, se utilizó un director (la clase `Chef`) para controlar el proceso de construcción.
+
+
 
 ---
 
@@ -113,12 +142,21 @@ Se aplicó mediante una interfaz que define todos los métodos de construcción.
 
 *(Agregar capturas si las tienes)*
 
-* Entrada
-  <img width="436" height="586" alt="image" src="https://github.com/user-attachments/assets/f7b68b6b-1704-410a-a743-bab9c1f23083" />
-<img width="443" height="551" alt="image" src="https://github.com/user-attachments/assets/b300b497-23ea-4f6a-83b4-168b99fbb258" />
+### Evidencia de la respuesta ejecutada
 
-* Salida
-  <img width="540" height="485" alt="image" src="https://github.com/user-attachments/assets/d7acfb2f-26cd-49d7-9470-185db6238b46" />
+**Entrada**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f7b68b6b-1704-410a-a743-bab9c1f23083" width="45%" />
+  <img src="https://github.com/user-attachments/assets/b300b497-23ea-4f6a-83b4-168b99fbb258" width="45%" />
+</p>
+
+**Salida**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d7acfb2f-26cd-49d7-9470-185db6238b46" width="60%" />
+</p>
+
 
 #### Lo solicitado en cada Reto
 
@@ -142,15 +180,20 @@ Se definió una interfaz de fábrica abstracta (`VehicleFactory`) con métodos p
 
 *(Agregar capturas si las tienes)*
 
-#### Evidencia de la respuesta ejecutada
+### Evidencia de la respuesta ejecutada
 
-*(Agregar capturas si las tienes)*
+**Entrada**
 
-* Entrada
-  <img width="577" height="318" alt="image" src="https://github.com/user-attachments/assets/ca637e0d-840f-4302-91ec-f34356d3807e" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ca637e0d-840f-4302-91ec-f34356d3807e" width="60%" />
+</p>
 
-* Salida
-  <img width="347" height="343" alt="image" src="https://github.com/user-attachments/assets/8f37a6f8-5148-48f4-a566-732dcc5d2c34" />
+**Salida**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8f37a6f8-5148-48f4-a566-732dcc5d2c34" width="45%" />
+</p>
+
 
 #### Lo solicitado en cada Reto
 
@@ -175,22 +218,40 @@ Se utilizó el patrón Adapter porque el sistema necesitaba integrar un servicio
 
 #### Evidencia del código solución implementado
 
-<img width="738" height="244" alt="image" src="https://github.com/user-attachments/assets/662e6e03-565e-498d-97c1-9aa4cd2bf2e0" />  
-<img width="722" height="331" alt="image" src="https://github.com/user-attachments/assets/5c96b640-e8ca-426e-b1d9-790f240e9e57" />  
-<img width="948" height="377" alt="image" src="https://github.com/user-attachments/assets/0c50e128-f242-4c3e-8ade-2a3b67be960f" />  
-<img width="961" height="405" alt="image" src="https://github.com/user-attachments/assets/c194e2ce-a21d-4d24-8f69-43bdb3025f2a" />  
-<img width="976" height="426" alt="image" src="https://github.com/user-attachments/assets/e58aa7ae-d6a4-4063-b26f-d0729ceff323" />  
-<img width="910" height="392" alt="image" src="https://github.com/user-attachments/assets/1ec8e551-4216-4043-a8f4-aefb4efd05a2" />  
-<img width="917" height="406" alt="image" src="https://github.com/user-attachments/assets/47aaa317-9c00-41b6-b60d-bee9a46370c3" />  
-<img width="1001" height="452" alt="image" src="https://github.com/user-attachments/assets/d2e02d96-0605-4cc1-922e-d2bd4ef2791f" />  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/662e6e03-565e-498d-97c1-9aa4cd2bf2e0" width="45%" />
+  <img src="https://github.com/user-attachments/assets/5c96b640-e8ca-426e-b1d9-790f240e9e57" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0c50e128-f242-4c3e-8ade-2a3b67be960f" width="45%" />
+  <img src="https://github.com/user-attachments/assets/c194e2ce-a21d-4d24-8f69-43bdb3025f2a" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e58aa7ae-d6a4-4063-b26f-d0729ceff323" width="45%" />
+  <img src="https://github.com/user-attachments/assets/1ec8e551-4216-4043-a8f4-aefb4efd05a2" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/47aaa317-9c00-41b6-b60d-bee9a46370c3" width="45%" />
+  <img src="https://github.com/user-attachments/assets/d2e02d96-0605-4cc1-922e-d2bd4ef2791f" width="45%" />
+</p>
 
 #### Evidencia de la respuesta ejecutada
 
-* Entrada
-  <img width="460" height="281" alt="image" src="https://github.com/user-attachments/assets/4260f5fb-9dc3-40c9-afce-311bf54ffa1e" />
+**Entrada**
 
-* Salida
-  <img width="565" height="361" alt="image" src="https://github.com/user-attachments/assets/bb285b0e-46cd-46f5-aafb-a70015904f23" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4260f5fb-9dc3-40c9-afce-311bf54ffa1e" width="55%" />
+</p>
+
+**Salida**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bb285b0e-46cd-46f5-aafb-a70015904f23" width="60%" />
+</p>
+
 
 #### Lo solicitado en cada Reto
 
@@ -213,21 +274,39 @@ Se creó una interfaz base para las bebidas y luego se implementaron clases conc
 
 #### Evidencia del código solución implementado
 
-<img width="1025" height="543" alt="image" src="https://github.com/user-attachments/assets/8e89a2df-2b2b-4c12-b785-b47d9189e735" />  
-<img width="964" height="493" alt="image" src="https://github.com/user-attachments/assets/0a5d2ba9-fd38-4ed5-a7f1-d4d60fdeedcd" />  
-<img width="928" height="465" alt="image" src="https://github.com/user-attachments/assets/3e9d6999-ba68-4c00-b065-d4c580a50d3a" />  
-<img width="1250" height="215" alt="image" src="https://github.com/user-attachments/assets/77fe5b14-d9d6-49b5-a09b-5082633647f5" />  
-<img width="926" height="272" alt="image" src="https://github.com/user-attachments/assets/91a14e51-4d03-41a0-a32a-747fb944c765" />  
-<img width="979" height="491" alt="image" src="https://github.com/user-attachments/assets/7a5bb9fe-52f5-41d3-92a2-3de82180cb50" />  
-<img width="863" height="492" alt="image" src="https://github.com/user-attachments/assets/aeac59ba-7a65-413b-80e7-6399f9009ab4" />  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8e89a2df-2b2b-4c12-b785-b47d9189e735" width="45%" />
+  <img src="https://github.com/user-attachments/assets/0a5d2ba9-fd38-4ed5-a7f1-d4d60fdeedcd" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3e9d6999-ba68-4c00-b065-d4c580a50d3a" width="45%" />
+  <img src="https://github.com/user-attachments/assets/77fe5b14-d9d6-49b5-a09b-5082633647f5" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/91a14e51-4d03-41a0-a32a-747fb944c765" width="45%" />
+  <img src="https://github.com/user-attachments/assets/7a5bb9fe-52f5-41d3-92a2-3de82180cb50" width="45%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/aeac59ba-7a65-413b-80e7-6399f9009ab4" width="50%" />
+</p>
 
 #### Evidencia de la respuesta ejecutada
 
-* Entrada
-  <img width="452" height="621" alt="image" src="https://github.com/user-attachments/assets/405b59db-4796-4fac-90af-b814ac728372" />
+**Entrada**
 
-* Salida
-  <img width="952" height="489" alt="image" src="https://github.com/user-attachments/assets/4d359c76-1e7c-45cc-81ca-4599b56d2c58" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/405b59db-4796-4fac-90af-b814ac728372" width="45%" />
+</p>
+
+**Salida**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4d359c76-1e7c-45cc-81ca-4599b56d2c58" width="60%" />
+</p>
+
 
 #### Lo solicitado en cada Reto
 
