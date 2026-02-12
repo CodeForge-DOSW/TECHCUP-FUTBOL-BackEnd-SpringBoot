@@ -181,7 +181,7 @@ En este caso de los cafes se utiliza el patrón Decorator para añadir diferente
 ##### ¿Cómo lo aplicó?
 Se creó una interfaz base para las bebidas y luego se implementaron clases concretas para cada tipo de bebida. A continuación, se crearon clases decoradoras que implementan la misma interfaz y añaden ingredientes adicionales a la bebida base. Cada decorador envuelve una instancia de la bebida original y añade su propio comportamiento (como el costo adicional y la descripción del ingrediente) antes de delegar las llamadas al objeto original.
 
-### Reto 1 –  El control remoto Mágico
+### Reto 7 –  El control remoto Mágico
 
 #### Evidencia del código solución implementado
 
