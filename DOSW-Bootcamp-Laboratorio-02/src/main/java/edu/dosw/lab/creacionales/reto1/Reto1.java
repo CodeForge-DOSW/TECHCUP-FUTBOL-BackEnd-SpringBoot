@@ -1,4 +1,4 @@
-package src.main.java.edu.dosw.lab.creacionales.reto1;
+package edu.dosw.lab.creacionales.reto1;
 
 
 import java.util.List;
