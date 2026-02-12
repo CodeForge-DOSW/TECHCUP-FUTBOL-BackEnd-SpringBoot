@@ -31,5 +31,8 @@ public class Reto1 {
 
 
     }
-}
 
+    public static void ejecutar() {
+        main(new String[0]);
+    }
+}

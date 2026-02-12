@@ -82,4 +82,8 @@ public class Reto2 {
 
         System.out.println("¡Disfrute su hamburguesa!");
     }
+
+    public static void ejecutar() {
+        main(new String[0]);
+    }
 }

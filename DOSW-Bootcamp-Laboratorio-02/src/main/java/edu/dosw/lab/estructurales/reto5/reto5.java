@@ -8,7 +8,7 @@ import java.text.DecimalFormatSymbols;
 
 public class reto5 {
 
-    public static void run() {
+    public static void ejecutar() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -134,7 +134,5 @@ public class reto5 {
         System.out.println("-------------------------------");
         System.out.println("Total a pagar por todos los cafés: $" + df.format(totalFinal));
         System.out.println("¡Disfrute su café!");
-
-        // No cerramos el scanner (System.in) para evitar afectar a otros módulos interactivos
     }
 }

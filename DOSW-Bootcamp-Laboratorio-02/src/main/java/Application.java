@@ -10,19 +10,19 @@ public class Application {
         System.out.println("✅ Proyecto Maven configurado y corriendo correctamente");
 
         System.out.println("RETO #1: El problema de la tienda de Don Pepe");
-        Reto1.main(args);
+        Reto1.ejecutar();
 
         System.out.println("RETO #2: El chef de 5 estrellas");
-        Reto2.main(args);
+        Reto2.ejecutar();
 
         System.out.println("RETO #3: El Reino de los Vehículos");
-        Reto3.main(args);
+        Reto3.ejecutar();
 
         System.out.println("RETO #4: La Estafa de la Casa de Cambio");
-        Reto4.main(args);
+        Reto4.ejecutar();
 
         System.out.println("RETO #5: El Café Personalizado");
-        reto5.run();
+        reto5.ejecutar();
 
         System.out.println("RETO #6: Habla con Soporte Técnico");
         reto6.ejecutar();
