@@ -1,4 +1,4 @@
-package src.main.java.edu.dosw.lab.creacionales.reto2;
+package edu.dosw.lab.creacionales.reto2;
 
 /**
  * Interfaz Builder del patrón de diseño Builder.

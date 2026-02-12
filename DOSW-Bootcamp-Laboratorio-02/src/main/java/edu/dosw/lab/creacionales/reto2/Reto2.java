@@ -1,4 +1,4 @@
-package src.main.java.edu.dosw.lab.creacionales.reto2;
+package edu.dosw.lab.creacionales.reto2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,5 +81,9 @@ public class Reto2 {
                 hamburguesa.calcularPrecioTotal());
 
         System.out.println("¡Disfrute su hamburguesa!");
+    }
+
+    public static void ejecutar() {
+        main(new String[0]);
     }
 }

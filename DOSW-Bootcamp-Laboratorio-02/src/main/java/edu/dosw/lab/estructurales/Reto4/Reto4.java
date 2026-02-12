@@ -62,4 +62,8 @@ public class Reto4 {
         totals.forEach((k, v) ->
                 System.out.printf("%s: %.2f %s%n", k, v, k));
     }
+
+    public static void ejecutar() {
+        main(new String[0]);
+    }
 }

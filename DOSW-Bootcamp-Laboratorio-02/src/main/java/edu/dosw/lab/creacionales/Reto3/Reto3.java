@@ -90,4 +90,8 @@ public class Reto3 {
         System.out.println("\nTotal a pagar: $" + total);
         System.out.println("\n¡Gracias por su compra en el Reino de los Vehículos!");
     }
+
+    public static void ejecutar() {
+        main(new String[0]);
+    }
 }

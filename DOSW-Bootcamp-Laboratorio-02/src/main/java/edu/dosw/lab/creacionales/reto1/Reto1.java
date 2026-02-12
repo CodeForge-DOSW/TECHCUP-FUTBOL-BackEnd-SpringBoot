@@ -1,4 +1,4 @@
-package src.main.java.edu.dosw.lab.creacionales.reto1;
+package edu.dosw.lab.creacionales.reto1;
 
 
 import java.util.List;
@@ -31,5 +31,8 @@ public class Reto1 {
 
 
     }
-}
 
+    public static void ejecutar() {
+        main(new String[0]);
+    }
+}
