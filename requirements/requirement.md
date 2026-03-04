@@ -2,43 +2,43 @@
 
 ## 1. Lista general de requerimientos
 
-El sistema de Bankify tiene los siguientes requerimientos (descripción a alto nivel):
+El sistema de TECHCUP FUTBOL tiene los siguientes requerimientos (descripción a alto nivel):
 
 ### 1.1 Requerimientos funcionales
 
 El sistema de Bankify debe tener la capacidad de:
 
-1. RF1 – Gestión del Torneo
+1. Gestión del Torneo
 
-2. RF2 – Registro y Autenticación de Usuarios
+2. Registro y Autenticación de Usuarios
 
-3. RF3 – Gestión de Roles
+3. Gestión de Roles
 
-4. RF4 – Creación y Administración de Equipos
+4. Creación y Administración de Equipos
 
-5. RF5 – Gestión de Invitaciones
+5. Gestión de Invitaciones
 
-6. RF6 – Búsqueda de Jugadores
+6. Búsqueda de Jugadores
 
-7. RF7 – Gestión de Inscripción y Pagos
+7. Gestión de Inscripción y Pagos
 
-8. RF8 – Gestión de Alineaciones
+8. Gestión de Alineaciones
 
-9. RF9 – Registro de Partidos
+9. Registro de Partidos
 
-10. RF10 – Consulta de Partidos
+10. Consulta de Partidos
 
-11. RF11 – Tabla de Posiciones Automática
+11. Tabla de Posiciones Automática
 
-12. RF12 – Generación de Llaves Eliminatorias
+12. Generación de Llaves Eliminatorias
 
-13. RF13 – Estadísticas e Historial
+13. Estadísticas e Historial
 
-14. RF14 – Auditoría
+14. Auditoría
 
 ### 1.2 Requerimientos NO funcionales
 
-El sistema de Bankify debe tener:
+El sistema de TECHCUP FUTBOL debe tener:
 
 1.
 2.
