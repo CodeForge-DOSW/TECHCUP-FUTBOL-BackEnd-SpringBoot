@@ -40,11 +40,11 @@ El sistema de Bankify debe tener la capacidad de:
 
 El sistema de TECHCUP FUTBOL debe tener:
 
-1.
-2.
-3.
-4.
-5.
+1. Seguridad en la autenticación y autorización, garantizando control de acceso basado en roles y protección de datos sensibles.
+2. Disponibilidad durante el desarrollo del torneo, evitando caídas frecuentes del sistema.
+3. Diseño adaptable (responsive) para que pueda usarse desde computador y celular.
+4. Una identidad visual definida que respete los colores institucionales establecidos en el manual de identidad.+
+5. Buen rendimiento, respondiendo de manera rápida a las acciones del usuario.
 
 ### 2.1 Requerimiento Funcional 1
 
