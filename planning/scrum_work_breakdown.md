@@ -121,7 +121,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Estimación** | 5 puntos |
 
 
-### 3. Tareas ( EP-01):
+### 3. Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -131,7 +131,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Diseñar y crear la estructura de la entidad Torneo con sus atributos (fechas, estado, costo, cantidad de equipos).|
 | **Tareas requisito** | - |
 
-### 3.1 Tareas ( EP-01):
+### 3.1 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -141,7 +141,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** |Construir la interfaz gráfica que permita al organizador ingresar la información del torneo.|
 | **Tareas requisito** | TR-01 |
 
-### 3.2 Tareas ( EP-01):
+### 3.2 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -151,7 +151,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** |Desarrollar funcionalidad para guardar y modificar reglamento, fechas importantes y cierre de inscripciones.|
 | **Tareas requisito** | TR-02 |
 
-### 3.3 Tareas ( EP-01):
+### 3.3 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -161,7 +161,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** |Crear estructuras de datos para representar canchas y horarios asociados a los partidos.|
 | **Tareas requisito** | TR-01 |
 
-### 3.4 Tareas ( EP-01):
+### 3.4 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -171,7 +171,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** |Desarrollar la funcionalidad que permita al organizador aprobar o rechazar equipos inscritos y actualizar su estado en el sistema.|
 | **Tareas requisito** | TR-01 |
 
-### 3.5 Tareas ( EP-02):
+### 3.5 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -181,7 +181,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Definir los datos necesarios del usuario en base de datos y backend. |
 | **Tareas requisito** | TR-01 |
 
-### 3.6 Tareas ( EP-02):
+### 3.6 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -191,7 +191,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Desarrollar la funcionalidad que permita guardar usuarios en el sistema. |
 | **Tareas requisito** | TR-06 |
 
-### 3.7 Tareas ( EP-02):
+### 3.7 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -201,7 +201,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Crear la pantalla de registro en el frontend. |
 | **Tareas requisito** | - |
 
-### 3.8 Tareas ( EP-02):
+### 3.8 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -211,7 +211,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Permitir que el formulario envíe la información al backend. |
 | **Tareas requisito** | TR-07, TR-08 |
 
-### 3.9 Tareas ( EP-02):
+### 3.9 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -221,7 +221,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Permitir que el usuario inicie sesión validando sus datos. |
 | **Tareas requisito** | TR-07 |
 
-### 3.10 Tareas ( EP-02):
+### 3.10 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -231,7 +231,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Crear la pantalla de login en el frontend. |
 | **Tareas requisito** | - |
 
-### 3.11 Tareas ( EP-02):
+### 3.11 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -241,7 +241,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Permitir la comunicación entre frontend y backend para validar usuario. |
 | **Tareas requisito** | TR-10, TR-11 |
 
-### 3.12 Tareas ( EP-02):
+### 3.12 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -251,7 +251,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Mantener la sesión activa durante el uso del sistema. |
 | **Tareas requisito** | TR-12 |
 
-### 3.13 Tareas ( EP-02):
+### 3.13 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -261,7 +261,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Establecer los roles que tendrá el sistema. |
 | **Tareas requisito** | TR-06 |
 
-### 3.14 Tareas ( EP-02):
+### 3.14 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -271,7 +271,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Controlar qué acciones puede realizar cada rol. |
 | **Tareas requisito** | TR-14 |
 
-### 3.15 Tareas ( EP-02):
+### 3.15 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -281,7 +281,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Mostrar opciones en el sistema según el tipo de usuario. |
 | **Tareas requisito** | TR-13 |
 
-### 3.16 Tareas ( EP-03):
+### 3.16 Tareas:
 
 | Campo | Descripción |
 |------|-------------|
@@ -291,7 +291,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Descripción** | Desarrollar la funcionalidad que permita al capitán subir el comprobante de pago a la plataforma para que quede registrado con estado Pendiente. |
 | **Tareas requisito** | - |
 
-### 3.17 Tareas ( EP-03):
+### 3.17 Tareas :
 
 | Campo | Descripción |
 |------|-------------|
