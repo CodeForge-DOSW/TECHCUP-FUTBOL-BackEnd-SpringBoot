@@ -68,6 +68,27 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **Prioridad** | Alta |
 | **Estimación** | 5 puntos |
 
+### 2.4 Historias de usuario (EP-03):
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | HU-01 |
+| **Título** | Inscripción de equipo al torneo |
+| **Descripción** | Como capitán quiero inscribir mi equipo al torneo subiendo el comprobante de pago para que el organizador pueda revisarlo y aprobar nuestra participación. |
+| **Prioridad** | Alta |
+| **Estimación** | 8 puntos |
+
+### 2.5 Historias de usuario (EP-03):
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | HU-02 |
+| **Título** | Consulta de partidos por árbitro |
+| **Descripción** | Como árbitro quiero poder consultar los partidos que tengo asignados con su fecha, hora, cancha y equipos participantes para organizarme con anticipación. |
+| **Prioridad** | Media |
+| **Estimación** | 5 puntos |
+
+
 ### 3. Tareas ( EP-01):
 
 | Campo | Descripción |
@@ -117,3 +138,24 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | **ID de la Historia de Uso asociada** | HU-04 |
 | **Descripción** |Desarrollar la funcionalidad que permita al organizador aprobar o rechazar equipos inscritos y actualizar su estado en el sistema.|
 | **Tareas requisito** | TR-01 |
+
+### 3.5 Tareas ( EP-03):
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | TR-01 |
+| **Título** | Implementar carga de comprobante de pago |
+| **ID de la Historia de Usuario asociada** | HU-01 |
+| **Descripción** | Desarrollar la funcionalidad que permita al capitán subir el comprobante de pago a la plataforma para que quede registrado con estado Pendiente. |
+| **Tareas requisito** | - |
+
+### 3.6 Tareas ( EP-03):
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | TR-02 |
+| **Título** | Implementar vista de partidos para el árbitro |
+| **ID de la Historia de Usuario asociada** | HU-02 |
+| **Descripción** | Desarrollar la pantalla donde el árbitro pueda ver los partidos que tiene asignados, mostrando fecha, hora, cancha y los dos equipos que se enfrentarán. |
+| **Tareas requisito** | TR-01 |
+
