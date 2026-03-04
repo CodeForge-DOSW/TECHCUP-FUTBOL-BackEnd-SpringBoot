@@ -121,7 +121,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programado el partido                                                                                                                            |
 | **Actor** | Organizador                                                                                                                                                                                                                               |
 | **Flujo principal** | 1. El organizador accede al módulo de partidos.<br>2. Selecciona el partido correspondiente.<br>3. Ingresa el marcador final.<br>4. Registra estadísticas (goleadores y tarjetas).<br>5. El sistema actualiza la información del partido. |
-| **Diagrama de caso de uso** | ![Diagrama Registrar Partido](docs/uml/casosDeUso/rf09RegistrarPartido.png)                                                                                                                                                               |
+| **Diagrama de caso de uso** | ![Diagrama Registrar Partido](../uml/casosDeUso/rf09RegistrarPartido.png))                                                                                                                                                               |
 | **Poscondiciones** | Se permite a todos los actores la visualizacion correctamenta de la información del partido                                                                                                                                               |
 
 ### 2.10 Requerimiento Funcional 10
@@ -134,7 +134,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente el registro de los equipos que disputarán el partido y canchas disponibles |
 | **Actor** | Árbitro |
 | **Flujo principal** | 1. El árbitro inicia sesión.<br>2. Accede a la sección de partidos asignados.<br>3. El sistema muestra los detalles correspondientes.|
-| **Diagrama de caso de uso** | ![Diagrama Consultar Partidos](docs/uml/casosDeUso/rf10ConsultarPartidos.png)|
+| **Diagrama de caso de uso** | ![Diagrama Consultar Partidos](../uml/casosDeUso/rf10ConsultarPartidos.png)|
 | **Poscondiciones** | *Se espera como resultado que el árbitro visualiza correctamente la información del partido asignado |
 
 ### 2.11 Requerimiento Funcional 11
@@ -147,7 +147,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | *Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente registro de partidos                                                                                                                                                        |
 | **Actor** | Organizador                                                                                                                                                                                                                                                           |
 | **Flujo principal** | 1. Se registra o actualiza el resultado de un partido.<br>2. El sistema valida la información ingresada.<br>3. El sistema recalcula las estadísticas de los equipos involucrados.<br>4. El sistema actualiza la tabla de posiciones del torneo.                       |
-| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](docs/uml/casosDeUso/rf11GenerarTablaPosiciones.png)                                                                                                                                                                              |
+| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)                                                                                                                                                                              |
 | **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta                                                                                                                                                         |
 
 ### 2.12 Requerimiento Funcional 12
