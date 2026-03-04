@@ -122,4 +122,45 @@ El sistema de TECHCUP FUTBOL debe tener:
 |
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
 
+### 2.12 Requerimiento Funcional 12
+| Campo | Descripción |
+|-------|-------------|
+| **ID** | RF-12 |
+| **Nombre del requerimiento** | Generación de Llaves Eliminatorias |
+| **Descripción** | El sistema debe generar automáticamente la fase eliminatoria del torneo una vez finalizada la fase de grupos. Esto incluye: generar los partidos iniciales de la fase eliminatoria de forma aleatoria, y generar automáticamente los cruces de cuartos de final, semifinal y final a medida que avanzan los resultados. |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP FÚTBOL debe tener previamente: un torneo en estado *En progreso*, la fase de grupos completamente finalizada con todos los resultados registrados, y al menos cuatro equipos clasificados para la fase eliminatoria. |
+| **Actor** | Organizador (disparador) / Sistema (ejecutor automático) |
+| **Flujo principal** | 1. El Organizador indica al sistema que la fase de grupos ha finalizado.<br>2. El sistema valida que todos los partidos de la fase de grupos tengan resultado registrado.<br>3. El sistema selecciona aleatoriamente los cruces de la primera ronda eliminatoria.<br>4. El sistema genera y publica la llave eliminatoria visible para todos los actores.<br>5. El Organizador registra el resultado de cada partido eliminatorio.<br>6. El sistema avanza automáticamente a la siguiente ronda (cuartos → semifinal → final).<br>7. El sistema publica al campeón al finalizar la final. |
+| **Diagrama de caso de uso** | <img width="492" height="463" alt="imagen" src="https://github.com/user-attachments/assets/27736b28-b64a-4ba6-a7b9-8529ceeebdc5" />
+|
+| **Poscondiciones** | Se espera como resultado: la llave eliminatoria generada y visible para todos los usuarios, los partidos de la ronda inicial creados en el sistema con fecha y cancha pendiente de asignar, y el torneo avanzando automáticamente de ronda en ronda conforme se registran resultados. |
+
+
+### 2.13 Requerimiento Funcional 13
+
+| Campo | Descripción |
+|-------|-------------|
+| **ID** | RF-13 |
+| **Nombre del requerimiento** | Estadísticas e Historial |
+| **Descripción** | El sistema debe permitir consultar información estadística e histórica del torneo, incluyendo: máximos goleadores del torneo en curso e histórico, historial completo de partidos con resultados y detalles, resultados por equipo (partidos ganados, empatados, perdidos, goles a favor y en contra), e historial de torneos anteriores con sus respectivos campeones y estadísticas. |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP FÚTBOL debe tener previamente: al menos un torneo creado (en progreso o finalizado), al menos un partido con resultado registrado, y el usuario autenticado con una sesión activa válida. |
+| **Actor** | Usuario (cualquier rol: Estudiante, Capitán, Organizador, Árbitro o Administrador) |
+| **Flujo principal** | 1. El usuario accede a la sección de Estadísticas del sistema.<br>2. El sistema muestra las estadísticas del torneo activo: tabla de goleadores, resultados y tabla de posiciones.<br>3. El usuario aplica filtros opcionales por torneo, equipo o jugador.<br>4. El sistema actualiza la vista con los datos filtrados.<br>5. El usuario accede a la sección de Historial para consultar torneos anteriores.<br>6. El sistema muestra los torneos pasados con campeón, resultados finales y estadísticas agregadas.<br>7. El usuario navega entre torneos para comparar datos históricos. |
+| **Diagrama de caso de uso** | <img width="618" height="603" alt="imagen" src="https://github.com/user-attachments/assets/a1d3377f-95a9-4344-9c29-47e4bdf0f384" />
+|
+| **Poscondiciones** | Se espera como resultado: el usuario visualiza las estadísticas solicitadas de forma organizada y actualizada, los datos son calculados automáticamente a partir de los resultados registrados por el Organizador, y el historial de torneos anteriores queda persistido y accesible en cualquier momento. |
+
+###2.13 Requerimiento Funcional 14
+| Campo | Descripción |
+|-------|-------------|
+| **ID** | RF-14 |
+| **Nombre del requerimiento** | Auditoría del Sistema |
+| **Descripción** | El sistema debe registrar automáticamente las acciones relevantes realizadas por los usuarios. Cada entrada del log debe incluir: identificación del usuario que realizó la acción, tipo de acción ejecutada (creación, modificación, eliminación o consulta sensible), fecha y hora exacta, entidad o recurso afectado, y estado anterior y posterior del recurso cuando aplique. |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP FÚTBOL debe tener previamente: el sistema en estado operacional, el módulo de auditoría habilitado en la configuración del sistema, y el usuario con una sesión activa válida al momento de ejecutar la acción. |
+| **Actor** | Sistema (ejecutor automático del registro) / Administrador (consultor del log de auditoría) |
+| **Flujo principal** | 1. El usuario (cualquier rol) ejecuta una acción relevante dentro del sistema.<br>2. El sistema intercepta la acción de forma transparente al usuario.<br>3. El sistema registra en el log: usuario, tipo de acción, fecha y hora, recurso afectado y resultado de la operación.<br>4. El registro queda persistido de forma inmutable en la base de datos de auditoría.<br>5. El Administrador accede al módulo de auditoría.<br>6. El sistema muestra el log completo con opciones de filtrado por usuario, fecha o tipo de acción.<br>7. El Administrador aplica los filtros deseados y el sistema actualiza la vista del log. |
+| **Diagrama de caso de uso** | <img width="526" height="484" alt="imagen" src="https://github.com/user-attachments/assets/2112cddc-39ca-4468-ad3b-fee60562141e" />
+|
+| **Poscondiciones** | Se espera como resultado: cada acción relevante queda registrada de forma automática, completa e inmutable, el Administrador puede consultar y filtrar el historial de auditoría en cualquier momento, y el sistema garantiza trazabilidad completa de las operaciones para efectos de seguridad y cumplimiento. |
+
 ## 3. Preguntas
