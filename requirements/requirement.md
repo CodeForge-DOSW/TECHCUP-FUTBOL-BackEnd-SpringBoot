@@ -90,4 +90,34 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** |  |
 | **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. ||
 
+
+
+
+### 2.7 Requerimiento Funcional 7
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | RF-07 |
+| **Nombre del requerimiento** | Gestión de Inscripción y Pagos |
+| **Descripción** | El sistema debe permitir: Subir comprobante de pago,Cambiar estado del pago (Pendiente, En revisión, Aprobado, Rechazado), Autorizar participación solo a equipos aprobados. |
+| **Precondiciones** | 	El equipo debe estar creado y el capitán autenticado. |
+| **Actor** | Capitán, Organizador|
+| **Flujo principal** | 1. El capitán sube el comprobante. <br>2. El sistema registra el estado como Pendiente.<br>3. El organizador revisa el comprobante.<br>4. El sistema actualiza el estado a Aprobado o Rechazado. |
+| **Diagrama de caso de uso** | *imagen y link*|
+| **Poscondiciones** | El equipo queda habilitado o rechazado para participar. |
+
+
+### 2.8 Requerimiento Funcional 8
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | RF-08 |
+| **Nombre del requerimiento** | Gestión de Alineaciones |
+| **Descripción** | 	El sistema debe permitir seleccionar titulares, reservas, formación y consultar alineaciones rivales. |
+| **Precondiciones** | 	El equipo debe estar inscrito y aprobado.|
+| **Actor** | Capitán |
+| **Flujo principal** | 1. El capitán accede a la alineación. <br>2. Selecciona titulares y reservas. <br>3. Define formación. <br>4. El sistema guarda la alineación.|
+| **Diagrama de caso de uso** | *imagen y link*|
+| **Poscondiciones** | 	La alineación queda registrada para el partido. |
+
 ## 3. Preguntas
