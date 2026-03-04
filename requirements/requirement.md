@@ -111,6 +111,19 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
 
+### 2.9 Requerimiento Funcional 9
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | RF-09 |
+| **Nombre del requerimiento** | Registro de Partidos |
+| **Descripción** | El sistema debe permitir registrar el resultado de un partido, incluyendo marcador final, goleadores y tarjetas (amarillas y rojas) |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programado el partido |
+| **Actor** | Organizador |
+| **Flujo principal** | 1. El organizador accede al módulo de partidos.<br>2. Selecciona el partido correspondiente.<br>3. Ingresa el marcador final.<br>4. Registra estadísticas (goleadores y tarjetas).<br>5. El sistema actualiza la información del partido. |
+| **Diagrama de caso de uso** | *imagen y link*|
+| **Poscondiciones** | Se permite a todos los actores la visualizacion correctamenta de la información del partido |
+
 ### 2.12 Requerimiento Funcional 12
 | Campo | Descripción |
 |-------|-------------|
