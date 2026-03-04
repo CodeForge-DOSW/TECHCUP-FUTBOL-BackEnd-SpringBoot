@@ -57,10 +57,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Organizador |
 | **Flujo principal** | 1. El organizador inicia sesión en la plataforma.<br>2. El organizador crea un nuevo torneo con la información básica fechas, número de equipos, costo y estado.<br>3. El sistema guarda el torneo en estado Borrador.<br>4. El organizador configura los detalles del torneo .<br>5. El organizador inicia el torneo cuando todo esté listo.<br>6. El sistema cambia el estado a Activo.<br>7. Una vez termine, el organizador lo finaliza.<br>8. El sistema cambia el estado a Finalizado y conserva el historial. |
 | **Diagrama de caso de uso** | <img width="1243" height="526" alt="image" src="https://github.com/user-attachments/assets/d91112b5-b837-4df6-af71-1f2e1b247796" />
- |
 | **Poscondiciones** | El torneo queda registrado en el sistema con toda su configuración, visible para los demás usuarios, y con un estado que refleja en qué fase se encuentra. |
-
----
 
 ### 2.2 Requerimiento Funcional 2
 
@@ -75,8 +72,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** |  |
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
 
----
-
 ### 2.3 Requerimiento Funcional 3
 
 | Campo | Descripción |
@@ -90,9 +85,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** |  |
 | **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. ||
 
-
-
-
 ### 2.7 Requerimiento Funcional 7
 
 | Campo | Descripción |
@@ -104,9 +96,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Capitán, Organizador|
 | **Flujo principal** | 1. El capitán sube el comprobante. <br>2. El sistema registra el estado como Pendiente.<br>3. El organizador revisa el comprobante.<br>4. El sistema actualiza el estado a Aprobado o Rechazado. |
 | **Diagrama de caso de uso** | <img width="434" height="302" alt="image" src="https://github.com/user-attachments/assets/b1b91836-e14b-4462-bf44-d6ce582931af" />
-|
 | **Poscondiciones** | El equipo queda habilitado o rechazado para participar. |
-
 
 ### 2.8 Requerimiento Funcional 8
 
@@ -118,8 +108,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | 	El equipo debe estar inscrito y aprobado.|
 | **Actor** | Capitán |
 | **Flujo principal** | 1. El capitán accede a la alineación. <br>2. Selecciona titulares y reservas. <br>3. Define formación. <br>4. El sistema guarda la alineación.|
-| **Diagrama de caso de uso** | *<img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
-|
+| **Diagrama de caso de uso** | <img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
 
 ### 2.12 Requerimiento Funcional 12
@@ -132,9 +121,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Organizador (disparador) / Sistema (ejecutor automático) |
 | **Flujo principal** | 1. El Organizador indica al sistema que la fase de grupos ha finalizado.<br>2. El sistema valida que todos los partidos de la fase de grupos tengan resultado registrado.<br>3. El sistema selecciona aleatoriamente los cruces de la primera ronda eliminatoria.<br>4. El sistema genera y publica la llave eliminatoria visible para todos los actores.<br>5. El Organizador registra el resultado de cada partido eliminatorio.<br>6. El sistema avanza automáticamente a la siguiente ronda (cuartos → semifinal → final).<br>7. El sistema publica al campeón al finalizar la final. |
 | **Diagrama de caso de uso** | <img width="492" height="463" alt="imagen" src="https://github.com/user-attachments/assets/27736b28-b64a-4ba6-a7b9-8529ceeebdc5" />
-|
 | **Poscondiciones** | Se espera como resultado: la llave eliminatoria generada y visible para todos los usuarios, los partidos de la ronda inicial creados en el sistema con fecha y cancha pendiente de asignar, y el torneo avanzando automáticamente de ronda en ronda conforme se registran resultados. |
-
 
 ### 2.13 Requerimiento Funcional 13
 
@@ -147,10 +134,9 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Usuario (cualquier rol: Estudiante, Capitán, Organizador, Árbitro o Administrador) |
 | **Flujo principal** | 1. El usuario accede a la sección de Estadísticas del sistema.<br>2. El sistema muestra las estadísticas del torneo activo: tabla de goleadores, resultados y tabla de posiciones.<br>3. El usuario aplica filtros opcionales por torneo, equipo o jugador.<br>4. El sistema actualiza la vista con los datos filtrados.<br>5. El usuario accede a la sección de Historial para consultar torneos anteriores.<br>6. El sistema muestra los torneos pasados con campeón, resultados finales y estadísticas agregadas.<br>7. El usuario navega entre torneos para comparar datos históricos. |
 | **Diagrama de caso de uso** | <img width="618" height="603" alt="imagen" src="https://github.com/user-attachments/assets/a1d3377f-95a9-4344-9c29-47e4bdf0f384" />
-|
 | **Poscondiciones** | Se espera como resultado: el usuario visualiza las estadísticas solicitadas de forma organizada y actualizada, los datos son calculados automáticamente a partir de los resultados registrados por el Organizador, y el historial de torneos anteriores queda persistido y accesible en cualquier momento. |
 
-###2.13 Requerimiento Funcional 14
+### 2.14 Requerimiento Funcional 14
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | RF-14 |
@@ -160,7 +146,4 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Sistema (ejecutor automático del registro) / Administrador (consultor del log de auditoría) |
 | **Flujo principal** | 1. El usuario (cualquier rol) ejecuta una acción relevante dentro del sistema.<br>2. El sistema intercepta la acción de forma transparente al usuario.<br>3. El sistema registra en el log: usuario, tipo de acción, fecha y hora, recurso afectado y resultado de la operación.<br>4. El registro queda persistido de forma inmutable en la base de datos de auditoría.<br>5. El Administrador accede al módulo de auditoría.<br>6. El sistema muestra el log completo con opciones de filtrado por usuario, fecha o tipo de acción.<br>7. El Administrador aplica los filtros deseados y el sistema actualiza la vista del log. |
 | **Diagrama de caso de uso** | <img width="526" height="484" alt="imagen" src="https://github.com/user-attachments/assets/2112cddc-39ca-4468-ad3b-fee60562141e" />
-|
 | **Poscondiciones** | Se espera como resultado: cada acción relevante queda registrada de forma automática, completa e inmutable, el Administrador puede consultar y filtrar el historial de auditoría en cualquier momento, y el sistema garantiza trazabilidad completa de las operaciones para efectos de seguridad y cumplimiento. |
-
-## 3. Preguntas
