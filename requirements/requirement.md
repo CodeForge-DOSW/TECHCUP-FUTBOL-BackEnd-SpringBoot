@@ -69,7 +69,8 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe contar con un correo institucional estudiante, graduado, profesor o personal administrativo o un correo Gmail si es familiar de alguien de la Escuela. |
 | **Actor** | Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario ingresa a la plataforma y selecciona la opción de registro.<br>2. El usuario ingresa su correo y completa los datos del formulario.<br>3. El sistema valida el tipo de correo y asigna el rol correspondiente.<br>4. El usuario completa su perfil deportivo (foto, dorsal, posiciones de juego).<br>5. El sistema guarda la información y activa la cuenta.<br>6. El usuario inicia sesión con sus credenciales.<br>7. El usuario puede marcar su disponibilidad para que los capitanes lo encuentren. |
-| **Diagrama de caso de uso** |  |
+| **Diagrama de caso de uso** |<img width="657" height="410" alt="image" src="https://github.com/user-attachments/assets/78db9eb5-d250-4313-b8dd-dd9981817ee9" />
+  |
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
 
 ### 2.3 Requerimiento Funcional 3
