@@ -2,16 +2,30 @@
 
 ## Desglose de trabajo: Épicas, Historias de Usuario y Tareas
 
-La implementación de los requerimientos identificados de Bankify se desglosa de la siguiente manera:
+La implementación de los requerimientos identificados de TECHCUP FUTBOLy se desglosa de la siguiente manera:
 
-### 1. Épica:
+### 1. Épicas:
 
 | Campo | Descripción |
 |------|-------------|
 | **ID** | EP-01 |
-| **Título** | |
-| **Descripción** | *Explique el por qué Bankify necesita esta épica* |
-| **Stakeholder** | *¿Quién es el stakeholder interesado en que se implemente esta épica?* |
+| **Título** | Gestión Integral del Torneo |
+| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la administración completa del torneo, desde su creación hasta su finalización, incluyendo configuración, equipos, calendario, resultados y tabla de posiciones. |
+| **Stakeholder** | Organizador del torneo |
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | EP-02 |
+| **Título** | Gestión de Usuarios y Seguridad |
+| **Descripción** | TECHCUP FUTBOL necesita esta épica para garantizar un acceso seguro al sistema, diferenciación de roles y control adecuado de permisos según el tipo de usuario. |
+| **Stakeholder** | Administrador del sistema |
+
+| Campo | Descripción |
+|------|-------------|
+| **ID** | EP-03 |
+| **Título** | Gestión de Participación y Competencia |
+| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la inscripción de equipos, pagos, invitaciones, consulta de partidos y estadísticas del torneo. |
+| **Stakeholder** | Capitanes, Jugadores y Árbitros |
 
 ### 2. Historias de usuario:
 
