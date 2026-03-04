@@ -55,7 +55,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Descripción** | El sistema debe permitir al organizador crear y administrar torneos de fútbol, definiendo toda la información necesaria para que funcione: fechas, equipos, costos, reglamento, canchas, horarios y sanciones. |
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, debe existir al menos un usuario registrado con rol de Organizador en el sistema. |
 | **Actor** | Organizador |
-| **Flujo principal** | 1. El organizador inicia sesión en la plataforma.<br>2. Se entra al menu principal.<br>3. El organizador crea un nuevo torneo con la información básica fechas, número de equipos, costo y estado.<br>5. El organizador inicia el torneo cuando todo esté listo.<br>6. El sistema cambia el estado a Activo.<br>7. Una vez termine, el organizador lo finaliza.<br>8. El sistema cambia el estado a Finalizado y conserva el historial. |
+| **Flujo principal** | 1. El organizador inicia sesión en la plataforma.<br>2. Se entra al menu principal.<br>3. El organizador crea un nuevo torneo con la información básica fechas, número de equipos, costo y estado.<br>4. El organizador inicia el torneo cuando todo esté listo.<br>5. El sistema cambia el estado a Activo.<br>6. Una vez termine, el organizador lo finaliza.<br>7. El sistema cambia el estado a Finalizado y conserva el historial. |
 | **Diagrama de caso de uso** | <img width="1243" height="526" alt="image" src="https://github.com/user-attachments/assets/d91112b5-b837-4df6-af71-1f2e1b247796" />
 | **Poscondiciones** | El torneo queda registrado en el sistema con toda su configuración, visible para los demás usuarios, y con un estado que refleja en qué fase se encuentra. |
 
