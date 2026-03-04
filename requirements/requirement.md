@@ -134,7 +134,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente el registro de los equipos que disputarán el partido y canchas disponibles |
 | **Actor** | Árbitro |
 | **Flujo principal** | 1. El árbitro inicia sesión.<br>2. Accede a la sección de partidos asignados.<br>3. El sistema muestra los detalles correspondientes.|
-| **Diagrama de caso de uso** | *imagen y link*|
+| **Diagrama de caso de uso** | ![Diagrama Consultar Partidos](docs/uml/casosDeUso/rf10ConsultarPartidos.png)|
 | **Poscondiciones** | *Se espera como resultado que el árbitro visualiza correctamente la información del partido asignado |
 
 ### 2.11 Requerimiento Funcional 11
