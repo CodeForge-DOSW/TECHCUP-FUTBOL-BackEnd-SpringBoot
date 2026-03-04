@@ -8,13 +8,22 @@ El sistema de Bankify tiene los siguientes requerimientos (descripción a alto n
 
 El sistema de Bankify debe tener la capacidad de:
 
-1.
-2.
-3.
-4.
-5.
+1.RF1 – Gestión del Torneo
+2.RF2 – Registro y Autenticación de Usuarios
+3.RF3 – Gestión de Roles
+4.RF4 – Creación y Administración de Equipos
+5.RF5 – Gestión de Invitaciones
+6.RF6 – Búsqueda de Jugadores
+7.RF7 – Gestión de Inscripción y Pagos
+8.RF8 – Gestión de Alineaciones
+9.RF9 – Registro de Partidos
+10.RF10 – Consulta de Partidos
+11.RF11 – Tabla de Posiciones Automática
+12.RF12 – Generación de Llaves Eliminatorias
+13.RF13 – Estadísticas e Historial
+14.RF14 – Auditoría
 
-### 1.2 Requerimientos funcionales
+### 1.2 Requerimientos NO funcionales
 
 El sistema de Bankify debe tener:
 
