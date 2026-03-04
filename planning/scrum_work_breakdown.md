@@ -73,7 +73,7 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | Campo | Descripción |
 |------|-------------|
 | **ID** | TR-01 |
-| **Título** | |
+| **Título** | Modelar entidad Torneo en base de datos |
 | **ID de la Historia de Uso asociada** | HU-01 |
 | **Descripción** | Diseñar y crear la estructura de la entidad Torneo con sus atributos (fechas, estado, costo, cantidad de equipos).|
 | **Tareas requisito** | Ninguna |
@@ -83,9 +83,9 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 | Campo | Descripción |
 |------|-------------|
 | **ID** | TR-02 |
-| **Título** | |
+| **Título** |Diseñar formulario de creación de torneo en frontend |
 | **ID de la Historia de Uso asociada** | HU-01 |
-| **Descripción** |Diseñar formulario de creación de torneo en frontend|
+| **Descripción** |Construir la interfaz gráfica que permita al organizador ingresar la información del torneo.|
 | **Tareas requisito** | TR-01 |
 
 ### 3.2 Tareas ( EP-01):
