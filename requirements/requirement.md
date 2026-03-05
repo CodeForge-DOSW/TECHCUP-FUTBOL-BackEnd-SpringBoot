@@ -23,18 +23,16 @@ El sistema de Bankify debe tener la capacidad de:
 7. Gestión de Inscripción y Pagos
 
 8. Gestión de Alineaciones
+   
+9.  Gestión Partidos
 
-9. Registro de Partidos
+10. Tabla de Posiciones Automática
 
-10. Consulta de Partidos
+11. Generación de Llaves Eliminatorias
 
-11. Tabla de Posiciones Automática
+12. Estadísticas e Historial
 
-12. Generación de Llaves Eliminatorias
-
-13. Estadísticas e Historial
-
-14. Auditoría
+13. Auditoría
 
 ### 1.2 Requerimientos NO funcionales
 
@@ -157,26 +155,13 @@ El sistema de TECHCUP FUTBOL debe tener:
 | Campo | Descripción                                                                                                                                                                                                                               |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **ID** | RF-09                                                                                                                                                                                                                                     |
-| **Nombre del requerimiento** | Registro de Partidos                                                                                                                                                                                                                      |
-| **Descripción** | El sistema debe permitir registrar el resultado de un partido, incluyendo marcador final, goleadores y tarjetas (amarillas y rojas)                                                                                                       |
-| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programado el partido                                                                                                                            |
-| **Actor** | Organizador                                                                                                                                                                                                                               |
+| **Nombre del requerimiento** | Gestión de Partidos                                                                                                                                                                                                                      |
+| **Descripción** | El sistema debe permitir gestionar la información de los partidos del torneo, incluyendo la consulta de los partidos asignados y el registro de resultados, marcador final y estadísticas como goleadores y tarjetas.                                                                                                       |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programados los partidos, con equipos participantes, árbitros asignados y canchas disponibles.                                                                                                 |
+| **Actor** | Organizador, Árbitro                                                                                                                                                                                                                            |
 | **Flujo principal** | 1. El organizador accede al módulo de partidos.<br>2. Selecciona el partido correspondiente.<br>3. Ingresa el marcador final.<br>4. Registra estadísticas (goleadores y tarjetas).<br>5. El sistema actualiza la información del partido. |
-| **Diagrama de caso de uso** | ![Diagrama Registrar Partido](../uml/casosDeUso/rf09RegistrarPartido.png))                                                                                                                                                               |
-| **Poscondiciones** | Se permite a todos los actores la visualizacion correctamenta de la información del partido                                                                                                                                               |
-
-### 2.10 Requerimiento Funcional 10
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | RF-10 |
-| **Nombre del requerimiento** | Consulta de Partidos |
-| **Descripción** | El sistema debe permitir al árbitro consultar la información de los partidos asignados, incluyendo fecha, hora, cancha y equipos participantes |
-| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente el registro de los equipos que disputarán el partido y canchas disponibles |
-| **Actor** | Árbitro |
-| **Flujo principal** | 1. El árbitro inicia sesión.<br>2. Accede a la sección de partidos asignados.<br>3. El sistema muestra los detalles correspondientes.|
-| **Diagrama de caso de uso** | ![Diagrama Consultar Partidos](../uml/casosDeUso/rf10ConsultarPartidos.png)|
-| **Poscondiciones** | *Se espera como resultado que el árbitro visualiza correctamente la información del partido asignado |
+| **Diagrama de caso de uso** |                                                                                                                                                               |
+| **Poscondiciones** | Se espera como resultado que la información del partido quede actualizada y disponible para su consulta por los actores del sistema.                                                                            |
 
 ### 2.11 Requerimiento Funcional 11
 
