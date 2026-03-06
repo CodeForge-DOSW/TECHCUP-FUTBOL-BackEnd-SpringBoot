@@ -17,9 +17,6 @@ Relacionar imagen del diagrama de contexto realizado
 
 ### 3.2 Actores
 
-<En el siguiente cuadro, mapee los actores o roles identificados del sistema>
-<El primer rol es de ejemplo>
-
 | Actor / Rol                        |          Descripción/Función              |
 |--------------------------|-----------------------------------------------------|
 | Estudiante               | Se registra como jugador y puede ser capitán      |
