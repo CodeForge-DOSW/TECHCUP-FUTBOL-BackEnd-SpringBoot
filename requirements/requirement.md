@@ -83,7 +83,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El usuario inicia sesión en la plataforma.<br>2. El sistema identifica el rol asignado a ese usuario.<br>3. El sistema muestra únicamente las opciones que le corresponden según su rol.<br>4. Si el usuario intenta acceder a una función que no le pertenece, el sistema le niega el acceso.<br>5. El administrador puede consultar, crear o modificar los roles cuando sea necesario.<br>6. Cualquier cambio de rol queda registrado en el sistema para auditoría. |
 | **Diagrama de caso de uso** |<img width="903" height="415" alt="image" src="https://github.com/user-attachments/assets/02b5f20d-e9ac-4e98-9653-affe7909c679" />
   |
-| **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. ||
+| **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. |
 
 ### 2.4 Requerimiento Funcional 4
 
