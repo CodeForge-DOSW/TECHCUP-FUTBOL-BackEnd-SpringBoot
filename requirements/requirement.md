@@ -161,7 +161,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** |                                                                                                                                                               |
 | **Poscondiciones** | Se espera como resultado que la información del partido quede actualizada y disponible para su consulta por los actores del sistema.                                                                            |
 
-### 2.11 Requerimiento Funcional 11
+### 2.10 Requerimiento Funcional 11
 
 | Campo | Descripción                                                                                                                                                                                                                                                           |
 |------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -174,7 +174,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)                                                                                                                                                                              |
 | **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta                                                                                                                                                         |
 
-### 2.12 Requerimiento Funcional 12
+### 2.11 Requerimiento Funcional 12
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | RF-12 |
@@ -186,7 +186,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="492" height="463" alt="imagen" src="https://github.com/user-attachments/assets/27736b28-b64a-4ba6-a7b9-8529ceeebdc5" />
 | **Poscondiciones** | Se espera como resultado: la llave eliminatoria generada y visible para todos los usuarios, los partidos de la ronda inicial creados en el sistema con fecha y cancha pendiente de asignar, y el torneo avanzando automáticamente de ronda en ronda conforme se registran resultados. |
 
-### 2.13 Requerimiento Funcional 13
+### 2.12 Requerimiento Funcional 13
 
 | Campo | Descripción |
 |-------|-------------|
@@ -199,7 +199,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="618" height="603" alt="imagen" src="https://github.com/user-attachments/assets/a1d3377f-95a9-4344-9c29-47e4bdf0f384" />
 | **Poscondiciones** | Se espera como resultado: el usuario visualiza las estadísticas solicitadas de forma organizada y actualizada, los datos son calculados automáticamente a partir de los resultados registrados por el Organizador, y el historial de torneos anteriores queda persistido y accesible en cualquier momento. |
 
-### 2.14 Requerimiento Funcional 14
+### 2.13 Requerimiento Funcional 14
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | RF-14 |
