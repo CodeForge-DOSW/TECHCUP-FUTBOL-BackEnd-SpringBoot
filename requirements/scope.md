@@ -20,10 +20,17 @@ Relacionar imagen del diagrama de contexto realizado
 <En el siguiente cuadro, mapee los actores o roles identificados del sistema>
 <El primer rol es de ejemplo>
 
-| Actor / Rol                        |          Descripción              |
-|------------------------------------|:---------------------------------:|
-| Usuario final                      | Cliente del sistema de Bankify    |
-|                                    |                                   |
+| Actor / Rol                        |          Descripción/Función              |
+|--------------------------|-----------------------------------------------------|
+| Estudiante               | Se registra como jugador y puede ser capitán      |
+| Graduado                 | Se registra como jugador y puede ser capitán      |
+| Profesor                 | Se registra como jugador y puede ser capitán      |
+| Personal Administrativo  | Se registra como jugador y puede ser capitán      |
+| Familiares               | Se registra como jugador y puede ser capitán      |
+| Capitán                  | Crea y administra un equipo                       |
+| Organizador              | Administra el torneo                              |
+| Árbitro                  | Visualiza la información de los partidos a arbitrar|
+| Administrador            | Control total del sistema                         |
 
 ### 3.3 Sistemas externos
 
