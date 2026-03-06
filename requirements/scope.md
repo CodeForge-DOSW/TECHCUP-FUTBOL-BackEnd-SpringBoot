@@ -2,8 +2,9 @@
 
 ## 1. Sistema
 
-* Nombre del sistema:
-* Objetivo: El sistema tiene como objetivo: (Indicar el objetivo del sistema de Bankify)
+* Nombre del sistema: TECHCUP FÚTBOL
+* Objetivo:  Plataforma digital para la gestión del torneo semestral de fútbol del Programa de Ingeniería de Sistemas, Ingeniería de Inteligencia Artificial, Ingeniería de Ciberseguridad e Ingeniería Estadística de la Escuela Colombiana de Ingeniería.
+  El presente proyecto tiene como objetivo aplicar las diferentes fases del ciclo de vida del desarrollo de software a partir de un caso de estudio práctico y real, permitiendo a los estudiantes apropiar los temas vistos en clase.
 
 ## 2. Problema a resolver
 < Describir el problema principal a resolver del Caso de Estudio>
