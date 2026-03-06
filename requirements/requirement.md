@@ -54,7 +54,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, debe existir al menos un usuario registrado con rol de Organizador en el sistema. |
 | **Actor** | Organizador |
 | **Flujo principal** | 1. El organizador inicia sesión en la plataforma.<br>2. Se entra al menu principal.<br>3. El organizador crea un nuevo torneo con la información básica fechas, número de equipos, costo y estado.<br>4. El organizador inicia el torneo cuando todo esté listo.<br>5. El sistema cambia el estado a Activo.<br>6. Una vez termine, el organizador lo finaliza.<br>7. El sistema cambia el estado a Finalizado y conserva el historial. |
-| **Diagrama de caso de uso** | <img width="1243" height="526" alt="image" src="https://github.com/user-attachments/assets/d91112b5-b837-4df6-af71-1f2e1b247796" />
+| **Diagrama de caso de uso** | <img width="1243" height="526" alt="image" src="https://github.com/user-attachments/assets/d91112b5-b837-4df6-af71-1f2e1b247796" /> |
 | **Poscondiciones** | El torneo queda registrado en el sistema con toda su configuración, visible para los demás usuarios, y con un estado que refleja en qué fase se encuentra. |
 
 ### 2.2 Requerimiento Funcional 2
@@ -67,8 +67,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe contar con un correo institucional estudiante, graduado, profesor o personal administrativo o un correo Gmail si es familiar de alguien de la Escuela. |
 | **Actor** | Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario ingresa a la plataforma y selecciona la opción de registro.<br>2. El usuario ingresa su correo y completa los datos del formulario.<br>3. El sistema valida el tipo de correo y asigna el rol correspondiente.<br>4. El usuario completa su perfil deportivo (foto, dorsal, posiciones de juego).<br>5. El sistema guarda la información y activa la cuenta.<br>6. El usuario inicia sesión con sus credenciales.<br>7. El usuario puede marcar su disponibilidad para que los capitanes lo encuentren. |
-| **Diagrama de caso de uso** |<img width="657" height="410" alt="image" src="https://github.com/user-attachments/assets/78db9eb5-d250-4313-b8dd-dd9981817ee9" />
-  |
+| **Diagrama de caso de uso** |<img width="657" height="410" alt="image" src="https://github.com/user-attachments/assets/78db9eb5-d250-4313-b8dd-dd9981817ee9" />|
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
 
 ### 2.3 Requerimiento Funcional 3
@@ -81,8 +80,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe estar previamente registrado y autenticado en la plataforma. |
 | **Actor** | Administrador, Organizador, Capitán, Árbitro, Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario inicia sesión en la plataforma.<br>2. El sistema identifica el rol asignado a ese usuario.<br>3. El sistema muestra únicamente las opciones que le corresponden según su rol.<br>4. Si el usuario intenta acceder a una función que no le pertenece, el sistema le niega el acceso.<br>5. El administrador puede consultar, crear o modificar los roles cuando sea necesario.<br>6. Cualquier cambio de rol queda registrado en el sistema para auditoría. |
-| **Diagrama de caso de uso** |<img width="903" height="415" alt="image" src="https://github.com/user-attachments/assets/02b5f20d-e9ac-4e98-9653-affe7909c679" />
-  |
+| **Diagrama de caso de uso** |<img width="903" height="415" alt="image" src="https://github.com/user-attachments/assets/02b5f20d-e9ac-4e98-9653-affe7909c679" />|
 | **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. |
 
 ### 2.4 Requerimiento Funcional 4
