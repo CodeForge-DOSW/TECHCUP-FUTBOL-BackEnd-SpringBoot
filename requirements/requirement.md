@@ -230,16 +230,16 @@ El sistema de TECHCUP FUTBOL debe tener:
 
 ### 2.9 Requerimiento Funcional 9
 
-| Campo | Descripción                                                                                                                                                                                                                               |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID** | RF-09                                                                                                                                                                                                                                     |
-| **Nombre del requerimiento** | Gestión de Partidos                                                                                                                                                                                                                      |
-| **Descripción** | El sistema debe permitir gestionar la información de los partidos del torneo, incluyendo la consulta de los partidos asignados y el registro de resultados, marcador final y estadísticas como goleadores y tarjetas.                                                                                                       |
-| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programados los partidos, con equipos participantes, árbitros asignados y canchas disponibles.                                                                                                 |
-| **Actor** | Organizador, Árbitro                                                                                                                                                                                                                            |
-| **Flujo principal** | 1. El organizador accede al módulo de partidos.<br>2. Selecciona el partido correspondiente.<br>3. Ingresa el marcador final.<br>4. Registra estadísticas (goleadores y tarjetas).<br>5. El sistema actualiza la información del partido. |
-| **Diagrama de caso de uso** |                                                                                                                                                               |
-| **Poscondiciones** | Se espera como resultado que la información del partido quede actualizada y disponible para su consulta por los actores del sistema.                                                                            |
+| Campo | Descripción |
+|------|--------------|
+| **ID** | RF-09|
+| **Nombre del requerimiento** | Gestión de Partidos|
+| **Descripción** | El sistema debe permitir gestionar la información de los partidos del torneo, incluyendo la consulta de los partidos asignados y el registro de resultados, marcador final y estadísticas como goleadores y tarjetas.|
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente programados los partidos, con equipos participantes, árbitros asignados y canchas disponibles.|
+| **Actor** | Organizador, Árbitro |
+| **Flujo principal** | 1. El organizador accede al módulo de partidos.<br>2. Selecciona el partido correspondiente.<br>3. Ingresa el marcador final.<br>4. Registra estadísticas (goleadores y tarjetas).<br>5. El sistema actualiza la información del partido |
+| **Diagrama de caso de uso** ||
+| **Poscondiciones** | Se espera como resultado que la información del partido quede actualizada y disponible para su consulta por los actores del sistema. |
 
 #### Historias de usuario:
 
@@ -253,15 +253,15 @@ El sistema de TECHCUP FUTBOL debe tener:
 
 ### 2.10 Requerimiento Funcional 10
 
-| Campo | Descripción                                                                                                                                                                                                                                                           |
-|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID** | RF-010                                                                                                                                                                                                                                                                |
-| **Nombre del requerimiento** | Tabla de Posiciones Automática                                                                                                                                                                                                                                        |
-| **Descripción** | *El sistema debe calcular automáticamente la tabla de posiciones del torneo, actualizando estadísticas como puntos, partidos jugados, victorias, empates, derrotas, goles a favor y goles en contra, cada vez que se registre o modifique el resultado de un partido. |
-| **Precondiciones** | *Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente registro de partidos                                                                                                                                                        |
-| **Actor** | Organizador                                                                                                                                                                                                                                                           |
-| **Flujo principal** | 1. Se registra o actualiza el resultado de un partido.<br>2. El sistema valida la información ingresada.<br>3. El sistema recalcula las estadísticas de los equipos involucrados.<br>4. El sistema actualiza la tabla de posiciones del torneo.                       |
-| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)                                                                                                                                                                              |
+| Campo | Descripción |
+|------|--------------|
+| **ID** | RF-010|
+| **Nombre del requerimiento** | Tabla de Posiciones Automática|
+| **Descripción** | El sistema debe calcular automáticamente la tabla de posiciones del torneo, actualizando estadísticas como puntos, partidos jugados, victorias, empates, derrotas, goles a favor y goles en contra, cada vez que se registre o modifique el resultado de un partido. |
+| **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente registro de partidos |
+| **Actor** | Organizador|
+| **Flujo principal** | 1. El usuario inicia sesión en el sistema <br>2. El usuario accede al panel principal del torneo.<br>3. El usuario selecciona la opción **“Tabla de posiciones”** en el menú del sistema<br>4. El sistema verifica si existen resultados de partidos registrados<br>5. El sistema calcula o actualiza automáticamente las estadísticas de los equipos del torneo<br>6. El sistema muestra la tabla de posiciones actualizada con la clasificación de los equipos|
+| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)|
 | **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta                                                                                                                                                         |
 
 #### Historias de usuario:
@@ -269,8 +269,8 @@ El sistema de TECHCUP FUTBOL debe tener:
 | Campo | Descripción |
 |------|-------------|
 | **ID** | HU-010 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
+| **Título** | Consultar tabla de posiciones |
+| **Descripción** | Como estudiante quiero consultar la tabla de posiciones del torneo para conocer la clasificación de los equipos y su desempeño en la competencia.<br> Como graduado quiero consultar la tabla de posiciones del torneo para ver cómo van los equipos en la competencia.<br> Como profesor quiero consultar la tabla de posiciones del torneo para conocer el rendimiento de los equipos participantes. <br> Como personal administrativo quiero consultar la tabla de posiciones del torneo para mantenerme informado sobre los resultados y la clasificación. <br> Como familiar quiero consultar la tabla de posiciones del torneo para seguir el desempeño de los equipos en los que participan mis conocidos. <br> Como capitán quiero consultar la tabla de posiciones del torneo para conocer la posición de mi equipo frente a los demás. <br> Como organizador quiero consultar la tabla de posiciones del torneo para verificar la clasificación actual de los equipos. <br> Como árbitro quiero consultar la tabla de posiciones del torneo para conocer el estado actual de la competencia. <br> Como administrador quiero consultar la tabla de posiciones del torneo para supervisar la información y el estado de la competencia. |
 | **Prioridad** | *[Alta] [Media] [Baja]* |
 | **Estimación** | *Puntos de historia* |
 
