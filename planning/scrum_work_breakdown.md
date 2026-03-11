@@ -1,17 +1,17 @@
-# 📄 Planeación del Sistema
+# 📄 System Planning
 
-## Desglose de trabajo: Épicas, Historias de Usuario y Tareas
+## Work Breakdown: Epics, User Stories, and Tasks
 
-La implementación de los requerimientos identificados de TECHCUP FUTBOLy se desglosa de la siguiente manera:
+The implementation of the identified requirements of TECHCUP FUTBOL is broken down as follows:
 
-### 1. Épicas:
+### 1. Epics:
 
 | Campo | Descripción |
 | ----- | ----------- |
 | **ID** | EP-01 |
 | **Título** | Gestión Integral del Torneo |
 | **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la administración completa del torneo, desde su creación hasta su finalización, incluyendo la configuración general del torneo, estado, fechas, reglamento y control del ciclo de vida del torneo |
-| **Stakeholder** | Organizador del torneo |
+| **Stakeholder** | Organizador |
 
 
 | Campo           | Descripción                                                                                                                                                                                                              |
