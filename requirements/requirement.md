@@ -57,16 +57,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="1243" height="526" alt="image" src="https://github.com/user-attachments/assets/d91112b5-b837-4df6-af71-1f2e1b247796" /> |
 | **Poscondiciones** | El torneo queda registrado en el sistema con toda su configuración, visible para los demás usuarios, y con un estado que refleja en qué fase se encuentra. |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-01 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.2 Requerimiento Funcional 2
 
 | Campo | Descripción |
@@ -79,16 +69,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El usuario ingresa a la plataforma y selecciona la opción de registro.<br>2. El usuario ingresa su correo y completa los datos del formulario.<br>3. El sistema valida el tipo de correo y asigna el rol correspondiente.<br>4. El usuario completa su perfil deportivo (foto, dorsal, posiciones de juego).<br>5. El sistema guarda la información y activa la cuenta.<br>6. El usuario inicia sesión con sus credenciales.<br>7. El usuario puede marcar su disponibilidad para que los capitanes lo encuentren. |
 | **Diagrama de caso de uso** |<img width="657" height="410" alt="image" src="https://github.com/user-attachments/assets/78db9eb5-d250-4313-b8dd-dd9981817ee9" />|
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-02 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
 
 ### 2.3 Requerimiento Funcional 3
 
@@ -103,16 +83,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** |<img width="903" height="415" alt="image" src="https://github.com/user-attachments/assets/02b5f20d-e9ac-4e98-9653-affe7909c679" />|
 | **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-03 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.4 Requerimiento Funcional 4
 
 | Campo | Descripción |
@@ -125,16 +95,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El capitán crea un equipo.<br>2. Ingresa nombre, escudo y colores.<br>3. Invita jugadores.<br>4. El sistema valida límites y reglas.<br>5. El sistema confirma equipo válido. |
 | **Diagrama de caso de uso** | <img width="570" height="394" alt="image" src="https://github.com/user-attachments/assets/c24443cf-8ed2-4e81-a0ff-56bfcb04df7e" />|
 | **Poscondiciones** | *Se espera como resultado que el equipo quede registrado cumpliendo las reglas establecidas.* |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-04 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
 
 ### 2.5 Requerimiento Funcional 5
 
@@ -149,16 +109,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="668" height="422" alt="image" src="https://github.com/user-attachments/assets/9677ce1b-ed55-437b-a433-e31835254999" />|
 | **Poscondiciones** | *Se espera como resultado que el jugador quede vinculado o no al equipo según su decisión.* |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-05 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.6 Requerimiento Funcional 6
 
 | Campo | Descripción |
@@ -171,16 +121,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El capitán accede al módulo de búsqueda.<br>2. Ingresa filtros.<br>3. El sistema muestra resultados coincidentes. |
 | **Diagrama de caso de uso** |<img width="795" height="351" alt="image" src="https://github.com/user-attachments/assets/7d694497-84c6-4d4b-95bb-c7c519c29093" />|
 | **Poscondiciones** | *Se espera como resultado que se muestra la lista filtrada de jugadores disponibles.* |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-06 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
 
 ### 2.7 Requerimiento Funcional 7
 
@@ -195,16 +135,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="434" height="302" alt="image" src="https://github.com/user-attachments/assets/b1b91836-e14b-4462-bf44-d6ce582931af" />
 | **Poscondiciones** | El equipo queda habilitado o rechazado para participar. |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-07 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.8 Requerimiento Funcional 8
 
 | Campo | Descripción |
@@ -217,16 +147,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El capitán accede a la alineación. <br>2. Selecciona titulares y reservas. <br>3. Define formación. <br>4. El sistema guarda la alineación.|
 | **Diagrama de caso de uso** | <img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-08 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
 
 ### 2.9 Requerimiento Funcional 9
 
@@ -241,16 +161,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** ||
 | **Poscondiciones** | Se espera como resultado que la información del partido quede actualizada y disponible para su consulta por los actores del sistema. |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-09 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.10 Requerimiento Funcional 10
 
 | Campo | Descripción |
@@ -262,17 +172,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Actor** | Organizador|
 | **Flujo principal** | 1. El usuario inicia sesión en el sistema <br>2. El usuario accede al panel principal del torneo.<br>3. El usuario selecciona la opción **“Tabla de posiciones”** en el menú del sistema<br>4. El sistema verifica si existen resultados de partidos registrados<br>5. El sistema calcula o actualiza automáticamente las estadísticas de los equipos del torneo<br>6. El sistema muestra la tabla de posiciones actualizada con la clasificación de los equipos|
 | **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)|
-| **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta                                                                                                                                                         |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-010 |
-| **Título** | Consultar tabla de posiciones |
-| **Descripción** | Como estudiante quiero consultar la tabla de posiciones del torneo para conocer la clasificación de los equipos y su desempeño en la competencia.<br> Como graduado quiero consultar la tabla de posiciones del torneo para ver cómo van los equipos en la competencia.<br> Como profesor quiero consultar la tabla de posiciones del torneo para conocer el rendimiento de los equipos participantes. <br> Como personal administrativo quiero consultar la tabla de posiciones del torneo para mantenerme informado sobre los resultados y la clasificación. <br> Como familiar quiero consultar la tabla de posiciones del torneo para seguir el desempeño de los equipos en los que participan mis conocidos. <br> Como capitán quiero consultar la tabla de posiciones del torneo para conocer la posición de mi equipo frente a los demás. <br> Como organizador quiero consultar la tabla de posiciones del torneo para verificar la clasificación actual de los equipos. <br> Como árbitro quiero consultar la tabla de posiciones del torneo para conocer el estado actual de la competencia. <br> Como administrador quiero consultar la tabla de posiciones del torneo para supervisar la información y el estado de la competencia. |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
+| **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta|
 
 ### 2.11 Requerimiento Funcional 11
 | Campo | Descripción |
@@ -285,16 +185,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El Organizador indica al sistema que la fase de grupos ha finalizado.<br>2. El sistema valida que todos los partidos de la fase de grupos tengan resultado registrado.<br>3. El sistema selecciona aleatoriamente los cruces de la primera ronda eliminatoria.<br>4. El sistema genera y publica la llave eliminatoria visible para todos los actores.<br>5. El Organizador registra el resultado de cada partido eliminatorio.<br>6. El sistema avanza automáticamente a la siguiente ronda (cuartos → semifinal → final).<br>7. El sistema publica al campeón al finalizar la final. |
 | **Diagrama de caso de uso** | <img width="492" height="463" alt="imagen" src="https://github.com/user-attachments/assets/27736b28-b64a-4ba6-a7b9-8529ceeebdc5" />
 | **Poscondiciones** | Se espera como resultado: la llave eliminatoria generada y visible para todos los usuarios, los partidos de la ronda inicial creados en el sistema con fecha y cancha pendiente de asignar, y el torneo avanzando automáticamente de ronda en ronda conforme se registran resultados. |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-011 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
 
 ### 2.12 Requerimiento Funcional 12
 
@@ -309,16 +199,6 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Diagrama de caso de uso** | <img width="618" height="603" alt="imagen" src="https://github.com/user-attachments/assets/a1d3377f-95a9-4344-9c29-47e4bdf0f384" />
 | **Poscondiciones** | Se espera como resultado: el usuario visualiza las estadísticas solicitadas de forma organizada y actualizada, los datos son calculados automáticamente a partir de los resultados registrados por el Organizador, y el historial de torneos anteriores queda persistido y accesible en cualquier momento. |
 
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-012 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
-
 ### 2.13 Requerimiento Funcional 13
 | Campo | Descripción |
 |-------|-------------|
@@ -330,13 +210,3 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El usuario (cualquier rol) ejecuta una acción relevante dentro del sistema.<br>2. El sistema intercepta la acción de forma transparente al usuario.<br>3. El sistema registra en el log: usuario, tipo de acción, fecha y hora, recurso afectado y resultado de la operación.<br>4. El registro queda persistido de forma inmutable en la base de datos de auditoría.<br>5. El Administrador accede al módulo de auditoría.<br>6. El sistema muestra el log completo con opciones de filtrado por usuario, fecha o tipo de acción.<br>7. El Administrador aplica los filtros deseados y el sistema actualiza la vista del log.
 | **Diagrama de caso de uso** | <img width="526" height="484" alt="imagen" src="https://github.com/user-attachments/assets/2112cddc-39ca-4468-ad3b-fee60562141e" />
 | **Poscondiciones** | Se espera como resultado: cada acción relevante queda registrada de forma automática, completa e inmutable, el Administrador puede consultar y filtrar el historial de auditoría en cualquier momento, y el sistema garantiza trazabilidad completa de las operaciones para efectos de seguridad y cumplimiento. |
-
-#### Historias de usuario:
-
-| Campo | Descripción |
-|------|-------------|
-| **ID** | HU-013 |
-| **Título** | |
-| **Descripción** | *Como [tipo de usuario] quiero [necesidad o acción] para [beneficio u objetivo]* |
-| **Prioridad** | *[Alta] [Media] [Baja]* |
-| **Estimación** | *Puntos de historia* |
