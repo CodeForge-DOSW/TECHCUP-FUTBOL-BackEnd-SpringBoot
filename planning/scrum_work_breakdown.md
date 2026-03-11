@@ -6,12 +6,12 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 
 ### 1. Épicas:
 
-| Campo           | Descripción                                                                                                                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-01                                                                                                                                                                                                                                               |
-| **Título**      | Gestión Integral del Torneo                                                                                                                                                                                                                         |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la administración completa del torneo, desde su creación hasta su finalización, incluyendo la configuración general del torneo, estado, fechas, reglamento y control del ciclo de vida del torneo. |
-| **Stakeholder** | Organizador del torneo                                                                                                                                                                                                                              |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | EP-01 |
+| **Título** | Gestión Integral del Torneo |
+| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la administración completa del torneo, desde su creación hasta su finalización, incluyendo la configuración general del torneo, estado, fechas, reglamento y control del ciclo de vida del torneo |
+| **Stakeholder** | Organizador del torneo |
 
 
 | Campo           | Descripción                                                                                                                                                                                                              |
@@ -106,30 +106,37 @@ La implementación de los requerimientos identificados de TECHCUP FUTBOLy se des
 
 ###  Historias de usuario (EP-01):
 
-| Campo           | Descripción                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-01                                                                                               |
-| **Título**      | Crear torneo                                                                                        |
-| **Descripción** | Como organizador quiero crear un torneo para definir las características básicas de la competencia. |
-| **Prioridad**   | Alta                                                                                                |
-| **Estimación**  | 5 puntos                                                                                            |
+| Campo| Descripción|
+| ---- | ---------- |
+| **ID**| HU-01 |
+| **Título** | Crear torneo |
+| **Descripción** | Como organizador quiero crear un torneo para definir las características básicas de la competencia |
+| **Prioridad** | Alta |
+| **Estimación** | 5 puntos |
 
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | HU-02 |
+| **Título** | Configurar reglamento y fechas |
+| **Descripción** | Como organizador quiero configurar el reglamento y las fechas del torneo para establecer las reglas y calendario de la competencia |
+| **Prioridad** | Alta |
+| **Estimación** | 5 puntos |
 
-| Campo           | Descripción                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-02                                                                                                                               |
-| **Título**      | Configurar reglamento y fechas                                                                                                      |
-| **Descripción** | Como organizador quiero configurar el reglamento y las fechas del torneo para establecer las reglas y calendario de la competencia. |
-| **Prioridad**   | Alta                                                                                                                                |
-| **Estimación**  | 5 puntos                                                                                                                            |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | HU-03 |
+| **Título** | Cambiar estado del torneo |
+| **Descripción** | Como organizador quiero iniciar o finalizar (Borrador, Activo, En progreso, Finalizado) el torneo para controlar el ciclo de vida de la competencia |
+| **Prioridad** | Alta |
+| **Estimación** | 3 puntos |
 
-| Campo           | Descripción                                                                                              |
-| --------------- | -------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-03                                                                                                    |
-| **Título**      | Cambiar estado del torneo                                                                                |
-| **Descripción** | Como organizador quiero iniciar o finalizar el torneo para controlar el ciclo de vida de la competencia. |
-| **Prioridad**   | Alta                                                                                                     |
-| **Estimación**  | 3 puntos                                                                                                 |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | HU-04 |
+| **Título** | Consultar información del torneo |
+| **Descripción** | Como organizador quiero consultar la información del torneo para verificar su configuración y estado |
+| **Prioridad** | Media |
+| **Estimación** | 3 puntos |
 
 
 
