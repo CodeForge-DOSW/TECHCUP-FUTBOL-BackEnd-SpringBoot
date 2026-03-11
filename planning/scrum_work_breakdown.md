@@ -6,13 +6,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ### 1. Epics:
 
-| Campo | Descripción |
-| ----- | ----------- |
-| **ID** | EP-01 |
-| **Título** | Gestión Integral del Torneo |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la administración completa del torneo, desde su creación hasta su finalización, incluyendo la configuración general del torneo, estado, fechas, reglamento y control del ciclo de vida del torneo |
-| **Stakeholder** | Organizador |
-
+| Field           | Description                                                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**          | EP-01                                                                                                                                                                                                                           |
+| **Title**       | Comprehensive Tournament Management                                                                                                                                                                                             |
+| **Description** | TECHCUP FUTBOL requires this epic to enable full tournament administration, from its creation to its completion, including general tournament configuration, status management, scheduling, regulations, and lifecycle control. |
+| **Stakeholder** | Tournament Organizer                                                                                                                                                                                                            |
 
 | Campo           | Descripción                                                                                                                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
