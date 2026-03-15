@@ -47,14 +47,14 @@ El sistema de TECHCUP FUTBOL debe tener:
 ### 2.1 Requerimiento Funcional 1
 
 | Campo | Descripción |
-|-------| ----------- |
+|-------|  |
 | **ID**| RF-01 |
 | **Nombre del requerimiento** | Gestión Integral del Torneo |
-| **Descripción** | *El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma.*  |
+| **Descripción** | *El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma.* |
 | **Precondiciones** | *Para que el sistema cumpla con este requerimiento, TECHCUP debe tener usuarios registrados con rol de Organizador o Administrador y acceso autenticado al sistema.* |
 | **Actor** | Organizador / Administrador |
 | **Flujo principal** | 1. El actor accede al módulo de gestión de torneos.<br>2. El sistema muestra las opciones de crear, consultar, actualizar o cancelar torneo.<br>3. El actor registra o modifica la información del torneo.<br>4. El sistema valida los datos ingresados.<br>5. El sistema guarda los cambios y actualiza el estado del torneo.<br>6. El sistema confirma la operación realizada | 
-| **Diagrama de caso de uso**  | ![Diagrama de caso de uso - Gestión del Torneo](../uml/casosDeUso/rf01ManageTournamentUseCaseDiagram.png) |
+| **Diagrama de caso de uso**  | ![img.png](img.png) |
 | **Poscondiciones** | *Se espera como resultado que el torneo quede registrado o actualizado correctamente y disponible para su consulta según los permisos definidos.* |
 ### 2.2 Requerimiento Funcional 2
 
