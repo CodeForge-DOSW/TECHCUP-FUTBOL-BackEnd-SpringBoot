@@ -52,12 +52,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Tournament Captains and Organizer |
 
 
-| Campo           | Descripción                                                                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-07                                                                                                                                                                               |
-| **Título**      | Gestión de Alineaciones                                                                                                                                                             |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir a los capitanes configurar la alineación de sus equipos antes de cada partido, definiendo titulares, reservas y formación táctica. |
-| **Stakeholder** | Capitanes de equipo                                                                                                                                                                 |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-42](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-42) |
+| **Title** | Lineup Management |
+| **Description** | TECHCUP FOOTBALL needs this epic tool to allow captains to configure their team's lineup before each match, defining starters, substitutes, and tactical formation. |
+| **Stakeholder** | Team Captains |
 
 
 | Campo           | Descripción                                                                                                                                                                                   |
