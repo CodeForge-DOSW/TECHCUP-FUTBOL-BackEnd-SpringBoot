@@ -131,7 +131,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | 	El equipo debe estar creado y el capitán autenticado. |
 | **Actor** | Capitán, Organizador|
 | **Flujo principal** | 1. El capitán sube el comprobante. <br>2. El sistema registra el estado como Pendiente.<br>3. El organizador revisa el comprobante.<br>4. El sistema actualiza el estado a Aprobado o Rechazado. |
-| **Diagrama de caso de uso** | <img width="434" height="302" alt="image" src="https://github.com/user-attachments/assets/b1b91836-e14b-4462-bf44-d6ce582931af" />
+| **Diagrama de caso de uso** | ![img_1.png](img_1.png) |
 | **Poscondiciones** | El equipo queda habilitado o rechazado para participar. |
 
 ### 2.8 Requerimiento Funcional 8
@@ -144,7 +144,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | 	El equipo debe estar inscrito y aprobado.|
 | **Actor** | Capitán |
 | **Flujo principal** | 1. El capitán accede a la alineación. <br>2. Selecciona titulares y reservas. <br>3. Define formación. <br>4. El sistema guarda la alineación.|
-| **Diagrama de caso de uso** | <img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
+| **Diagrama de caso de uso** | ![img_2.png](img_2.png) |
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
 
 ### 2.9 Requerimiento Funcional 9
