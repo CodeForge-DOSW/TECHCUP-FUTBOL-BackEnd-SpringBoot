@@ -44,12 +44,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Captains and Players |
 
 
-| Campo           | Descripción                                                                                                                                                                                                                |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-06                                                                                                                                                                                                                      |
-| **Título**      | Gestión de Inscripciones y Pagos                                                                                                                                                                                           |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para gestionar el proceso de inscripción de equipos en el torneo, incluyendo el registro de comprobantes de pago y la aprobación o rechazo de la inscripción por parte del organizador. |
-| **Stakeholder** | Capitanes y organizador del torneo                                                                                                                                                                                         |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-41](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-41) |
+| **Title** | Registration and Payment Management |
+| **Description** | TECHCUP FOOTBALL needs this tool to manage the team registration process for the tournament, including recording payment receipts and the organizer's approval or rejection of registrations. |
+| **Stakeholder** | Tournament Captains and Organizer |
 
 
 | Campo           | Descripción                                                                                                                                                                         |
