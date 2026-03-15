@@ -36,12 +36,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Team Captains |
 
 
-| Campo           | Descripción                                                                                                                                                                                        |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-05                                                                                                                                                                                              |
-| **Título**      | Gestión de Jugadores e Invitaciones                                                                                                                                                                |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la búsqueda de jugadores disponibles y gestionar el envío, aceptación o rechazo de invitaciones para formar parte de un equipo dentro del torneo. |
-| **Stakeholder** | Capitanes y jugadores                                                                                                                                                                              |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-40](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-40)|
+| **Title** | Player and Invitation Management |
+| **Description** | TECHCUP FOOTBALL needs this epic to allow searching for available players and managing the sending, acceptance, or rejection of invitations to join a team within the tournament. |
+| **Stakeholder** | Captains and Players |
 
 
 | Campo           | Descripción                                                                                                                                                                                                                |
