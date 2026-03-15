@@ -14,15 +14,14 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Tournament Organizer |
 
 
-| Campo           | Descripción                                                                                                                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **ID**          | EP-02                                                                                                                                                                                                                    |
-| **Título**      | Gestión de Usuarios y Autenticación                                                                                                                                                                                      |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir que los usuarios se registren en la plataforma, inicien sesión de forma segura y configuren su perfil deportivo con información relevante para participar en el torneo. |
-| **Stakeholder** | Jugadores del torneo                                                                                                                                                                                                     |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | SCRUM-37 |
+| **Title** | User Management and Authentication |
+| **Description** | TECHCUP FOOTBALL needs this epic to allow users to register on the platform, log in securely, and configure their sports profile with relevant information to participate in the tournament. |
+| **Stakeholder** | Tournament Players |
 
-
-| Campo           | Descripción                                                                                                                                                                                                                            |
+| Campo           | Descripción |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**          | EP-03                                                                                                                                                                                                                                  |
 | **Título**      | Gestión de Roles y Control de Acceso                                                                                                                                                                                                   |
