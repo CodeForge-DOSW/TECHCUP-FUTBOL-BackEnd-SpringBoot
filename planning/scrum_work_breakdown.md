@@ -60,12 +60,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Team Captains |
 
 
-| Campo           | Descripción                                                                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-08                                                                                                                                                                                         |
-| **Título**      | Gestión de Partidos                                                                                                                                                                           |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para administrar los partidos del torneo, permitiendo registrar resultados, estadísticas de juego y mantener actualizada la información de cada encuentro. |
-| **Stakeholder** | Organizadores y árbitros                                                                                                                                                                      |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-43](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-43) |
+| **Title** | Match Management |
+| **Description** | TECHCUP FOOTBALL needs this epic tool to manage tournament matches, allowing for the recording of results, game statistics, and keeping match information up-to-date. |
+| **Stakeholder** | Organizers and referees |
 
 
 | Campo           | Descripción                                                                                                                                                          |
