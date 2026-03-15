@@ -21,13 +21,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic to allow users to register on the platform, log in securely, and configure their sports profile with relevant information to participate in the tournament. |
 | **Stakeholder** | Tournament Players |
 
-| Campo           | Descripción |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-03                                                                                                                                                                                                                                  |
-| **Título**      | Gestión de Roles y Control de Acceso                                                                                                                                                                                                   |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para gestionar los diferentes roles del sistema y controlar el acceso a las funcionalidades de la plataforma según el tipo de usuario, garantizando seguridad y organización en el uso del sistema. |
-| **Stakeholder** | Administrador del sistema                                                                                                                                                                                                              |
-
+| Field | Description |
+| ----- | ----------- |
+| **ID** | SCRUM-38 |
+| **Title** | Role Management and Access Control |
+| **Description** | TECHCUP FUTBOL needs this epic to manage the different roles within the system and control access to the platform's functionalities according to user type, ensuring security and organization in system use. |
+| **Stakeholder** | System Administrator |
 
 | Campo           | Descripción                                                                                                                                                                                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
