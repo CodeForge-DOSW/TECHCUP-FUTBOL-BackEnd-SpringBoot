@@ -8,7 +8,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Field | Description |
 | ----- | ----------- |
-| **ID**| SCRUM-14|
+| **ID**| [SCRUM-14](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-14)|
 | **Title** | Comprehensive Tournament Management |
 | **Description** | TECHCUP FUTBOL requires this epic to enable full tournament administration, from its creation to its completion, including general tournament configuration, status management, scheduling, regulations, and lifecycle control |
 | **Stakeholder** | Tournament Organizer |
@@ -16,24 +16,24 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Field | Description |
 | ----- | ----------- |
-| **ID** | SCRUM-37 |
+| **ID** | [SCRUM-37](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-37) |
 | **Title** | User Management and Authentication |
 | **Description** | TECHCUP FOOTBALL needs this epic to allow users to register on the platform, log in securely, and configure their sports profile with relevant information to participate in the tournament. |
 | **Stakeholder** | Tournament Players |
 
 | Field | Description |
 | ----- | ----------- |
-| **ID** | SCRUM-38 |
+| **ID** | [SCRUM-38](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-38) |
 | **Title** | Role Management and Access Control |
 | **Description** | TECHCUP FUTBOL needs this epic to manage the different roles within the system and control access to the platform's functionalities according to user type, ensuring security and organization in system use. |
 | **Stakeholder** | System Administrator |
 
-| Campo           | Descripción                                                                                                                                                                                                                                       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-04                                                                                                                                                                                                                                             |
-| **Título**      | Administración de Equipos                                                                                                                                                                                                                         |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir a los capitanes crear y administrar equipos, configurar sus características, invitar jugadores y garantizar que se cumplan las reglas establecidas para la conformación de equipos en el torneo. |
-| **Stakeholder** | Capitanes de equipo                                                                                                                                                                                                                               |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-39](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-39) |
+| **Title** | Team Management |
+| **Description** | TECHCUP FOOTBALL needs this epic tool to allow captains to create and manage teams, configure their characteristics, invite players, and ensure that the established rules for team formation in the tournament are followed. |
+| **Stakeholder** | Team Captains |
 
 
 | Campo           | Descripción                                                                                                                                                                                        |
