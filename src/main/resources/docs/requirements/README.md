@@ -163,14 +163,14 @@ El sistema de TECHCUP FUTBOL debe tener:
 ### 2.10 Requerimiento Funcional 10
 
 | Campo | Descripción |
-|------|--------------|
+|------|------------|
 | **ID** | RF-010|
 | **Nombre del requerimiento** | Tabla de Posiciones Automática|
 | **Descripción** | El sistema debe calcular automáticamente la tabla de posiciones del torneo, actualizando estadísticas como puntos, partidos jugados, victorias, empates, derrotas, goles a favor y goles en contra, cada vez que se registre o modifique el resultado de un partido. |
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente registro de partidos |
 | **Actor** | Organizador|
 | **Flujo principal** | 1. El usuario inicia sesión en el sistema <br>2. El usuario accede al panel principal del torneo.<br>3. El usuario selecciona la opción **“Tabla de posiciones”** en el menú del sistema<br>4. El sistema verifica si existen resultados de partidos registrados<br>5. El sistema calcula o actualiza automáticamente las estadísticas de los equipos del torneo<br>6. El sistema muestra la tabla de posiciones actualizada con la clasificación de los equipos|
-| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)|
+| **Diagrama de caso de uso** | ![img_3.png](img_3.png)|
 | **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta|
 
 ### 2.11 Requerimiento Funcional 11
