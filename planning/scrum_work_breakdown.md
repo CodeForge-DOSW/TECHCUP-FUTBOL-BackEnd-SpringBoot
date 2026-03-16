@@ -260,13 +260,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-14
 
-| Campo           | Descripción                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-13                                                                                                      |
-| **Título**      | Buscar jugadores                                                                                           |
-| **Descripción** | Como capitán quiero buscar jugadores utilizando filtros para encontrar jugadores adecuados para mi equipo. |
-| **Prioridad**   | Media                                                                                                      |
-| **Estimación**  | 5 puntos                                                                                                   |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-57](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-57) |
+| **Title** | Search for players |
+| **Description** | As captain, I want to search for players using filters to find suitable players for my team |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 #### EP-06
 
