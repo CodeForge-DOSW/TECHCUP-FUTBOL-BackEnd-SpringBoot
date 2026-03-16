@@ -92,12 +92,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | System Users |
 
 
-| Campo           | Descripción                                                                                                                                                                                                                |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-12                                                                                                                                                                                                                      |
-| **Título**      | Auditoría y Trazabilidad del Sistema                                                                                                                                                                                       |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para registrar automáticamente las acciones relevantes realizadas por los usuarios, permitiendo consultar un historial de auditoría que garantice trazabilidad y seguridad del sistema. |
-| **Stakeholder** | Administrador del sistema                                                                                                                                                                                                  |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-47](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-47) |
+| **Title** | System Audit and Traceability |
+| **Description** | TECHCUP FUTBOL needs this epic to automatically record relevant actions performed by users, allowing consultation of an audit history that guarantees system traceability and security |
+| **Stakeholder** | System Administrator |
 
 
 
