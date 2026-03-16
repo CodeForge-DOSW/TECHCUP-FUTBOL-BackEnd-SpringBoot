@@ -113,15 +113,17 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Title** | TECHCUP FUTBOL needs this epic to automatically record relevant actions performed by users, allowing consultation of an audit history that guarantees traceability and security of the system |
 | **Stakeholder** | System Administrator |
 
-###  Historias de usuario (EP-01):
+###  User stories
 
-| Campo| Descripción|
-| ---- | ---------- |
-| **ID**| HU-01 |
-| **Título** | Crear torneo |
-| **Descripción** | Como organizador quiero crear un torneo para definir las características básicas de la competencia |
-| **Prioridad** | Alta |
-| **Estimación** | 5 puntos |
+#### EP-01
+
+| Field | Description |
+| ----- | ----------- |
+| **ID**| [SCRUM-26](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-26) |
+| **Title** | Create tournament |
+| **Description** | As the organizer, I want to create a tournament to define the basic characteristics of the competition. |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 | Campo | Descripción |
 | ----- | ----------- |
