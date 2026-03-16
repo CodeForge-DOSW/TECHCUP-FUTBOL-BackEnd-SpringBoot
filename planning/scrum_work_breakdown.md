@@ -162,7 +162,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-05
 
-| Campo | Descripción | 
+| Field | Description | 
 | ----- | ----------- |
 | **ID** | [SCRUM-48](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-48) |
 | **Title** | User Registration |
@@ -173,23 +173,24 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 ##### HU-06
 
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-49](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-49) |
 | **Title** | Log in |
-| **Description** | As a user, I want to log in to the system to access my account and the available features. |
+| **Description** | As a user, I want to log in to the system to access my account and the available features |
 | **Priority** | High |
 | **Estimate** | 3 points |
 
 ##### HU-07
 
-| Campo           | Descripción                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-06                                                                                                                                                |
-| **Título**      | Configurar perfil deportivo                                                                                                                          |
-| **Descripción** | Como jugador quiero configurar mi perfil deportivo con foto, dorsal y posiciones de juego para que los capitanes puedan conocer mis características. |
-| **Prioridad**   | Media                                                                                                                                                |
-| **Estimación**  | 5 puntos                                                                                                                                             
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-50](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-50) |
+| **Title** | Configure sports profile |
+| **Description** | As a player, I want to configure my sports profile with a photo, jersey number, and playing positions so that the captains can learn about my abilities |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
+
 #### EP-03
 
 ##### HU-08
