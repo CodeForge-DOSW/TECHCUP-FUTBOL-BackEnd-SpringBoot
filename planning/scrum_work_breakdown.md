@@ -162,13 +162,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-05
 
-| Campo           | Descripción                                                                          |
-| --------------- | ------------------------------------------------------------------------------------ |
-| **ID**          | HU-04                                                                                |
-| **Título**      | Registro de usuario                                                                  |
-| **Descripción** | Como usuario quiero registrarme en la plataforma para poder participar en el torneo. |
-| **Prioridad**   | Alta                                                                                 |
-| **Estimación**  | 5 puntos                                                                             |
+| Campo | Descripción | 
+| ----- | ----------- |
+| **ID** | [SCRUM-48](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-48) |
+| **Title** | User Registration |
+| **Description** | As a user, I want to register on the platform to participate in the tournament |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 ##### HU-06
 
@@ -189,13 +189,10 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Título**      | Configurar perfil deportivo                                                                                                                          |
 | **Descripción** | Como jugador quiero configurar mi perfil deportivo con foto, dorsal y posiciones de juego para que los capitanes puedan conocer mis características. |
 | **Prioridad**   | Media                                                                                                                                                |
-
-##### HU-08
-
 | **Estimación**  | 5 puntos                                                                                                                                             
 #### EP-03
 
-##### HU-09
+##### HU-08
 
 | Campo           | Descripción                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------ |
@@ -205,7 +202,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                   |
 | **Estimación**  | 5 puntos                                                                                               |
 
-##### HU-10
+##### HU-09
 
 
 | Campo           | Descripción                                                                                                                     |
@@ -217,7 +214,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Estimación**  | 5 puntos                                                                                                                        |
 #### EP-04
 
-##### HU-11
+##### HU-10
 
 | Campo           | Descripción                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
@@ -227,7 +224,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                           |
 | **Estimación**  | 5 puntos                                                                                       |
 
-##### HU-12
+##### HU-11
 
 
 | Campo           | Descripción                                                                                  |
@@ -240,7 +237,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-05
 
-##### HU-15
+##### HU-12
 
 | Campo           | Descripción                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
@@ -250,7 +247,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                              |
 | **Estimación**  | 5 puntos                                                                          |
 
-##### HU-16
+##### HU-13
 
 | Campo           | Descripción                                                                                             |
 | --------------- | ------------------------------------------------------------------------------------------------------- |
@@ -260,7 +257,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                    |
 | **Estimación**  | 3 puntos                                                                                                |
 
-##### HU-17
+##### HU-14
 
 | Campo           | Descripción                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -272,7 +269,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-06
 
-##### HU-18
+##### HU-15
 
 | Campo           | Descripción                                                                                               |
 | --------------- | --------------------------------------------------------------------------------------------------------- |
@@ -282,7 +279,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                      |
 | **Estimación**  | 5 puntos                                                                                                  |
 
-##### HU-19
+##### HU-16
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -294,7 +291,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-07
 
-##### HU-20
+##### HU-17
 
 | Campo           | Descripción                                                                      |
 | --------------- | -------------------------------------------------------------------------------- |
@@ -304,7 +301,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                            |
 | **Estimación**  | 5 puntos                                                                         |
 
-##### HU-21
+##### HU-18
 
 | Campo           | Descripción                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -314,9 +311,9 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                 |
 | **Estimación**  | 3 puntos                                                                                              |
 
-##### HU-22
-
 #### EP-08
+
+##### HU-19
 
 | Campo           | Descripción                                                                                                  |
 | --------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -326,7 +323,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                         |
 | **Estimación**  | 5 puntos                                                                                                     |
 
-##### HU-23
+##### HU-20
 
 | Campo           | Descripción                                                                                                            |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -338,7 +335,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-09
 
-##### HU-24
+##### HU-21
 
 | Campo           | Descripción                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -350,7 +347,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-10
 
-##### HU-25
+##### HU-22
 
 | Campo           | Descripción                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -360,7 +357,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                                            |
 | **Estimación**  | 8 puntos                                                                                                                        |
 
-##### HU-26
+##### HU-23
 
 | Campo           | Descripción                                                                                                       |
 | --------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -372,7 +369,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-11
 
-##### HU-27
+##### HU-24
 
 | Campo           | Descripción                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -382,7 +379,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                      |
 | **Estimación**  | 5 puntos                                                                                                   |
 
-##### HU-28
+##### HU-25
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -394,7 +391,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-12
 
-##### HU-29
+##### HU-26
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -404,7 +401,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                           |
 | **Estimación**  | 5 puntos                                                                                                        |
 
-##### HU-30
+##### HU-27
 
 | Campo           | Descripción                                                                                                           |
 | --------------- | --------------------------------------------------------------------------------------------------------------------- |
