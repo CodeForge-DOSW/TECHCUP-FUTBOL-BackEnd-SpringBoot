@@ -294,13 +294,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-17
 
-| Campo           | Descripción                                                                      |
-| --------------- | -------------------------------------------------------------------------------- |
-| **ID**          | HU-16                                                                            |
-| **Título**      | Configurar alineación                                                            |
-| **Descripción** | Como capitán quiero definir la alineación de mi equipo para preparar el partido. |
-| **Prioridad**   | Media                                                                            |
-| **Estimación**  | 5 puntos                                                                         |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-60](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-60) |
+| **Title** | Configure alignment |
+| **Description** | As captain, I want to define my team's lineup to prepare for the match |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 ##### HU-18
 
