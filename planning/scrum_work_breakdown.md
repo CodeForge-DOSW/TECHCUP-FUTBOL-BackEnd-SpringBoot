@@ -206,13 +206,14 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 ##### HU-09
 
 
-| Campo           | Descripción                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-08                                                                                                                           |
-| **Título**      | Restringir acceso según rol                                                                                                     |
-| **Descripción** | Como sistema quiero restringir el acceso a funcionalidades según el rol del usuario para garantizar seguridad en la plataforma. |
-| **Prioridad**   | Alta                                                                                                                            |
-| **Estimación**  | 5 puntos                                                                                                                        |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-52](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-52) |
+| **Title** | Restrict access by role |
+| **Description** | As a system, I want to restrict access to functionalities based on the user's role to ensure security on the platform |
+| **Priority** | High |
+| **Estimate** | 5 points |
+
 #### EP-04
 
 ##### HU-10
