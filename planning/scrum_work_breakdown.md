@@ -240,13 +240,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-12
 
-| Campo           | Descripción                                                                       |
-| --------------- | --------------------------------------------------------------------------------- |
-| **ID**          | HU-11                                                                             |
-| **Título**      | Invitar jugadores                                                                 |
-| **Descripción** | Como capitán quiero enviar invitaciones a jugadores para que se unan a mi equipo. |
-| **Prioridad**   | Alta                                                                              |
-| **Estimación**  | 5 puntos                                                                          |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-55](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-55) |
+| **Title** | Invite players |
+| **Description** | As captain, I want to send invitations to players to join my team |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 ##### HU-13
 
