@@ -142,17 +142,15 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Priority** | High |
 | **Estimate** | 3 points |
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
-| **ID** | HU-04 |
-| **Título** | Consultar información del torneo |
-| **Descripción** | Como organizador quiero consultar la información del torneo para verificar su configuración y estado |
-| **Prioridad** | Media |
-| **Estimación** | 3 puntos |
+| **ID** | [SCRUM-29](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-29) |
+| **Title** | View tournament information |
+| **Description** | As the organizer, I would like to review the tournament information to verify its configuration and status |
+| **Priority** | Medium |
+| **Estimate** | 3 points |
 
-
-
-###  Historias de usuario (EP-02):
+#### EP-02
 
 | Campo           | Descripción                                                                          |
 | --------------- | ------------------------------------------------------------------------------------ |
@@ -176,12 +174,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Título**      | Configurar perfil deportivo                                                                                                                          |
 | **Descripción** | Como jugador quiero configurar mi perfil deportivo con foto, dorsal y posiciones de juego para que los capitanes puedan conocer mis características. |
 | **Prioridad**   | Media                                                                                                                                                |
-| **Estimación**  | 5 puntos                                                                                                                                             |
-
-
-
-
-### Historias de usuario (EP-03):
+| **Estimación**  | 5 puntos                                                                                                                                             
+#### EP-03
 
 | Campo           | Descripción                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------ |
@@ -199,9 +193,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como sistema quiero restringir el acceso a funcionalidades según el rol del usuario para garantizar seguridad en la plataforma. |
 | **Prioridad**   | Alta                                                                                                                            |
 | **Estimación**  | 5 puntos                                                                                                                        |
-
-
-###  Historias de usuario (EP-04):
+#### EP-04
 
 | Campo           | Descripción                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
@@ -220,10 +212,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                         |
 | **Estimación**  | 5 puntos                                                                                     |
 
-
-
-
-### Historias de usuario (EP-05):
+#### EP-05
 
 | Campo           | Descripción                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
@@ -249,8 +238,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                      |
 | **Estimación**  | 5 puntos                                                                                                   |
 
-
-###  Historias de usuario (EP-06):
+#### EP-06
 
 | Campo           | Descripción                                                                                               |
 | --------------- | --------------------------------------------------------------------------------------------------------- |
@@ -268,8 +256,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                            |
 | **Estimación**  | 5 puntos                                                                                                        |
 
-### Historias de usuario (EP-07):
-
+#### EP-07
 
 | Campo           | Descripción                                                                      |
 | --------------- | -------------------------------------------------------------------------------- |
@@ -287,7 +274,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                 |
 | **Estimación**  | 3 puntos                                                                                              |
 
-### Historias de usuario (EP-08):
+#### EP-08
 
 | Campo           | Descripción                                                                                                  |
 | --------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -305,7 +292,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                                  |
 | **Estimación**  | 5 puntos                                                                                                               |
 
-### Historias de usuario (EP-09):
+#### EP-09
 
 | Campo           | Descripción                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -315,7 +302,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                  |
 | **Estimación**  | 3 puntos                                                                                              |
 
-### Historias de usuario (EP-10):
+#### EP-10
 
 | Campo           | Descripción                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -333,7 +320,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                              |
 | **Estimación**  | 5 puntos                                                                                                          |
 
-###  Historias de usuario (EP-11):
+#### EP-11
 
 
 | Campo           | Descripción                                                                                                |
@@ -353,7 +340,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                           |
 | **Estimación**  | 5 puntos                                                                                                        |
 
-###  Historias de usuario (EP-12):
+#### EP-12
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -370,9 +357,6 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como administrador quiero consultar los registros de auditoría para supervisar las acciones realizadas en el sistema. |
 | **Prioridad**   | Media                                                                                                                 |
 | **Estimación**  | 5 puntos                                                                                                              |
-
-
-
 
 ### 3. Tareas:
 
