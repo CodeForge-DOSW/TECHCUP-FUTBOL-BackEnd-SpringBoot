@@ -84,12 +84,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 |**Stakeholder** | Tournament Organizer |
 
 
-| Campo           | Descripción                                                                                                                                                                                  |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-11                                                                                                                                                                                        |
-| **Título**      | Estadísticas e Historial del Torneo                                                                                                                                                          |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para permitir la consulta de estadísticas actuales e históricas del torneo, incluyendo goleadores, resultados, desempeño de equipos y torneos anteriores. |
-| **Stakeholder** | Usuarios del sistema                                                                                                                                                                         |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [CRUM-45](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-45) |
+| **Title** | Tournament Statistics and History |
+| **Description** | TECHCUP FOOTBALL requires this epic to allow viewing of current and historical tournament statistics, including top scorers, results, team performance, and previous tournaments |
+| **Stakeholder** | System Users |
 
 
 | Campo           | Descripción                                                                                                                                                                                                                |
