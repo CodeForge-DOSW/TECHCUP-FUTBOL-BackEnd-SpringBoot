@@ -110,7 +110,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-47](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-47) |
-| **Title** | TECHCUP FUTBOL needs this epic to automatically record relevant actions performed by users, allowing consultation of an audit history that guarantees traceability and security of the system |
+| **Title** | System Audit and Traceability |
+| **Description** |TECHCUP FUTBOL needs this epic to automatically record relevant actions performed by users, allowing consultation of an audit history that guarantees traceability and security of the system |
 | **Stakeholder** | System Administrator |
 
 ###  User stories
