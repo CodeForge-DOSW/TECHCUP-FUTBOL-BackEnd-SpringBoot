@@ -136,11 +136,11 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo | Descripción |
 | ----- | ----------- |
-| **ID** | HU-03 |
-| **Título** | Cambiar estado del torneo |
-| **Descripción** | Como organizador quiero iniciar o finalizar (Borrador, Activo, En progreso, Finalizado) el torneo para controlar el ciclo de vida de la competencia |
-| **Prioridad** | Alta |
-| **Estimación** | 3 puntos |
+| **ID** | [SCRUM-28](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-28) |
+| **Title** | Change tournament status |
+| **Description** | As the organizer, I want to start or end (Draft, Active, In Progress, Completed) the tournament to control the competition's lifecycle |
+| **Priority** | High |
+| **Estimate** | 3 points |
 
 | Campo | Descripción |
 | ----- | ----------- |
