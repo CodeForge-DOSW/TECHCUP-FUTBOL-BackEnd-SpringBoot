@@ -173,13 +173,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 ##### HU-06
 
 
-| Campo           | Descripción                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-05                                                                                                          |
-| **Título**      | Iniciar sesión                                                                                                 |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-49](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-49) |
+| **Título** | Iniciar sesión |
 | **Descripción** | Como usuario quiero iniciar sesión en el sistema para acceder a mi cuenta y a las funcionalidades disponibles. |
-| **Prioridad**   | Alta                                                                                                           |
-| **Estimación**  | 3 puntos                                                                                                       |
+| **Prioridad** | Alta |
+| **Estimación** | 3 puntos |
 
 ##### HU-07
 
