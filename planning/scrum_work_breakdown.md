@@ -68,12 +68,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Organizers and referees |
 
 
-| Campo           | Descripción                                                                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-09                                                                                                                                                                |
-| **Título**      | Clasificación y Tabla de Posiciones                                                                                                                                  |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para calcular y mostrar automáticamente la tabla de posiciones del torneo a partir de los resultados de los partidos registrados. |
-| **Stakeholder** | Usuarios del torneo                                                                                                                                                  |
+| Field | Description |
+| ----- | ----------- |
+**ID** | [SCRUM-44](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-44) |
+| **Title** | Standings and Table of Events |
+| **Description** | TECHCUP FOOTBALL needs this epic to automatically calculate and display the tournament standings based on the results of the recorded matches |
+| **Stakeholder** | Tournament Users |
 
 
 | Campo           | Descripción                                                                                                                                                                                 |
