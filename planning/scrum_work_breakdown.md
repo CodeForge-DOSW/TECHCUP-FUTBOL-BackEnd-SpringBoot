@@ -128,11 +128,11 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo | Descripción |
 | ----- | ----------- |
-| **ID** | HU-02 |
-| **Título** | Configurar reglamento y fechas |
-| **Descripción** | Como organizador quiero configurar el reglamento y las fechas del torneo para establecer las reglas y calendario de la competencia |
-| **Prioridad** | Alta |
-| **Estimación** | 5 puntos |
+| **ID** | [SCRUM-27](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-27) |
+| **Title** | Configure rules and dates |
+| **Description** | As the organizer, I want to configure the tournament rules and dates to establish the competition's regulations and schedule |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 | Campo | Descripción |
 | ----- | ----------- |
