@@ -360,13 +360,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-23
 
-| Campo           | Descripción                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-22                                                                                                             |
-| **Título**      | Avanzar rondas eliminatorias                                                                                      |
-| **Descripción** | Como sistema quiero avanzar automáticamente a la siguiente ronda eliminatoria cuando se registren los resultados. |
-| **Prioridad**   | Alta                                                                                                              |
-| **Estimación**  | 5 puntos                                                                                                          |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-66](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-66) |
+| **Title** | Advance through elimination rounds |
+| **Description** | As a system, I want to automatically advance to the next elimination round when the results are recorded |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 #### EP-11
 
