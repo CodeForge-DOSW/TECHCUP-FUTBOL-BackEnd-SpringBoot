@@ -282,13 +282,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-16
 
-| Campo           | Descripción                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-15                                                                                                           |
-| **Título**      | Revisar pago de inscripción                                                                                     |
-| **Descripción** | Como organizador quiero revisar los comprobantes de pago para aprobar o rechazar la inscripción de los equipos. |
-| **Prioridad**   | Alta                                                                                                            |
-| **Estimación**  | 5 puntos                                                                                                        |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-59](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-59) |
+| **Title** | Review registration payment ||
+| **Description** | As the organizer, I want to review the payment receipts to approve or reject team registrations |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 #### EP-07
 
