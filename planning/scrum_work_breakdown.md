@@ -404,13 +404,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-27
 
-| Campo           | Descripción                                                                                                           |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-26                                                                                                                 |
-| **Título**      | Consultar registros de auditoría                                                                                      |
-| **Descripción** | Como administrador quiero consultar los registros de auditoría para supervisar las acciones realizadas en el sistema. |
-| **Prioridad**   | Media                                                                                                                 |
-| **Estimación**  | 5 puntos                                                                                                              |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-70](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-70) |
+| **Title** | View audit records |
+| **Description** | As an administrator, I want to consult the audit logs to monitor the actions performed on the system |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 ### 3. Tareas:
 
