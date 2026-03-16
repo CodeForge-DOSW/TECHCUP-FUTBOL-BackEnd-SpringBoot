@@ -394,13 +394,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-26
 
-| Campo           | Descripción                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-25                                                                                                           |
-| **Título**      | Registrar acciones del sistema                                                                                  |
-| **Descripción** | Como sistema quiero registrar las acciones realizadas por los usuarios para mantener un historial de auditoría. |
-| **Prioridad**   | Media                                                                                                           |
-| **Estimación**  | 5 puntos                                                                                                        |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-69](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-69) |
+| **Title** | Record system actions |
+| **Description** | As a system, I want to record the actions performed by users to maintain an audit history |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 ##### HU-27
 
