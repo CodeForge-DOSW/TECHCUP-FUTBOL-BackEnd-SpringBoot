@@ -350,13 +350,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-22
 
-| Campo           | Descripción                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-21                                                                                                                           |
-| **Título**      | Generar llaves eliminatorias                                                                                                    |
-| **Descripción** | Como organizador quiero generar automáticamente las llaves eliminatorias para continuar el torneo después de la fase de grupos. |
-| **Prioridad**   | Alta                                                                                                                            |
-| **Estimación**  | 8 puntos                                                                                                                        |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-65](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-65) |
+| **Title** | Generate knockout brackets |
+| **Description** | As the organizer, I want to automatically generate the knockout brackets to continue the tournament after the group stage |
+| **Priority** | High |
+| **Estimate** | 8 points |
 
 ##### HU-23
 
