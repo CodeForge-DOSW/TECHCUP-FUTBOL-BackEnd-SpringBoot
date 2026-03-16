@@ -6,6 +6,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ### 1. Epics:
 
+#### Epic 1
+
 | Field | Description |
 | ----- | ----------- |
 | **ID**| [SCRUM-14](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-14)|
@@ -21,12 +23,16 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic to allow users to register on the platform, log in securely, and configure their sports profile with relevant information to participate in the tournament. |
 | **Stakeholder** | Tournament Players |
 
+#### Epic 2
+
 | Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-38](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-38) |
 | **Title** | Role Management and Access Control |
 | **Description** | TECHCUP FUTBOL needs this epic to manage the different roles within the system and control access to the platform's functionalities according to user type, ensuring security and organization in system use. |
 | **Stakeholder** | System Administrator |
+
+#### Epic 3
 
 | Field | Description |
 | ----- | ----------- |
@@ -35,6 +41,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic tool to allow captains to create and manage teams, configure their characteristics, invite players, and ensure that the established rules for team formation in the tournament are followed. |
 | **Stakeholder** | Team Captains |
 
+#### Epic 4
 
 | Field | Description |
 | ----- | ----------- |
@@ -43,6 +50,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic to allow searching for available players and managing the sending, acceptance, or rejection of invitations to join a team within the tournament. |
 | **Stakeholder** | Captains and Players |
 
+#### Epic 5
 
 | Field | Description |
 | ----- | ----------- |
@@ -51,6 +59,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this tool to manage the team registration process for the tournament, including recording payment receipts and the organizer's approval or rejection of registrations. |
 | **Stakeholder** | Tournament Captains and Organizer |
 
+#### Epic 6
 
 | Field | Description |
 | ----- | ----------- |
@@ -59,6 +68,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic tool to allow captains to configure their team's lineup before each match, defining starters, substitutes, and tactical formation. |
 | **Stakeholder** | Team Captains |
 
+#### Epic 7
 
 | Field | Description |
 | ----- | ----------- |
@@ -67,6 +77,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic tool to manage tournament matches, allowing for the recording of results, game statistics, and keeping match information up-to-date. |
 | **Stakeholder** | Organizers and referees |
 
+#### Epic 8
 
 | Field | Description |
 | ----- | ----------- |
@@ -75,6 +86,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL needs this epic to automatically calculate and display the tournament standings based on the results of the recorded matches |
 | **Stakeholder** | Tournament Users |
 
+#### Epic 9
 
 | Field | Description |
 | ----- | ----------- |
@@ -83,6 +95,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 |**Description** | TECHCUP FOOTBALL needs this epic to automatically generate the knockout brackets once the group stage is over and manage the tournament's progression until the champion is determined |
 |**Stakeholder** | Tournament Organizer |
 
+#### Epic 10
 
 | Field | Description |
 | ----- | ----------- |
@@ -91,6 +104,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FOOTBALL requires this epic to allow viewing of current and historical tournament statistics, including top scorers, results, team performance, and previous tournaments |
 | **Stakeholder** | System Users |
 
+#### Epic 11
 
 | Field | Description |
 | ----- | ----------- |
@@ -99,8 +113,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | TECHCUP FUTBOL needs this epic to automatically record relevant actions performed by users, allowing consultation of an audit history that guarantees system traceability and security |
 | **Stakeholder** | System Administrator |
 
-
-
+#### Epic 12
 
 ###  Historias de usuario (EP-01):
 
