@@ -228,14 +228,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-11
 
-
-| Campo           | Descripción                                                                                  |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| **ID**          | HU-10                                                                                        |
-| **Título**      | Administrar equipo                                                                           |
-| **Descripción** | Como capitán quiero gestionar los jugadores de mi equipo para cumplir las reglas del torneo. |
-| **Prioridad**   | Alta                                                                                         |
-| **Estimación**  | 5 puntos                                                                                     |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-54](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-54) |
+| **Title** | Manage Team |
+| **Description** | As captain, I want to manage my team's players to comply with the tournament rules |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 #### EP-05
 
