@@ -382,13 +382,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-25
 
-| Campo           | Descripción                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-24                                                                                                           |
-| **Título**      | Consultar historial de torneos                                                                                  |
-| **Descripción** | Como usuario quiero consultar el historial de torneos anteriores para revisar campeones y estadísticas pasadas. |
-| **Prioridad**   | Media                                                                                                           |
-| **Estimación**  | 5 puntos                                                                                                        |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-68](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-68) |
+| **Title** | View tournament history |
+| **Description** | As a user, I want to consult the history of previous tournaments to review past champions and statistics |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 #### EP-12
 
