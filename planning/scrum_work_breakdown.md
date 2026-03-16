@@ -76,12 +76,12 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Stakeholder** | Tournament Users |
 
 
-| Campo           | Descripción                                                                                                                                                                                 |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | EP-10                                                                                                                                                                                       |
-| **Título**      | Gestión de Fase Eliminatoria                                                                                                                                                                |
-| **Descripción** | TECHCUP FUTBOL necesita esta épica para generar automáticamente las llaves eliminatorias una vez finalizada la fase de grupos y gestionar el avance del torneo hasta determinar el campeón. |
-| **Stakeholder** | Organizador del torneo                                                                                                                                                                      |
+| Field | Description |
+| ----- | ----------- |
+|**ID** | [SCRUM-40](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-40) |
+|**Title** | Knockout Stage Management |
+|**Description** | TECHCUP FOOTBALL needs this epic to automatically generate the knockout brackets once the group stage is over and manage the tournament's progression until the champion is determined |
+|**Stakeholder** | Tournament Organizer |
 
 
 | Campo           | Descripción                                                                                                                                                                                  |
