@@ -338,13 +338,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-21
 
-| Campo           | Descripción                                                                                           |
-| --------------- | ----------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-20                                                                                                 |
-| **Título**      | Consultar tabla de posiciones                                                                         |
-| **Descripción** | Como usuario quiero consultar la tabla de posiciones para conocer la clasificación actual del torneo. |
-| **Prioridad**   | Alta                                                                                                  |
-| **Estimación**  | 3 puntos                                                                                              |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-64](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-64) |
+| **Title** | View standings |
+| **Description** | As a user, I want to check the standings table to see the current tournament ranking |
+| **Priority** | High |
+| **Estimate** | 3 points |
 
 #### EP-10
 
