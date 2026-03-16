@@ -250,13 +250,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-13
 
-| Campo           | Descripción                                                                                             |
-| --------------- | ------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-12                                                                                                   |
-| **Título**      | Responder invitación                                                                                    |
-| **Descripción** | Como jugador quiero aceptar o rechazar una invitación para decidir si quiero formar parte de un equipo. |
-| **Prioridad**   | Alta                                                                                                    |
-| **Estimación**  | 3 puntos                                                                                                |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-56](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-56) |
+| **Title** | Respond to invitation |
+| **Description** | As a player, I want to accept or decline an invitation to decide if I want to join a team |
+| **Priority** | High |
+| **Estimate** | 3 points |
 
 ##### HU-14
 
