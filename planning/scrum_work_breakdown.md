@@ -304,13 +304,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-18
 
-| Campo           | Descripción                                                                                           |
-| --------------- | ----------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-17                                                                                                 |
-| **Título**      | Consultar alineación rival                                                                            |
-| **Descripción** | Como capitán quiero consultar la alineación del equipo rival para analizar la estrategia del partido. |
-| **Prioridad**   | Media                                                                                                 |
-| **Estimación**  | 3 puntos                                                                                              |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-61](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-61) |
+| **Title** | Check opponent lineup |
+| **Description** | As captain, I want to check the opposing team's lineup to analyze the match strategy |
+| **Priority** | Medium |
+| **Estimate** | 3 points |
 
 #### EP-08
 
