@@ -372,13 +372,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-24
 
-| Campo           | Descripción                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-23                                                                                                      |
-| **Título**      | Consultar estadísticas del torneo                                                                          |
-| **Descripción** | Como usuario quiero consultar estadísticas del torneo para analizar el rendimiento de equipos y jugadores. |
-| **Prioridad**   | Media                                                                                                      |
-| **Estimación**  | 5 puntos                                                                                                   |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-67](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-67) |
+| **Title** | View tournament statistics |
+| **Description** | As a user, I want to consult tournament statistics to analyze the performance of teams and players |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 ##### HU-25
 
