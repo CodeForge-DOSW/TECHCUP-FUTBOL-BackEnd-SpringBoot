@@ -218,13 +218,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-10
 
-| Campo           | Descripción                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| **ID**          | HU-09                                                                                          |
-| **Título**      | Crear equipo                                                                                   |
-| **Descripción** | Como capitán quiero crear un equipo con nombre, escudo y colores para participar en el torneo. |
-| **Prioridad**   | Alta                                                                                           |
-| **Estimación**  | 5 puntos                                                                                       |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-53](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-53) |
+| **Title** | Create a team |
+| **Description** | As captain, I want to create a team with a name, crest, and colors to participate in tournament 2 |
+| **Priority** | High |
+| **Estimate** | 5 points ||
 
 ##### HU-11
 
