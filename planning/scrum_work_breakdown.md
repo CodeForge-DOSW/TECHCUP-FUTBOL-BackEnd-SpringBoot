@@ -326,13 +326,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-20
 
-| Campo           | Descripción                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-19                                                                                                                  |
-| **Título**      | Registrar estadísticas del partido                                                                                     |
-| **Descripción** | Como árbitro quiero registrar estadísticas como goleadores y tarjetas para mantener información detallada del partido. |
-| **Prioridad**   | Media                                                                                                                  |
-| **Estimación**  | 5 puntos                                                                                                               |
+| Field | Description |
+| ----- | ----------- |
+| **ID** | [SCRUM-63](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-63) |
+| **Title** | Record match statistics |
+| **Description** | As a referee, I want to record statistics such as goalscorers and cards to maintain detailed information about the match |
+| **Priority** | Medium |
+| **Estimate** | 5 points |
 
 #### EP-09
 
