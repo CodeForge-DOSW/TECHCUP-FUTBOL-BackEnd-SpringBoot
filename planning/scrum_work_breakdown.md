@@ -195,13 +195,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-08
 
-| Campo           | Descripción                                                                                            |
-| --------------- | ------------------------------------------------------------------------------------------------------ |
-| **ID**          | HU-07                                                                                                  |
-| **Título**      | Asignar roles a usuarios                                                                               |
-| **Descripción** | Como administrador quiero asignar roles a los usuarios para controlar los permisos dentro del sistema. |
-| **Prioridad**   | Alta                                                                                                   |
-| **Estimación**  | 5 puntos                                                                                               |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-51](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-51) |
+| **Title** | Assigning roles to users |
+| **Description** | As an administrator, I want to assign roles to users to control permissions within the system |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 ##### HU-09
 
