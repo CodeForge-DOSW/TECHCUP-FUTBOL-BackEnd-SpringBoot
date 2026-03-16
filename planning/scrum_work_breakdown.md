@@ -118,6 +118,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-01
 
+##### HU-01
+
 | Field | Description |
 | ----- | ----------- |
 | **ID**| [SCRUM-26](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-26) |
@@ -125,6 +127,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | As the organizer, I want to create a tournament to define the basic characteristics of the competition. |
 | **Priority** | High |
 | **Estimate** | 5 points |
+
+##### HU-02
 
 | Campo | Descripción |
 | ----- | ----------- |
@@ -134,6 +138,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Priority** | High |
 | **Estimate** | 5 points |
 
+##### HU-03
+
 | Campo | Descripción |
 | ----- | ----------- |
 | **ID** | [SCRUM-28](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-28) |
@@ -141,6 +147,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Description** | As the organizer, I want to start or end (Draft, Active, In Progress, Completed) the tournament to control the competition's lifecycle |
 | **Priority** | High |
 | **Estimate** | 3 points |
+
+##### HU-04
 
 | Field | Description |
 | ----- | ----------- |
@@ -152,6 +160,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-02
 
+##### HU-05
+
 | Campo           | Descripción                                                                          |
 | --------------- | ------------------------------------------------------------------------------------ |
 | **ID**          | HU-04                                                                                |
@@ -159,6 +169,9 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como usuario quiero registrarme en la plataforma para poder participar en el torneo. |
 | **Prioridad**   | Alta                                                                                 |
 | **Estimación**  | 5 puntos                                                                             |
+
+##### HU-06
+
 
 | Campo           | Descripción                                                                                                    |
 | --------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -168,14 +181,21 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                           |
 | **Estimación**  | 3 puntos                                                                                                       |
 
+##### HU-07
+
 | Campo           | Descripción                                                                                                                                          |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-06                                                                                                                                                |
 | **Título**      | Configurar perfil deportivo                                                                                                                          |
 | **Descripción** | Como jugador quiero configurar mi perfil deportivo con foto, dorsal y posiciones de juego para que los capitanes puedan conocer mis características. |
 | **Prioridad**   | Media                                                                                                                                                |
+
+##### HU-08
+
 | **Estimación**  | 5 puntos                                                                                                                                             
 #### EP-03
+
+##### HU-09
 
 | Campo           | Descripción                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------ |
@@ -184,6 +204,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como administrador quiero asignar roles a los usuarios para controlar los permisos dentro del sistema. |
 | **Prioridad**   | Alta                                                                                                   |
 | **Estimación**  | 5 puntos                                                                                               |
+
+##### HU-10
 
 
 | Campo           | Descripción                                                                                                                     |
@@ -195,6 +217,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Estimación**  | 5 puntos                                                                                                                        |
 #### EP-04
 
+##### HU-11
+
 | Campo           | Descripción                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | **ID**          | HU-09                                                                                          |
@@ -202,6 +226,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como capitán quiero crear un equipo con nombre, escudo y colores para participar en el torneo. |
 | **Prioridad**   | Alta                                                                                           |
 | **Estimación**  | 5 puntos                                                                                       |
+
+##### HU-12
 
 
 | Campo           | Descripción                                                                                  |
@@ -214,6 +240,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-05
 
+##### HU-15
+
 | Campo           | Descripción                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
 | **ID**          | HU-11                                                                             |
@@ -222,6 +250,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                              |
 | **Estimación**  | 5 puntos                                                                          |
 
+##### HU-16
+
 | Campo           | Descripción                                                                                             |
 | --------------- | ------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-12                                                                                                   |
@@ -229,6 +259,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como jugador quiero aceptar o rechazar una invitación para decidir si quiero formar parte de un equipo. |
 | **Prioridad**   | Alta                                                                                                    |
 | **Estimación**  | 3 puntos                                                                                                |
+
+##### HU-17
 
 | Campo           | Descripción                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -240,6 +272,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-06
 
+##### HU-18
+
 | Campo           | Descripción                                                                                               |
 | --------------- | --------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-14                                                                                                     |
@@ -247,6 +281,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como capitán quiero subir el comprobante de pago para completar la inscripción de mi equipo en el torneo. |
 | **Prioridad**   | Alta                                                                                                      |
 | **Estimación**  | 5 puntos                                                                                                  |
+
+##### HU-19
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -258,6 +294,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-07
 
+##### HU-20
+
 | Campo           | Descripción                                                                      |
 | --------------- | -------------------------------------------------------------------------------- |
 | **ID**          | HU-16                                                                            |
@@ -266,6 +304,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                            |
 | **Estimación**  | 5 puntos                                                                         |
 
+##### HU-21
+
 | Campo           | Descripción                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-17                                                                                                 |
@@ -273,6 +313,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como capitán quiero consultar la alineación del equipo rival para analizar la estrategia del partido. |
 | **Prioridad**   | Media                                                                                                 |
 | **Estimación**  | 3 puntos                                                                                              |
+
+##### HU-22
 
 #### EP-08
 
@@ -284,6 +326,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Alta                                                                                                         |
 | **Estimación**  | 5 puntos                                                                                                     |
 
+##### HU-23
+
 | Campo           | Descripción                                                                                                            |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-19                                                                                                                  |
@@ -293,6 +337,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Estimación**  | 5 puntos                                                                                                               |
 
 #### EP-09
+
+##### HU-24
 
 | Campo           | Descripción                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -304,6 +350,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-10
 
+##### HU-25
+
 | Campo           | Descripción                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-21                                                                                                                           |
@@ -311,6 +359,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como organizador quiero generar automáticamente las llaves eliminatorias para continuar el torneo después de la fase de grupos. |
 | **Prioridad**   | Alta                                                                                                                            |
 | **Estimación**  | 8 puntos                                                                                                                        |
+
+##### HU-26
 
 | Campo           | Descripción                                                                                                       |
 | --------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -322,6 +372,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-11
 
+##### HU-27
 
 | Campo           | Descripción                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -331,6 +382,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Prioridad**   | Media                                                                                                      |
 | **Estimación**  | 5 puntos                                                                                                   |
 
+##### HU-28
 
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -342,6 +394,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 #### EP-12
 
+##### HU-29
+
 | Campo           | Descripción                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | **ID**          | HU-25                                                                                                           |
@@ -349,6 +403,8 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Como sistema quiero registrar las acciones realizadas por los usuarios para mantener un historial de auditoría. |
 | **Prioridad**   | Media                                                                                                           |
 | **Estimación**  | 5 puntos                                                                                                        |
+
+##### HU-30
 
 | Campo           | Descripción                                                                                                           |
 | --------------- | --------------------------------------------------------------------------------------------------------------------- |
