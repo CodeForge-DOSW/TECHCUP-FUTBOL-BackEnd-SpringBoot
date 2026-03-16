@@ -195,7 +195,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-08
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-51](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-51) |
 | **Title** | Assigning roles to users |
@@ -206,7 +206,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 ##### HU-09
 
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-52](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-52) |
 | **Title** | Restrict access by role |
@@ -218,7 +218,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-10
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-53](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-53) |
 | **Title** | Create a team |
@@ -228,7 +228,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-11
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-54](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-54) |
 | **Title** | Manage Team |
@@ -240,7 +240,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-12
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-55](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-55) |
 | **Title** | Invite players |
@@ -250,7 +250,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-13
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-56](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-56) |
 | **Title** | Respond to invitation |
@@ -260,7 +260,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-14
 
-| Campo | Descripción |
+| Field | Description |
 | ----- | ----------- |
 | **ID** | [SCRUM-57](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-57) |
 | **Title** | Search for players |
@@ -272,13 +272,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ##### HU-15
 
-| Campo           | Descripción                                                                                               |
-| --------------- | --------------------------------------------------------------------------------------------------------- |
-| **ID**          | HU-14                                                                                                     |
-| **Título**      | Subir comprobante de pago                                                                                 |
-| **Descripción** | Como capitán quiero subir el comprobante de pago para completar la inscripción de mi equipo en el torneo. |
-| **Prioridad**   | Alta                                                                                                      |
-| **Estimación**  | 5 puntos                                                                                                  |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-58](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-58) |
+| **Title** | Upload proof of payment |
+| **Description** | As captain, I want to upload the payment receipt to complete my team's registration for the tournament |
+| **Priority** | High |
+| **Estimate** | 5 points |
 
 ##### HU-16
 
