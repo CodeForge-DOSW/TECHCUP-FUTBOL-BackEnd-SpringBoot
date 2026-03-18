@@ -1,0 +1,1 @@
+public enum MatchPhase { GROUP_STAGE, QUARTERFINAL, SEMIFINAL, FINAL }
