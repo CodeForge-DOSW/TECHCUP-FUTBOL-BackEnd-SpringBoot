@@ -10,19 +10,19 @@ import java.util.List;
 
 public class UserServiceTest {
 
-    private UserService userService;
+    private IUserService userService;
 
     @BeforeEach
     void setUp() {
-        userService = new UserService();
+        userService = new UserServiceImpl();
     }
 
     // CREATE
 
-    @DisplayName("Create student user with a valid institutional email")
+    @DisplayName("Should create a student user with a valid institutional email")
     @Test
     void shouldCreateStudentWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@mail.escuelaing.edu.co");
         user.setName("Juan");
@@ -34,10 +34,10 @@ public class UserServiceTest {
         assertTrue(result.isActive());
     }
 
-    @DisplayName("Reject student user creation with a non-institutional email")
+    @DisplayName("Should throw an exception when creating a student with a non-institutional email")
     @Test
     void shouldFailCreateStudentWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@gmail.com");
 
@@ -46,10 +46,10 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Create graduate user with a valid institutional email")
+    @DisplayName("Should create a graduate user with a valid institutional email")
     @Test
     void shouldCreateGraduateWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.GRADUATE);
         user.setEmail("ana@mail.escuelaing.edu.co");
 
@@ -58,10 +58,10 @@ public class UserServiceTest {
         assertNotNull(result.getId());
     }
 
-    @DisplayName("Reject graduate user creation with a non-institutional email")
+    @DisplayName("Should throw an exception when creating a graduate with an invalid email domain")
     @Test
     void shouldFailCreateGraduateWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.GRADUATE);
         user.setEmail("ana@gmail.com");
 
@@ -70,10 +70,10 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Create professor user with an allowed domain")
+    @DisplayName("Should create a professor user with a valid professor email")
     @Test
     void shouldCreateProfessorWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.PROFESSOR);
         user.setEmail("profe@escuelaing.edu.co");
 
@@ -82,10 +82,10 @@ public class UserServiceTest {
         assertNotNull(result.getId());
     }
 
-    @DisplayName("Reject professor user creation with a disallowed subdomain")
+    @DisplayName("Should throw an exception when creating a professor with an invalid email format")
     @Test
     void shouldFailCreateProfessorWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.PROFESSOR);
         user.setEmail("profe@mail.escuelaing.edu.co");
 
@@ -94,10 +94,10 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Create administrative user with an allowed domain")
+    @DisplayName("Should create an administrative user with a valid institutional email")
     @Test
     void shouldCreateAdministrativeWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.ADMINISTRATIVE);
         user.setEmail("admin@escuelaing.edu.co");
 
@@ -106,10 +106,10 @@ public class UserServiceTest {
         assertNotNull(result.getId());
     }
 
-    @DisplayName("Reject administrative user creation with an invalid domain")
+    @DisplayName("Should throw an exception when creating an administrative user with an invalid email")
     @Test
     void shouldFailCreateAdministrativeWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.ADMINISTRATIVE);
         user.setEmail("admin@gmail.com");
 
@@ -118,10 +118,10 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Create family user with an external email")
+    @DisplayName("Should create a family user with a valid external email")
     @Test
     void shouldCreateFamilyWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.FAMILY);
         user.setEmail("mama@gmail.com");
 
@@ -130,10 +130,10 @@ public class UserServiceTest {
         assertNotNull(result.getId());
     }
 
-    @DisplayName("Reject family user creation with an institutional email")
+    @DisplayName("Should throw an exception when creating a family user with an institutional email")
     @Test
     void shouldFailCreateFamilyWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.FAMILY);
         user.setEmail("mama@escuelaing.edu.co");
 
@@ -144,10 +144,10 @@ public class UserServiceTest {
 
     // READ
 
-    @DisplayName("Get an existing user by id")
+    @DisplayName("Should return an existing user by id")
     @Test
     void shouldGetUserById() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@mail.escuelaing.edu.co");
         user.setName("Juan");
@@ -159,7 +159,7 @@ public class UserServiceTest {
         assertEquals("juan@mail.escuelaing.edu.co", found.getEmail());
     }
 
-    @DisplayName("Throw exception when getting a user that does not exist")
+    @DisplayName("Should throw an exception when getting a non-existing user by id")
     @Test
     void shouldFailWhenUserNotFound() {
         assertThrows(RuntimeException.class, () -> {
@@ -167,14 +167,14 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Return all created users")
+    @DisplayName("Should return all created users")
     @Test
     void shouldGetAllUsers() {
-        User u1 = new Player();
+        Player u1 = new Player();
         u1.setRole(RoleType.STUDENT);
         u1.setEmail("a@mail.escuelaing.edu.co");
 
-        User u2 = new Player();
+        Player u2 = new Player();
         u2.setRole(RoleType.FAMILY);
         u2.setEmail("b@gmail.com");
 
@@ -186,7 +186,7 @@ public class UserServiceTest {
         assertEquals(2, users.size());
     }
 
-    @DisplayName("Return an empty list when there are no users")
+    @DisplayName("Should return an empty list when there are no users")
     @Test
     void shouldReturnEmptyListWhenNoUsers() {
         List<User> users = userService.getAllUsers();
@@ -196,17 +196,17 @@ public class UserServiceTest {
 
     // UPDATE
 
-    @DisplayName("Update an existing user")
+    @DisplayName("Should update user basic information successfully")
     @Test
     void shouldUpdateUser() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@mail.escuelaing.edu.co");
         user.setName("Old Name");
 
         User created = userService.createUser(user);
 
-        User updated = new Player();
+        Player updated = new Player();
         updated.setName("New Name");
         updated.setEmail("juan@mail.escuelaing.edu.co");
 
@@ -215,10 +215,10 @@ public class UserServiceTest {
         assertEquals("New Name", result.getName());
     }
 
-    @DisplayName("Throw exception when updating a user that does not exist")
+    @DisplayName("Should throw an exception when updating a non-existing user")
     @Test
     void shouldFailUpdateIfUserNotFound() {
-        User updated = new Player();
+        Player updated = new Player();
         updated.setName("Test");
 
         assertThrows(RuntimeException.class, () -> {
@@ -226,16 +226,16 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Update user email when the new email is valid for the role")
+    @DisplayName("Should update user email when the new email is valid")
     @Test
     void shouldUpdateUserWithValidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.PROFESSOR);
         user.setEmail("profe@escuelaing.edu.co");
 
         User created = userService.createUser(user);
 
-        User updated = new Player();
+        Player updated = new Player();
         updated.setEmail("profe@escuelaing.edu.co");
 
         User result = userService.updateUser(created.getId(), updated);
@@ -243,16 +243,16 @@ public class UserServiceTest {
         assertEquals("profe@escuelaing.edu.co", result.getEmail());
     }
 
-    @DisplayName("Reject user update when the new email is invalid for the role")
+    @DisplayName("Should throw an exception when updating user email with an invalid domain")
     @Test
     void shouldFailUpdateWithInvalidEmail() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@mail.escuelaing.edu.co");
 
         User created = userService.createUser(user);
 
-        User updated = new Player();
+        Player updated = new Player();
         updated.setEmail("juan@gmail.com");
 
         assertThrows(RuntimeException.class, () -> {
@@ -260,12 +260,12 @@ public class UserServiceTest {
         });
     }
 
-    // DELETE (INACTIVAR)
+    // DEACTIVATE
 
-    @DisplayName("Deactivate an existing user")
+    @DisplayName("Should deactivate an existing user")
     @Test
     void shouldDeactivateUser() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.FAMILY);
         user.setEmail("mama@gmail.com");
         user.setName("Maria");
@@ -279,7 +279,7 @@ public class UserServiceTest {
         assertFalse(result.isActive());
     }
 
-    @DisplayName("Throw exception when deactivating a user that does not exist")
+    @DisplayName("Should throw an exception when deactivating a non-existing user")
     @Test
     void shouldFailDeactivateIfUserNotFound() {
         assertThrows(RuntimeException.class, () -> {
@@ -287,10 +287,10 @@ public class UserServiceTest {
         });
     }
 
-    @DisplayName("Keep user in list after deactivation and mark as inactive")
+    @DisplayName("Should keep deactivated users in the user list")
     @Test
     void shouldNotDeleteUserFromList() {
-        User user = new Player();
+        Player user = new Player();
         user.setRole(RoleType.STUDENT);
         user.setEmail("juan@mail.escuelaing.edu.co");
 
@@ -302,5 +302,78 @@ public class UserServiceTest {
 
         assertEquals(1, users.size());
         assertFalse(users.get(0).isActive());
+    }
+
+
+    @DisplayName("Should throw an exception when creating a null user")
+    @Test
+    void shouldFailCreateWhenUserIsNull() {
+        assertThrows(RuntimeException.class, () -> userService.createUser(null));
+    }
+
+    @DisplayName("Should throw an exception when creating a user without role")
+    @Test
+    void shouldFailCreateWhenRoleIsNull() {
+        Player user = new Player();
+        user.setEmail("no-role@mail.escuelaing.edu.co");
+
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+    }
+
+    @DisplayName("Should throw an exception when creating a user with blank email")
+    @Test
+    void shouldFailCreateWhenEmailIsBlank() {
+        Player user = new Player();
+        user.setRole(RoleType.STUDENT);
+        user.setEmail("   ");
+
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+    }
+
+    @DisplayName("Should throw an exception when creating two users with the same email")
+    @Test
+    void shouldFailCreateWhenEmailAlreadyExists() {
+        Player first = new Player();
+        first.setRole(RoleType.STUDENT);
+        first.setEmail("duplicate@mail.escuelaing.edu.co");
+
+        Player second = new Player();
+        second.setRole(RoleType.STUDENT);
+        second.setEmail("duplicate@mail.escuelaing.edu.co");
+
+        userService.createUser(first);
+
+        assertThrows(RuntimeException.class, () -> userService.createUser(second));
+    }
+
+    @DisplayName("Should throw an exception when updating a user with null payload")
+    @Test
+    void shouldFailUpdateWhenPayloadIsNull() {
+        Player user = new Player();
+        user.setRole(RoleType.FAMILY);
+        user.setEmail("family@gmail.com");
+
+        User created = userService.createUser(user);
+
+        assertThrows(RuntimeException.class, () -> userService.updateUser(created.getId(), null));
+    }
+
+    @DisplayName("Should keep the same id after updating a user")
+    @Test
+    void shouldKeepSameIdAfterUpdate() {
+        Player user = new Player();
+        user.setRole(RoleType.STUDENT);
+        user.setEmail("same-id@mail.escuelaing.edu.co");
+        user.setName("Before");
+
+        User created = userService.createUser(user);
+
+        Player updated = new Player();
+        updated.setEmail("same-id@mail.escuelaing.edu.co");
+        updated.setName("After");
+
+        User result = userService.updateUser(created.getId(), updated);
+
+        assertEquals(created.getId(), result.getId());
     }
 }
