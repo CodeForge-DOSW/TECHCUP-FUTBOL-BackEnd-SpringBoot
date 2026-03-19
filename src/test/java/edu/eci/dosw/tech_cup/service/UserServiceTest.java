@@ -1,5 +1,8 @@
 package edu.eci.dosw.tech_cup.service;
 
+import edu.eci.dosw.tech_cup.model.Player;
+import edu.eci.dosw.tech_cup.model.RoleType;
+import edu.eci.dosw.tech_cup.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +17,7 @@ public class UserServiceTest {
 
     @BeforeEach
     void setUp() {
-        userService = new UserServiceImpl();
+        userService = new UserService();
     }
 
     // CREATE
@@ -98,7 +101,7 @@ public class UserServiceTest {
     @Test
     void shouldCreateAdministrativeWithValidEmail() {
         Player user = new Player();
-        user.setRole(RoleType.ADMINISTRATIVE);
+        user.setRole(RoleType.ADMINISTRATIVE_PERSONAL);
         user.setEmail("admin@escuelaing.edu.co");
 
         User result = userService.createUser(user);
@@ -110,7 +113,7 @@ public class UserServiceTest {
     @Test
     void shouldFailCreateAdministrativeWithInvalidEmail() {
         Player user = new Player();
-        user.setRole(RoleType.ADMINISTRATIVE);
+        user.setRole(RoleType.ADMINISTRATIVE_PERSONAL);
         user.setEmail("admin@gmail.com");
 
         assertThrows(RuntimeException.class, () -> {
