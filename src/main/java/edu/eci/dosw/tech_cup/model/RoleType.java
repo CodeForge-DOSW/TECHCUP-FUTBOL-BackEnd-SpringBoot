@@ -1,1 +1,8 @@
-public enum RoleType { ADMINISTRATOR, ORGANIZER, CAPTAIN, REFEREE, PLAYER }
+package edu.eci.dosw.tech_cup.model;
+
+public enum RoleType {
+    GRADUATE,
+    ADMINISTRATIVE_PERSONAL,
+    PROFESSOR,
+    FAMILY
+}

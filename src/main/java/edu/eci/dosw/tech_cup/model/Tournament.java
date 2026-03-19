@@ -1,80 +1,104 @@
+package edu.eci.dosw.tech_cup.model;
+
+
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tournament {
 
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private String status;
+    private Integer maxOfTeams;
+    private BigDecimal teamCost;
     private Long id;
     private String name;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private Integer numberOfTeams;
-    private BigDecimal teamCost;
-    private TournamentStatus status;
+    private List<Team> teams;
 
-    private List<TeamTournament> teamTournaments = new ArrayList<>();
-    private List<Rules> rules = new ArrayList<>();
-    private List<ImportantDate> importantDates = new ArrayList<>();
-    private List<Match> matches = new ArrayList<>();
-    private List<Standings> standings = new ArrayList<>();
+    public Tournament() {
+        this.teams = new ArrayList<>();
+        this.status = TournamentStatus.DRAFT.name();
+    }
 
-    public Tournament() {}
-
-    public Tournament(Long id, String name, LocalDate startDate, LocalDate endDate,
-                      Integer numberOfTeams, BigDecimal teamCost, TournamentStatus status) {
+    public Tournament(Long id, String name, LocalDateTime startDate, LocalDateTime endDate,
+                      Integer maxOfTeams, BigDecimal teamCost) {
         this.id = id;
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.numberOfTeams = numberOfTeams;
+        this.maxOfTeams = maxOfTeams;
         this.teamCost = teamCost;
-        this.status = status;
+        this.teams = new ArrayList<>();
+        this.status = TournamentStatus.DRAFT.name();
     }
 
-    public boolean canModify() {
-        return status == TournamentStatus.DRAFT || status == TournamentStatus.ACTIVE;
-    }
-
-    public boolean canDelete() {
-        return status == TournamentStatus.DRAFT;
-    }
-
-    public void activate() {
-        if (status != TournamentStatus.DRAFT) {
-            throw new IllegalStateException("Only DRAFT tournaments can be activated.");
+    public void startTournament() {
+        if (!TournamentStatus.DRAFT.name().equals(this.status)) {
+            throw new IllegalStateException("Tournament can only be started from DRAFT status");
         }
-        this.status = TournamentStatus.ACTIVE;
+        this.status = TournamentStatus.ACTIVE.name();
     }
+
+    public void finishTournament() {
+        if (!TournamentStatus.IN_PROGRESS.name().equals(this.status)) {
+            throw new IllegalStateException("Tournament can only be finished if IN_PROGRESS");
+        }
+        this.status = TournamentStatus.IN_PROGRESS.name();
+    }
+
+    public Boolean isActive() {
+        return TournamentStatus.ACTIVE.name().equals(this.status)
+                || TournamentStatus.IN_PROGRESS.name().equals(this.status);
+    }
+
+    public void addTeam(Team team) {
+        if (team == null) throw new IllegalArgumentException("Team cannot be null");
+        if (this.teams.size() >= this.maxOfTeams) {
+            throw new IllegalStateException("Tournament has reached maximum number of teams");
+        }
+        this.teams.add(team);
+    }
+
+    public List<Match> generateMatches() {
+        List<Match> matches = new ArrayList<>();
+        for (int i = 0; i < teams.size(); i++) {
+            for (int j = i + 1; j < teams.size(); j++) {
+                Match match = new Match();
+                match.setTournament(this);
+                match.setHomeTeam(teams.get(i));
+                match.setAwayTeam(teams.get(j));
+                match.setPhase(MatchPhase.GROUP_STAGE);
+                matches.add(match);
+            }
+        }
+        return matches;
+    }
+
+    // Getters and Setters
+    public LocalDateTime getStartDate() { return startDate; }
+    public void setStartDate(LocalDateTime startDate) { this.startDate = startDate; }
+
+    public LocalDateTime getEndDate() { return endDate; }
+    public void setEndDate(LocalDateTime endDate) { this.endDate = endDate; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public Integer getMaxOfTeams() { return maxOfTeams; }
+    public void setMaxOfTeams(Integer maxOfTeams) { this.maxOfTeams = maxOfTeams; }
+
+    public BigDecimal getTeamCost() { return teamCost; }
+    public void setTeamCost(BigDecimal teamCost) { this.teamCost = teamCost; }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public LocalDate getStartDate() { return startDate; }
-    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-    public LocalDate getEndDate() { return endDate; }
-    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
-    public Integer getNumberOfTeams() { return numberOfTeams; }
-    public void setNumberOfTeams(Integer numberOfTeams) { this.numberOfTeams = numberOfTeams; }
-    public BigDecimal getTeamCost() { return teamCost; }
-    public void setTeamCost(BigDecimal teamCost) { this.teamCost = teamCost; }
-    public TournamentStatus getStatus() { return status; }
-    public void setStatus(TournamentStatus status) { this.status = status; }
-    public List<TeamTournament> getTeamTournaments() { return teamTournaments; }
-    public void setTeamTournaments(List<TeamTournament> teamTournaments) { this.teamTournaments = teamTournaments; }
-    public List<Rules> getRules() { return rules; }
-    public void setRules(List<Rules> rules) { this.rules = rules; }
-    public List<ImportantDate> getImportantDates() { return importantDates; }
-    public void setImportantDates(List<ImportantDate> importantDates) { this.importantDates = importantDates; }
-    public List<Match> getMatches() { return matches; }
-    public void setMatches(List<Match> matches) { this.matches = matches; }
-    public List<Standings> getStandings() { return standings; }
-    public void setStandings(List<Standings> standings) { this.standings = standings; }
 
-    @Override
-    public String toString() {
-        return "Tournament{id=" + id + ", name='" + name + "', status=" + status + "}";
-    }
+    public List<Team> getTeams() { return teams; }
+    public void setTeams(List<Team> teams) { this.teams = teams; }
 }
