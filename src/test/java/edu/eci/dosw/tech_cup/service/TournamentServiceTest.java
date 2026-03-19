@@ -23,8 +23,7 @@ public class TournamentServiceTest {
     void setUp() {
         tournamentService = new TournamentService();
     }
-
-    // ─── Helpers ──────────────────────────────────────────────────────────────
+    
 
     private Tournament buildValidTournament(String name) {
         Tournament t = new Tournament();
@@ -35,10 +34,7 @@ public class TournamentServiceTest {
         t.setTeamCost(new BigDecimal("50000"));
         return t;
     }
-
-    // ═══════════════════════════════════════════════════════════════════════════
-    // CREATE
-    // ═══════════════════════════════════════════════════════════════════════════
+    
 
     @DisplayName("Should create a tournament with all valid fields")
     @Test
@@ -160,9 +156,6 @@ public class TournamentServiceTest {
                 () -> tournamentService.createTournament(buildValidTournament("TechCup 2025-I")));
     }
 
-    // ═══════════════════════════════════════════════════════════════════════════
-    // READ
-    // ═══════════════════════════════════════════════════════════════════════════
 
     @DisplayName("Should return a tournament by its ID")
     @Test
@@ -210,9 +203,6 @@ public class TournamentServiceTest {
         assertEquals(1, tournamentService.getAllTournaments().size());
     }
 
-    // ═══════════════════════════════════════════════════════════════════════════
-    // UPDATE
-    // ═══════════════════════════════════════════════════════════════════════════
 
     @DisplayName("Should update tournament name successfully when in DRAFT")
     @Test
@@ -375,9 +365,6 @@ public class TournamentServiceTest {
                 () -> tournamentService.updateTournament(created.getId(), update));
     }
 
-    // ═══════════════════════════════════════════════════════════════════════════
-    // CANCEL (DELETE LÓGICO)
-    // ═══════════════════════════════════════════════════════════════════════════
 
     @DisplayName("Should cancel a tournament in DRAFT status")
     @Test
