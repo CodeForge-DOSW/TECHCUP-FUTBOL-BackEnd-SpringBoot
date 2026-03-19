@@ -66,11 +66,8 @@ public class Tournament {
         List<Match> matches = new ArrayList<>();
         for (int i = 0; i < teams.size(); i++) {
             for (int j = i + 1; j < teams.size(); j++) {
-                Match match = new Match();
-                match.setTournament(this);
-                match.setHomeTeam(teams.get(i));
-                match.setAwayTeam(teams.get(j));
-                match.setPhase(MatchPhase.GROUP_STAGE);
+                Match match = new Match(this, teams.get(i), teams.get(j),
+                        MatchPhase.GROUP_STAGE, null, null);
                 matches.add(match);
             }
         }
