@@ -70,6 +70,14 @@ public class UserService implements IUserService {
                     .orElseThrow(() -> new RuntimeException("User not found"));
             log.info("Usuario encontrado con id: {}", id);
             return user;
+        } catch (RuntimeException e) {
+            log.error("Error buscando usuario con id: {}", id, e);
+            throw e;
+        }
+    }
+
+    @Override
+    public List<User> getAllUsers() {
         log.debug("Obteniendo lista de todos los usuarios");
         try {
             log.info("Se devuelven {} usuarios", users.size());
@@ -78,12 +86,11 @@ public class UserService implements IUserService {
             log.error("Error obteniendo lista de usuarios", e);
             throw e;
         }
-            log.error("Error buscando usuario con id: {}", id, e);
-            throw e;
-        }
     }
 
-    @Ovelog.debug("Actualizando usuario con id: {}", id);
+    @Override
+    public User updateUser(Long id, User updatedUser) {
+        log.debug("Actualizando usuario con id: {}", id);
         try {
             if (updatedUser == null) {
                 log.error("Intento de actualizar usuario {} con datos nulos", id);
@@ -123,14 +130,7 @@ public class UserService implements IUserService {
         } catch (RuntimeException e) {
             log.error("Error actualizando usuario con id: {}", id, e);
             throw e;
-        }Email(updatedUser.getEmail());
         }
-
-        if (updatedUser.getName() != null) {
-            existing.setName(updatedUser.getName());
-        }
-
-        return existing;
     }
 
     @Override

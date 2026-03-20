@@ -78,6 +78,14 @@ public class TournamentService implements ITournamentService {
                     .orElseThrow(() -> new RuntimeException("Tournament not found"));
             log.info("Torneo encontrado con id: {}", id);
             return tournament;
+        } catch (RuntimeException e) {
+            log.error("Error buscando torneo con id: {}", id, e);
+            throw e;
+        }
+    }
+
+    @Override
+    public List<Tournament> getAllTournaments() {
         log.debug("Obteniendo lista de todos los torneos");
         try {
             log.info("Se devuelven {} torneos", tournaments.size());
@@ -86,14 +94,6 @@ public class TournamentService implements ITournamentService {
             log.error("Error obteniendo lista de torneos", e);
             throw e;
         }
-            log.error("Error buscando torneo con id: {}", id, e);
-            throw e;
-        }
-    }
-
-    @Override
-    public List<Tournament> getAllTournaments() {
-        return new ArrayList<>(tournaments);
     }
 
     @Override
@@ -174,6 +174,14 @@ public class TournamentService implements ITournamentService {
             }
             tournaments.remove(tournament);
             log.info("Torneo cancelado correctamente con id: {}", id);
+        } catch (RuntimeException e) {
+            log.error("Error cancelando torneo con id: {}", id, e);
+            throw e;
+        }
+    }
+
+    @Override
+    public void startTournament(Long id) {
         log.debug("Iniciando torneo con id: {}", id);
         try {
             Tournament tournament = getTournament(id);
@@ -182,13 +190,12 @@ public class TournamentService implements ITournamentService {
         } catch (RuntimeException e) {
             log.error("Error iniciando torneo con id: {}", id, e);
             throw e;
-        }do torneo con id: {}", id, e);
-            throw e;
         }
     }
 
     @Override
-    publlog.debug("Finalizando torneo con id: {}", id);
+    public void finishTournament(Long id) {
+        log.debug("Finalizando torneo con id: {}", id);
         try {
             Tournament tournament = getTournament(id);
             tournament.finishTournament();
@@ -196,13 +203,6 @@ public class TournamentService implements ITournamentService {
         } catch (RuntimeException e) {
             log.error("Error finalizando torneo con id: {}", id, e);
             throw e;
-        }rnament(id);
-        tournament.startTournament();
-    }
-
-    @Override
-    public void finishTournament(Long id) {
-        Tournament tournament = getTournament(id);
-        tournament.finishTournament();
+        }
     }
 }
