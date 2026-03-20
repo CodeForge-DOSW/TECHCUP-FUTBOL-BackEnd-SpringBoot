@@ -20,7 +20,6 @@ public class UserServiceTest {
         userService = new UserService();
     }
 
-    // CREATE
 
     @DisplayName("Should create a student user with a valid institutional email")
     @Test
@@ -145,7 +144,6 @@ public class UserServiceTest {
         });
     }
 
-    // READ
 
     @DisplayName("Should return an existing user by id")
     @Test
@@ -197,7 +195,6 @@ public class UserServiceTest {
         assertTrue(users.isEmpty());
     }
 
-    // UPDATE
 
     @DisplayName("Should update user basic information successfully")
     @Test

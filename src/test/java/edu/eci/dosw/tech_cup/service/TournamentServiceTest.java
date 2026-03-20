@@ -23,6 +23,7 @@ public class TournamentServiceTest {
     void setUp() {
         tournamentService = new TournamentService();
     }
+    
 
     private Tournament buildValidTournament(String name) {
         Tournament t = new Tournament();
@@ -35,6 +36,7 @@ public class TournamentServiceTest {
     }
 
     //CREATE
+    
 
     @DisplayName("Should create a tournament with all valid fields")
     @Test
@@ -143,7 +145,6 @@ public class TournamentServiceTest {
                 () -> tournamentService.createTournament(buildValidTournament("TechCup 2025-I")));
     }
 
-    //READ
 
     @DisplayName("Should return a tournament by its ID")
     @Test
@@ -176,7 +177,8 @@ public class TournamentServiceTest {
 
     //UPDATE
 
-    @DisplayName("Should update tournament name successfully when not FINISHED")
+
+    @DisplayName("Should update tournament name successfully when in DRAFT")
     @Test
     void shouldUpdateTournamentName() {
         Tournament created = tournamentService.createTournament(buildValidTournament("Old Name"));
@@ -221,7 +223,6 @@ public class TournamentServiceTest {
         assertEquals(created.getId(), tournamentService.updateTournament(created.getId(), update).getId());
     }
 
-    // CANCEL
 
     @DisplayName("Should cancel a tournament in DRAFT status")
     @Test
