@@ -3,5 +3,6 @@ package edu.eci.dosw.tech_cup.model;
 public enum TournamentStatus {
     DRAFT,
     ACTIVE,
-    IN_PROGRESS
+    IN_PROGRESS,
+    FINISHED
 }

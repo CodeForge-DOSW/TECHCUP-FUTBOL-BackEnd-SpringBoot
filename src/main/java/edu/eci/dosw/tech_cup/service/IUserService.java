@@ -16,6 +16,9 @@ public interface IUserService {
     // UPDATE
     User updateUser(Long id, User updatedUser);
 
-    // DELETE (INACTIVAR)
+    // DEACTIVATE 
     void deactivateUser(Long id);
+
+    // AUTH
+    void authenticate(String email, String password);
 }

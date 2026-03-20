@@ -69,8 +69,8 @@ public class TournamentService implements ITournamentService {
 
         Tournament existing = getTournament(id);
 
-        if (!TournamentStatus.DRAFT.name().equals(existing.getStatus())) {
-            throw new RuntimeException("Only tournaments in DRAFT status can be updated");
+        if (TournamentStatus.FINISHED.name().equals(existing.getStatus())) {
+            throw new RuntimeException("Cannot update a FINISHED tournament");
         }
 
         if (updatedTournament.getName() != null) {
@@ -117,8 +117,8 @@ public class TournamentService implements ITournamentService {
     @Override
     public void cancelTournament(Long id) {
         Tournament tournament = getTournament(id);
-        if (TournamentStatus.IN_PROGRESS.name().equals(tournament.getStatus())) {
-            throw new RuntimeException("Cannot cancel a tournament that is IN_PROGRESS");
+        if (!TournamentStatus.DRAFT.name().equals(tournament.getStatus())) {
+            throw new RuntimeException("Tournament can only be cancelled when in DRAFT status");
         }
         tournaments.remove(tournament);
     }
