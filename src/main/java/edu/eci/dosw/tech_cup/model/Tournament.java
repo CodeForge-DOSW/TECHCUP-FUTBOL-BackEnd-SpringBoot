@@ -1,7 +1,5 @@
 package edu.eci.dosw.tech_cup.model;
 
-
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,7 +44,7 @@ public class Tournament {
         if (!TournamentStatus.IN_PROGRESS.name().equals(this.status)) {
             throw new IllegalStateException("Tournament can only be finished if IN_PROGRESS");
         }
-        this.status = TournamentStatus.IN_PROGRESS.name();
+        this.status = TournamentStatus.FINISHED.name(); 
     }
 
     public Boolean isActive() {
