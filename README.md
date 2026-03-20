@@ -33,6 +33,7 @@ CAPTURA DE PANTALLA SWAGGER
 
 <img width="1919" height="988" alt="image" src="https://github.com/user-attachments/assets/8fc7d7ab-9bff-4ed7-9a6c-34b5a4ce4060" />
 
+
 # Bibliografía (Normas APA)
 
 * Walls, C. (2022). *Spring in Action* (6th ed.). Manning Publications.
