@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class UserController {
 
 
     @PostMapping
-    public ResponseEntity<?> createUser(@org.springframework.web.bind.annotation.RequestBody Player user) {
+    public ResponseEntity<?> createUser(@RequestBody Player user) {
         try {
 
             User created = userService.createUser(user);
@@ -40,7 +42,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUser(@org.springframework.web.bind.annotation.PathVariable Long id) {
+    public ResponseEntity<?> getUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.getUser(id));
         } catch (RuntimeException e) {
@@ -50,7 +52,7 @@ public class UserController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@org.springframework.web.bind.annotation.PathVariable Long id, @org.springframework.web.bind.annotation.RequestBody Player user) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Player user) {
         try {
             User updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
@@ -61,7 +63,7 @@ public class UserController {
 
 
     @PutMapping("/{id}/deactivate")
-    public ResponseEntity<?> deactivateUser(@org.springframework.web.bind.annotation.PathVariable Long id) {
+    public ResponseEntity<?> deactivateUser(@PathVariable Long id) {
         try {
             userService.deactivateUser(id);
             return ResponseEntity.ok("User deactivated");
