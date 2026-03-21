@@ -1,0 +1,25 @@
+2026-03-19T21:12:14.750-05:00  INFO 17388 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Starting TechCupApplication using Java 21.0.10 with PID 17388 (C:\Users\josef\Documents\TECHCUP-FUTBOL-BackEnd-SpringBoot\target\classes started by josef in C:\Users\josef\Documents\TECHCUP-FUTBOL-BackEnd-SpringBoot)
+2026-03-19T21:12:14.752-05:00  INFO 17388 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-03-19T21:12:15.483-05:00  INFO 17388 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-19T21:12:15.496-05:00  INFO 17388 --- [tech_cup] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-19T21:12:15.497-05:00  INFO 17388 --- [tech_cup] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-19T21:12:15.540-05:00  INFO 17388 --- [tech_cup] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 753 ms
+2026-03-19T21:12:15.677-05:00  INFO 17388 --- [tech_cup] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-19T21:12:15.879-05:00  WARN 17388 --- [tech_cup] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-03-19T21:12:15.890-05:00  INFO 17388 --- [tech_cup] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-19T21:12:15.902-05:00 ERROR 17388 --- [tech_cup] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+

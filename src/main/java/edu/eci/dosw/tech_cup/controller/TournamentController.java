@@ -1,5 +1,7 @@
 package edu.eci.dosw.tech_cup.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import edu.eci.dosw.tech_cup.model.Tournament;
 import edu.eci.dosw.tech_cup.service.ITournamentService;
 
@@ -24,6 +26,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/tournaments")
+@Tag(name = "Torneos", description = "Operaciones relacionadas con torneos")
 public class TournamentController {
 
     /**
@@ -47,6 +50,7 @@ public class TournamentController {
      * @return 201 with the created tournament; 400 with an error message when validation fails
      */
     @PostMapping
+    @Operation(summary = "Crear torneo", description = "Registra un nuevo torneo en el sistema")
     public ResponseEntity<?> createTournament(@RequestBody Tournament tournament) {
         try {
             Tournament created = tournamentService.createTournament(tournament);
@@ -62,6 +66,7 @@ public class TournamentController {
      * @return 200 with the complete tournament list
      */
     @GetMapping
+    @Operation(summary = "Listar torneos", description = "Obtiene todos los torneos registrados")
     public ResponseEntity<List<Tournament>> getAllTournaments() {
         return ResponseEntity.ok(tournamentService.getAllTournaments());
     }
@@ -73,6 +78,7 @@ public class TournamentController {
      * @return 200 with the tournament when found; 404 with an error message when not found
      */
     @GetMapping("/{id}")
+    @Operation(summary = "Obtener torneo por ID", description = "Busca un torneo usando su identificador")
     public ResponseEntity<?> getTournament(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(tournamentService.getTournament(id));
@@ -89,6 +95,7 @@ public class TournamentController {
      * @return 200 with the updated tournament; 400 with an error message when the update is invalid
      */
     @PutMapping("/{id}")
+    @Operation(summary = "Actualizar torneo", description = "Actualiza la información de un torneo existente")
     public ResponseEntity<?> updateTournament(@PathVariable Long id,
                                               @RequestBody Tournament tournament) {
         try {
@@ -106,6 +113,7 @@ public class TournamentController {
      * @return 204 No Content when cancellation succeeds; 400 with an error message when it fails
      */
     @DeleteMapping("/{id}")
+    @Operation(summary = "Cancelar torneo", description = "Elimina o cancela un torneo existente")
     public ResponseEntity<?> cancelTournament(@PathVariable Long id) {
         try {
             tournamentService.cancelTournament(id);
@@ -122,6 +130,7 @@ public class TournamentController {
      * @return 200 with the updated tournament when successful; 400 with an error message when it fails
      */
     @PutMapping("/{id}/start")
+    @Operation(summary = "Iniciar torneo", description = "Cambia el estado del torneo a iniciado")
     public ResponseEntity<?> startTournament(@PathVariable Long id) {
         try {
             tournamentService.startTournament(id);
@@ -138,6 +147,7 @@ public class TournamentController {
      * @return 200 with the updated tournament when successful; 400 with an error message when it fails
      */
     @PutMapping("/{id}/finish")
+    @Operation(summary = "Finalizar torneo", description = "Cambia el estado del torneo a finalizado")
     public ResponseEntity<?> finishTournament(@PathVariable Long id) {
         try {
             tournamentService.finishTournament(id);
