@@ -6,6 +6,9 @@ import edu.eci.dosw.tech_cup.service.TournamentService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +21,7 @@ public class TournamentController {
     private final ITournamentService tournamentService = new TournamentService();
 
 
-    @org.springframework.web.bind.annotation.PostMapping
+    @PostMapping
     public ResponseEntity<?> createTournament(@org.springframework.web.bind.annotation.RequestBody Tournament tournament) {
         try {
             Tournament created = tournamentService.createTournament(tournament);
@@ -44,7 +47,7 @@ public class TournamentController {
         }
     }
 
-    @org.springframework.web.bind.annotation.PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateTournament(@org.springframework.web.bind.annotation.PathVariable Long id,
                                               @org.springframework.web.bind.annotation.RequestBody Tournament tournament) {
         try {
@@ -56,7 +59,7 @@ public class TournamentController {
     }
 
 
-    @org.springframework.web.bind.annotation.DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> cancelTournament(@org.springframework.web.bind.annotation.PathVariable Long id) {
         try {
             tournamentService.cancelTournament(id);
@@ -66,7 +69,7 @@ public class TournamentController {
         }
     }
 
-    @org.springframework.web.bind.annotation.PutMapping("/{id}/start")
+    @PutMapping("/{id}/start")
     public ResponseEntity<?> startTournament(@org.springframework.web.bind.annotation.PathVariable Long id) {
         try {
             tournamentService.startTournament(id);
@@ -77,7 +80,7 @@ public class TournamentController {
     }
 
 
-    @org.springframework.web.bind.annotation.PutMapping("/{id}/finish")
+    @PutMapping("/{id}/finish")
     public ResponseEntity<?> finishTournament(@org.springframework.web.bind.annotation.PathVariable Long id) {
         try {
             tournamentService.finishTournament(id);

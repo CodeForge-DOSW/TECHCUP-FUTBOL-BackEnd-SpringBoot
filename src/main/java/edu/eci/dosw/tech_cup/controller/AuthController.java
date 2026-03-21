@@ -6,6 +6,9 @@ import edu.eci.dosw.tech_cup.service.UserService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +19,7 @@ public class AuthController {
     private final IUserService userService = new UserService();
 
 
-    @org.springframework.web.bind.annotation.PostMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@org.springframework.web.bind.annotation.RequestBody LoginRequest loginRequest) {
         try {
             userService.authenticate(
