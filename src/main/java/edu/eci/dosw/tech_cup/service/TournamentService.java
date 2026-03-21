@@ -3,15 +3,42 @@ package edu.eci.dosw.tech_cup.service;
 import edu.eci.dosw.tech_cup.model.Tournament;
 import edu.eci.dosw.tech_cup.model.TournamentStatus;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of tournament business logic and state management.
+ *
+ * <p>Manages tournament CRUD operations with comprehensive validation,
+ * enforces state transitions (DRAFT → STARTED → FINISHED), and maintains
+ * business rules (unique names, date constraints, team limits).</p>
+ */
+@Service
 public class TournamentService implements ITournamentService {
 
+    /**
+     * In-memory storage of tournaments (should be replaced with a database repository).
+     */
     private final List<Tournament> tournaments = new ArrayList<>();
+
+    /**
+     * Identifier generator for new tournaments.
+     */
     private Long idCounter = 1L;
 
+    /**
+     * Creates a new tournament with comprehensive validation.
+     *
+     * <p>Validates all required fields, enforces date logic, checks team constraints,
+     * and ensures tournament name uniqueness.</p>
+     *
+     * @param tournament the tournament to create
+     * @return the persisted tournament with assigned id and DRAFT status
+     * @throws RuntimeException if any validation fails
+     */
     @Override
     public Tournament createTournament(Tournament tournament) {
         if (tournament == null) {
@@ -48,6 +75,13 @@ public class TournamentService implements ITournamentService {
         return tournament;
     }
 
+    /**
+     * Retrieves a tournament by its id.
+     *
+     * @param id unique tournament identifier
+     * @return the tournament if found
+     * @throws RuntimeException if tournament does not exist
+     */
     @Override
     public Tournament getTournament(Long id) {
         return tournaments.stream()
@@ -56,11 +90,27 @@ public class TournamentService implements ITournamentService {
                 .orElseThrow(() -> new RuntimeException("Tournament not found"));
     }
 
+    /**
+     * Retrieves all tournaments.
+     *
+     * @return a copy of the tournament list
+     */
     @Override
     public List<Tournament> getAllTournaments() {
         return new ArrayList<>(tournaments);
     }
 
+    /**
+     * Updates an existing tournament's properties.
+     *
+     * <p>Prevents updates to tournaments in FINISHED status. Validates all
+     * updates follow business rules (unique name, date constraints, etc.).</p>
+     *
+     * @param id unique tournament identifier
+     * @param updatedTournament fields to update
+     * @return the updated tournament
+     * @throws RuntimeException if validation fails or status does not allow updates
+     */
     @Override
     public Tournament updateTournament(Long id, Tournament updatedTournament) {
         if (updatedTournament == null) {
@@ -114,6 +164,14 @@ public class TournamentService implements ITournamentService {
         return existing;
     }
 
+    /**
+     * Cancels a tournament (deletes it from the system).
+     *
+     * <p>Only tournaments in DRAFT status can be cancelled.</p>
+     *
+     * @param id unique tournament identifier
+     * @throws RuntimeException if tournament not found or not in DRAFT status
+     */
     @Override
     public void cancelTournament(Long id) {
         Tournament tournament = getTournament(id);
@@ -123,12 +181,24 @@ public class TournamentService implements ITournamentService {
         tournaments.remove(tournament);
     }
 
+    /**
+     * Transitions a tournament from DRAFT to STARTED status.
+     *
+     * @param id unique tournament identifier
+     * @throws RuntimeException if the tournament does not exist or the transition is invalid
+     */
     @Override
     public void startTournament(Long id) {
         Tournament tournament = getTournament(id);
         tournament.startTournament();
     }
 
+    /**
+     * Transitions a tournament from STARTED to FINISHED status.
+     *
+     * @param id unique tournament identifier
+     * @throws RuntimeException if the tournament does not exist or the transition is invalid
+     */
     @Override
     public void finishTournament(Long id) {
         Tournament tournament = getTournament(id);

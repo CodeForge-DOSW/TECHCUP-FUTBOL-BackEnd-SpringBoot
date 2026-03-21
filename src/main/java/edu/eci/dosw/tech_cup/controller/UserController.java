@@ -1,74 +1,116 @@
 package edu.eci.dosw.tech_cup.controller;
 
-import edu.eci.dosw.tech_cup.model.User;
 import edu.eci.dosw.tech_cup.model.Player;
-import edu.eci.dosw.tech_cup.service.UserService;
+import edu.eci.dosw.tech_cup.model.User;
 import edu.eci.dosw.tech_cup.service.IUserService;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+/**
+ * REST controller that exposes CRUD operations for users.
+ *
+ * <p>All business rules are delegated to {@link IUserService}. This class is
+ * responsible for HTTP mapping and response status handling.</p>
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final IUserService userService = new UserService();
+    /**
+     * Service that executes user-related use cases.
+     */
+    private final IUserService userService;
 
+    /**
+     * Builds the controller with its service dependency.
+     *
+     * @param userService injected user service implementation
+     */
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
 
+    /**
+     * Creates a new user from a player payload.
+     *
+     * @param user request payload with user data
+     * @return 201 with the created user; 400 with an error message when validation/business rules fail
+     */
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody Player user) {
         try {
-
             User created = userService.createUser(user);
-            return ResponseEntity.status(org.springframework.http.HttpStatus.CREATED).body(created);
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(org.springframework.http.HttpStatus.BAD_REQUEST).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-
+    /**
+     * Retrieves all registered users.
+     *
+     * @return 200 with the complete user list
+     */
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    /**
+     * Retrieves one user by its id.
+     *
+     * @param id unique user identifier
+     * @return 200 with the user when found; 404 with an error message when not found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.getUser(id));
         } catch (RuntimeException e) {
-            return ResponseEntity.status(org.springframework.http.HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
-
+    /**
+     * Updates an existing user.
+     *
+     * @param id unique user identifier
+     * @param user payload containing updated user data
+     * @return 200 with the updated user; 400 with an error message when the update is invalid
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Player user) {
         try {
             User updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(org.springframework.http.HttpStatus.BAD_REQUEST).body(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-
+    /**
+     * Deactivates a user account.
+     *
+     * @param id unique user identifier
+     * @return 204 No Content when deactivation succeeds; 404 with an error message when the user does not exist
+     */
     @PutMapping("/{id}/deactivate")
     public ResponseEntity<?> deactivateUser(@PathVariable Long id) {
         try {
             userService.deactivateUser(id);
             return ResponseEntity.ok("User deactivated");
         } catch (RuntimeException e) {
-            return ResponseEntity.status(org.springframework.http.HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }
