@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Autenticación", description = "Operaciones de inicio de sesión")
+@Tag(name = "Authentication", description = "Endpoints for user authentication.")
 public class AuthController {
 
     private final IUserService userService = new UserService();
 
     @PostMapping("/login")
-    @Operation(summary = "Iniciar sesión", description = "Permite a un usuario autenticarse con email y contraseña")
+    @Operation(
+            summary = "User login",
+            description = "Authenticates a user with email and password. Returns 200 on success and 401 when credentials are invalid."
+    )
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         try {
             userService.authenticate(

@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tournaments")
-@Tag(name = "Torneos", description = "Operaciones relacionadas con torneos")
+@Tag(name = "Tournaments", description = "Endpoints for tournament management operations")
 public class TournamentController {
 
     private final ITournamentService tournamentService = new TournamentService();
 
     @PostMapping
-    @Operation(summary = "Crear torneo", description = "Registra un nuevo torneo en el sistema")
+    @Operation(summary = "Create tournament", description = "Registers a new tournament in the system")
     public ResponseEntity<?> createTournament(@RequestBody Tournament tournament) {
         try {
             Tournament created = tournamentService.createTournament(tournament);
@@ -30,13 +30,13 @@ public class TournamentController {
     }
 
     @GetMapping
-    @Operation(summary = "Listar torneos", description = "Obtiene todos los torneos registrados")
+    @Operation(summary = "List tournaments", description = "Retrieves all registered tournaments")
     public ResponseEntity<List<Tournament>> getAllTournaments() {
         return ResponseEntity.ok(tournamentService.getAllTournaments());
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Obtener torneo por ID", description = "Busca un torneo usando su identificador")
+    @Operation(summary = "Get tournament by ID", description = "Retrieves a tournament by identifier")
     public ResponseEntity<?> getTournament(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(tournamentService.getTournament(id));
@@ -46,7 +46,7 @@ public class TournamentController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar torneo", description = "Actualiza la información de un torneo existente")
+    @Operation(summary = "Update tournament", description = "Updates information for an existing tournament")
     public ResponseEntity<?> updateTournament(@PathVariable Long id,
                                               @RequestBody Tournament tournament) {
         try {
@@ -58,7 +58,7 @@ public class TournamentController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Cancelar torneo", description = "Elimina o cancela un torneo existente")
+    @Operation(summary = "Cancel tournament", description = "Cancels an existing tournament")
     public ResponseEntity<?> cancelTournament(@PathVariable Long id) {
         try {
             tournamentService.cancelTournament(id);
@@ -69,7 +69,7 @@ public class TournamentController {
     }
 
     @PutMapping("/{id}/start")
-    @Operation(summary = "Iniciar torneo", description = "Cambia el estado del torneo a iniciado")
+    @Operation(summary = "Start tournament", description = "Transitions the tournament to the started state")
     public ResponseEntity<?> startTournament(@PathVariable Long id) {
         try {
             tournamentService.startTournament(id);
@@ -80,7 +80,7 @@ public class TournamentController {
     }
 
     @PutMapping("/{id}/finish")
-    @Operation(summary = "Finalizar torneo", description = "Cambia el estado del torneo a finalizado")
+    @Operation(summary = "Finish tournament", description = "Transitions the tournament to the finished state")
     public ResponseEntity<?> finishTournament(@PathVariable Long id) {
         try {
             tournamentService.finishTournament(id);
