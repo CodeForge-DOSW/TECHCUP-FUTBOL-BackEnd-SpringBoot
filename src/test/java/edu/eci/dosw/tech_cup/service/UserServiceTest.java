@@ -27,7 +27,6 @@ public class UserServiceTest {
         userService = new UserService();
     }
 
-    // ========== CREATE TESTS ==========
 
     /**
      * Given a valid student player with institutional email
@@ -202,8 +201,6 @@ public class UserServiceTest {
         });
     }
 
-    // ========== GET TESTS ==========
-
     /**
      * Given a previously created user
      * When retrieving the user by id
@@ -273,8 +270,6 @@ public class UserServiceTest {
 
         assertTrue(users.isEmpty());
     }
-
-    // ========== UPDATE TESTS ==========
 
     /**
      * Given a previously created user
@@ -360,8 +355,6 @@ public class UserServiceTest {
         });
     }
 
-    // ========== DEACTIVATE TESTS ==========
-
     /**
      * Given an active user
      * When deactivating the user
@@ -418,8 +411,6 @@ public class UserServiceTest {
         assertEquals(1, users.size());
         assertFalse(users.get(0).isActive());
     }
-
-    // ========== VALIDATION TESTS ==========
 
     /**
      * Given a null user payload
