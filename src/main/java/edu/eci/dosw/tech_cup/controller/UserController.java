@@ -14,13 +14,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-@Tag(name = "Usuarios", description = "Operaciones relacionadas con usuarios")
+@Tag(name = "Users", description = "Endpoints for user management operations")
 public class UserController {
 
     private final IUserService userService = new UserService();
 
     @PostMapping
-    @Operation(summary = "Crear usuario", description = "Registra un nuevo usuario en el sistema")
+    @Operation(summary = "Create user", description = "Registers a new user in the system")
     public ResponseEntity<?> createUser(@RequestBody Player user) {
         try {
             User created = userService.createUser(user);
@@ -31,13 +31,13 @@ public class UserController {
     }
 
     @GetMapping
-    @Operation(summary = "Listar usuarios", description = "Obtiene todos los usuarios registrados")
+    @Operation(summary = "List users", description = "Retrieves all registered users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Obtener usuario por ID", description = "Busca un usuario usando su identificador")
+    @Operation(summary = "Get user by ID", description = "Retrieves a user by identifier")
     public ResponseEntity<?> getUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.getUser(id));
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar usuario", description = "Actualiza la información de un usuario existente")
+    @Operation(summary = "Update user", description = "Updates information for an existing user")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Player user) {
         try {
             User updated = userService.updateUser(id, user);
@@ -58,7 +58,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}/deactivate")
-    @Operation(summary = "Desactivar usuario", description = "Desactiva un usuario existente")
+    @Operation(summary = "Deactivate user", description = "Deactivates an existing user")
     public ResponseEntity<?> deactivateUser(@PathVariable Long id) {
         try {
             userService.deactivateUser(id);

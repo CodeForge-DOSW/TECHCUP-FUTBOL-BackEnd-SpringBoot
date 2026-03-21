@@ -15,6 +15,6 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("TECHCUP FUTBOL API")
                         .version("1.0.0")
-                        .description("Documentación interactiva de la API con Swagger UI"));
+                        .description("Interactive API documentation powered by Swagger UI."));
     }
 }
