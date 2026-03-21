@@ -19,32 +19,32 @@ public class UserService implements IUserService {
 
     @Override
     public User createUser(User user) {
-        log.debug("Creando usuario con email: {}", user != null ? user.getEmail() : "null");
+        log.debug("Creating user with email: {}", user != null ? user.getEmail() : "null");
         try {
             if (user == null) {
-                log.error("Intento de crear usuario con datos nulos");
+                log.error("Attempt to create user with null data");
                 throw new RuntimeException("User cannot be null");
             }
             if (user.getEmail() == null || user.getEmail().trim().isEmpty()) {
-                log.error("Email requerido para crear usuario");
+                log.error("Email is required to create user");
                 throw new RuntimeException("Email is required");
             }
 
             boolean exists = users.stream()
                     .anyMatch(u -> u.getEmail().equals(user.getEmail()));
             if (exists) {
-                log.warn("Intento de crear usuario con email ya existente: {}", user.getEmail());
+                log.warn("Attempt to create user with existing email: {}", user.getEmail());
                 throw new RuntimeException("Email already exists");
             }
 
             if (user instanceof Player) {
                 Player p = (Player) user;
                 if (p.getRole() == null) {
-                    log.error("Rol requerido para crear usuario: {}", user.getEmail());
+                    log.error("Role is required to create user: {}", user.getEmail());
                     throw new RuntimeException("Role is required");
                 }
                 if (!isValidEmail(p.getEmail(), p.getRole())) {
-                    log.error("Email inválido para el rol del usuario: {}", user.getEmail());
+                    log.error("Invalid email for user role: {}", user.getEmail());
                     throw new RuntimeException("Invalid email for role");
                 }
             }
@@ -52,48 +52,48 @@ public class UserService implements IUserService {
             user.setId(idCounter++);
             user.setStatus(true);
             users.add(user);
-            log.info("Usuario creado correctamente con email: {}", user.getEmail());
+            log.info("User created successfully with email: {}", user.getEmail());
             return user;
         } catch (RuntimeException e) {
-            log.error("Error creando usuario", e);
+            log.error("Error creating user", e);
             throw e;
         }
     }
 
     @Override
     public User getUser(Long id) {
-        log.debug("Buscando usuario con id: {}", id);
+        log.debug("Searching user with id: {}", id);
         try {
             User user = users.stream()
                     .filter(u -> u.getId().equals(id))
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("User not found"));
-            log.info("Usuario encontrado con id: {}", id);
+            log.info("User found with id: {}", id);
             return user;
         } catch (RuntimeException e) {
-            log.error("Error buscando usuario con id: {}", id, e);
+            log.error("Error searching user with id: {}", id, e);
             throw e;
         }
     }
 
     @Override
     public List<User> getAllUsers() {
-        log.debug("Obteniendo lista de todos los usuarios");
+        log.debug("Fetching all users");
         try {
-            log.info("Se devuelven {} usuarios", users.size());
+            log.info("Returning {} users", users.size());
             return new ArrayList<>(users);
         } catch (Exception e) {
-            log.error("Error obteniendo lista de usuarios", e);
+            log.error("Error fetching user list", e);
             throw e;
         }
     }
 
     @Override
     public User updateUser(Long id, User updatedUser) {
-        log.debug("Actualizando usuario con id: {}", id);
+        log.debug("Updating user with id: {}", id);
         try {
             if (updatedUser == null) {
-                log.error("Intento de actualizar usuario {} con datos nulos", id);
+                log.error("Attempt to update user {} with null data", id);
                 throw new RuntimeException("Update data cannot be null");
             }
 
@@ -101,20 +101,20 @@ public class UserService implements IUserService {
 
             if (updatedUser.getEmail() != null) {
                 if (updatedUser.getEmail().trim().isEmpty()) {
-                    log.error("Email vacío para actualizar usuario: {}", id);
+                    log.error("Empty email while updating user: {}", id);
                     throw new RuntimeException("Email cannot be empty");
                 }
                 boolean exists = users.stream()
                         .anyMatch(u -> u.getEmail().equals(updatedUser.getEmail())
                                 && !u.getId().equals(id));
                 if (exists) {
-                    log.warn("Intento de actualizar usuario {} con email ya existente: {}", id, updatedUser.getEmail());
+                    log.warn("Attempt to update user {} with existing email: {}", id, updatedUser.getEmail());
                     throw new RuntimeException("Email already exists");
                 }
                 if (existing instanceof Player) {
                     Player p = (Player) existing;
                     if (!isValidEmail(updatedUser.getEmail(), p.getRole())) {
-                        log.error("Email inválido para el rol del usuario: {}", id);
+                        log.error("Invalid email for user role: {}", id);
                         throw new RuntimeException("Invalid email for role");
                     }
                 }
@@ -125,37 +125,37 @@ public class UserService implements IUserService {
                 existing.setName(updatedUser.getName());
             }
 
-            log.info("Usuario actualizado correctamente con id: {}", id);
+            log.info("User updated successfully with id: {}", id);
             return existing;
         } catch (RuntimeException e) {
-            log.error("Error actualizando usuario con id: {}", id, e);
+            log.error("Error updating user with id: {}", id, e);
             throw e;
         }
     }
 
     @Override
     public void deactivateUser(Long id) {
-        log.debug("Desactivando usuario con id: {}", id);
+        log.debug("Deactivating user with id: {}", id);
         try {
             User user = getUser(id);
             user.setStatus(false);
-            log.info("Usuario desactivado correctamente con id: {}", id);
+            log.info("User deactivated successfully with id: {}", id);
         } catch (RuntimeException e) {
-            log.error("Error desactivando usuario con id: {}", id, e);
+            log.error("Error deactivating user with id: {}", id, e);
             throw e;
         }
     }
 
     @Override
     public void authenticate(String email, String password) {
-        log.debug("Autenticando usuario con email: {}", email);
+        log.debug("Authenticating user with email: {}", email);
         try {
             if (email == null || email.trim().isEmpty()) {
-                log.error("Email requerido para autenticación");
+                log.error("Email is required for authentication");
                 throw new RuntimeException("Email is required");
             }
             if (password == null || password.trim().isEmpty()) {
-                log.error("Contraseña requerida para autenticación");
+                log.error("Password is required for authentication");
                 throw new RuntimeException("Password is required");
             }
             users.stream()
@@ -164,9 +164,9 @@ public class UserService implements IUserService {
                             && Boolean.TRUE.equals(u.getStatus()))
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("Invalid credentials"));
-            log.info("Autenticación exitosa para usuario: {}", email);
+            log.info("Authentication successful for user: {}", email);
         } catch (RuntimeException e) {
-            log.error("Error en autenticación para usuario: {}", email, e);
+            log.error("Authentication error for user: {}", email, e);
             throw e;
         }
     }
