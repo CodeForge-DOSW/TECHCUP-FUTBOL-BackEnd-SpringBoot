@@ -1,0 +1,1652 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{hyperref}
+
+\geometry{margin=2.5cm}
+\setstretch{1.3}
+
+\title{Propuesta de Trabajo \\  
+(Desarrollo y Operaciones de Software)}
+\author{Equipo de Trabajo (pendiente nombre squad)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+\setcounter{tocdepth}{4}
+\tableofcontents
+\newpage
+
+%--------------------------------------------------
+
+El presente documento describe una \textbf{propuesta inicial de trabajo} para el desarrollo del proyecto de la asignatura. Esta propuesta se plantea como un punto de partida para la discusión y el acuerdo entre los integrantes del equipo, tomando como referencia experiencias previas en la asignatura y buenas prácticas de la ingeniería de software.
+
+La propuesta establece una posible metodología, organización, herramientas y estándares técnicos que pueden guiar el desarrollo del proyecto del semestre, y está abierta a ajustes según las decisiones que se tomen de manera conjunta como equipo.
+
+El proyecto se concibe como un eje integrador para aplicar de manera práctica los conceptos vistos durante el curso, incluyendo Scrum, arquitectura de software, principios SOLID, Clean Code, pruebas, DevOps, documentación técnica y trabajo colaborativo.
+
+%-------------------------------------------
+
+\section{Roles del Equipo y Esquema de Rotación}
+
+El equipo está conformado por cinco integrantes y trabajará bajo principios de autoorganización, transparencia, inspección y adaptación.
+
+En concordancia con el marco de trabajo presentado en clase, el equipo estará conformado por:
+
+%--------------------------------------------------
+\subsection{Product Owner}
+
+El \textbf{Product Owner} será la profesora de la asignatura o, en su defecto, los organizadores del evento o proyecto académico.
+
+Este rol es responsable de maximizar el valor del producto y asegurar que el desarrollo esté alineado con los objetivos académicos y funcionales.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Definir y priorizar el Product Backlog.
+    \item Establecer los objetivos de cada sprint.
+    \item Aclarar dudas sobre requerimientos.
+    \item Validar los incrementos presentados en cada Sprint Review.
+    \item Asegurar que el producto entregue valor.
+\end{itemize}
+
+El Product Owner no participa en la ejecución técnica del sprint, pero sí en la validación y orientación estratégica del producto.
+
+%--------------------------------------------------
+\subsection{Scrum Master}
+
+El \textbf{Scrum Master} será un rol rotativo entre los integrantes del equipo.
+
+Es responsable de asegurar que el marco de trabajo Scrum se aplique correctamente.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Facilitar las ceremonias Scrum.
+    \item Garantizar el cumplimiento de las reglas del marco de trabajo.
+    \item Identificar y ayudar a remover impedimentos.
+    \item Promover la mejora continua del equipo.
+    \item Velar por el cumplimiento del objetivo del sprint.
+\end{itemize}
+
+El Scrum Master actúa como facilitador del proceso, no como jefe del equipo.
+
+%--------------------------------------------------
+\subsection{Equipo de Desarrollo (Development Team)}
+
+El Equipo de Desarrollo está conformado por los cinco integrantes del equipo. Es un equipo autogestionado, sin jerarquías formales, responsable de construir el incremento funcional del producto en cada sprint.
+
+Dentro del equipo se definen roles técnicos rotativos:
+
+%--------------------------------------------------
+\subsubsection{Líder Técnico (Tech Lead)}
+
+El \textbf{Líder Técnico} es la referencia técnica del sprint.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Definir lineamientos de arquitectura.
+    \item Tomar decisiones técnicas clave.
+    \item Garantizar buenas prácticas (SOLID, Clean Code).
+    \item Supervisar revisiones de código.
+    \item Apoyar técnicamente al equipo.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Desarrollador Backend}
+
+El \textbf{Desarrollador Backend} se enfoca en la lógica del negocio y el funcionamiento interno del sistema.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Implementar la lógica de negocio.
+    \item Diseñar e implementar APIs.
+    \item Gestionar bases de datos.
+    \item Implementar validaciones y manejo de errores.
+    \item Garantizar integración con el frontend.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Desarrollador Frontend}
+
+El \textbf{Desarrollador Frontend} se enfoca en la interfaz y experiencia del usuario.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Construir la interfaz gráfica.
+    \item Implementar flujos de navegación.
+    \item Consumir servicios del backend.
+    \item Garantizar coherencia visual y usabilidad.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Desarrollador de Apoyo (Full-Stack)}
+
+El \textbf{Desarrollador de Apoyo} refuerza el área que presente mayor carga de trabajo durante el sprint.
+
+Sus responsabilidades incluyen:
+
+\begin{itemize}
+    \item Apoyar tareas backend o frontend.
+    \item Colaborar en pruebas.
+    \item Participar en revisiones de código.
+    \item Apoyar integración continua y documentación.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Esquema de Rotación de Roles}
+
+Dado que el equipo está conformado por cinco integrantes y el proyecto se desarrollará en seis sprints, se implementará un esquema de rotación que garantice aprendizaje integral y distribución equitativa de responsabilidades.
+
+Principios de la rotación:
+
+\begin{itemize}
+    \item Todos los integrantes deberán desempeñar al menos una vez el rol de Scrum Master.
+    \item Todos deberán asumir al menos una vez el rol de Líder Técnico.
+    \item Los roles de Backend y Frontend rotarán entre los integrantes.
+    \item El rol de Apoyo permitirá equilibrar la carga técnica.
+\end{itemize}
+
+\subsubsection{Ejemplo de Rotación (6 Sprints – 5 Integrantes)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Sprint} & \textbf{Scrum Master} & \textbf{Líder Técnico} & \textbf{Backend} & \textbf{Frontend} & \textbf{Apoyo} \\
+\hline
+1 & A & B & C & D & E \\
+\hline
+2 & B & C & D & E & A \\
+\hline
+3 & C & D & E & A & B \\
+\hline
+4 & D & E & A & B & C \\
+\hline
+5 & E & A & B & C & D \\
+\hline
+6 & A & C & B & E & D \\
+\hline
+\end{tabular}
+\end{center}
+
+Este esquema podrá ajustarse según las necesidades técnicas del proyecto y el desempeño del equipo, manteniendo siempre el principio de equidad y mejora continua.
+%--------------------------------------------------
+\section{Metodología de Trabajo}
+
+Se propone adoptar como marco de gestión del proyecto la combinación de \textbf{Scrum + Kanban}, con el fin de contar con una estructura iterativa orientada a entregables y, al mismo tiempo, gestionar de manera visual y continua el flujo de tareas durante cada sprint.
+
+Este enfoque permite mantener una planificación organizada a nivel macro y un seguimiento operativo del trabajo en el día a día, facilitando la inspección, adaptación y mejora continua del proceso.
+
+%--------------------------------------------------
+\subsection{Scrum}
+
+Scrum será utilizado como la base para la planificación y el seguimiento del proyecto a nivel estratégico. Se selecciona este framework por ser un modelo probado en entornos ágiles, por su estructura clara de ceremonias y por su capacidad de gestionar el desarrollo de manera iterativa e incremental, facilitando la comunicación y la transparencia dentro del equipo.
+
+Su aplicación dentro del equipo se realizará de la siguiente manera:
+
+\begin{itemize}
+    \item El proyecto se organizará en \textbf{seis sprints}, cada uno con un objetivo definido.
+    \item En cada Sprint Planning se seleccionarán las historias de usuario priorizadas del Product Backlog.
+    \item Cada sprint deberá entregar un \textbf{incremento funcional del producto}.
+    \item Se trabajará con \textbf{roles rotativos}, permitiendo que todos los integrantes comprendan el proceso completo.
+\end{itemize}
+
+Scrum permitirá:
+
+\begin{itemize}
+    \item Planificar el trabajo por iteraciones.
+    \item Medir el avance mediante entregables funcionales.
+    \item Inspeccionar y adaptar el proceso en cada sprint.
+    \item Fomentar la autoorganización del equipo.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Ceremonias Scrum}
+
+El desarrollo del proyecto se realizará durante el \textbf{segundo tercio del semestre, comprendido entre la Semana 6 y la Semana 12}, en concordancia con la planificación definida en la asignatura.
+
+Durante este periodo se establecen los siguientes hitos, los cuales permitirán realizar seguimiento continuo al avance del equipo.
+
+Las ceremonias se realizarán considerando la disponibilidad de horarios y espacios de todos los integrantes del equipo.
+
+Se propone trabajar con \textbf{sprints de una semana}, iniciando el \textbf{miércoles} y finalizando el \textbf{martes} de la semana siguiente.
+
+Esta organización tiene como propósito:
+
+\begin{itemize}
+    \item Presentar en cada sesión de laboratorio un incremento funcional del producto.
+    \item Recibir retroalimentación continua del profesor y/o monitor.
+    \item Ajustar la planificación del siguiente sprint con base en resultados reales.
+    \item Mantener un flujo de trabajo iterativo e incremental.
+\end{itemize}
+
+\paragraph{Sprint Planning}
+
+\begin{itemize}
+    \item Día: Miércoles.
+    \item Modalidad: Presencial (si la disponibilidad lo permite).
+    \item Duración: 1 a 2 horas.
+    \item Participantes: Todo el equipo.
+    \item Objetivo:
+    \begin{itemize}
+        \item Definir el objetivo del sprint.
+        \item Seleccionar historias de usuario del backlog.
+        \item Descomponer en tareas técnicas.
+        \item Estimar esfuerzo (Planning Poker).
+        \item Establecer el compromiso del sprint.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Daily Scrum}
+
+\begin{itemize}
+    \item Días: Jueves a lunes.
+    \item Modalidad: Virtual.
+    \item Duración máxima: 15 minutos.
+    \item Objetivo: Sincronizar el trabajo e identificar impedimentos.
+    \item Cada integrante responde:
+    \begin{itemize}
+        \item ¿Qué hice desde la última reunión?
+        \item ¿Qué haré hoy?
+        \item ¿Tengo algún impedimento?
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Backlog Refinement}
+
+\begin{itemize}
+    \item Día sugerido: Entre domingo y lunes (mitad del sprint).
+    \item Duración: 1 a 2 horas.
+    \item Objetivo:
+    \begin{itemize}
+        \item Preparar historias para el siguiente sprint.
+        \item Aclarar requisitos.
+        \item Dividir historias grandes.
+        \item Identificar dependencias técnicas.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Sprint Review}
+
+\begin{itemize}
+    \item Día: Miércoles.
+    \item Modalidad: Presencial.
+    \item Duración: 45 a 60 minutos.
+    \item Participantes: Equipo + profesor.
+    \item Objetivo:
+    \begin{itemize}
+        \item Presentar el incremento funcional.
+        \item Evaluar cumplimiento del objetivo del sprint.
+        \item Recibir retroalimentación.
+    \end{itemize}
+\end{itemize}
+
+Al finalizar cada sprint, el líder del periodo realizará una presentación de aproximadamente \textbf{5 minutos} con los avances, participación del equipo, deuda técnica, logros y acciones de mejora.
+
+\paragraph{Sprint Retrospective}
+
+\begin{itemize}
+    \item Día: Martes.
+    \item Modalidad: Presencial o virtual.
+    \item Duración: 30 a 45 minutos.
+    \item Participantes: Solo el equipo.
+    \item Formato sugerido: Start -- Stop -- Continue.
+    \item Objetivo: Definir acciones concretas de mejora continua.
+\end{itemize}
+
+\paragraph{Cierre del Sprint}
+
+\begin{itemize}
+    \item Día: Martes.
+    \item Actividades:
+    \begin{itemize}
+        \item Validación del cumplimiento de la Definition of Done.
+        \item Integración final de funcionalidades.
+        \item Pruebas finales.
+        \item Preparación de la demostración para la Sprint Review.
+    \end{itemize}
+\end{itemize}
+
+
+
+Este esquema permite sincronizar el marco de trabajo Scrum con la dinámica académica del curso, garantizando entregas frecuentes, trazabilidad del avance y mejora continua del proceso.
+
+\subsection{Artefactos Scrum} Los artefactos de Scrum permiten gestionar de manera estructurada el trabajo del proyecto, garantizando transparencia, trazabilidad y alineación con los objetivos de cada sprint. \subsubsection{Product Backlog} El \textit{Product Backlog} es la lista priorizada de todos los requerimientos del sistema. Estará compuesto por épicas, features e historias de usuario y será gestionado en la herramienta de gestión del proyecto (Jira). Sus principales características serán: \begin{itemize} \item Priorización continua según el valor funcional y técnico. \item Refinamiento periódico durante el Backlog Refinement. \item Historias de usuario que cumplan con la Definition of Ready antes de ser seleccionadas para un sprint. \end{itemize} \subsubsection{Sprint Backlog} El \textit{Sprint Backlog} corresponde al conjunto de historias de usuario seleccionadas para un sprint junto con las tareas necesarias para su implementación. Permitirá: \begin{itemize} \item Visualizar el trabajo comprometido por el equipo. \item Hacer seguimiento diario del avance mediante el tablero Kanban. \item Controlar el cumplimiento del objetivo del sprint. \end{itemize} \subsubsection{Incremento} El \textit{Incremento} es el resultado funcional obtenido al final de cada sprint. Cada incremento deberá: \begin{itemize} \item Cumplir con la Definition of Done. \item Estar integrado en la rama principal del repositorio. \item Ser potencialmente desplegable. \item Ser presentado durante la Sprint Review. \end{itemize}
+
+\subsection{Estimación Ágil}
+
+La estimación del trabajo se realizará utilizando técnicas ágiles que permitan al equipo definir de manera colaborativa el esfuerzo requerido para cada historia de usuario, facilitando la planificación realista de los sprints.
+
+\subsubsection{Story Points}
+
+Los \textbf{Story Points} son una unidad de medida relativa que permite estimar el esfuerzo necesario para implementar una historia de usuario. No representan tiempo de manera directa, sino una combinación de factores como:
+
+\begin{itemize}
+    \item Complejidad técnica.
+    \item Cantidad de trabajo.
+    \item Riesgos e incertidumbre.
+    \item Dependencias externas.
+\end{itemize}
+
+La estimación se realizará utilizando la secuencia de Fibonacci:
+
+\begin{center}
+\textbf{1, 2, 3, 5, 8, 13}
+\end{center}
+
+\paragraph{Equivalencia referencial en horas}
+
+Aunque los Story Points no están definidos en función del tiempo, dentro del proyecto se establecerá una equivalencia aproximada en horas de trabajo con el fin de facilitar la planificación de los sprints y la distribución de la carga del equipo.
+
+Se propone la siguiente relación:
+
+\begin{center}
+\begin{tabular}{c c}
+\textbf{Story Point} & \textbf{Horas aproximadas} \\
+1 SP & 4 horas \\
+2 SP & 8 horas \\
+3 SP & 12 horas \\
+5 SP & 20 horas \\
+8 SP & 32 horas \\
+13 SP & 52 horas \\
+\end{tabular}
+\end{center}
+
+Esta equivalencia:
+
+\begin{itemize}
+    \item Servirá únicamente como guía para la planificación.
+    \item Permitirá estimar la capacidad de trabajo del equipo por sprint.
+    \item No se utilizará como métrica de rendimiento individual.
+\end{itemize}
+
+\paragraph{Uso dentro del proyecto}
+
+A partir de esta relación, será posible:
+
+\begin{itemize}
+    \item Calcular la capacidad del equipo por sprint en función de la disponibilidad horaria.
+    \item Determinar cuántos Story Points pueden ser comprometidos en cada iteración.
+    \item Ajustar la planificación según la velocidad real del equipo.
+\end{itemize}
+
+\subsubsection{Planning Poker}
+
+La técnica utilizada para la estimación será \textbf{Planning Poker}, la cual permite obtener estimaciones consensuadas evitando sesgos.
+
+Para su ejecución se hará uso de la herramienta en línea:
+
+\begin{center}
+\url{https://planningpokeronline.com/}
+\end{center}
+
+El flujo de la dinámica será el siguiente:
+
+\begin{itemize}
+    \item El Product Owner presenta la historia de usuario.
+    \item El equipo realiza preguntas y aclara dudas.
+    \item Cada integrante selecciona su estimación de manera individual en la plataforma.
+    \item Las estimaciones se revelan simultáneamente.
+    \item En caso de diferencias significativas, se discuten los criterios y se repite la votación hasta llegar a un consenso.
+\end{itemize}
+
+Este enfoque permite:
+
+\begin{itemize}
+    \item Evitar la influencia entre los integrantes del equipo.
+    \item Obtener estimaciones más precisas.
+    \item Generar entendimiento compartido sobre el alcance de las historias.
+\end{itemize}
+
+\subsubsection{Velocidad del Equipo}
+
+La \textit{Velocity} corresponde a la cantidad de Story Points completados en un sprint.
+
+Su aplicación dentro del proyecto será:
+
+\begin{itemize}
+    \item Determinar la capacidad real del equipo.
+    \item Mejorar la planificación de los siguientes sprints.
+    \item Evitar la sobrecarga de trabajo.
+    \item Identificar desviaciones en la ejecución.
+\end{itemize}
+
+Durante los primeros sprints se utilizará como una métrica de referencia para ajustar la planificación, sin considerarse un indicador de desempeño individual.
+
+\subsubsection{Criterios para la estimación}
+
+Una historia de usuario solo podrá ser estimada cuando:
+
+\begin{itemize}
+    \item Cumpla con la Definition of Ready.
+    \item Sea comprendida por todo el equipo.
+    \item Tenga criterios de aceptación definidos.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Kanban}
+
+Kanban es un método ágil orientado a la gestión visual del trabajo mediante un flujo continuo de tareas. Su objetivo es permitir que el equipo conozca en todo momento el estado real del desarrollo, identifique bloqueos de forma temprana y evite la sobrecarga de trabajo en progreso.
+
+Dentro del proyecto, Kanban se utilizará como herramienta operativa para la ejecución diaria del sprint, complementando la planificación iterativa definida por Scrum.
+
+\subsubsection{Propuesta de uso para el equipo}
+
+Se propone utilizar un tablero Kanban digital (Jira o Azure DevOps) en el cual se gestionarán todas las tareas del sprint. Cada integrante del equipo tendrá tareas asignadas y será responsable de actualizar su estado.
+
+El tablero será el elemento central de seguimiento durante los Daily Scrum y permitirá evidenciar el avance real del trabajo.
+
+\subsubsection{Estructura del tablero}
+
+El flujo de trabajo propuesto es el siguiente:
+
+\begin{center}
+\textbf{To Do $\rightarrow$ In Progress $\rightarrow$ Code Review / Testing $\rightarrow$ Done}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{To Do:} Contiene las tareas comprometidas en el Sprint Planning.  
+    Solo podrán ingresar elementos que cumplan la \textit{Definition of Ready}.
+    
+    \item \textbf{In Progress:} Tareas en desarrollo activo, con responsable asignado.
+    
+    \item \textbf{Code Review / Testing:} Validación técnica de la funcionalidad desarrollada, ejecución de pruebas y verificación de criterios de aceptación.
+    
+    \item \textbf{Done:} Contiene únicamente las tareas que cumplen completamente la \textit{Definition of Done}, representando trabajo potencialmente entregable.
+\end{itemize}
+
+\subsubsection{Límites de trabajo en progreso (WIP)}
+
+Con el fin de evitar la apertura simultánea de múltiples tareas y fomentar la finalización del trabajo antes de iniciar nuevas actividades, se establecen los siguientes límites:
+
+\begin{itemize}
+    \item \textbf{In Progress:} máximo 3 tareas simultáneas.
+    \item \textbf{Code Review / Testing:} máximo 2 tareas simultáneas.
+\end{itemize}
+
+Estos valores podrán ajustarse según el número definitivo de integrantes del equipo.
+
+\subsubsection{Políticas para el movimiento de tareas}
+
+Para garantizar un flujo de trabajo claro y controlado, se definen las siguientes reglas:
+
+\textbf{Para mover una tarea a In Progress:}
+
+\begin{itemize}
+    \item Debe cumplir la \textit{Definition of Ready}.
+    \item Tener responsable asignado.
+    \item No superar el límite WIP.
+\end{itemize}
+
+\textbf{Para mover una tarea a Code Review / Testing:}
+
+\begin{itemize}
+    \item El desarrollo ha finalizado.
+    \item El código compila correctamente.
+    \item Las pruebas locales se ejecutan sin errores.
+\end{itemize}
+
+\textbf{Para mover una tarea a Done:}
+
+\begin{itemize}
+    \item Debe cumplir completamente la \textit{Definition of Done}.
+    \item Haber sido revisada por al menos un integrante del equipo.
+\end{itemize}
+
+\subsubsection{Uso del tablero en las ceremonias}
+
+Durante el Daily Scrum, el tablero Kanban será el principal punto de referencia para:
+
+\begin{itemize}
+    \item Visualizar el avance real del sprint.
+    \item Identificar tareas bloqueadas.
+    \item Redistribuir el trabajo en caso necesario.
+\end{itemize}
+
+En el Sprint Review permitirá evidenciar de manera clara las funcionalidades terminadas y el cumplimiento del objetivo del sprint.
+
+\subsubsection{Beneficios para el equipo}
+
+\begin{itemize}
+    \item Mayor transparencia en el avance del trabajo.
+    \item Mejor distribución de tareas entre los integrantes.
+    \item Identificación temprana de cuellos de botella.
+    \item Control del trabajo en progreso.
+    \item Trazabilidad del aporte individual.
+    \item Aseguramiento de la calidad mediante el uso de DoR y DoD.
+\end{itemize}
+
+\subsubsection{Métricas de seguimiento del flujo de trabajo}
+
+Con el fin de analizar el desempeño del equipo y mejorar continuamente el proceso de desarrollo, se propone utilizar métricas propias de Kanban que permitan evaluar el comportamiento real del flujo de trabajo dentro de cada sprint.
+
+Estas métricas no se utilizarán con fines de control individual, sino como un mecanismo de mejora continua del equipo.
+
+\begin{itemize}
+    \item \textbf{Lead Time:}  
+    Tiempo total transcurrido desde que una tarea es creada hasta que se encuentra en estado \textit{Done}.  
+    Esta métrica permitirá identificar cuánto tarda una funcionalidad en estar completamente terminada desde su solicitud.
+
+    \item \textbf{Cycle Time:}  
+    Tiempo que transcurre desde que una tarea pasa a \textit{In Progress} hasta que llega a \textit{Done}.  
+    Permitirá medir la eficiencia real del proceso de desarrollo y detectar retrasos en etapas como pruebas o revisiones de código.
+
+    \item \textbf{Throughput:}  
+    Cantidad de tareas completadas por sprint.  
+    Esta métrica permitirá estimar la capacidad real del equipo y mejorar la planificación de los siguientes sprints.
+
+    \item \textbf{Work In Progress (WIP):}  
+    Número de tareas que se encuentran en desarrollo simultáneamente.  
+    Su control permitirá evitar la sobrecarga de trabajo y mejorar el enfoque en la finalización de tareas.
+\end{itemize}
+
+\subsubsection{Uso de las métricas dentro del equipo}
+
+Las métricas serán revisadas al final de cada sprint durante la Sprint Retrospective con los siguientes objetivos:
+
+\begin{itemize}
+    \item Identificar cuellos de botella en el flujo de trabajo.
+    \item Evaluar si los límites WIP definidos son adecuados.
+    \item Mejorar la estimación y planificación del siguiente sprint.
+    \item Detectar oportunidades de mejora en pruebas, revisiones de código o definición de tareas.
+\end{itemize}
+
+El análisis de estas métricas permitirá tomar decisiones basadas en datos y fortalecer el proceso de mejora continua del equipo.
+
+%--------------------------------------------------
+\subsection{Integración de Scrum y Kanban}
+
+La combinación de Scrum y Kanban permitirá:
+
+\begin{itemize}
+    \item Mantener una \textbf{planificación estructurada} basada en sprints.
+    \item Gestionar el trabajo diario mediante un \textbf{flujo visual continuo}.
+    \item Tener mayor control sobre el avance real de las tareas.
+    \item Detectar bloqueos de manera temprana.
+\end{itemize}
+
+En este enfoque:
+
+\begin{itemize}
+    \item Scrum define \textbf{qué se va a hacer}.
+    \item Kanban permite visualizar \textbf{cómo está avanzando el trabajo}.
+\end{itemize}
+
+Esta estrategia busca mejorar la organización del equipo, aumentar la transparencia del proceso y garantizar entregas incrementales alineadas con los objetivos del curso.
+
+%--------------------------------------------------
+\section{Criterios de Preparación y Finalización}
+
+Con el fin de garantizar una ejecución ordenada del proyecto, una adecuada planificación de los sprints y un nivel consistente de calidad en los entregables, el equipo establece de manera explícita los criterios de \textit{Definition of Ready} y \textit{Definition of Done}. Estos criterios se adoptan como acuerdos del equipo y podrán ser ajustados de forma consensuada a lo largo del semestre si se considera necesario.
+
+%--------------------------------------------------
+\subsection{Definition of Ready (DoR)}
+
+La \textit{Definition of Ready} establece las condiciones mínimas que debe cumplir una historia de usuario antes de ser seleccionada e incluida en un Sprint. Su objetivo es asegurar que el equipo cuente con la información necesaria para trabajar de forma clara, organizada y sin ambigüedades.
+
+Una historia de usuario se considerará \textbf{lista para ser trabajada} cuando cumpla con las siguientes condiciones:
+
+\begin{itemize}
+    \item Está claramente redactada y entendida por todos los integrantes del equipo.
+    \item Tiene un objetivo definido y alineado con el Product Backlog.
+    \item Cuenta con criterios de aceptación claros y verificables.
+    \item Su alcance está claramente delimitado y es abordable dentro de un sprint.
+    \item Ha sido estimada por el equipo utilizando puntos de historia u otra técnica acordada.
+    \item No presenta dependencias bloqueantes sin resolver.
+    \item Cuenta con los insumos necesarios para su desarrollo (diseños, diagramas, decisiones técnicas preliminares, cuando aplique).
+\end{itemize}
+
+La aplicación de esta definición busca reducir incertidumbre durante la ejecución del sprint y mejorar la calidad de la planificación.
+
+%--------------------------------------------------
+\subsection{Definition of Done (DoD)}
+
+La \textit{Definition of Done} establece las condiciones que determinan cuándo una historia de usuario o tarea se considera completamente finalizada. Su propósito es garantizar que cada incremento del producto cumpla con estándares mínimos de calidad técnica, funcional y documental.
+
+Una historia de usuario se considerará \textbf{completada} cuando cumpla con todas las siguientes condiciones:
+
+\begin{itemize}
+    \item Cumple con todos los criterios de aceptación definidos.
+    \item La funcionalidad ha sido implementada y validada.
+    \item El código aplica principios SOLID y buenas prácticas de Clean Code.
+    \item El código se encuentra organizado según la estructura del proyecto.
+    \item Existen pruebas unitarias y/o de integración coherentes con la funcionalidad desarrollada.
+    \item Las pruebas se ejecutan correctamente y sin errores.
+    \item El código ha sido revisado por al menos un integrante del equipo.
+    \item La funcionalidad se encuentra documentada (README, comentarios de código y diagramas cuando aplique).
+    \item La funcionalidad está integrada en la rama correspondiente del repositorio.
+    \item La funcionalidad se encuentra desplegada en el ambiente correspondiente, cuando aplique.
+\end{itemize}
+
+La Definition of Done permite asegurar que cada incremento del producto sea potencialmente entregable y mantenga un nivel de calidad acorde con los objetivos académicos y técnicos del proyecto.
+
+
+%--------------------------------------------------
+
+\section{Gestión del Trabajo y Comunicación}
+
+La gestión del trabajo y la comunicación efectiva son fundamentales para el éxito del proyecto. A continuación, se detallan las herramientas propuestas para la gestión del proyecto y los canales de comunicación, con un análisis de sus ventajas, desventajas y recomendaciones, basadas en experiencias previas en proyectos académicos similares.
+
+%--------------------------------------------------
+\subsection{Gestor de Proyectos}
+
+El gestor de proyectos será el eje central para la planificación, seguimiento y control del trabajo del equipo. A través de esta herramienta se organizará el Product Backlog, los sprints y las tareas, garantizando trazabilidad entre requerimientos, desarrollo y entregables.
+
+\subsubsection{Jira}
+
+Jira es una herramienta líder en la gestión de proyectos ágiles, ampliamente utilizada en la industria del software. Está orientada a la planificación detallada del trabajo y al seguimiento del avance mediante tableros Scrum o Kanban.
+
+\textbf{Ventajas de Jira:}
+\begin{itemize}
+    \item Soporte completo para metodologías ágiles como Scrum y Kanban.
+    \item Gestión detallada de épicas, features e historias de usuario.
+    \item Tableros visuales intuitivos y potentes reportes de métricas ágiles.
+    \item Amplio ecosistema de integraciones y complementos.
+\end{itemize}
+
+\textbf{Desventajas de Jira:}
+\begin{itemize}
+    \item Curva de aprendizaje inicial elevada.
+    \item Configuración compleja en algunos escenarios.
+    \item Funcionalidades avanzadas requieren planes de pago.
+\end{itemize}
+
+
+
+%--------------------------------------------------
+\subsubsection{Conceptos Clave para la Gestión del Proyecto}
+
+Para una adecuada planificación, seguimiento y control del trabajo dentro del gestor de proyectos, es fundamental que el equipo comparta un entendimiento común de los conceptos utilizados en el marco de trabajo Scrum. A continuación, se presentan estos conceptos organizados desde el nivel más operativo hasta el nivel más estratégico.
+
+\paragraph{Tarea}
+
+Una \textbf{tarea} es la unidad de trabajo más pequeña dentro del proyecto. Representa una acción técnica concreta necesaria para implementar una parte de una historia de usuario.
+
+Las tareas:
+\begin{itemize}
+    \item Son técnicas y específicas.
+    \item Se derivan de una historia de usuario.
+    \item Se asignan a uno o varios integrantes del equipo.
+    \item Permiten medir el avance diario del trabajo durante el sprint.
+\end{itemize}
+
+\paragraph{Historia de Usuario}
+
+Una \textbf{historia de usuario} describe una necesidad específica desde la perspectiva del usuario final, enfocándose en el valor que aporta y no en la solución técnica.
+
+Generalmente se redacta con la estructura:
+\begin{quote}
+\textit{Como [rol], quiero [funcionalidad], para [beneficio].}
+\end{quote}
+
+Las historias de usuario:
+\begin{itemize}
+    \item Agrupan una o varias tareas.
+    \item Constituyen la unidad principal de planificación en Scrum.
+    \item Incluyen criterios de aceptación que permiten validar su cumplimiento.
+\end{itemize}
+
+\paragraph{Feature}
+
+Una \textbf{feature} es una funcionalidad del sistema que aporta valor al usuario y que puede requerir varias historias de usuario para su implementación completa.
+
+Las features permiten:
+\begin{itemize}
+    \item Agrupar historias de usuario relacionadas.
+    \item Facilitar la priorización funcional del sistema.
+    \item Conectar necesidades del usuario con objetivos del proyecto.
+\end{itemize}
+
+\paragraph{Épica}
+
+Una \textbf{épica} representa un objetivo funcional de alto nivel del sistema que no puede ser implementado dentro de un solo sprint. Agrupa múltiples features o historias de usuario relacionadas.
+
+Las épicas:
+\begin{itemize}
+    \item Definen grandes bloques funcionales del sistema.
+    \item Permiten visualizar el alcance general del proyecto.
+    \item Se desarrollan de manera progresiva a lo largo del semestre.
+\end{itemize}
+
+\paragraph{Sprint}
+
+Un \textbf{sprint} es un intervalo de tiempo fijo durante el cual el equipo desarrolla un conjunto de historias de usuario priorizadas, seleccionadas desde el Product Backlog.
+
+Cada sprint:
+\begin{itemize}
+    \item Tiene un objetivo claramente definido.
+    \item Produce un incremento funcional del producto.
+    \item Permite inspección y adaptación al finalizar.
+\end{itemize}
+
+\paragraph{Release}
+
+Un \textbf{release} representa una versión del software que agrupa uno o varios sprints y que se considera estable y entregable. Los releases están asociados a una versión del sistema y suelen coincidir con hitos importantes del proyecto.
+
+En el contexto del proyecto:
+\begin{itemize}
+    \item Un release se asocia a una versión del software (versionamiento semántico).
+    \item Se prepara mediante ramas \texttt{release} en GitFlow.
+    \item Representa un entregable formal del proyecto.
+\end{itemize}
+
+La correcta comprensión de esta jerarquía facilita el uso adecuado del gestor de proyectos, mejora la planificación del trabajo y permite una trazabilidad clara entre requerimientos, desarrollo y entregables.
+
+
+%--------------------------------------------------
+\subsection{Canales de Comunicación}
+
+La comunicación efectiva es clave para el trabajo colaborativo del equipo. Se propone el uso de distintos canales de comunicación, diferenciando entre medios formales y no formales según su propósito.
+
+
+
+\subsubsection{WhatsApp}
+
+WhatsApp se utilizará como un canal de comunicación no oficial, enfocado en comunicación rápida, puntual y de carácter más personal entre los integrantes del equipo.
+
+\textbf{Ventajas de WhatsApp:}
+\begin{itemize}
+    \item Comunicación inmediata y de fácil acceso.
+    \item Alta disponibilidad en dispositivos móviles.
+    \item Útil para avisos urgentes.
+\end{itemize}
+
+\textbf{Desventajas de WhatsApp:}
+\begin{itemize}
+    \item No ofrece una estructura adecuada para la trazabilidad de información.
+    \item Dificulta la organización de discusiones técnicas a largo plazo.
+    \item No es apropiado como medio formal o académico.
+\end{itemize}
+
+\subsubsection{Microsoft Teams}
+
+Microsoft Teams es una plataforma de comunicación y colaboración que integra chat, videollamadas y reuniones virtuales. El equipo cuenta con acceso a esta herramienta a través de Microsoft 365 institucional.
+
+Teams se propone como el canal oficial para reuniones virtuales formales, permitiendo la programación, grabación y almacenamiento de las sesiones como evidencia académica y soporte para la toma de decisiones.
+
+\textbf{Ventajas de Microsoft Teams:}
+\begin{itemize}
+    \item Integración nativa con Microsoft 365.
+    \item Programación y grabación de reuniones virtuales.
+    \item Adecuada para reuniones formales y coordinación estructurada.
+    \item Conservación de evidencia de discusiones y acuerdos.
+\end{itemize}
+
+\textbf{Desventajas de Microsoft Teams:}
+\begin{itemize}
+    \item Mayor consumo de recursos.
+    \item Menor agilidad para comunicación informal.
+    \item Dependencia del ecosistema Microsoft.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Criterio de Uso y Recomendación}
+
+Con base en experiencias previas, se propone una estrategia combinada para la gestión del trabajo y la comunicación del equipo. Se recomienda utilizar \textbf{Jira} como gestor principal del proyecto, \textbf{Slack} como canal académico y técnico para la comunicación del proyecto, \textbf{Microsoft Teams} como medio oficial para reuniones virtuales formales y \textbf{WhatsApp} como canal no oficial para comunicación rápida.
+
+Esta combinación busca equilibrar formalidad, trazabilidad y agilidad, alineándose con las necesidades académicas y operativas del proyecto.
+
+
+%--------------------------------------------------
+\section{Repositorios Backend}
+
+\subsection{Contenido Obligatorio del README}
+
+El README de cada proyecto deberá incluir:
+
+\begin{enumerate}
+    \item \textbf{Tecnologías utilizadas}  
+    Descripción clara del lenguaje de programación, framework, base de datos, herramientas de pruebas, herramientas DevOps y demás tecnologías empleadas.
+
+    \item \textbf{Funcionalidades del sistema}
+    \begin{enumerate}
+        \item Descripción detallada de cada funcionalidad implementada, indicando los patrones de diseño utilizados (por ejemplo: MVC, Repository, Singleton, Factory, etc.).
+        
+        \item Diagramas que soporten la explicación técnica:
+        \begin{itemize}
+            \item Diagrama de datos.
+            \item Diagrama de clases.
+            \item Diagrama de componentes.
+            \item Diagrama de secuencia para explicar el flujo de las funcionalidades principales.
+        \end{itemize}
+        
+        \item Documentación de los endpoints expuestos:
+        \begin{itemize}
+            \item Método HTTP.
+            \item Ruta.
+            \item Información de entrada.
+            \item Información de salida.
+            \item Códigos de estado HTTP.
+        \end{itemize}
+        
+        \item Manejo de errores:  
+        Estrategia de validación, control de excepciones y estructura de respuestas de error.
+        
+        \item Evidencia de las pruebas:  
+        Descripción de las pruebas implementadas, cobertura alcanzada y explicación de cómo ejecutarlas.
+    \end{enumerate}
+
+    \item \textbf{Ejecución del proyecto}  
+    Instrucciones claras para:
+    \begin{itemize}
+        \item Clonar el repositorio.
+        \item Instalar dependencias.
+        \item Configurar variables de entorno.
+        \item Ejecutar el proyecto en ambiente local.
+    \end{itemize}
+
+    \item \textbf{Evidencia de despliegue CI/CD}  
+    \begin{itemize}
+        \item Evidencia de ejecución de pipelines.
+        \item Descripción del proceso de integración y despliegue continuo.
+        \item Enlace público desplegado en Azure.
+        \item Documentación Swagger expuesta y accesible.
+    \end{itemize}
+
+    \item \textbf{Organización del código}  
+    El código deberá estar estructurado en las respectivas carpetas según la arquitectura definida, manteniendo separación clara de responsabilidades.
+
+    \item \textbf{Documentación del código}  
+    Cada función, propiedad y clase deberá contar con sus respectivos comentarios de documentación, describiendo propósito, parámetros, valores de retorno y comportamiento esperado.
+
+    \item \textbf{Pruebas automatizadas}  
+    Las pruebas implementadas deberán ser coherentes con el porcentaje de cobertura expuesto en el README. El porcentaje indicado debe ser verificable.
+
+    \item \textbf{Pipelines obligatorios}  
+    Cada repositorio deberá contar con dos pipelines configurados:
+    \begin{itemize}
+        \item Pipeline de desarrollo.
+        \item Pipeline de producción.
+    \end{itemize}
+\end{enumerate}
+
+%--------------------------------------------------
+\subsection{Propuesta de Tecnologías para el Backend}
+
+Con el objetivo de garantizar una arquitectura robusta, mantenible y alineada con buenas prácticas de Ingeniería de Software y DevOps, se proponen las siguientes tecnologías como opciones viables para el desarrollo del Backend.
+
+\begin{itemize}
+    \item Java con Spring Boot (gestionado con Maven)
+    \item NestJS con TypeScript
+    \item ASP.NET Core con C#
+    \item Python con FastAPI
+    \item Go (Golang) con Gin o Fiber
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{1. Java con Spring Boot (Maven)}
+
+\textbf{Descripción:}  
+Spring Boot es un framework del ecosistema Java orientado al desarrollo de aplicaciones empresariales robustas y escalables. Maven se utiliza como herramienta de gestión de dependencias y construcción del proyecto.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Alta robustez y estabilidad en entornos empresariales.
+    \item Excelente soporte para arquitectura en capas y microservicios.
+    \item Amplio soporte para pruebas automatizadas y seguridad.
+    \item Fuerte integración con herramientas CI/CD.
+    \item Soporte sólido para concurrencia y procesamiento multihilo.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Mayor configuración inicial.
+    \item Curva de aprendizaje más exigente.
+    \item Mayor consumo de recursos en comparación con soluciones más ligeras.
+\end{itemize}
+
+%--------------------------------------------------
+
+%--------------------------------------------------
+\subsubsection{Recomendación Técnica}
+
+Considerando:
+
+\begin{itemize}
+    \item Los conocimientos previos del equipo en el ecosistema Java.
+    \item La orientación del proyecto hacia buenas prácticas de ingeniería de software.
+    \item La necesidad de aplicar principios SOLID, patrones de diseño y arquitectura empresarial.
+    \item La integración con procesos formales de CI/CD y despliegue en Azure.
+\end{itemize}
+
+Se establece como tecnología recomendada para el desarrollo del Backend:
+
+\begin{center}
+\textbf{\Large Java con Spring Boot y Maven}
+\end{center}
+
+Esta elección se fundamenta en su robustez estructural, su amplia adopción en entornos empresariales, su fuerte soporte para pruebas automatizadas, seguridad y manejo de concurrencia, así como en la alineación con la dirección técnica definida para el proyecto.
+
+%--------------------------------------------------
+\section{Repositorios Frontend}
+
+\subsection{Contenido Obligatorio del README}
+
+El README del proyecto Frontend deberá incluir como mínimo:
+
+\begin{enumerate}
+    \item \textbf{Tecnologías utilizadas}  
+    Descripción del framework principal, librerías complementarias, gestor de paquetes, herramientas de pruebas y herramientas DevOps utilizadas.
+
+    \item \textbf{Descripción general del sistema}  
+    Explicación del propósito del aplicativo, alcance funcional y contexto del proyecto.
+
+    \item \textbf{Ejecución del proyecto}  
+    Instrucciones claras para:
+    \begin{itemize}
+        \item Clonar el repositorio.
+        \item Instalar dependencias.
+        \item Configurar variables de entorno.
+        \item Ejecutar el proyecto en ambiente local.
+    \end{itemize}
+
+    \item \textbf{Diagrama de navegación}  
+    Diagrama que represente el flujo entre las diferentes pantallas del aplicativo, acompañado de una explicación detallada.
+
+    \item \textbf{Funcionamiento del aplicativo}  
+    Explicación general de cómo interactúa el usuario con el sistema.
+
+    \item \textbf{Funcionalidades y pantallas}
+    \begin{itemize}
+        \item Descripción de cada funcionalidad implementada.
+        \item Identificación de las pantallas asociadas.
+        \item Explicación paso a paso del flujo funcional.
+        \item Happy Path (flujo exitoso esperado).
+        \item Manejo de errores y escenarios alternativos.
+    \end{itemize}
+
+    \item \textbf{Video o enlace de demostración por funcionalidad}  
+    Evidencia visual del funcionamiento de cada módulo desarrollado.
+
+    \item \textbf{Diagrama de componentes a gran escala}  
+    Representación arquitectónica del sistema Frontend, mostrando módulos principales, componentes, servicios y comunicación con el Backend.
+
+    \item \textbf{Evidencia de pruebas funcionales}  
+    Capturas o reportes de ejecución de pruebas automatizadas o manuales.
+
+    \item \textbf{Organización del código}  
+    Estructura clara en carpetas, separación de componentes, servicios, hooks, utilidades y estilos.
+
+    \item \textbf{Documentación del código}  
+    Cada función, constante y componente deberá contener comentarios de documentación que expliquen:
+    \begin{itemize}
+        \item Propósito.
+        \item Parámetros.
+        \item Comportamiento esperado.
+    \end{itemize}
+
+    \item \textbf{Evidencia de despliegue CI/CD}  
+    \begin{itemize}
+        \item Evidencia de ejecución de pipelines.
+        \item Enlace público desplegado en Azure.
+    \end{itemize}
+
+    \item \textbf{Pipelines obligatorios}  
+    Cada repositorio deberá contar con:
+    \begin{itemize}
+        \item Pipeline de desarrollo.
+        \item Pipeline de producción.
+    \end{itemize}
+\end{enumerate}
+%--------------------------------------------------
+%--------------------------------------------------
+\subsection{Tecnologías}
+
+El desarrollo del Frontend estará fundamentado en tecnologías web estándar y herramientas modernas del ecosistema JavaScript.
+
+\textbf{HTML (HyperText Markup Language)}  
+Lenguaje de marcado utilizado para estructurar el contenido del aplicativo web.
+
+\textbf{CSS (Cascading Style Sheets)}  
+Lenguaje de estilos utilizado para definir la presentación visual, diseño responsivo y experiencia de usuario.
+
+\textbf{JavaScript}  
+Lenguaje de programación interpretado que permite la manipulación dinámica del DOM, manejo de eventos y comunicación con el Backend mediante peticiones HTTP.
+
+\textbf{TypeScript}  
+Superset de JavaScript que incorpora tipado estático, mejorando la mantenibilidad, detección temprana de errores y escalabilidad del proyecto.
+
+El uso combinado de estas tecnologías garantiza una base sólida, estandarizada y compatible con navegadores modernos.
+
+%--------------------------------------------------
+\subsubsection{Framework Principal y Librerías Complementarias}
+
+Para la construcción del aplicativo se proponen las siguientes opciones de framework:
+
+\begin{itemize}
+    \item React
+    \item Angular
+    \item Vue.js
+\end{itemize}
+
+Adicionalmente, podrán utilizarse librerías complementarias como:
+
+\begin{itemize}
+    \item Librerías de enrutamiento (React Router u opciones equivalentes).
+    \item Librerías de manejo de estado (Redux, Context API u opciones equivalentes).
+    \item Librerías de estilos (TailwindCSS, Bootstrap, Material UI u otras).
+    \item Librerías para consumo de APIs (Axios o Fetch API).
+    \item Librerías de pruebas (Jest, Testing Library u otras).
+\end{itemize}
+
+%--------------------------------------------------
+\paragraph{1. React}
+
+\textbf{Descripción:}  
+React es una librería de JavaScript orientada a la construcción de interfaces de usuario basadas en componentes reutilizables.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Arquitectura modular basada en componentes.
+    \item Amplio ecosistema de librerías.
+    \item Alta flexibilidad y escalabilidad.
+    \item Excelente integración con APIs REST.
+    \item Gran adopción en la industria.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item No impone arquitectura estricta.
+    \item Requiere convenciones claras para evitar desorganización.
+\end{itemize}
+
+%--------------------------------------------------
+\paragraph{2. Angular}
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Framework completo y estructurado.
+    \item Integración fuerte con TypeScript.
+    \item Arquitectura definida desde el inicio.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Mayor complejidad inicial.
+    \item Curva de aprendizaje más alta.
+\end{itemize}
+
+%--------------------------------------------------
+\paragraph{3. Vue.js}
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Fácil de aprender.
+    \item Ligero y flexible.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Menor adopción empresarial comparado con React.
+    \item Ecosistema más reducido.
+\end{itemize}
+
+subsubsection{Librerías Complementarias}
+
+Para fortalecer la arquitectura del Frontend podrán utilizarse librerías como:
+
+\begin{itemize}
+    \item \textbf{Enrutamiento:} React Router u opciones equivalentes.
+    \item \textbf{Manejo de estado:} Context API, Redux u otras alternativas.
+    \item \textbf{Estilos y UI:} TailwindCSS, Bootstrap, Material UI u otras librerías de componentes.
+    \item \textbf{Consumo de APIs:} Axios o Fetch API.
+    \item \textbf{Pruebas:} Jest, React Testing Library u otras herramientas de pruebas funcionales.
+\end{itemize}
+
+Estas herramientas permiten implementar separación de responsabilidades, modularidad y mejores prácticas de desarrollo.
+
+%--------------------------------------------------
+\subsubsection{Build Tools (Herramientas de Construcción)}
+
+En proyectos Frontend modernos es necesario utilizar herramientas de construcción que permitan compilar, optimizar y empaquetar el aplicativo para distintos entornos.
+
+Las principales opciones consideradas son:
+
+\paragraph{Vite}
+
+Herramienta moderna de construcción y servidor de desarrollo que utiliza ES Modules en entorno de desarrollo y genera builds optimizados para producción.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Inicio rápido del servidor de desarrollo.
+    \item Recarga en caliente (Hot Module Replacement).
+    \item Integración nativa con React y TypeScript.
+    \item Generación de builds optimizados para despliegue.
+\end{itemize}
+
+\paragraph{Webpack}
+
+Herramienta tradicional de empaquetado altamente configurable, pero con mayor complejidad de configuración y tiempos de compilación más elevados.
+
+\paragraph{Create React App}
+
+Herramienta tradicional para inicializar proyectos React con configuración automática, aunque actualmente menos flexible y menos recomendada para proyectos nuevos.
+
+%--------------------------------------------------
+\subsection{Recomendación Técnica}
+
+Considerando:
+
+\begin{itemize}
+    \item Los conocimientos previos del equipo en React.
+    \item La necesidad de una arquitectura modular basada en componentes.
+    \item La integración eficiente con el Backend desarrollado en Java Spring Boot.
+    \item La optimización del flujo de desarrollo y despliegue continuo.
+    \item La dirección técnica definida para el proyecto.
+\end{itemize}
+
+Se establece como stack tecnológico recomendado para el desarrollo del Frontend:
+
+\begin{center}
+\textbf{\Large React con TypeScript utilizando Vite}
+\end{center}
+
+Esta combinación garantiza modularidad, mantenibilidad, tipado estático, rapidez en el desarrollo, optimización en producción y alineación con prácticas modernas de ingeniería de software.
+%--------------------------------------------------
+
+
+%--------------------------------------------------
+\section{Diagramación y Documentación}
+
+La diagramación y documentación del sistema acompañarán de manera continua todo el ciclo de vida del proyecto, sirviendo como apoyo para la toma de decisiones técnicas, la comprensión de la arquitectura y la comunicación entre los integrantes del equipo.
+
+La documentación se concibe como un artefacto vivo, que evoluciona conforme se refinan los requerimientos, se ajusta el diseño y se implementan nuevas funcionalidades. Para este propósito, el equipo seleccionará herramientas diferenciadas para:
+
+\begin{itemize}
+    \item Diagramación técnica (UML y Modelo C4).
+    \item Diseño visual (mockups y flujos de navegación).
+\end{itemize}
+
+Se propone elaborar y mantener actualizados los siguientes documentos, utilizando las plantillas oficiales del curso:
+
+\begin{itemize}
+    \item Documento de Análisis de Requerimientos.
+    \item Documento de Arquitectura del Sistema.
+    \item Documento de Arquitectura y Diseño del Frontend.
+    \item Manual de Identidad de la Aplicación.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Herramientas de Diagramación Técnica (UML y Modelo C4)}
+
+De acuerdo con los lineamientos del proyecto, se debe seleccionar una herramienta que permita trabajar con estándares UML y Modelo C4. A continuación, se analizan las opciones propuestas.
+
+%--------------------------------------------------
+\subsubsection{Astah}
+
+Astah es una herramienta especializada en diagramación UML utilizada en contextos académicos y profesionales. Permite la elaboración estructurada de diagramas de clases, componentes, secuencia, despliegue, entre otros.
+
+Es especialmente adecuada cuando se requiere formalidad técnica y cumplimiento estricto de estándares UML.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Soporte robusto para UML formal.
+    \item Modelado estructurado y estandarizado.
+    \item Adecuada para documentación técnica final.
+    \item Experiencia previa del equipo en su uso.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Limitada colaboración en tiempo real.
+    \item Menor flexibilidad para iteraciones rápidas.
+    \item No está orientada específicamente al Modelo C4.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Miro}
+
+Miro es una plataforma colaborativa en línea orientada al trabajo visual. Permite construir diagramas de manera flexible, incluyendo representaciones compatibles con UML y Modelo C4 mediante plantillas.
+
+Es ideal para fases tempranas como análisis de requerimientos y diseño conceptual.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Excelente colaboración en tiempo real.
+    \item Alta flexibilidad para representar arquitecturas C4.
+    \item Interfaz intuitiva.
+    \item Ideal para sesiones de análisis y arquitectura colaborativa.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item No impone estrictamente la formalidad UML.
+    \item Puede generar inconsistencias si no se estandariza el modelado.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Lucidchart}
+
+Lucidchart combina formalidad técnica y colaboración en línea. Permite crear diagramas UML estructurados, modelos de arquitectura y representaciones del Modelo C4 con soporte colaborativo.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Soporte para UML y diagramas de arquitectura.
+    \item Edición colaborativa en tiempo real.
+    \item Permite mantener los diagramas actualizados durante los sprints.
+    \item Equilibrio entre formalidad y flexibilidad.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Algunas funciones avanzadas requieren suscripción.
+    \item Menor profundidad técnica que herramientas especializadas.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Herramientas de Diseño Visual (Mockups y Flujos de Navegación)}
+
+Para el diseño de la experiencia de usuario, el equipo seleccionará una herramienta orientada a la creación de mockups y flujos de navegación. Estas herramientas permiten visualizar la interfaz antes de su implementación técnica.
+
+%--------------------------------------------------
+\subsubsection{Miro}
+
+Miro permite diseñar mockups básicos y representar flujos de navegación mediante esquemas visuales colaborativos.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Ideal para bosquejos rápidos.
+    \item Excelente colaboración en tiempo real.
+    \item Útil para definir flujo de usuario y arquitectura de navegación.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item No está especializada en diseño de interfaces de alta fidelidad.
+    \item Limitaciones en prototipado interactivo avanzado.
+\end{itemize}
+
+%--------------------------------------------------
+\subsubsection{Figma}
+
+Figma es una herramienta profesional de diseño de interfaces y prototipado interactivo. Permite crear mockups de media y alta fidelidad, definir componentes reutilizables y construir prototipos navegables.
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Diseño de interfaces de alta fidelidad.
+    \item Prototipos interactivos.
+    \item Trabajo colaborativo en tiempo real.
+    \item Versionamiento de diseños.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Curva de aprendizaje mayor que herramientas más simples.
+    \item Funcionalidades avanzadas requieren plan pago (aunque existen planes educativos).
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Estrategia de Uso Propuesta}
+
+Se propone la siguiente estrategia para el proyecto:
+
+\begin{itemize}
+    \item Utilizar \textbf{Lucidchart} o \textbf{Miro} para la diagramación técnica (UML y Modelo C4) durante los sprints, debido a su capacidad colaborativa.
+    \item En caso de requerir mayor formalidad en la entrega final, consolidar los diagramas en \textbf{Astah}.
+    \item Utilizar \textbf{Figma} para el diseño de mockups y prototipos de interfaz.
+\end{itemize}
+
+Esta estrategia permite:
+
+\begin{itemize}
+    \item Separar claramente diseño visual y arquitectura técnica.
+    \item Mantener documentación actualizada durante el desarrollo.
+    \item Cumplir con los estándares UML y Modelo C4 exigidos.
+    \item Facilitar el trabajo colaborativo del equipo.
+\end{itemize}
+
+
+
+%--------------------------------------------------
+%--------------------------------------------------
+\section{DevOps, Seguridad y Calidad}
+
+Con el objetivo de garantizar estabilidad, seguridad, escalabilidad y calidad técnica del sistema, se implementará una estrategia integral de DevOps que abarque control de versiones, automatización, pruebas, despliegue y monitoreo continuo.
+
+%--------------------------------------------------
+\subsection{Gestión de Ramas y Control de Versiones}
+
+Se adoptará una estrategia de ramificación basada en GitFlow o equivalente.
+
+\begin{itemize}
+    \item La rama \textbf{main} estará protegida.
+    \item No se permitirán commits directos sobre \textbf{main}.
+    \item Todo cambio deberá realizarse mediante Pull Request.
+    \item Será obligatoria la aprobación previa antes de realizar merge.
+    \item Los pipelines deberán ejecutarse exitosamente antes de permitir la integración.
+\end{itemize}
+
+Esto garantiza estabilidad del código productivo y trazabilidad de cambios.
+
+%--------------------------------------------------
+\subsection{Cobertura de Código y Pruebas}
+
+Se implementarán pruebas automatizadas para garantizar la calidad del software:
+
+\begin{itemize}
+    \item Pruebas unitarias.
+    \item Pruebas de integración.
+    \item Pruebas funcionales del Frontend.
+    \item Pruebas del API utilizando Postman.
+\end{itemize}
+
+Se deberá mantener un porcentaje de \textbf{Cobertura de Código} coherente con lo reportado en el README, asegurando que las funcionalidades críticas estén adecuadamente probadas.
+
+Adicionalmente, se realizarán:
+
+\begin{itemize}
+    \item Pruebas de carga mediante simulación controlada de solicitudes.
+\end{itemize}
+
+Estas pruebas permitirán validar el comportamiento del sistema bajo escenarios de alta concurrencia.
+
+%--------------------------------------------------
+\subsection{Análisis Estático y Resolución de Deuda Técnica}
+
+Se implementarán herramientas de análisis estático para:
+
+\begin{itemize}
+    \item Detectar vulnerabilidades.
+    \item Identificar código duplicado.
+    \item Medir complejidad.
+    \item Verificar estándares de calidad.
+\end{itemize}
+
+La deuda técnica identificada deberá ser gestionada y priorizada dentro de los Sprints, asegurando su resolución progresiva y evitando acumulación de riesgos técnicos.
+
+%--------------------------------------------------
+\subsection{Arquitectura del Backend}
+
+El Backend será desarrollado en:
+
+\begin{center}
+\textbf{Java con Spring Boot}
+\end{center}
+
+Se implementarán las siguientes características:
+
+\begin{itemize}
+    \item Base de datos relacional PostgreSQL.
+    \item Implementación de Spring Security con autenticación basada en JWT.
+    \item Comunicación segura mediante protocolo SSL.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Contenerización y Orquestación}
+
+El API será:
+
+\begin{itemize}
+    \item Dockerizado.
+    \item Desplegado utilizando Kubernetes para facilitar escalabilidad y gestión de contenedores.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Ambientes Diferenciados}
+
+Se establecerán los siguientes entornos:
+
+\begin{itemize}
+    \item \textbf{Ambiente de Pruebas (SBX - Sandbox).}
+    \item \textbf{Ambiente de Preproducción (PREPROD).}
+    \item \textbf{Ambiente de Producción.}
+\end{itemize}
+
+Cada ambiente tendrá configuración independiente y variables de entorno diferenciadas.
+
+%--------------------------------------------------
+\subsection{Despliegue en la Nube}
+
+\textbf{Backend:}
+\begin{itemize}
+    \item API desplegado en Azure.
+\end{itemize}
+
+\textbf{Frontend:}
+\begin{itemize}
+    \item Frontend desplegado en Vercel.
+    \item Comunicación directa y funcional con el Backend desplegado.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Integración Continua y Entrega Continua (CI/CD)}
+
+Cada repositorio contará con:
+
+\begin{itemize}
+    \item Pipeline de Desarrollo.
+    \item Pipeline de Producción.
+\end{itemize}
+
+Los pipelines deberán:
+
+\begin{itemize}
+    \item Instalar dependencias.
+    \item Ejecutar pruebas automatizadas.
+    \item Ejecutar análisis estático.
+    \item Generar build optimizado.
+    \item Desplegar automáticamente según el entorno.
+\end{itemize}
+
+Estas prácticas permitirán mantener un sistema estable, seguro, escalable y alineado con estándares profesionales de ingeniería de software.
+
+
+%--------------------------------------------------
+\section{Manejo de la Estrategia de Versionamiento y Branches}
+
+El manejo del control de versiones es un componente esencial dentro del ciclo de vida del desarrollo de software, ya que permite registrar cambios, facilitar el trabajo colaborativo y mantener la estabilidad del proyecto. Para este proyecto, se propone el uso de \textbf{Git} como sistema de control de versiones, \textbf{GitHub} como plataforma de repositorios y una estrategia de ramificación basada en \textbf{GitFlow}.
+
+La estrategia presentada se plantea como una propuesta inicial basada en buenas prácticas de la industria y en experiencias previas en proyectos académicos similares, y podrá ajustarse de acuerdo con las decisiones que tome el equipo.
+
+%--------------------------------------------------
+\subsection{Git}
+
+Git es un sistema de control de versiones distribuido que permite gestionar el historial de cambios del código fuente de manera eficiente. Cada integrante del equipo cuenta con una copia local del repositorio, lo que facilita el trabajo paralelo y la sincronización controlada de los cambios.
+
+El uso de Git permite:
+\begin{itemize}
+    \item Registrar cambios de manera incremental mediante commits.
+    \item Trabajar de forma paralela utilizando ramas.
+    \item Recuperar versiones anteriores del código.
+    \item Reducir riesgos asociados a errores o pérdidas de información.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{GitHub}
+
+GitHub es una plataforma en la nube que aloja repositorios Git y proporciona herramientas adicionales para la colaboración entre los integrantes del equipo. A través de GitHub se centraliza el código del proyecto y se facilita el trabajo colaborativo.
+
+Entre las principales funcionalidades de GitHub se encuentran:
+\begin{itemize}
+    \item Alojamiento de repositorios remotos.
+    \item Gestión de ramas y Pull Requests.
+    \item Revisión de código colaborativa.
+    \item Integración con herramientas de CI/CD.
+    \item Trazabilidad entre código, tareas y entregables.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{GitFlow}
+
+GitFlow es una estrategia de ramificación que define un conjunto de ramas con propósitos claros dentro del ciclo de desarrollo. Esta estrategia permite organizar el trabajo del equipo, mantener la estabilidad de las versiones entregables y facilitar el versionamiento del software.
+
+GitFlow se basa en el uso de ramas principales y ramas de soporte, permitiendo un desarrollo incremental y controlado.
+
+%--------------------------------------------------
+\subsection{Ramas Principales}
+
+\subsubsection{Rama \texttt{main}}
+
+La rama \texttt{main} representa la versión estable del sistema. El código presente en esta rama debe encontrarse siempre en un estado funcional y listo para ser desplegado o presentado como incremento del producto.
+
+La integración a esta rama se realizará únicamente cuando se cumpla la \textit{Definition of Done} y se hayan validado las pruebas correspondientes.
+
+\subsubsection{Rama \texttt{develop}}
+
+La rama \texttt{develop} se utilizará como rama de integración del desarrollo activo. En esta rama se consolidarán las funcionalidades desarrolladas durante cada sprint antes de ser promovidas a la rama \texttt{main}.
+
+Esta rama permite:
+\begin{itemize}
+    \item Integrar el trabajo de múltiples desarrolladores.
+    \item Ejecutar pruebas y validaciones previas.
+    \item Mantener la estabilidad de la rama principal.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Ramas de Soporte}
+
+\subsubsection{Ramas \texttt{feature}}
+
+Las ramas \texttt{feature} se utilizarán para el desarrollo de nuevas funcionalidades del sistema. Cada rama estará asociada a una historia de usuario o tarea específica definida en el gestor de proyectos.
+
+Se crearán a partir de la rama \texttt{develop} y seguirán la convención:
+\begin{itemize}
+    \item \texttt{feature/nombre-funcionalidad}
+\end{itemize}
+
+Una vez completada la funcionalidad y verificado el cumplimiento de la \textit{Definition of Done}, la rama será integrada nuevamente en \texttt{develop} mediante un Pull Request.
+
+\subsubsection{Ramas \texttt{bugfix}}
+
+Las ramas \texttt{bugfix} se utilizarán para corregir errores detectados durante el desarrollo o las pruebas. Estas ramas permiten aislar las correcciones sin afectar el desarrollo de nuevas funcionalidades.
+
+Se crearán a partir de \texttt{develop} y seguirán la convención:
+\begin{itemize}
+    \item \texttt{bugfix/descripcion-error}
+\end{itemize}
+
+\subsubsection{Ramas \texttt{hotfix}}
+
+Las ramas \texttt{hotfix} se utilizarán para corregir errores críticos detectados en versiones ya liberadas del sistema. Estas ramas se crearán a partir de la rama \texttt{main} y, una vez finalizadas, se integrarán tanto en \texttt{main} como en \texttt{develop}, garantizando que la corrección se mantenga en versiones futuras.
+
+\subsubsection{Ramas \texttt{release}}
+
+Las ramas \texttt{release} se utilizarán para preparar una versión del sistema antes de su liberación oficial. En estas ramas se realizarán ajustes finales, corrección de errores menores, actualización de documentación y definición del número de versión.
+
+Se crearán a partir de la rama \texttt{develop} y seguirán la convención:
+\begin{itemize}
+    \item \texttt{release/x.y.z}
+\end{itemize}
+
+Una vez estabilizada la versión, la rama \texttt{release} se integrará en \texttt{main} y posteriormente en \texttt{develop}.
+
+%--------------------------------------------------
+\subsection{Convención de Commits}
+
+Se propone adoptar una convención clara y estandarizada para los mensajes de commit, con el fin de facilitar la comprensión del historial del proyecto, mejorar la trazabilidad académica y permitir identificar de manera explícita al autor de cada cambio.
+
+Cada mensaje de commit deberá incluir:
+\begin{itemize}
+    \item El tipo de cambio realizado.
+    \item Una descripción breve y clara de la acción realizada, redactada en español.
+    \item El nombre institucional del integrante que realiza el commit.
+\end{itemize}
+
+La estructura propuesta para los mensajes de commit es la siguiente:
+
+\begin{center}
+\texttt{<tipo>: <descripción breve en español> | <Nombre Institucional>}
+\end{center}
+
+Donde \texttt{<tipo>} puede ser uno de los siguientes:
+
+\begin{itemize}
+    \item \texttt{feat}: incorporación de una nueva funcionalidad.
+    \item \texttt{fix}: corrección de errores.
+    \item \texttt{refactor}: mejoras internas del código sin cambiar funcionalidad.
+    \item \texttt{docs}: cambios o adiciones en la documentación.
+    \item \texttt{test}: adición o modificación de pruebas.
+\end{itemize}
+
+\textbf{Ejemplos de mensajes de commit:}
+\begin{itemize}
+    \item \texttt{feat: implementación del endpoint de autenticación | Juan Sebastián Guayazán}
+    \item \texttt{fix: corrección de validación en formulario de registro | Nombre Apellido}
+    \item \texttt{docs: actualización del README con instrucciones de despliegue | Nombre Apellido}
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Versionamiento del Software}
+
+Para el proyecto se propone el uso de \textbf{versionamiento semántico} (\textit{Semantic Versioning}), el cual se utiliza para identificar y gestionar las versiones del software liberadas, y no para los commits individuales.
+
+El versionamiento semántico se aplica en el momento en que el sistema alcanza un estado estable y entregable, por ejemplo:
+\begin{itemize}
+    \item Al finalizar un sprint.
+    \item Al crear una rama de tipo \texttt{release}.
+    \item Al realizar un despliegue.
+    \item Al generar un entregable formal del proyecto.
+\end{itemize}
+
+Este esquema no se utiliza para los commits diarios, ya que un mismo número de versión puede estar compuesto por múltiples commits realizados durante el desarrollo.
+
+El formato del versionamiento semántico es el siguiente:
+\[
+\texttt{MAJOR.MINOR.PATCH}
+\]
+
+Donde cada componente indica el tipo de cambio realizado en la versión del software:
+
+\begin{itemize}
+    \item \textbf{MAJOR}: se incrementa cuando se realizan cambios incompatibles con versiones anteriores del sistema, tales como modificaciones estructurales en la arquitectura, eliminación de funcionalidades o cambios significativos en la API.
+    \item \textbf{MINOR}: se incrementa cuando se agregan nuevas funcionalidades de manera compatible, manteniendo el funcionamiento de las características existentes.
+    \item \textbf{PATCH}: se incrementa cuando se realizan correcciones de errores, mejoras internas o ajustes que no modifican el comportamiento funcional del sistema.
+\end{itemize}
+
+En el contexto del proyecto, una versión podrá agrupar múltiples commits correspondientes a un sprint completo. Por ejemplo, durante un sprint pueden realizarse numerosos commits asociados a funcionalidades, correcciones y documentación, los cuales finalmente se consolidan en una única versión liberada.
+
+Este enfoque permite:
+\begin{itemize}
+    \item Diferenciar claramente entre cambios menores, nuevas funcionalidades y cambios mayores.
+    \item Facilitar la comunicación dentro del equipo y hacia el entorno académico.
+    \item Mantener coherencia entre ramas \texttt{release}, etiquetas (\textit{tags}) y entregables del proyecto.
+\end{itemize}
+
+El uso del versionamiento semántico se alinea con la estrategia GitFlow propuesta y con las prácticas de desarrollo ágil y DevOps adoptadas en el proyecto.
+
+
+%--------------------------------------------------
+\subsection{Beneficios de la Estrategia Propuesta}
+
+La estrategia de versionamiento y manejo de ramas propuesta permite:
+\begin{itemize}
+    \item Facilitar el trabajo colaborativo del equipo.
+    \item Reducir conflictos de integración.
+    \item Mantener versiones estables y controladas del sistema.
+    \item Garantizar trazabilidad entre requerimientos, código y entregables.
+\end{itemize}
+
+%--------------------------------------------------
+\subsection{Compromiso, Confianza y Trabajo en Equipo}
+
+Este proyecto se trabajará en equipo y la idea es que todos podamos aportar desde lo que sabemos, pero también desde lo que estamos aprendiendo. No se espera que nadie lo sepa todo.
+
+Queremos mantener un ambiente de confianza donde cualquier integrante pueda preguntar lo que sea, así parezca algo muy básico. Nadie será juzgado por tener dudas o por necesitar una explicación adicional. Al contrario, preguntar a tiempo ayuda a evitar errores más adelante y fortalece el entendimiento de todo el equipo.
+
+Es importante recordar que este proyecto también hace parte de nuestro proceso de formación, por lo que equivocarse, preguntar y ajustar hace parte natural del aprendizaje.
+
+También entendemos que todos tenemos otras materias y responsabilidades académicas, por lo que puede haber momentos donde alguno tenga menos disponibilidad. En esos casos, la idea es apoyarnos entre todos, comunicarnos con anticipación y organizarnos para que la carga no recaiga siempre en las mismas personas.
+
+Más que solo cumplir con la entrega, buscamos que el proceso sea organizado, colaborativo y que realmente aprendamos trabajando juntos.
+
+
+
+%--------------------------------------------------
+\section{Conclusiones}
+
+Esta propuesta establece una base sólida para iniciar la discusión y definición conjunta de la forma de trabajo del equipo, integrando buenas prácticas de ingeniería de software y alineándose con las exigencias técnicas y metodológicas de la asignatura.
+
+\end{document}
+
+
