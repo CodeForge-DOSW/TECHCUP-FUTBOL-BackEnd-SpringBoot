@@ -161,6 +161,14 @@ mvn clean verify sonar:sonar \
 
 ## 📚 API 
 
+### Endpoints (summary)
+
+| Resource | Method | Endpoint | Description |
+|---------|--------|----------|-------------|
+| Auth    | POST   | `/api/auth/login` | Sign in |
+| Users   | GET    | `/api/users` | List users |
+| Teams   | GET    | `/api/teams` | List teams |
+
 ### Swagger / OpenAPI (Documentation)
 
 #### Requirements
