@@ -15,6 +15,7 @@
 | **Swagger UI** | Provides interactive API documentation and allows developers to test endpoints directly from the browser |
 | **JaCoCo** | Tool used to measure test coverage within the codebase |
 | **SonarQube** | Static code analysis platform used to detect bugs, vulnerabilities, and maintain code quality |
+| **Swagger (OpenAPI)** | Interactive API documentation used to explore and test REST endpoints directly from the browser (Swagger UI) |
 
 ## 📁 Project structure
 
@@ -94,31 +95,34 @@ mvn test
 ### SonarQube
 
 #### Requirements
-- **Docker** (recommended) or an existing SonarQube server
+- **Docker** installed (recommended) *or* access to an existing SonarQube server
+- The backend dependencies must compile (Java + Maven installed)
 - A **SonarQube token** (SonarQube → *My Account → Security*)
-- **Java** and **Maven** (already required for this project)
+- `SONAR_PROJECT_KEY` created in SonarQube
+- SonarQube URL (local default): `http://localhost:9000`
 
-#### 1) Start SonarQube locally (Docker)
+#### Step-by-step
+1) Start SonarQube locally (Docker):
 ```bash
 docker run -d --name sonarqube -p 9000:9000 sonarqube:lts
 ```
 
-Open SonarQube:
-- http://localhost:9000
+2) Open SonarQube in your browser:
+- `http://localhost:9000`
 
 Default credentials:
 - user: `admin`
-- password: `admin`  
+- password: `admin`
 (You will be prompted to change the password on first login.)
 
-### 2) Create a project and generate a token
-1. Create a project in SonarQube (Manual setup).
-2. Generate a token: **My Account → Security**.
-3. Copy:
-   - `SONAR_PROJECT_KEY`
-   - `SONAR_TOKEN`
+3) Create a project in SonarQube (Manual setup) and copy:
+- `SONAR_PROJECT_KEY`
 
-#### 3) Run analysis from the project root
+4) Generate a token:
+- SonarQube → **My Account → Security** → Generate Token
+- Copy: `SONAR_TOKEN`
+
+5) Run Sonar analysis from the repository root:
 ```bash
 mvn clean verify sonar:sonar \
   -Dsonar.projectKey=YOUR_PROJECT_KEY \
@@ -126,20 +130,19 @@ mvn clean verify sonar:sonar \
   -Dsonar.token=YOUR_SONAR_TOKEN
 ```
 
-#### 4) View results
-Go to:
-- http://localhost:9000
+6) View results:
+- Go to `http://localhost:9000`
+- Open your project dashboard to see issues, security hotspots, and code smells.
 
-Open your project dashboard to see bugs, vulnerabilities, code smells, and coverage (if configured).
+## 📚 API 
 
-## 📚 Swagger / OpenAPI
+### Swagger / OpenAPI (Documentation)
 
-### API
+#### Requirements
+- The backend must be **running** (Spring Boot started successfully).
+- You must know the **port** where it is running (default: `8080`).
 
-1) Start the application.
-
-2) Open Swagger UI in your browser:
-- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
-
-(Optional) Open the OpenAPI spec (JSON):
-- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
+#### Step-by-step
+1) Start the application:
+```bash
+mvn spring-boot:run
