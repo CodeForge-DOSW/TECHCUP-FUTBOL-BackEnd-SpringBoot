@@ -4,6 +4,8 @@ import edu.eci.dosw.tech_cup.model.Player;
 import edu.eci.dosw.tech_cup.model.User;
 import edu.eci.dosw.tech_cup.service.IUserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

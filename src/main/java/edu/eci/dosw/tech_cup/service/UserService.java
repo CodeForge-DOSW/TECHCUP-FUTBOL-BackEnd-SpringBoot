@@ -5,14 +5,11 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import edu.eci.dosw.tech_cup.model.Player;
 import edu.eci.dosw.tech_cup.model.RoleType;
 import edu.eci.dosw.tech_cup.model.User;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Implementation of user management and authentication business logic.
@@ -24,6 +21,8 @@ import java.util.List;
 @Service
 public class UserService implements IUserService {
 
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
+
     /**
      * In-memory storage of users (should be replaced with a database repository).
      */
@@ -34,17 +33,6 @@ public class UserService implements IUserService {
      */
     private Long idCounter = 1L;
 
-    /**
-     * Creates a new user with role-specific email validation.
-     *
-     * <p>Validates all required fields and enforces role-based email constraints:
-     * STUDENT/GRADUATE require @mail.escuelaing.edu.co, PROFESSOR/ADMINISTRATIVE_PERSONAL
-     * require @escuelaing.edu.co, and FAMILY requires @gmail.com.</p>
-     *
-     * @param user the user to create (must be cast to Player to access role)
-     * @return the persisted user with assigned id and active status
-     * @throws RuntimeException if validation fails or email already exists
-     */
     @Override
     public User createUser(User user) {
         log.debug("Creating user with email: {}", user != null ? user.getEmail() : "null");
@@ -88,13 +76,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Retrieves a user by its id.
-     *
-     * @param id unique user identifier
-     * @return the user if found
-     * @throws RuntimeException if user does not exist
-     */
     @Override
     public User getUser(Long id) {
         log.debug("Searching user with id: {}", id);
@@ -111,11 +92,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Retrieves all users.
-     *
-     * @return a copy of the user list
-     */
     @Override
     public List<User> getAllUsers() {
         log.debug("Fetching all users");
@@ -128,16 +104,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Updates an existing user's properties.
-     *
-     * <p>Applies role-specific email validation and ensures email uniqueness.</p>
-     *
-     * @param id unique user identifier
-     * @param updatedUser payload with fields to update
-     * @return the updated user
-     * @throws RuntimeException if user not found or validation fails
-     */
     @Override
     public User updateUser(Long id, User updatedUser) {
         log.debug("Updating user with id: {}", id);
@@ -183,12 +149,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Deactivates a user account.
-     *
-     * @param id unique user identifier
-     * @throws RuntimeException if user does not exist
-     */
     @Override
     public void deactivateUser(Long id) {
         log.debug("Deactivating user with id: {}", id);
@@ -202,16 +162,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Authenticates a user with email and password.
-     *
-     * <p>Only active users can authenticate. Throws exception if credentials are invalid
-     * or user is not active.</p>
-     *
-     * @param email user email address
-     * @param password user password
-     * @throws RuntimeException if credentials are invalid or user is not active
-     */
     @Override
     public void authenticate(String email, String password) {
         log.debug("Authenticating user with email: {}", email);
@@ -237,13 +187,6 @@ public class UserService implements IUserService {
         }
     }
 
-    /**
-     * Validates email format based on user role.
-     *
-     * @param email the email address to validate
-     * @param role the user's role type
-     * @return true if email matches the role's domain; false otherwise
-     */
     private boolean isValidEmail(String email, RoleType role) {
         switch (role) {
             case STUDENT:
