@@ -79,6 +79,16 @@ mvn spring-boot:run
 Default URL:
 - [http://localhost:8080](http://localhost:8080)
 
+---
+
+## 🧪 Testing
+Run tests:
+```bash
+mvn test
+```
+
+---
+
 ## 🔎 Code Quality
 
 ### SonarQube
