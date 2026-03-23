@@ -12,7 +12,6 @@
 | **Java 17+** | Main programming language used to develop the backend application |
 | **Spring Boot** | Framework that simplifies the development of Java applications and RESTful APIs |
 | **Maven** | Dependency management and build automation tool used to build and manage the project |
-| **PostgreSQL** | Relational database used for persistent data storage |
 | **Swagger UI** | Provides interactive API documentation and allows developers to test endpoints directly from the browser |
 | **JaCoCo** | Tool used to measure test coverage within the codebase |
 | **SonarQube** | Static code analysis platform used to detect bugs, vulnerabilities, and maintain code quality |
@@ -45,3 +44,37 @@
 ├── 📄 pom.xml                                # Maven configuration
 └── 📄 README.md
 ```
+
+
+## ✅ Installation & prerequisites
+
+### Requirements
+- **JDK** (recommended: 17+)
+- **Maven** (3.8+ recommended)
+- **Database** (if applicable) or **Docker** to run it
+
+Verify:
+```bash
+java -version
+mvn -version
+```
+
+### Install & run locally
+1) Clone the repository:
+```bash
+git clone https://github.com/CodeForge-DOSW/TECHCUP-FUTBOL-BackEnd-SpringBoot.git
+cd TECHCUP-FUTBOL-BackEnd-SpringBoot
+```
+
+2) Build:
+```bash
+mvn clean install
+```
+
+3) Run:
+```bash
+mvn spring-boot:run
+```
+
+Default URL:
+- [http://localhost:8080](http://localhost:8080)
