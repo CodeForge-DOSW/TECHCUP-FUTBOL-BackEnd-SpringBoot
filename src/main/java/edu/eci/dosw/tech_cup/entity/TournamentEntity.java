@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JPA entity that represents a tournament managed by the application.
@@ -56,13 +58,22 @@ public class TournamentEntity {
     @Column(name = "team_cost", precision = 10, scale = 2)
     private BigDecimal teamCost;
 
-
     /**
      * Current lifecycle status of the tournament.
+     * Valid values: draft, active, in_progress, finished.
      */
     @NotBlank
     @Column(name = "status", nullable = false, length = 20)
     private String status = "draft";
+
+    /**
+     * List of teams registered in this tournament.
+     * Relation 1:N — one tournament has many teams.
+     * cascade ALL: operations on the tournament propagate to its teams.
+     * fetch LAZY: teams are not loaded until explicitly accessed.
+     */
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TeamEntity> teams = new ArrayList<>();
 
     /**
      * Creates an empty tournament entity required by JPA.
@@ -185,4 +196,18 @@ public class TournamentEntity {
      * @param status new lifecycle status
      */
     public void setStatus(String status) { this.status = status; }
+
+    /**
+     * Returns the list of teams registered in this tournament.
+     *
+     * @return list of team entities
+     */
+    public List<TeamEntity> getTeams() { return teams; }
+
+    /**
+     * Updates the list of teams.
+     *
+     * @param teams new list of team entities
+     */
+    public void setTeams(List<TeamEntity> teams) { this.teams = teams; }
 }

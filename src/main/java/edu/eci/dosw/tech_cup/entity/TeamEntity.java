@@ -25,17 +25,23 @@ public class TeamEntity {
     private Long teamId;
 
     /**
-     * Identifier of the tournament to which the team belongs.
+     * Tournament to which the team belongs.
+     * Relation N:1 — many teams belong to one tournament.
+     * FK: tournament_id — ON DELETE CASCADE.
      */
-    @Column(name = "tournament_id")
-    private Integer tournamentId;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tournament_id", nullable = true)
+    private TournamentEntity tournament;
 
     /**
-     * Identifier of the user acting as team captain.
+     * User acting as team captain.
+     * Relation 1:1 — one user can be captain of only one team.
+     * FK: captain_id — UNIQUE — ON DELETE SET NULL.
+     * Nullable: if the user is deleted, the team remains without a captain.
      */
-    @Column(name = "captain_id", unique = true)
-    private Long captainId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "captain_id", nullable = true, unique = true)
+    private UserEntity captain;
 
     /**
      * Display name of the team.
@@ -79,16 +85,16 @@ public class TeamEntity {
      * @param name display name of the team
      * @param logo logo URL or path
      * @param uniformColor primary uniform color
-     * @param tournamentId related tournament identifier
-     * @param captainId related captain user identifier
+     * @param tournament related tournament entity
+     * @param captain related captain user entity
      */
     public TeamEntity(String name, String logo, String uniformColor,
-                      Integer tournamentId, Long captainId) {
+                      TournamentEntity tournament, UserEntity captain) {
         this.name            = name;
         this.logo            = logo;
         this.uniformColor    = uniformColor;
-        this.tournamentId    = tournamentId;
-        this.captainId       = captainId;
+        this.tournament      = tournament;
+        this.captain         = captain;
         this.status          = true;
         this.dateInscription = LocalDate.now();
     }
@@ -108,32 +114,32 @@ public class TeamEntity {
     public void setTeamId(Long teamId) { this.teamId = teamId; }
 
     /**
-     * Returns the related tournament identifier.
+     * Returns the related tournament entity.
      *
-     * @return tournament id
+     * @return tournament entity
      */
-    public Integer getTournamentId() { return tournamentId; }
+    public TournamentEntity getTournament() { return tournament; }
 
     /**
-     * Updates the related tournament identifier.
+     * Updates the related tournament entity.
      *
-     * @param tournamentId tournament id to associate
+     * @param tournament tournament entity to associate
      */
-    public void setTournamentId(Integer tournamentId) { this.tournamentId = tournamentId; }
+    public void setTournament(TournamentEntity tournament) { this.tournament = tournament; }
 
     /**
-     * Returns the captain user identifier.
+     * Returns the captain user entity.
      *
-     * @return captain user id
+     * @return captain user entity
      */
-    public Long getCaptainId() { return captainId; }
+    public UserEntity getCaptain() { return captain; }
 
     /**
-     * Updates the captain user identifier.
+     * Updates the captain user entity.
      *
-     * @param captainId captain user id
+     * @param captain captain user entity
      */
-    public void setCaptainId(Long captainId) { this.captainId = captainId; }
+    public void setCaptain(UserEntity captain) { this.captain = captain; }
 
     /**
      * Returns the team name.
