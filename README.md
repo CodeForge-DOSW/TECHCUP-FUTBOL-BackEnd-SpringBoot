@@ -132,4 +132,14 @@ Go to:
 
 Open your project dashboard to see bugs, vulnerabilities, code smells, and coverage (if configured).
 
+## 📚 Swagger / OpenAPI
 
+### API
+
+1) Start the application.
+
+2) Open Swagger UI in your browser:
+- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+
+(Optional) Open the OpenAPI spec (JSON):
+- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
