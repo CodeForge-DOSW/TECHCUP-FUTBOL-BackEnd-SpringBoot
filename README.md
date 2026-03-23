@@ -78,3 +78,48 @@ mvn spring-boot:run
 
 Default URL:
 - [http://localhost:8080](http://localhost:8080)
+
+## 🔎 Code Quality
+
+### SonarQube
+
+#### Requirements
+- **Docker** (recommended) or an existing SonarQube server
+- A **SonarQube token** (SonarQube → *My Account → Security*)
+- **Java** and **Maven** (already required for this project)
+
+#### 1) Start SonarQube locally (Docker)
+```bash
+docker run -d --name sonarqube -p 9000:9000 sonarqube:lts
+```
+
+Open SonarQube:
+- http://localhost:9000
+
+Default credentials:
+- user: `admin`
+- password: `admin`  
+(You will be prompted to change the password on first login.)
+
+### 2) Create a project and generate a token
+1. Create a project in SonarQube (Manual setup).
+2. Generate a token: **My Account → Security**.
+3. Copy:
+   - `SONAR_PROJECT_KEY`
+   - `SONAR_TOKEN`
+
+#### 3) Run analysis from the project root
+```bash
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=YOUR_PROJECT_KEY \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=YOUR_SONAR_TOKEN
+```
+
+#### 4) View results
+Go to:
+- http://localhost:9000
+
+Open your project dashboard to see bugs, vulnerabilities, code smells, and coverage (if configured).
+
+
