@@ -88,6 +88,29 @@ Run tests:
 mvn test
 ```
 
+----
+
+## 🧪 JaCoCo (Test Coverage)
+
+### Requirements
+- **JDK** installed (recommended: 17+)
+- **Maven** installed *(or Maven Wrapper `./mvnw` if available)*
+- The project must include the **JaCoCo Maven plugin** in `pom.xml` *(if not, add it first)*
+
+### Step-by-step
+1) Run tests and generate the coverage report:
+```bash
+mvn clean test jacoco:report
+```
+
+2) Open the HTML report in your browser:
+- `target/site/jacoco/index.html`
+
+3) (Optional) Generate report during `verify`:
+```bash
+mvn clean verify
+```
+
 ---
 
 ## 🔎 Code Quality
@@ -133,6 +156,8 @@ mvn clean verify sonar:sonar \
 6) View results:
 - Go to `http://localhost:9000`
 - Open your project dashboard to see issues, security hotspots, and code smells.
+
+---
 
 ## 📚 API 
 
