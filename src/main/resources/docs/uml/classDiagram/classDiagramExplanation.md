@@ -1,253 +1,323 @@
-# 📊 Class Diagram Explanation – TECHCUP FÚTBOL
+# 📘 Sistema de Gestión de Torneos de Fútbol
 
-Este documento describe el diseño del diagrama de clases del sistema TECHCUP FÚTBOL, incluyendo entidades, relaciones, patrones de diseño y decisiones clave.
+## 🧠 Introducción
 
----
+Este proyecto modela un sistema completo para la gestión de torneos de fútbol, abarcando desde la inscripción de equipos hasta la generación de estadísticas y llaves eliminatorias.
 
-# 🧠 1. Visión General
+El diseño se basa en principios de **modelado orientado al dominio (DDD-lite)**, priorizando:
 
-El sistema permite gestionar:
+- Alta cohesión  
+- Bajo acoplamiento  
+- Reutilización de entidades  
+- Evitar redundancia de datos  
 
-- Equipos
-- Jugadores
-- Torneos
-- Invitaciones
-- Inscripciones
-- Alineaciones
-
-Se diseñó bajo principios de bajo acoplamiento y alta cohesión.
+El objetivo es representar de forma fiel el comportamiento real de un torneo.
 
 ---
 
-# 👤 2. Modelo de Usuarios
+# 🏗️ Arquitectura General
 
-- User (abstract)
-- id: Long 
-- name: String 
-- email: String 
-- password: String 
-- status: Boolean
+## 🔥 `Tournament` (Aggregate Root)
 
-Subclases:
+Es el núcleo del sistema. Desde aquí se controla:
 
-- Player
-- Organizer
-- Administrator
-- Referee
+- Equipos (`Team`)
+- Partidos (`Match`)
+- Inscripciones (`Registration`)
+- Tabla de posiciones (`TeamStats`)
+- Estadísticas (`PlayerStats`)
+- Llaves eliminatorias
 
----
-
-## ⚽ Player
-Player
-
-- role: RoleType 
-- fieldPosition: FieldPosition 
-- team: Team
-
-
-
-- Un jugador pertenece a un solo equipo
-- `FieldPosition` define el tipo general del jugador
+💡 Todas las operaciones importantes se centralizan aquí para mantener consistencia.
 
 ---
 
-# ⚽ 3. Equipos
+# 🧩 Principales Entidades
 
-- Team 
-- id: Long 
-- name: String 
-- color: String 
-- logo: String 
-- captain: Player 
-- players: List<Player>
-- status: TeamStatus
+## ⚽ `Team`
 
+Representa un equipo dentro del torneo.
 
-- El capitán es un `Player`
-- Las reglas de cantidad de jugadores se manejan fuera del modelo
+### Responsabilidades:
+- Gestionar jugadores  
+- Validar composición del equipo  
+- Determinar si puede participar  
 
----
-
-# 🧱 4. Builder Pattern
-
-- <<builder>> TeamBuilder 
-- setName(name: String): TeamBuilder 
-- setColor(color: String): TeamBuilder 
-- setLogo(logo: String): TeamBuilder 
-- setCaptain(captain: Player): TeamBuilder 
-- addPlayer(player: Player): TeamBuilder 
-- build(): Team
-
-
-Permite construir equipos paso a paso.
+### Métodos:
+```java
+addPlayer()
+removePlayer()
+isValidTeam()
+canParticipate()
+````
 
 ---
 
-# 📩 5. Invitaciones
+## 👤 `Player`
 
-Invitation
+Representa un participante del torneo.
 
-- id: Long
-- sender: Player 
-- receiver: Player 
-- team: Team 
-- status: InvitationStatus 
-- message: String
+Incluye:
 
+* Posiciones preferidas
+* Afiliación
+* Información personal
 
 ---
 
-# 🧾 6. Inscripciones
+## 🔗 `Affiliation`
 
-- Registration 
-- id: Long 
-- team: Team 
-- tournament: Tournament 
-- paymentProof: String 
-- status: RegistrationStatus 
-- createdAt: Date
+Tipos de usuario:
 
+* STUDENT
+* GRADUATE
+* ADMINISTRATIVE_PERSONAL
+* PROFESSOR
+* FAMILY
 
-Estados:
-
-PENDING
-UNDER_REVIEW
-APPROVED
-REJECTED
-
-
-Representa el proceso de validación del pago.
+💡 Evita herencia innecesaria.
 
 ---
 
-# ⚽ 7. Alineaciones
+## 🧾 `Registration`
 
-Lineup
+Gestión de inscripción.
 
-- id: Long 
-- team: Team 
-- match: Match 
-- starters: List<Player>
-- substitutes: List<Player>
-- positions: Map<Position, Player>
-- strategy: FormationStrategy 
-- assignPlayer(position: Position, player: Player)
+### Estados:
 
+* PENDING
+* IN_REVIEW
+* APPROVED
+* REJECTED
 
----
+Incluye:
 
-# 🎯 8. Enum Position
-
-Position
-GK
-LB
-RB
-CB1
-CB2
-CB3
-LM
-RM
-CM1
-CM2
-CAM
-LW
-RW
-ST1
-ST2
-
+* Comprobante de pago
+* Validación
 
 ---
 
-# ⚠️ Diferencia importante
+## 🧑‍⚖️ `Referee`
 
-| Tipo | Uso |
-|------|-----|
-| FieldPosition | tipo de jugador |
-| Position | ubicación en cancha |
+* Consulta partidos
+* Accede a información
 
 ---
 
-# 🧠 9. Strategy Pattern
+## 🧑‍💼 `Organizer`
 
-
-FormationStrategy
-
-getAvailablePositions(): List<Position>
-
-
-Implementaciones:
-
-- Formation433
-- Formation442
-- Formation352
-
-Responsabilidades:
-
-- Strategy define posiciones
-- Lineup guarda asignaciones
-- Capitán decide ubicación
+* Crear torneos
+* Validar inscripciones
+* Configurar torneo
 
 ---
 
-# 🔍 10. Búsqueda de Jugadores
+## 🛠️ `Administrator`
 
-PlayerSearchService
-
-searchByPosition()
-
-searchByName()
-
-searchByAge()
-
-searchByGender()
-
-searchById()
-
+* Gestiona programas
 
 ---
 
-# ⚖️ 11. Validaciones
+# ⚽ Gestión de Partidos
 
-Las siguientes reglas NO se representan en el diagrama:
+## 🧩 `Match`
 
-- Mínimo 7 jugadores
-- Máximo 12 jugadores
-- Un jugador no puede pertenecer a dos equipos
-- Mayoría de ciertos programas
-- 7 jugadores por partido
+Contiene:
 
-Estas se implementan en lógica de negocio (services).
-
----
-
-# 🏆 12. Patrones utilizados
-
-- Builder → creación de equipos
-- Strategy → formaciones
-- Service → búsqueda de jugadores
-- Enum → tipado fuerte
+* Equipos (home/away)
+* Marcador
+* Árbitro
+* Fecha
+* Cancha (`Field`)
+* Fase (`MatchPhase`)
+* Eventos (`MatchEvent`)
 
 ---
 
-# 🧠 13. Principios aplicados
+## 📌 `MatchEvent`
 
-- Single Responsibility Principle
-- Bajo acoplamiento
-- Alta cohesión
+Tipos:
+
+* GOAL
+* YELLOW_CARD
+* RED_CARD
+
+Incluye:
+
+* player
+* team
+* minute
+
+💡 Se usa:
+
+```java
+List<MatchEvent>
+```
 
 ---
 
-# 🚀 14. Conclusión
+# 📋 Alineaciones
 
-El diseño:
+## 🧩 `Lineup`
 
-- Es flexible
-- Escalable
-- Fácil de mantener
-- Representa correctamente el dominio
+Incluye:
+
+* Titulares
+* Suplentes
+* Posiciones
+
+### Métodos:
+
+```java
+addStarter()
+addSubstitute()
+removeStarter()
+removeSubstitute()
+assignPosition()
+isValidLineup()
+isEditable()
+```
 
 ---
 
-# 🎤 Frase clave
+# 📊 Tabla de Posiciones
 
-“El sistema separa la construcción de equipos mediante Builder y la variabilidad de formaciones mediante Strategy, manteniendo las reglas de negocio fuera del modelo.”
+## 🧩 `TeamStats`
+
+⚠️ Dato derivado (no persistente)
+
+* team
+* played
+* won
+* draw
+* lost
+* goalsFor
+* goalsAgainst
+* goalDifference
+* points
+
+---
+
+## En `Tournament`
+
+```java
+calculateStandings()
+getStandingsSorted()
+```
+
+Orden:
+
+1. points
+2. goalDifference
+3. goalsFor
+
+---
+
+# 📈 Estadísticas
+
+## 🧩 `PlayerStats`
+
+* player
+* goals
+
+---
+
+## En `Tournament`
+
+```java
+getTopScorers()
+getMatchHistory()
+getResultsByTeam()
+```
+
+---
+
+# 🏆 Llaves Eliminatorias
+
+## 📌 `MatchPhase`
+
+* GROUP_STAGE
+* QUARTERFINAL
+* SEMIFINAL
+* FINAL
+
+---
+
+## En `Tournament`
+
+```java
+generateKnockoutMatches()
+generateSemifinals()
+generateFinal()
+```
+
+Flujo:
+
+1. Clasificados
+2. Mezcla
+3. Creación de partidos
+4. Avance por ganador
+
+---
+
+# 🧱 Patrones de Diseño
+
+* 🟢 Aggregate Root → `Tournament` centraliza la lógica
+* 🟢 Encapsulación → cada clase gestiona su comportamiento
+* 🟢 CQS →
+
+    * `addPlayer()` (comando)
+    * `isValidTeam()` (consulta)
+* 🟢 Composición sobre herencia → `Player → Affiliation`
+* 🟢 Datos derivados → no se almacenan standings ni estadísticas
+* 🟢 Uso de enums → `MatchStatus`, `MatchPhase`, `EventType`
+
+---
+
+# 🚫 Decisiones Importantes
+
+* ❌ No usar Bracket
+* ❌ No duplicar datos
+* ❌ No acoplar backend con frontend
+
+---
+
+# 🧠 Conclusión
+
+El sistema:
+
+* Modela el dominio real
+* Usa buenas prácticas
+* Evita redundancia
+* Es escalable
+
+💥 Listo para implementación real.
+
+---
+
+# 🏁 Nota Final
+
+Este modelo demuestra:
+
+* Pensamiento arquitectónico
+* Buen modelado UML
+* Aplicación de principios SOLID y DDD-lite
+
+```
+
+---
+
+# 🔥 Ahora sí
+
+👉 Copias TODO ese bloque  
+👉 Lo pegas en `README.md`  
+👉 Listo para entregar  
+
+---
+
+Si quieres subirlo aún más:
+
+👉 te agrego badges + estructura pro tipo GitHub (nivel proyecto empresarial) 🚀
+```
+
+canParticipate()
