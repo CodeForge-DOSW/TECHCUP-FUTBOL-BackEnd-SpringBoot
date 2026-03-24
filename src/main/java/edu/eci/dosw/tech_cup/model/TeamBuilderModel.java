@@ -28,7 +28,7 @@ public class TeamBuilderModel {
     /** Estado del equipo */
     private TeamStatusModel status;
 
-    // ===================== MÉTODOS =====================
+
 
     /**
      * Define el nombre del equipo.
