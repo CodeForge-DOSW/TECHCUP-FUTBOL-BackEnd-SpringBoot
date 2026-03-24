@@ -1,25 +1,78 @@
-2026-03-19T21:12:14.750-05:00  INFO 17388 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Starting TechCupApplication using Java 21.0.10 with PID 17388 (C:\Users\josef\Documents\TECHCUP-FUTBOL-BackEnd-SpringBoot\target\classes started by josef in C:\Users\josef\Documents\TECHCUP-FUTBOL-BackEnd-SpringBoot)
-2026-03-19T21:12:14.752-05:00  INFO 17388 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-03-19T21:12:15.483-05:00  INFO 17388 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-03-19T21:12:15.496-05:00  INFO 17388 --- [tech_cup] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-19T21:12:15.497-05:00  INFO 17388 --- [tech_cup] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-19T21:12:15.540-05:00  INFO 17388 --- [tech_cup] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 753 ms
-2026-03-19T21:12:15.677-05:00  INFO 17388 --- [tech_cup] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2026-03-19T21:12:15.879-05:00  WARN 17388 --- [tech_cup] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-03-19T21:12:15.890-05:00  INFO 17388 --- [tech_cup] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-03-19T21:12:15.902-05:00 ERROR 17388 --- [tech_cup] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
+2026-03-23T18:52:48.781-05:00  INFO 5340 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Starting TechCupApplication using Java 21.0.9 with PID 5340 (C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\TECHCUP_project-2\TECHCUP-FUTBOL-BackEnd-SpringBoot\target\classes started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\TECHCUP_project-2\TECHCUP-FUTBOL-BackEnd-SpringBoot)
+2026-03-23T18:52:48.789-05:00  INFO 5340 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-03-23T18:52:49.430-05:00  INFO 5340 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-23T18:52:49.489-05:00  INFO 5340 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
+2026-03-23T18:52:49.909-05:00  INFO 5340 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-23T18:52:49.923-05:00  INFO 5340 --- [tech_cup] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-23T18:52:49.923-05:00  INFO 5340 --- [tech_cup] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-23T18:52:49.983-05:00  INFO 5340 --- [tech_cup] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1151 ms
+2026-03-23T18:52:50.141-05:00  INFO 5340 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-23T18:52:50.205-05:00  INFO 5340 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-23T18:52:50.650-05:00  INFO 5340 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-23T18:52:50.687-05:00  INFO 5340 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-23T18:52:50.860-05:00  INFO 5340 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77f4038c
+2026-03-23T18:52:50.861-05:00  INFO 5340 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-23T18:52:50.900-05:00  WARN 5340 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-23T18:52:50.924-05:00  INFO 5340 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-23T18:52:51.824-05:00  INFO 5340 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-23T18:52:51.918-05:00  WARN 5340 --- [tech_cup] [main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-03-23T18:52:51.918-05:00  WARN 5340 --- [tech_cup] [main] org.hibernate.orm.jdbc.warn              : constraint "uk9p17d06qq98o5aadqt986lbag" of relation "team" does not exist, skipping
+2026-03-23T18:52:51.927-05:00  INFO 5340 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23T18:52:52.051-05:00  WARN 5340 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-23T18:52:52.377-05:00  INFO 5340 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-23T18:52:52.594-05:00  INFO 5340 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-23T18:52:52.600-05:00  INFO 5340 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Started TechCupApplication in 4.227 seconds (process running for 4.58)
+2026-03-23T19:23:03.308-05:00  INFO 5340 --- [tech_cup] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-23T19:23:03.322-05:00  INFO 5340 --- [tech_cup] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-23T19:23:03.329-05:00  INFO 5340 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23T19:23:03.340-05:00  INFO 5340 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-23T19:23:03.344-05:00  INFO 5340 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-23T19:23:15.858-05:00  INFO 18936 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Starting TechCupApplication using Java 21.0.9 with PID 18936 (C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\TECHCUP_project-2\TECHCUP-FUTBOL-BackEnd-SpringBoot\target\classes started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\TECHCUP_project-2\TECHCUP-FUTBOL-BackEnd-SpringBoot)
+2026-03-23T19:23:15.862-05:00  INFO 18936 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-03-23T19:23:16.485-05:00  INFO 18936 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-23T19:23:16.540-05:00  INFO 18936 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2026-03-23T19:23:17.012-05:00  INFO 18936 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-23T19:23:17.026-05:00  INFO 18936 --- [tech_cup] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-23T19:23:17.026-05:00  INFO 18936 --- [tech_cup] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-23T19:23:17.096-05:00  INFO 18936 --- [tech_cup] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1196 ms
+2026-03-23T19:23:17.255-05:00  INFO 18936 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-23T19:23:17.325-05:00  INFO 18936 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-23T19:23:17.782-05:00  INFO 18936 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-23T19:23:17.817-05:00  INFO 18936 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-23T19:23:18.006-05:00  INFO 18936 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13390a96
+2026-03-23T19:23:18.009-05:00  INFO 18936 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-23T19:23:18.058-05:00  WARN 18936 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-23T19:23:18.089-05:00  INFO 18936 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-23T19:23:19.074-05:00  INFO 18936 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-23T19:23:19.163-05:00  INFO 18936 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23T19:23:19.286-05:00  WARN 18936 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-23T19:23:19.622-05:00  INFO 18936 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-23T19:23:19.841-05:00  INFO 18936 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-23T19:23:19.846-05:00  INFO 18936 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Started TechCupApplication in 4.417 seconds (process running for 4.777)
+2026-03-23T19:36:29.629-05:00  INFO 18936 --- [tech_cup] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-23T19:36:29.634-05:00  INFO 18936 --- [tech_cup] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-23T19:36:29.638-05:00  INFO 18936 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-23T19:36:29.640-05:00  INFO 18936 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-23T19:36:29.642-05:00  INFO 18936 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
