@@ -3,7 +3,6 @@ package edu.eci.dosw.tech_cup.controller;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.service.IUserService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -19,41 +18,35 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * REST controller that exposes CRUD operations for users.
+ * Controlador REST para operaciones CRUD de usuarios.
  *
- * <p>All business rules are delegated to {@link IUserService}. This class is
- * responsible for HTTP mapping and response status handling.</p>
+ * <p>Recibe {@link PlayerModel} en el cuerpo de las peticiones de escritura,
+ * ya que es la implementación concreta de {@code UserRoleModel} que Jackson
+ * puede deserializar directamente. Para lecturas devuelve {@link UserRoleModel}
+ * (que en tiempo de ejecución siempre es un {@code PlayerModel}).</p>
  */
 @RestController
 @RequestMapping("/api/users")
 @Tag(name = "Usuarios", description = "Operaciones relacionadas con usuarios")
 public class UserController {
 
-    /**
-     * Service that executes user-related use cases.
-     */
     private final IUserService userService;
 
-    /**
-     * Builds the controller with its service dependency.
-     *
-     * @param userService injected user service implementation
-     */
     public UserController(IUserService userService) {
         this.userService = userService;
     }
 
     /**
-     * Creates a new user from a player payload.
+     * Registra un nuevo usuario en el sistema.
      *
-     * @param user request payload with user data
-     * @return 201 with the created user; 400 with an error message when validation/business rules fail
+     * @param user datos del usuario a crear
+     * @return 201 con el usuario creado; 400 si hay errores de validación
      */
     @PostMapping
     @Operation(summary = "Crear usuario", description = "Registra un nuevo usuario en el sistema")
     public ResponseEntity<?> createUser(@RequestBody PlayerModel user) {
         try {
-            UserRoleModel created = userService.createUser(user);
+            PlayerModel created = userService.createUser(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -61,9 +54,9 @@ public class UserController {
     }
 
     /**
-     * Retrieves all registered users.
+     * Retorna todos los usuarios registrados.
      *
-     * @return 200 with the complete user list
+     * @return 200 con la lista de usuarios
      */
     @GetMapping
     @Operation(summary = "Listar usuarios", description = "Obtiene todos los usuarios registrados")
@@ -72,10 +65,10 @@ public class UserController {
     }
 
     /**
-     * Retrieves one user by its id.
+     * Retorna un usuario por su identificador.
      *
-     * @param id unique user identifier
-     * @return 200 with the user when found; 404 with an error message when not found
+     * @param id identificador único
+     * @return 200 con el usuario; 404 si no existe
      */
     @GetMapping("/{id}")
     @Operation(summary = "Obtener usuario por ID", description = "Busca un usuario usando su identificador")
@@ -88,28 +81,28 @@ public class UserController {
     }
 
     /**
-     * Updates an existing user.
+     * Actualiza los datos de un usuario existente.
      *
-     * @param id unique user identifier
-     * @param user payload containing updated user data
-     * @return 200 with the updated user; 400 with an error message when the update is invalid
+     * @param id   identificador único
+     * @param user payload con los campos a actualizar
+     * @return 200 con el usuario actualizado; 400 si hay errores de validación
      */
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar usuario", description = "Actualiza la información de un usuario existente")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody PlayerModel user) {
         try {
-            UserRoleModel updated = userService.updateUser(id, user);
+            PlayerModel updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
     /**
-     * Deactivates a user account.
+     * Desactiva la cuenta de un usuario (borrado lógico).
      *
-     * @param id unique user identifier
-     * @return 204 No Content when deactivation succeeds; 404 with an error message when the user does not exist
+     * @param id identificador único
+     * @return 200 confirmación; 404 si el usuario no existe
      */
     @PutMapping("/{id}/deactivate")
     @Operation(summary = "Desactivar usuario", description = "Desactiva un usuario existente")

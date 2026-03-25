@@ -28,6 +28,7 @@ public interface TournamentMapper {
     @Mapping(source = "id",          target = "tournamentId")
     @Mapping(source = "maxOfTeams",  target = "numberOfTeams")
     @Mapping(target = "status", expression = "java(mapStatusToString(model.getStatus()))")
+    @Mapping(target = "teams",       ignore = true)
     TournamentEntity toEntity(TournamentModel model);
 
     default TournamentStatusModel mapStatus(String status) {
