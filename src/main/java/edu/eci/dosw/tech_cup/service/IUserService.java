@@ -1,76 +1,71 @@
 package edu.eci.dosw.tech_cup.service;
 
+import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
 
 import java.util.List;
 
 /**
- * Service contract for user-related CRUD and authentication operations.
+ * Contrato de servicio para operaciones CRUD y autenticación de usuarios.
  *
- * <p>Defines operations for creating, retrieving, updating, and deactivating users,
- * along with email validation rules based on user role. All implementations must
- * enforce domain-specific constraints.</p>
+ * <p>Las firmas reciben y devuelven {@link PlayerModel} — implementación concreta
+ * de {@link UserRoleModel} — porque es el tipo que los controladores envían
+ * en el cuerpo del request y el que MapStruct puede instanciar al mapear
+ * desde {@code UserEntity}.</p>
  */
 public interface IUserService {
 
     /**
-     * Creates a new user with role-specific email validation.
+     * Registra un nuevo usuario en el sistema.
      *
-     * <p>Email validation depends on user role:
-     * - STUDENT/GRADUATE: must end with {@code @mail.escuelaing.edu.co}
-     * - PROFESSOR/ADMINISTRATIVE_PERSONAL: must end with {@code @escuelaing.edu.co}
-     * - FAMILY: must end with {@code @gmail.com}</p>
-     *
-     * @param user the user to create
-     * @return the created user with assigned id and active status
-     * @throws RuntimeException if user is null, validation fails, or email already exists
+     * @param user datos del usuario a crear
+     * @return el usuario creado con su id asignado por la base de datos
+     * @throws RuntimeException si el email ya existe o los datos son inválidos
      */
-    UserRoleModel createUser(UserRoleModel user);
+    PlayerModel createUser(PlayerModel user);
 
     /**
-     * Retrieves a user by its unique id.
+     * Recupera un usuario por su identificador único.
      *
-     * @param id unique user identifier
-     * @return the user if found
-     * @throws RuntimeException if user does not exist
+     * @param id identificador del usuario
+     * @return el usuario encontrado
+     * @throws RuntimeException si el usuario no existe
      */
-    UserRoleModel getUser(Long id);
+    PlayerModel getUser(Long id);
 
     /**
-     * Retrieves all users regardless of active status.
+     * Recupera todos los usuarios registrados.
      *
-     * @return list of all users (may be empty)
+     * @return lista de usuarios (puede estar vacía)
      */
     List<UserRoleModel> getAllUsers();
 
     /**
-     * Updates an existing user's properties.
+     * Actualiza los datos de un usuario existente.
      *
-     * <p>Applies role-specific email validation and ensures email uniqueness.</p>
+     * <p>Solo actualiza los campos no nulos del payload recibido.</p>
      *
-     * @param id unique user identifier
-     * @param updatedUser payload with fields to update
-     * @return the updated user
-     * @throws RuntimeException if user not found, validation fails, or email already in use
+     * @param id          identificador del usuario a actualizar
+     * @param updatedUser datos nuevos a aplicar
+     * @return el usuario con los datos actualizados
+     * @throws RuntimeException si el usuario no existe o el email ya está en uso
      */
-    UserRoleModel updateUser(Long id, UserRoleModel updatedUser);
+    PlayerModel updateUser(Long id, PlayerModel updatedUser);
 
     /**
-     * Deactivates a user account (sets status to inactive).
+     * Desactiva la cuenta de un usuario (borrado lógico).
      *
-     * <p>User remains in the system but cannot authenticate.</p>
-     *
-     * @param id unique user identifier
-     * @throws RuntimeException if user does not exist
+     * @param id identificador del usuario
+     * @throws RuntimeException si el usuario no existe
      */
     void deactivateUser(Long id);
 
     /**
-     * Authenticates a user using email and password.
+     * Autentica un usuario verificando email, contraseña y estado activo.
      *
-     * @param email user email address
-     * @param password user password
-     * @throws RuntimeException if credentials are invalid or user is not active
+     * @param email    correo electrónico del usuario
+     * @param password contraseña del usuario
+     * @throws RuntimeException si las credenciales son inválidas o la cuenta está inactiva
      */
     void authenticate(String email, String password);
 }

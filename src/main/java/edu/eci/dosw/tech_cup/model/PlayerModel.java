@@ -1,101 +1,55 @@
 package edu.eci.dosw.tech_cup.model;
 
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Representa un jugador dentro del sistema.
  *
- * Esta clase encapsula la información personal y deportiva del usuario,
- * incluyendo sus posiciones preferidas, número de camiseta y estado
- * dentro del sistema.
+ * <p>Es la implementación concreta de {@link UserRoleModel} que usa el sistema
+ * para persistir y transferir datos de usuario en las operaciones CRUD.
+ * MapStruct puede instanciar esta clase al mapear desde {@code UserEntity}.</p>
  */
 public class PlayerModel extends UserRoleModel {
 
-    /**
-     * Posiciones preferidas del jugador
-     */
+    /** Posiciones preferidas del jugador */
     private List<PositionModel> preferredPositions;
 
-    /**
-     * Número de camiseta
-     */
+    /** Número de camiseta */
     private int jerseyNumber;
 
-    /**
-     * URL de la foto del jugador
-     */
+    /** URL de la foto del jugador */
     private String photoUrl;
 
-    /**
-     * Indica si el jugador está disponible
-     */
+    /** Indica si el jugador está disponible para unirse a un equipo */
     private boolean available;
 
-    /**
-     * Verifica si el jugador es válido.
-     *
-     * @return true si cumple las condiciones requeridas
-     */
+    public PlayerModel() {}
+
+    // ===== MÉTODOS DE DOMINIO =====
+
     public boolean isValid() {
-        return false;
+        return email != null && !email.isEmpty() && firstName != null;
     }
 
-    /**
-     * Cambia la disponibilidad del jugador.
-     *
-     * @param status nuevo estado de disponibilidad
-     */
-    public void setAvailable(boolean status) {
-        this.available = status;
-    }
+    public void setAvailable(boolean available) { this.available = available; }
+    public boolean isAvailable() { return available; }
 
-    public boolean isAvailable() {
-        return available;
-    }
+    public void acceptInvitation(InvitationModel invitation) {}
+    public void rejectInvitation(InvitationModel invitation) {}
+    public void submitPaymentProof(RegistrationModel registration, String url) {}
 
-    /**
-     * Acepta una invitación a un equipo.
-     *
-     * @param invitation invitación recibida
-     */
-    public void acceptInvitation(InvitationModel invitation) {
+    public LineupModel createLineup(TeamModel team, MatchModel match) { return null; }
 
-    }
+    // ===== GETTERS & SETTERS =====
 
-    /**
-     * Rechaza una invitación a un equipo.
-     *
-     * @param invitation invitación recibida
-     */
-    public void rejectInvitation(InvitationModel invitation) {
-
-
-    }
-
-    /**
-     * Envía el comprobante de pago para una inscripción.
-     *
-     * @param registration inscripción asociada
-     * @param url          URL del comprobante
-     */
-    public void submitPaymentProof(RegistrationModel registration, String url) {
-
-    }
-
-    /**
-     * Crea una alineación para un equipo en un partido.
-     *
-     * @param team  equipo
-     * @param match partido
-     * @return nueva alineación creada
-     */
-    public LineupModel createLineup(TeamModel team, MatchModel match) {
-        return null;
-    }
-
+    public List<PositionModel> getPreferredPositions() { return preferredPositions; }
     public void setPreferredPositions(List<PositionModel> preferredPositions) {
-
+        this.preferredPositions = preferredPositions;
     }
-}
 
+    public int getJerseyNumber() { return jerseyNumber; }
+    public void setJerseyNumber(int jerseyNumber) { this.jerseyNumber = jerseyNumber; }
+
+    public String getPhotoUrl() { return photoUrl; }
+    public void setPhotoUrl(String photoUrl) { this.photoUrl = photoUrl; }
+}
