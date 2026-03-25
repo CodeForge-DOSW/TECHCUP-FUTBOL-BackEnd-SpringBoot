@@ -20,7 +20,6 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    // ─── Helper ─────────────────────────────────────────────────────────────
 
     private UserEntity buildUser(String email, String identification) {
         UserEntity user = new UserEntity();
@@ -35,7 +34,6 @@ class UserRepositoryTest {
         return user;
     }
 
-    // ─── 1. Prueba de guardado ───────────────────────────────────────────────
 
     @DisplayName("Should save a user and assign an auto-generated id")
     @Test
@@ -49,7 +47,6 @@ class UserRepositoryTest {
         assertTrue(saved.getStatus());
     }
 
-    // ─── 2. Prueba de consulta ───────────────────────────────────────────────
 
     @DisplayName("Should find a user by email")
     @Test
@@ -99,7 +96,6 @@ class UserRepositoryTest {
         assertEquals("9999", found.get().getIdentification());
     }
 
-    // ─── 3. Prueba de relación (herencia SINGLE_TABLE) ───────────────────────
 
     @DisplayName("Should persist multiple users in the same table with unique emails")
     @Test
@@ -113,7 +109,6 @@ class UserRepositoryTest {
         assertEquals(3, all.size());
     }
 
-    // ─── 4. Prueba de actualización y eliminación ────────────────────────────
 
     @DisplayName("Should update user status to inactive")
     @Test
