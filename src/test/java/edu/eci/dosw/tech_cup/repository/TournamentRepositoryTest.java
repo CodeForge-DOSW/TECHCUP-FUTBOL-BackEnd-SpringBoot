@@ -21,7 +21,7 @@ class TournamentRepositoryTest {
     @Autowired
     private TournamentRepository tournamentRepository;
 
-    // ─── Helper ─────────────────────────────────────────────────────────────
+  
 
     private TournamentEntity buildTournament(String name, String status) {
         TournamentEntity t = new TournamentEntity();
@@ -34,7 +34,7 @@ class TournamentRepositoryTest {
         return t;
     }
 
-    // ─── 1. Prueba de guardado ───────────────────────────────────────────────
+  
 
     @DisplayName("Should save a tournament and assign an auto-generated id")
     @Test
@@ -48,7 +48,7 @@ class TournamentRepositoryTest {
         assertEquals("draft", saved.getStatus());
     }
 
-    // ─── 2. Prueba de consulta ───────────────────────────────────────────────
+
 
     @DisplayName("Should find a tournament by name ignoring case")
     @Test
@@ -86,7 +86,7 @@ class TournamentRepositoryTest {
         assertEquals(1, actives.size());
     }
 
-    // ─── 3. Prueba de relación (Tournament → Teams) ──────────────────────────
+   
 
     @DisplayName("Should save two tournaments with different names independently")
     @Test
@@ -98,7 +98,7 @@ class TournamentRepositoryTest {
         assertEquals(2, tournamentRepository.findAll().size());
     }
 
-    // ─── 4. Prueba de actualización y eliminación ────────────────────────────
+   
 
     @DisplayName("Should update tournament status")
     @Test
