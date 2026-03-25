@@ -27,7 +27,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/users")
-@Tag(name = "Usuarios", description = "Operaciones relacionadas con usuarios")
+@Tag(name = "Users", description = "Endpoints for user management operations")
 public class UserController {
 
     private final IUserService userService;
@@ -45,6 +45,8 @@ public class UserController {
     @PostMapping
     @Operation(summary = "Crear usuario", description = "Registra un nuevo usuario en el sistema")
     public ResponseEntity<?> createUser(@RequestBody PlayerModel user) {
+    @Operation(summary = "Create user", description = "Registers a new user in the system")
+    public ResponseEntity<?> createUser(@RequestBody Player user) {
         try {
             PlayerModel created = userService.createUser(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
@@ -61,6 +63,8 @@ public class UserController {
     @GetMapping
     @Operation(summary = "Listar usuarios", description = "Obtiene todos los usuarios registrados")
     public ResponseEntity<List<UserRoleModel>> getAllUsers() {
+    @Operation(summary = "List users", description = "Retrieves all registered users")
+    public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
@@ -71,7 +75,7 @@ public class UserController {
      * @return 200 con el usuario; 404 si no existe
      */
     @GetMapping("/{id}")
-    @Operation(summary = "Obtener usuario por ID", description = "Busca un usuario usando su identificador")
+    @Operation(summary = "Get user by ID", description = "Retrieves a user by identifier")
     public ResponseEntity<?> getUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.getUser(id));
@@ -90,6 +94,8 @@ public class UserController {
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar usuario", description = "Actualiza la información de un usuario existente")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody PlayerModel user) {
+    @Operation(summary = "Update user", description = "Updates information for an existing user")
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Player user) {
         try {
             PlayerModel updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
@@ -105,7 +111,7 @@ public class UserController {
      * @return 200 confirmación; 404 si el usuario no existe
      */
     @PutMapping("/{id}/deactivate")
-    @Operation(summary = "Desactivar usuario", description = "Desactiva un usuario existente")
+    @Operation(summary = "Deactivate user", description = "Deactivates an existing user")
     public ResponseEntity<?> deactivateUser(@PathVariable Long id) {
         try {
             userService.deactivateUser(id);

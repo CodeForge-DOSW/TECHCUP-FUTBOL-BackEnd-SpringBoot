@@ -26,7 +26,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/tournaments")
-@Tag(name = "Torneos", description = "Operaciones relacionadas con torneos")
+@Tag(name = "Tournaments", description = "Endpoints for tournament management operations")
 public class TournamentController {
 
     /**
@@ -50,8 +50,8 @@ public class TournamentController {
      * @return 201 with the created tournament; 400 with an error message when validation fails
      */
     @PostMapping
-    @Operation(summary = "Crear torneo", description = "Registra un nuevo torneo en el sistema")
-    public ResponseEntity<?> createTournament(@RequestBody TournamentModel tournament) {
+    @Operation(summary = "Create tournament", description = "Registers a new tournament in the system")
+    public ResponseEntity<?> createTournament(@RequestBody Tournament tournament) {
         try {
             TournamentModel created = tournamentService.createTournament(tournament);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
@@ -66,8 +66,8 @@ public class TournamentController {
      * @return 200 with the complete tournament list
      */
     @GetMapping
-    @Operation(summary = "Listar torneos", description = "Obtiene todos los torneos registrados")
-    public ResponseEntity<List<TournamentModel>> getAllTournaments() {
+    @Operation(summary = "List tournaments", description = "Retrieves all registered tournaments")
+    public ResponseEntity<List<Tournament>> getAllTournaments() {
         return ResponseEntity.ok(tournamentService.getAllTournaments());
     }
 
@@ -78,7 +78,7 @@ public class TournamentController {
      * @return 200 with the tournament when found; 404 with an error message when not found
      */
     @GetMapping("/{id}")
-    @Operation(summary = "Obtener torneo por ID", description = "Busca un torneo usando su identificador")
+    @Operation(summary = "Get tournament by ID", description = "Retrieves a tournament by identifier")
     public ResponseEntity<?> getTournament(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(tournamentService.getTournament(id));
@@ -95,7 +95,7 @@ public class TournamentController {
      * @return 200 with the updated tournament; 400 with an error message when the update is invalid
      */
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar torneo", description = "Actualiza la información de un torneo existente")
+    @Operation(summary = "Update tournament", description = "Updates information for an existing tournament")
     public ResponseEntity<?> updateTournament(@PathVariable Long id,
                                               @RequestBody TournamentModel tournament) {
         try {
@@ -113,7 +113,7 @@ public class TournamentController {
      * @return 204 No Content when cancellation succeeds; 400 with an error message when it fails
      */
     @DeleteMapping("/{id}")
-    @Operation(summary = "Cancelar torneo", description = "Elimina o cancela un torneo existente")
+    @Operation(summary = "Cancel tournament", description = "Cancels an existing tournament")
     public ResponseEntity<?> cancelTournament(@PathVariable Long id) {
         try {
             tournamentService.cancelTournament(id);
@@ -130,7 +130,7 @@ public class TournamentController {
      * @return 200 with the updated tournament when successful; 400 with an error message when it fails
      */
     @PutMapping("/{id}/start")
-    @Operation(summary = "Iniciar torneo", description = "Cambia el estado del torneo a iniciado")
+    @Operation(summary = "Start tournament", description = "Transitions the tournament to the started state")
     public ResponseEntity<?> startTournament(@PathVariable Long id) {
         try {
             tournamentService.startTournament(id);
@@ -147,7 +147,7 @@ public class TournamentController {
      * @return 200 with the updated tournament when successful; 400 with an error message when it fails
      */
     @PutMapping("/{id}/finish")
-    @Operation(summary = "Finalizar torneo", description = "Cambia el estado del torneo a finalizado")
+    @Operation(summary = "Finish tournament", description = "Transitions the tournament to the finished state")
     public ResponseEntity<?> finishTournament(@PathVariable Long id) {
         try {
             tournamentService.finishTournament(id);

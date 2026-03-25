@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Autenticación", description = "Operaciones de inicio de sesión")
+@Tag(name = "Authentication", description = "Endpoints for user authentication.")
 public class AuthController {
 
     /**
@@ -47,7 +47,10 @@ public class AuthController {
      * @return 200 with success message when authentication succeeds; 401 with an error message when it fails
      */
     @PostMapping("/login")
-    @Operation(summary = "Iniciar sesión", description = "Permite a un usuario autenticarse con email y contraseña")
+    @Operation(
+            summary = "User login",
+            description = "Authenticates a user with email and password. Returns 200 on success and 401 when credentials are invalid."
+    )
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         try {
             userService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
