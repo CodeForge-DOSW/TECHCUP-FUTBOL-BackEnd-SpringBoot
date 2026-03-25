@@ -23,21 +23,19 @@ public class MatchEventModel {
     /** Equipo al que pertenece el jugador */
     private TeamModel team;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si el evento corresponde a un gol.
      *
      * @return true si es un gol
      */
-    public boolean isGoal() { return false; }
+    public boolean isGoal() { return type != null && type.isGoal(); }
 
     /**
      * Verifica si el evento corresponde a una tarjeta amarilla.
      *
      * @return true si es tarjeta amarilla
      */
-    public boolean isYellowCard() { return false; }
+    public boolean isYellowCard() { return type != null && type.isYellowCard(); }
 
     /**
      * Verifica si el evento corresponde a una tarjeta roja.
@@ -52,4 +50,12 @@ public class MatchEventModel {
      * @return true si tiene jugador, equipo y tipo definidos
      */
     public boolean isValid() { return false; }
+
+    public PlayerModel getPlayer() { return player; }
+
+    public EventTypeModel getType() { return type; }
+
+    public TeamModel getTeam() { return team; }
+
+    public int getMinute() { return minute; }
 }

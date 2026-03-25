@@ -8,18 +8,7 @@ import java.time.LocalDateTime;
  * Es responsable de gestionar el ciclo de vida del torneo, incluyendo
  * su creación, inicio, finalización y la revisión de inscripciones.
  */
-public class OrganizerModel {
-
-    /** Identificador único del organizador */
-    private Long id;
-
-    /** Nombre del organizador */
-    private String name;
-
-    /** Correo electrónico del organizador */
-    private String email;
-
-    // ===================== MÉTODOS =====================
+public class OrganizerModel extends UserRoleModel {
 
     /**
      * Crea un nuevo torneo.
@@ -35,21 +24,27 @@ public class OrganizerModel {
             LocalDateTime endDate,
             int maxTeams,
             double costPerTeam
-    ) { return null; }
+    ) {
+        return null;
+    }
 
     /**
      * Inicia un torneo.
      *
      * @param tournament torneo a iniciar
      */
-    public void startTournament(TournamentModel tournament) {}
+    public void startTournament(TournamentModel tournament) {
+
+    }
 
     /**
      * Finaliza un torneo.
      *
      * @param tournament torneo a finalizar
      */
-    public void finishTournament(TournamentModel tournament) {}
+    public void finishTournament(TournamentModel tournament) {
+
+    }
 
     /**
      * Obtiene un torneo por su identificador.
@@ -57,12 +52,16 @@ public class OrganizerModel {
      * @param id identificador del torneo
      * @return torneo encontrado
      */
-    public TournamentModel getTournament(Long id) { return null; }
+    public TournamentModel getTournament(Long id) {
+        return null;
+    }
 
     /**
      * Revisa una inscripción de equipo.
      *
      * @param registration inscripción a revisar
      */
-    public void reviewRegistration(RegistrationModel registration) {}
+    public void reviewRegistration(RegistrationModel registration) {
+
+    }
 }

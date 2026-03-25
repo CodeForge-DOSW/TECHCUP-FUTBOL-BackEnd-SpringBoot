@@ -29,29 +29,28 @@ public class RegistrationModel {
     /** Fecha de creación de la inscripción */
     private LocalDateTime createdAt;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Envía el comprobante de pago de la inscripción.
      *
      * @param url URL del comprobante
      */
-    public void submitProof(String url) {}
+    public void submitProof(String url) {
+    }
 
     /**
      * Marca la inscripción como en revisión.
      */
-    public void markInReview() {}
+    public void markInReview() {  }
 
     /**
      * Aprueba la inscripción.
      */
-    public void approve() {}
+    public void approve() { }
 
     /**
      * Rechaza la inscripción.
      */
-    public void reject() {}
+    public void reject() {  }
 
     /**
      * Verifica si la inscripción está aprobada.

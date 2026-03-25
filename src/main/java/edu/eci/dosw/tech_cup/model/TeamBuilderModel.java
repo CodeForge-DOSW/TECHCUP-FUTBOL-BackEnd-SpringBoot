@@ -1,6 +1,7 @@
 package edu.eci.dosw.tech_cup.model;
 
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Permite construir instancias de TeamModel utilizando el patrón Builder.
@@ -36,7 +37,10 @@ public class TeamBuilderModel {
      * @param name nombre del equipo
      * @return instancia del builder
      */
-    public TeamBuilderModel setName(String name) { return null; }
+    public TeamBuilderModel setName(String name) {
+        this.name = name;
+        return this;
+    }
 
     /**
      * Define el color del equipo.
@@ -44,7 +48,10 @@ public class TeamBuilderModel {
      * @param color color del equipo
      * @return instancia del builder
      */
-    public TeamBuilderModel setColor(String color) { return null; }
+    public TeamBuilderModel setColor(String color) {
+        this.color = color;
+        return this;
+    }
 
     /**
      * Define el logo del equipo.
@@ -52,7 +59,10 @@ public class TeamBuilderModel {
      * @param logo logo del equipo
      * @return instancia del builder
      */
-    public TeamBuilderModel setLogo(String logo) { return null; }
+    public TeamBuilderModel setLogo(String logo) {
+        this.logo = logo;
+        return this;
+    }
 
     /**
      * Define el capitán del equipo.
@@ -60,7 +70,10 @@ public class TeamBuilderModel {
      * @param captain jugador capitán
      * @return instancia del builder
      */
-    public TeamBuilderModel setCaptain(PlayerModel captain) { return null; }
+    public TeamBuilderModel setCaptain(PlayerModel captain) {
+        this.captain = captain;
+        return this;
+    }
 
     /**
      * Agrega un jugador al equipo.
@@ -68,7 +81,18 @@ public class TeamBuilderModel {
      * @param player jugador a agregar
      * @return instancia del builder
      */
-    public TeamBuilderModel addPlayer(PlayerModel player) { return null; }
+    public TeamBuilderModel addPlayer(PlayerModel player) {
+        if (player == null) {
+            return this;
+        }
+        if (players == null) {
+            players = new ArrayList<>();
+        }
+        if (!players.contains(player)) {
+            players.add(player);
+        }
+        return this;
+    }
 
     /**
      * Define el estado del equipo.
@@ -76,12 +100,31 @@ public class TeamBuilderModel {
      * @param status estado del equipo
      * @return instancia del builder
      */
-    public TeamBuilderModel setStatus(TeamStatusModel status) { return null; }
+    public TeamBuilderModel setStatus(TeamStatusModel status) {
+        this.status = status;
+        return this;
+    }
 
     /**
      * Construye la instancia final de TeamModel.
      *
      * @return equipo construido
      */
-    public TeamModel build() { return null; }
+    public TeamModel build() {
+        TeamModel team = new TeamModel();
+        team.setName(name);
+        team.setColor(color);
+        team.setLogo(logo);
+        team.setStatus(status == null ? TeamStatusModel.PENDING : status);
+        if (players != null) {
+            for (PlayerModel player : players) {
+                team.addPlayer(player);
+            }
+        }
+        if (captain != null) {
+            team.addPlayer(captain);
+            team.setCaptain(captain);
+        }
+        return team;
+    }
 }

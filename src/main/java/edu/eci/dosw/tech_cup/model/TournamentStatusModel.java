@@ -20,47 +20,45 @@ public enum TournamentStatusModel {
     /** Torneo finalizado */
     FINISHED;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si el torneo está en fase de borrador.
      *
      * @return true si es DRAFT
      */
-    public boolean isDraft() { return false; }
+    public boolean isDraft() { return this == DRAFT; }
 
     /**
      * Verifica si el torneo está activo.
      *
      * @return true si es ACTIVE
      */
-    public boolean isActive() { return false; }
+    public boolean isActive() { return this == ACTIVE; }
 
     /**
      * Verifica si el torneo está en progreso.
      *
      * @return true si es IN_PROGRESS
      */
-    public boolean isInProgress() { return false; }
+    public boolean isInProgress() { return this == IN_PROGRESS; }
 
     /**
      * Verifica si el torneo ha finalizado.
      *
      * @return true si es FINISHED
      */
-    public boolean isFinished() { return false; }
+    public boolean isFinished() { return this == FINISHED; }
 
     /**
      * Verifica si el torneo puede iniciar.
      *
      * @return true si está activo
      */
-    public boolean canStart() { return false; }
+    public boolean canStart() { return isActive(); }
 
     /**
      * Verifica si el torneo ya no admite cambios.
      *
      * @return true si está finalizado
      */
-    public boolean isClosed() { return false; }
+    public boolean isClosed() { return isFinished(); }
 }

@@ -38,14 +38,14 @@ public class InvitationModel {
      *
      * Cambia el estado de la invitación a aceptada.
      */
-    public void accept() {}
+    public void accept() { this.status = InvitationStatusModel.ACCEPTED; }
 
     /**
      * Rechaza la invitación.
      *
      * Cambia el estado de la invitación a rechazada.
      */
-    public void reject() {}
+    public void reject() { this.status = InvitationStatusModel.REJECTED; }
 
     /**
      * Verifica si la invitación está pendiente.
@@ -73,5 +73,7 @@ public class InvitationModel {
      *
      * @return true si tiene remitente, receptor y equipo definidos
      */
-    public boolean isValid() { return false; }
+    public boolean isValid() {
+        return false;
+    }
 }

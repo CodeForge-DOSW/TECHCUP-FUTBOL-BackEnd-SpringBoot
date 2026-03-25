@@ -35,93 +35,202 @@ public class TeamStatsModel {
     /** Puntos obtenidos */
     private int points;
 
-    // ===================== MÉTODOS =====================
-
     /**
-     * Obtiene el equipo asociado.
+     * Obtiene el equipo asociado a estas estadísticas.
      *
-     * @return equipo
+     * @return equipo asociado
      */
-    public TeamModel getTeam() { return null; }
+    public TeamModel getTeam() {
+        return team;
+    }
 
     /**
-     * Obtiene los partidos jugados.
+     * Asigna el equipo asociado a estas estadísticas.
+     *
+     * @param team equipo a asociar
+     */
+    public void setTeam(TeamModel team) {
+        this.team = team;
+    }
+
+    /**
+     * Obtiene la cantidad de partidos jugados.
      *
      * @return partidos jugados
      */
-    public int getPlayed() { return 0; }
+    public int getPlayed() {
+        return played;
+    }
 
     /**
-     * Obtiene los partidos ganados.
+     * Asigna la cantidad de partidos jugados.
+     *
+     * @param played partidos jugados
+     */
+    public void setPlayed(int played) {
+        this.played = played;
+    }
+
+    /**
+     * Obtiene la cantidad de partidos ganados.
      *
      * @return partidos ganados
      */
-    public int getWon() { return 0; }
+    public int getWon() {
+        return won;
+    }
 
     /**
-     * Obtiene los partidos empatados.
+     * Asigna la cantidad de partidos ganados.
+     *
+     * @param won partidos ganados
+     */
+    public void setWon(int won) {
+        this.won = won;
+    }
+
+    /**
+     * Obtiene la cantidad de partidos empatados.
      *
      * @return partidos empatados
      */
-    public int getDraw() { return 0; }
+    public int getDraw() {
+        return draw;
+    }
 
     /**
-     * Obtiene los partidos perdidos.
+     * Asigna la cantidad de partidos empatados.
+     *
+     * @param draw partidos empatados
+     */
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    /**
+     * Obtiene la cantidad de partidos perdidos.
      *
      * @return partidos perdidos
      */
-    public int getLost() { return 0; }
+    public int getLost() {
+        return lost;
+    }
 
     /**
-     * Obtiene los goles a favor.
+     * Asigna la cantidad de partidos perdidos.
+     *
+     * @param lost partidos perdidos
+     */
+    public void setLost(int lost) {
+        this.lost = lost;
+    }
+
+    /**
+     * Obtiene los goles a favor del equipo.
      *
      * @return goles a favor
      */
-    public int getGoalsFor() { return 0; }
+    public int getGoalsFor() {
+        return goalsFor;
+    }
 
     /**
-     * Obtiene los goles en contra.
+     * Asigna los goles a favor del equipo.
+     *
+     * @param goalsFor goles a favor
+     */
+    public void setGoalsFor(int goalsFor) {
+        this.goalsFor = goalsFor;
+    }
+
+    /**
+     * Obtiene los goles en contra del equipo.
      *
      * @return goles en contra
      */
-    public int getGoalsAgainst() { return 0; }
+    public int getGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    /**
+     * Asigna los goles en contra del equipo.
+     *
+     * @param goalsAgainst goles en contra
+     */
+    public void setGoalsAgainst(int goalsAgainst) {
+        this.goalsAgainst = goalsAgainst;
+    }
 
     /**
      * Obtiene la diferencia de goles.
      *
      * @return diferencia de goles
      */
-    public int getGoalDifference() { return 0; }
+    public int getGoalDifference() {
+        return goalDifference;
+    }
 
     /**
-     * Obtiene los puntos del equipo.
+     * Asigna la diferencia de goles.
      *
-     * @return puntos
+     * @param goalDifference diferencia de goles
      */
-    public int getPoints() { return 0; }
+    public void setGoalDifference(int goalDifference) {
+        this.goalDifference = goalDifference;
+    }
 
     /**
-     * Calcula la diferencia de goles.
-     */
-    public void calculateGoalDifference() {}
-
-    /**
-     * Calcula los puntos del equipo.
-     */
-    public void calculatePoints() {}
-
-    /**
-     * Verifica si las estadísticas son válidas.
+     * Obtiene los puntos acumulados.
      *
-     * @return true si los valores son coherentes
+     * @return puntos acumulados
      */
-    public boolean isValid() { return false; }
+    public int getPoints() {
+        return points;
+    }
 
     /**
-     * Actualiza las estadísticas con el resultado de un partido.
+     * Asigna los puntos acumulados.
      *
-     * @param goalsFor goles a favor en el partido
-     * @param goalsAgainst goles en contra en el partido
+     * @param points puntos acumulados
      */
-    public void updateStats(int goalsFor, int goalsAgainst) {}
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    /**
+     * Actualiza las estadísticas del equipo con el resultado de un partido.
+     *
+     * @param goalsFor goles anotados por el equipo
+     * @param goalsAgainst goles recibidos por el equipo
+     */
+    public void updateStats(int goalsFor, int goalsAgainst) {
+
+    }
+
+    /**
+     * Calcula la diferencia de goles del equipo.
+     *
+     * @return diferencia de goles calculada
+     */
+    public int calculateGoalDifference() {
+        return 0;
+    }
+
+    /**
+     * Calcula los puntos del equipo según sus resultados.
+     *
+     * @return puntos calculados
+     */
+    public int calculatePoints() {
+        return 0;
+    }
+
+    /**
+     * Verifica si las estadísticas actuales son válidas.
+     *
+     * @return true si las estadísticas cumplen las reglas del dominio
+     */
+    public boolean isValid() {
+        return false;
+    }
 }

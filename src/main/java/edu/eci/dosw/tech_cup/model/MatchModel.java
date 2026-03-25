@@ -2,6 +2,7 @@ package edu.eci.dosw.tech_cup.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Representa un partido dentro del torneo.
@@ -54,14 +55,12 @@ public class MatchModel {
     /** Lista de eventos del partido */
     private List<MatchEventModel> events;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Obtiene el marcador del partido en formato texto.
      *
      * @return marcador como string (ej: "2 - 1")
      */
-    public String getScore() { return null; }
+    public String getScore() { return ""; }
 
     /**
      * Verifica si el partido ha finalizado.
@@ -76,21 +75,27 @@ public class MatchModel {
      * @param team equipo a consultar
      * @return alineación correspondiente
      */
-    public LineupModel getOpponentLineup(TeamModel team) { return null; }
+    public LineupModel getOpponentLineup(TeamModel team) {
+        return null;
+    }
 
     /**
      * Verifica si el partido puede iniciar.
      *
      * @return true si cumple condiciones para iniciar
      */
-    public boolean canStartMatch() { return false; }
+    public boolean canStartMatch() {
+        return false;
+    }
 
     /**
      * Obtiene el equipo ganador del partido.
      *
      * @return equipo ganador o null si hay empate
      */
-    public TeamModel getWinner() { return null; }
+    public TeamModel getWinner() {
+        return null;
+    }
 
     /**
      * Verifica si el partido terminó en empate.
@@ -104,5 +109,47 @@ public class MatchModel {
      *
      * @return true si tiene equipos, fecha y cancha definidos
      */
-    public boolean isValid() { return false; }
+    public boolean isValid() {
+        return false;
+    }
+
+    public MatchStatusModel getStatus() { return status; }
+
+    public TeamModel getHomeTeam() { return homeTeam; }
+
+    public TeamModel getAwayTeam() { return awayTeam; }
+
+    public LocalDateTime getDate() { return date; }
+
+    public List<MatchEventModel> getEvents() {
+        return null;
+    }
+
+    public int getScoreHome() { return scoreHome; }
+
+    public int getScoreAway() { return scoreAway; }
+
+    public void setTournament(TournamentModel tournament) { this.tournament = tournament; }
+
+    public void setHomeTeam(TeamModel homeTeam) { this.homeTeam = homeTeam; }
+
+    public void setAwayTeam(TeamModel awayTeam) { this.awayTeam = awayTeam; }
+
+    public void setPhase(MatchPhaseModel phase) { this.phase = phase; }
+
+    public void setStatus(MatchStatusModel status) { this.status = status; }
+
+    public void setField(FieldModel field) { this.field = field; }
+
+    public void setDate(LocalDateTime date) { this.date = date; }
+
+    public void setScoreHome(int scoreHome) { this.scoreHome = scoreHome; }
+
+    public void setScoreAway(int scoreAway) { this.scoreAway = scoreAway; }
+
+    public void setReferee(RefereeModel referee) { this.referee = referee; }
+
+    public void setHomeLineup(LineupModel homeLineup) { this.homeLineup = homeLineup; }
+
+    public void setAwayLineup(LineupModel awayLineup) { this.awayLineup = awayLineup; }
 }

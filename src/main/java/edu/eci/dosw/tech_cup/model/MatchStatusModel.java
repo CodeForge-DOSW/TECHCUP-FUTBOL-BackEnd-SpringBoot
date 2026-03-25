@@ -20,47 +20,45 @@ public enum MatchStatusModel {
     /** Partido cancelado */
     CANCELLED;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si el partido está programado.
      *
      * @return true si está en estado SCHEDULED
      */
-    public boolean isScheduled() { return false; }
+    public boolean isScheduled() { return this == SCHEDULED; }
 
     /**
      * Verifica si el partido está en progreso.
      *
      * @return true si está en estado IN_PROGRESS
      */
-    public boolean isInProgress() { return false; }
+    public boolean isInProgress() { return this == IN_PROGRESS; }
 
     /**
      * Verifica si el partido ha finalizado.
      *
      * @return true si está en estado FINISHED
      */
-    public boolean isFinished() { return false; }
+    public boolean isFinished() { return this == FINISHED; }
 
     /**
      * Verifica si el partido ha sido cancelado.
      *
      * @return true si está en estado CANCELLED
      */
-    public boolean isCancelled() { return false; }
+    public boolean isCancelled() { return this == CANCELLED; }
 
     /**
      * Verifica si el partido puede ser modificado.
      *
      * @return true si está programado o en progreso
      */
-    public boolean isEditable() { return false; }
+    public boolean isEditable() { return isScheduled() || isInProgress(); }
 
     /**
      * Verifica si el partido ya no admite cambios.
      *
      * @return true si está finalizado o cancelado
      */
-    public boolean isClosed() { return false; }
+    public boolean isClosed() { return isFinished() || isCancelled(); }
 }
