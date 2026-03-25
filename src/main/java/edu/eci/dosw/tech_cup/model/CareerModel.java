@@ -1,5 +1,7 @@
 package edu.eci.dosw.tech_cup.model;
 
+import java.util.Objects;
+
 /**
  * Representa una carrera académica dentro de la institución.
  *
@@ -22,21 +24,21 @@ public class CareerModel {
      *
      * @return id de la carrera
      */
-    public Long getId() { return null; }
+    public Long getId() { return id; }
 
     /**
      * Obtiene el nombre de la carrera.
      *
      * @return nombre de la carrera
      */
-    public String getName() { return null; }
+    public String getName() { return name; }
 
     /**
      * Cambia el nombre de la carrera.
      *
      * @param name nuevo nombre
      */
-    public void setName(String name) {}
+    public void setName(String name) { this.name = name; }
 
     /**
      * Verifica si la carrera es válida.
@@ -51,5 +53,7 @@ public class CareerModel {
      * @param other otra carrera
      * @return true si representan la misma carrera
      */
-    public boolean sameCareer(CareerModel other) { return false; }
+    public boolean sameCareer(CareerModel other) {
+        return false;
+    }
 }

@@ -20,47 +20,75 @@ public enum RegistrationStatusModel {
     /** Inscripción rechazada */
     REJECTED;
 
-    // ===================== MÉTODOS =====================
-
     /**
-     * Verifica si la inscripción está pendiente.
+     * Verifica si la inscripción está pendiente de revisión.
      *
-     * @return true si es PENDING
+     * @return true si está en estado pendiente
      */
-    public boolean isPending() { return false; }
+    public boolean isPending() {
+        return false;
+    }
 
     /**
      * Verifica si la inscripción está en revisión.
      *
-     * @return true si es IN_REVIEW
+     * @return true si está en revisión
      */
-    public boolean isInReview() { return false; }
+    public boolean isInReview() {
+        return false;
+    }
 
     /**
-     * Verifica si la inscripción ha sido aprobada.
+     * Verifica si la inscripción fue aprobada.
      *
-     * @return true si es APPROVED
+     * @return true si está aprobada
      */
-    public boolean isApproved() { return false; }
+    public boolean isApproved() {
+        return false;
+    }
 
     /**
-     * Verifica si la inscripción ha sido rechazada.
+     * Verifica si la inscripción fue rechazada.
      *
-     * @return true si es REJECTED
+     * @return true si está rechazada
      */
-    public boolean isRejected() { return false; }
+    public boolean isRejected() {
+        return false;
+    }
 
     /**
-     * Verifica si la inscripción ya fue procesada.
+     * Verifica si la inscripción está finalizada.
      *
-     * @return true si está aprobada o rechazada
+     * @return true si el estado es terminal
      */
-    public boolean isFinalized() { return false; }
+    public boolean isFinalized() {
+        return false;
+    }
 
     /**
-     * Verifica si la inscripción aún puede ser evaluada.
+     * Determina si el estado permite pasar a revisión.
      *
-     * @return true si está pendiente o en revisión
+     * @return true si puede cambiar a IN_REVIEW
      */
-    public boolean isUnderReview() { return false; }
+    public boolean canMoveToReview() {
+        return false;
+    }
+
+    /**
+     * Determina si el estado permite aprobar la inscripción.
+     *
+     * @return true si puede cambiar a APPROVED
+     */
+    public boolean canApprove() {
+        return false;
+    }
+
+    /**
+     * Determina si el estado permite rechazar la inscripción.
+     *
+     * @return true si puede cambiar a REJECTED
+     */
+    public boolean canReject() {
+        return false;
+    }
 }

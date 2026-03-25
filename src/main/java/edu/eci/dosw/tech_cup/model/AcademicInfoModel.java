@@ -10,92 +10,63 @@ package edu.eci.dosw.tech_cup.model;
  */
 public class AcademicInfoModel {
 
-    /** Identificador único de la información académica */
-    private Long id;
-
-    /** Tipo de afiliación del usuario */
-    private AffiliationTypeModel affiliationType;
-
-    /** Carrera académica del usuario */
-    private CareerModel career;
-
-    /** Semestre actual del usuario */
-    private Integer semester;
-
-    /** Código institucional o identificador académico (opcional) */
-    private String institutionalId;
-
-    /** Indica si la información ha sido verificada */
-    private boolean verified;
-
-    // ===================== MÉTODOS =====================
+    /**
+     *  Semestre academico cursado
+     */
+    private String semester;
 
     /**
-     * Verifica si el usuario es estudiante activo.
+     * Obtiene el semestre academico registrado.
      *
-     * @return true si es estudiante
+     * @return semestre academico
      */
-    public boolean isStudent() { return false; }
+    public String getSemester() {
+        return null;
+    }
 
     /**
-     * Verifica si el usuario es egresado.
+     * Asigna el semestre academico del jugador.
      *
-     * @return true si es egresado
+     * @param semester semestre academico
      */
-    public boolean isGraduate() { return false; }
+    public void setSemester(String semester) {
+
+    }
 
     /**
-     * Verifica si el usuario pertenece al personal administrativo.
+     * Verifica si existe informacion de semestre.
      *
-     * @return true si es administrativo
+     * @return true si tiene semestre registrado
      */
-    public boolean isAdministrative() { return false; }
+    public boolean hasSemester() {
+        return false;
+    }
 
     /**
-     * Verifica si la información académica está validada.
+     * Verifica si el formato del semestre es valido.
      *
-     * @return true si está verificada
+     * @return true si el semestre cumple el formato esperado
      */
-    public boolean isVerified() { return false; }
+    public boolean isValidSemester() {
+        return false;
+    }
 
     /**
-     * Marca la información académica como verificada.
-     */
-    public void verify() {}
-
-    /**
-     * Cambia la carrera del usuario.
+     * Indica si la informacion academica esta completa.
      *
-     * @param career nueva carrera
+     * @return true si cumple los datos minimos requeridos
      */
-    public void changeCareer(CareerModel career) {}
+    public boolean isComplete() {
+        return false;
+    }
 
     /**
-     * Cambia el tipo de afiliación.
+     * Verifica si la informacion academica es valida para el torneo.
      *
-     * @param type nuevo tipo de afiliación
+     * @return true si cumple reglas de elegibilidad
      */
-    public void changeAffiliation(AffiliationTypeModel type) {}
+    public boolean isEligibleForTournament() {
+        return false;
+    }
 
-    /**
-     * Cambia el semestre del usuario.
-     *
-     * @param semester nuevo semestre
-     */
-    public void changeSemester(Integer semester) {}
-
-    /**
-     * Verifica si el usuario pertenece a una carrera específica.
-     *
-     * @param career carrera a validar
-     * @return true si pertenece a la carrera
-     */
-    public boolean belongsToCareer(CareerModel career) { return false; }
-
-    /**
-     * Verifica si el semestre del usuario es válido.
-     *
-     * @return true si el semestre es mayor a 0
-     */
-    public boolean isValidSemester() { return false; }
 }

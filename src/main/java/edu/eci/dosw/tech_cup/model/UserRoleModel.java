@@ -31,12 +31,12 @@ public abstract class UserRoleModel {
      *
      * Cambia su estado a inactivo.
      */
-    public void deactivate() {}
+    public void deactivate() { this.status = false; }
 
     /**
      * Verifica si el usuario está activo.
      *
      * @return true si está activo
      */
-    public boolean isActive() { return false; }
+    public boolean isActive() { return status; }
 }

@@ -12,21 +12,20 @@ public class RuleModel {
     /** Descripción de la regla */
     private String description;
 
-    // ===================== MÉTODOS =====================
 
     /**
      * Obtiene la descripción de la regla.
      *
      * @return descripción de la regla
      */
-    public String getDescription() { return null; }
+    public String getDescription() { return description; }
 
     /**
      * Cambia la descripción de la regla.
      *
      * @param description nueva descripción
      */
-    public void setDescription(String description) {}
+    public void setDescription(String description) { this.description = description; }
 
     /**
      * Verifica si la regla es válida.
@@ -40,5 +39,5 @@ public class RuleModel {
      *
      * @return true si aplica
      */
-    public boolean applies() { return false; }
+    public boolean applies() { return isValid(); }
 }

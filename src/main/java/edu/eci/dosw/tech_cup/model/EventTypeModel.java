@@ -25,21 +25,21 @@ public enum EventTypeModel {
      *
      * @return true si es GOAL
      */
-    public boolean isGoal() { return false; }
+    public boolean isGoal() { return this == GOAL; }
 
     /**
      * Verifica si el evento corresponde a una tarjeta amarilla.
      *
      * @return true si es YELLOW_CARD
      */
-    public boolean isYellowCard() { return false; }
+    public boolean isYellowCard() { return this == YELLOW_CARD; }
 
     /**
      * Verifica si el evento corresponde a una tarjeta roja.
      *
      * @return true si es RED_CARD
      */
-    public boolean isRedCard() { return false; }
+    public boolean isRedCard() { return this == RED_CARD; }
 
     /**
      * Verifica si el evento corresponde a una sanción (tarjeta).

@@ -8,53 +8,67 @@ package edu.eci.dosw.tech_cup.model;
  */
 public class SanctionModel {
 
-    /** Descripción de la sanción */
+    /**
+     * Descripción de la sanción
+     */
     private String description;
 
-    /** Penalización asociada a la sanción */
+    /**
+     * Penalización asociada a la sanción
+     */
     private String penalty;
-
-    // ===================== MÉTODOS =====================
 
     /**
      * Obtiene la descripción de la sanción.
      *
      * @return descripción
      */
-    public String getDescription() { return null; }
+    public String getDescription() {
+        return description;
+    }
 
     /**
      * Cambia la descripción de la sanción.
      *
      * @param description nueva descripción
      */
-    public void setDescription(String description) {}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     /**
      * Obtiene la penalización.
      *
      * @return penalización
      */
-    public String getPenalty() { return null; }
+    public String getPenalty() {
+        return penalty;
+    }
 
     /**
      * Cambia la penalización.
      *
      * @param penalty nueva penalización
      */
-    public void setPenalty(String penalty) {}
+    public void setPenalty(String penalty) {
+        this.penalty = penalty;
+    }
 
     /**
      * Verifica si la sanción es válida.
      *
      * @return true si tiene descripción y penalización
      */
-    public boolean isValid() { return false; }
+    public boolean isValid() {
+        return false;
+    }
 
     /**
      * Verifica si la sanción es grave.
      *
      * @return true si implica una penalización severa
      */
-    public boolean isSevere() { return false; }
+    public boolean isSevere() {
+        return false;
+    }
 }

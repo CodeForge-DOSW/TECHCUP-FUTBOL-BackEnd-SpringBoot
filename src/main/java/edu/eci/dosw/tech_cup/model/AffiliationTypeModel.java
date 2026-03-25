@@ -32,35 +32,35 @@ public enum AffiliationTypeModel {
      *
      * @return true si es estudiante
      */
-    public boolean isStudent() { return false; }
+    public boolean isStudent() { return this == STUDENT; }
 
     /**
      * Verifica si el usuario es egresado.
      *
      * @return true si es egresado
      */
-    public boolean isGraduate() { return false; }
+    public boolean isGraduate() { return this == GRADUATE; }
 
     /**
      * Verifica si el usuario pertenece al personal administrativo.
      *
      * @return true si es administrativo
      */
-    public boolean isAdministrative() { return false; }
+    public boolean isAdministrative() { return this == ADMINISTRATIVE_PERSONAL; }
 
     /**
      * Verifica si el usuario es profesor.
      *
      * @return true si es profesor
      */
-    public boolean isProfessor() { return false; }
+    public boolean isProfessor() { return this == PROFESSOR; }
 
     /**
      * Verifica si el usuario es un familiar.
      *
      * @return true si es familiar
      */
-    public boolean isFamily() { return false; }
+    public boolean isFamily() { return this == FAMILY; }
 
     /**
      * Verifica si el usuario pertenece directamente a la institución.
@@ -74,5 +74,5 @@ public enum AffiliationTypeModel {
      *
      * @return true si es familiar
      */
-    public boolean isExternal() { return false; }
+    public boolean isExternal() { return isFamily(); }
 }

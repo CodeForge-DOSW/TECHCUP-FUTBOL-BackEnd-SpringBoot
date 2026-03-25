@@ -2,6 +2,10 @@ package edu.eci.dosw.tech_cup.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Representa la alineación de un equipo para un partido.
@@ -11,6 +15,9 @@ import java.util.Map;
  * la formación cumpla con las reglas del sistema.
  */
 public class LineupModel {
+
+    private static final int STARTERS_REQUIRED = 6;
+    private static final int MAX_SUBSTITUTES = 6;
 
     /** Identificador único de la alineación */
     private Long id;
@@ -33,14 +40,14 @@ public class LineupModel {
     /** Tipo de formación táctica */
     private FormationTypeModel formation;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si la alineación es válida.
      *
      * @return true si cumple todas las reglas
      */
-    public boolean isValidLineup() { return false; }
+    public boolean isValidLineup() {
+        return false;
+    }
 
     /**
      * Verifica si tiene la cantidad válida de jugadores titulares.
@@ -54,21 +61,27 @@ public class LineupModel {
      *
      * @return true si hay portero
      */
-    public boolean hasValidGoalkeeper() { return false; }
+    public boolean hasValidGoalkeeper() {
+        return false;
+    }
 
     /**
      * Verifica si la formación es válida.
      *
      * @return true si la formación es correcta
      */
-    public boolean validateFormation() { return false; }
+    public boolean validateFormation() {
+        return false;
+    }
 
     /**
      * Verifica que no haya jugadores duplicados.
      *
      * @return true si no hay duplicados
      */
-    public boolean hasNoDuplicates() { return false; }
+    public boolean hasNoDuplicates() {
+        return false;
+    }
 
     /**
      * Verifica si los suplentes son válidos.
@@ -82,14 +95,18 @@ public class LineupModel {
      *
      * @param player jugador a agregar
      */
-    public void addStarter(PlayerModel player) {}
+    public void addStarter(PlayerModel player) {
+
+    }
 
     /**
      * Agrega un jugador suplente.
      *
      * @param player jugador a agregar
      */
-    public void addSubstitute(PlayerModel player) {}
+    public void addSubstitute(PlayerModel player) {
+
+    }
 
     /**
      * Asigna una posición a un jugador.
@@ -97,21 +114,27 @@ public class LineupModel {
      * @param player jugador
      * @param position posición asignada
      */
-    public void assignPosition(PlayerModel player, PositionModel position) {}
+    public void assignPosition(PlayerModel player, PositionModel position) {
+
+    }
 
     /**
      * Elimina un jugador titular.
      *
      * @param player jugador a eliminar
      */
-    public void removeStarter(PlayerModel player) {}
+    public void removeStarter(PlayerModel player) {
+
+    }
 
     /**
      * Elimina un jugador suplente.
      *
      * @param player jugador a eliminar
      */
-    public void removeSubstitute(PlayerModel player) {}
+    public void removeSubstitute(PlayerModel player) {
+
+    }
 
     /**
      * Verifica si un jugador está en la alineación.
@@ -119,12 +142,16 @@ public class LineupModel {
      * @param player jugador a verificar
      * @return true si está en titulares o suplentes
      */
-    public boolean isPlayerInLineup(PlayerModel player) { return false; }
+    public boolean isPlayerInLineup(PlayerModel player) {
+        return false;
+    }
 
     /**
      * Verifica si la alineación puede ser modificada.
      *
      * @return true si es editable
      */
-    public boolean isEditable() { return false; }
+    public boolean isEditable() {
+       return false;
+    }
 }

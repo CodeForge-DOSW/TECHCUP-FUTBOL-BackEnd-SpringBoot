@@ -20,47 +20,45 @@ public enum TeamStatusModel {
     /** Estado expirado */
     EXPIRED;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si el equipo está pendiente.
      *
      * @return true si es PENDING
      */
-    public boolean isPending() { return false; }
+    public boolean isPending() { return this == PENDING; }
 
     /**
      * Verifica si el equipo ha sido aceptado.
      *
      * @return true si es ACCEPTED
      */
-    public boolean isAccepted() { return false; }
+    public boolean isAccepted() { return this == ACCEPTED; }
 
     /**
      * Verifica si el equipo ha sido rechazado.
      *
      * @return true si es REJECTED
      */
-    public boolean isRejected() { return false; }
+    public boolean isRejected() { return this == REJECTED; }
 
     /**
      * Verifica si el estado ha expirado.
      *
      * @return true si es EXPIRED
      */
-    public boolean isExpired() { return false; }
+    public boolean isExpired() { return this == EXPIRED; }
 
     /**
      * Verifica si el equipo ya fue procesado.
      *
      * @return true si está aceptado, rechazado o expirado
      */
-    public boolean isFinalized() { return false; }
+    public boolean isFinalized() { return isAccepted() || isRejected() || isExpired(); }
 
     /**
      * Verifica si el equipo puede participar.
      *
      * @return true si está aceptado
      */
-    public boolean canParticipate() { return false; }
+    public boolean canParticipate() { return isAccepted(); }
 }

@@ -1,6 +1,8 @@
 package edu.eci.dosw.tech_cup.model;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Representa la afiliación institucional de un usuario dentro del sistema.
@@ -19,8 +21,6 @@ public class AffiliationModel {
     /** Lista de carreras a las que pertenece el usuario */
     private List<CareerModel> careers;
 
-    // ===================== MÉTODOS =====================
-
     /**
      * Verifica si el usuario es estudiante.
      *
@@ -33,14 +33,14 @@ public class AffiliationModel {
      *
      * @return true si es egresado
      */
-    public boolean isGraduate() { return false; }
+    public boolean isGraduate() { return type != null && type.isGraduate(); }
 
     /**
      * Verifica si el usuario pertenece al personal administrativo.
      *
      * @return true si es administrativo
      */
-    public boolean isAdministrative() { return false; }
+    public boolean isAdministrative() { return type != null && type.isAdministrative(); }
 
     /**
      * Verifica si el usuario pertenece a una carrera específica.
@@ -48,7 +48,9 @@ public class AffiliationModel {
      * @param career carrera a validar
      * @return true si pertenece a la carrera
      */
-    public boolean belongsToCareer(CareerModel career) { return false; }
+    public boolean belongsToCareer(CareerModel career) {
+        return false;
+    }
 
     /**
      * Verifica si el usuario pertenece a alguna de las carreras registradas.
@@ -56,26 +58,32 @@ public class AffiliationModel {
      * @param careers lista de carreras
      * @return true si pertenece al menos a una
      */
-    public boolean belongsToAnyCareer(List<CareerModel> careers) { return false; }
+    public boolean belongsToAnyCareer(List<CareerModel> careers) {
+        return false;
+    }
 
     /**
      * Agrega una carrera a la afiliación.
      *
      * @param career carrera a agregar
      */
-    public void addCareer(CareerModel career) {}
+    public void addCareer(CareerModel career) {
+
+    }
 
     /**
      * Elimina una carrera de la afiliación.
      *
      * @param career carrera a eliminar
      */
-    public void removeCareer(CareerModel career) {}
+    public void removeCareer(CareerModel career) {
+
+    }
 
     /**
      * Cambia el tipo de afiliación del usuario.
      *
      * @param type nuevo tipo de afiliación
      */
-    public void changeType(AffiliationTypeModel type) {}
+    public void changeType(AffiliationTypeModel type) { this.type = type; }
 }

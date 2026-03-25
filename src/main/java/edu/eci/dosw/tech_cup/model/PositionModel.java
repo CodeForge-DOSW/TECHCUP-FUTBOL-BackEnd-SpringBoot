@@ -21,47 +21,58 @@ public enum PositionModel {
     /** Delantero */
     FORWARD;
 
-    // ===================== MÉTODOS =====================
+    /**
+     * Verifica si la posición corresponde a portero.
+     *
+     * @return true si es portero
+     */
+    public boolean isGoalkeeper() {
+        return false;
+    }
 
     /**
-     * Verifica si la posición corresponde a un portero.
+     * Verifica si la posición corresponde a defensor.
      *
-     * @return true si es GOALKEEPER
+     * @return true si es defensor
      */
-    public boolean isGoalkeeper() { return false; }
+    public boolean isDefender() {
+        return false;
+    }
 
     /**
-     * Verifica si la posición corresponde a un defensor.
+     * Verifica si la posición corresponde a mediocampista.
      *
-     * @return true si es DEFENDER
+     * @return true si es mediocampista
      */
-    public boolean isDefender() { return false; }
+    public boolean isMidfielder() {
+        return false;
+    }
 
     /**
-     * Verifica si la posición corresponde a un mediocampista.
+     * Verifica si la posición corresponde a delantero.
      *
-     * @return true si es MIDFIELDER
+     * @return true si es delantero
      */
-    public boolean isMidfielder() { return false; }
-
-    /**
-     * Verifica si la posición corresponde a un delantero.
-     *
-     * @return true si es FORWARD
-     */
-    public boolean isForward() { return false; }
-
-    /**
-     * Verifica si la posición es defensiva.
-     *
-     * @return true si es portero o defensor
-     */
-    public boolean isDefensive() { return false; }
+    public boolean isForward() {
+        return false;
+    }
 
     /**
      * Verifica si la posición es ofensiva.
      *
-     * @return true si es mediocampista o delantero
+     * @return true si la posición se considera ofensiva
      */
-    public boolean isOffensive() { return false; }
+    public boolean isAttackingRole() {
+        return false;
+    }
+
+    /**
+     * Convierte un texto en una posición del sistema.
+     *
+     * @param value valor de texto a convertir
+     * @return posición correspondiente o null si no aplica
+     */
+    public static PositionModel fromString(String value) {
+        return null;
+    }
 }

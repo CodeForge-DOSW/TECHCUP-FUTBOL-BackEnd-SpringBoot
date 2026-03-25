@@ -30,8 +30,8 @@ public enum FormationTypeModel {
     /** Formación 1-3-2 */
     ONE_THREE_TWO,
 
-    /** Formación 0-4-2 */
-    ZERO_FOUR_TWO,
+    /** Formación 0-4-3 */
+    ZERO_FOUR_THREE,
 
     /** Formación 2-4-0 */
     TWO_FOUR_ZERO,
@@ -53,48 +53,4 @@ public enum FormationTypeModel {
 
     /** Formación 1-2-3 */
     ONE_TWO_THREE;
-
-    // ===================== MÉTODOS =====================
-
-    /**
-     * Verifica si la formación es ofensiva.
-     *
-     * @return true si prioriza ataque
-     */
-    public boolean isOffensive() { return false; }
-
-    /**
-     * Verifica si la formación es defensiva.
-     *
-     * @return true si prioriza defensa
-     */
-    public boolean isDefensive() { return false; }
-
-    /**
-     * Verifica si la formación es balanceada.
-     *
-     * @return true si es equilibrada
-     */
-    public boolean isBalanced() { return false; }
-
-    /**
-     * Obtiene la cantidad de jugadores en defensa.
-     *
-     * @return número de defensores
-     */
-    public int getDefenders() { return 0; }
-
-    /**
-     * Obtiene la cantidad de jugadores en el medio campo.
-     *
-     * @return número de mediocampistas
-     */
-    public int getMidfielders() { return 0; }
-
-    /**
-     * Obtiene la cantidad de jugadores en ataque.
-     *
-     * @return número de delanteros
-     */
-    public int getForwards() { return 0; }
 }

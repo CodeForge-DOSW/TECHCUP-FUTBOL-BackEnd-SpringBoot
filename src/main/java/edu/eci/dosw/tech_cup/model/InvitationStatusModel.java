@@ -20,35 +20,34 @@ public enum InvitationStatusModel {
     /** Invitación expirada */
     EXPIRED;
 
-    // ===================== MÉTODOS =====================
 
     /**
      * Verifica si la invitación está pendiente.
      *
      * @return true si es PENDING
      */
-    public boolean isPending() { return false; }
+    public boolean isPending() { return this == PENDING; }
 
     /**
      * Verifica si la invitación ha sido aceptada.
      *
      * @return true si es ACCEPTED
      */
-    public boolean isAccepted() { return false; }
+    public boolean isAccepted() { return this == ACCEPTED; }
 
     /**
      * Verifica si la invitación ha sido rechazada.
      *
      * @return true si es REJECTED
      */
-    public boolean isRejected() { return false; }
+    public boolean isRejected() { return this == REJECTED; }
 
     /**
      * Verifica si la invitación ha expirado.
      *
      * @return true si es EXPIRED
      */
-    public boolean isExpired() { return false; }
+    public boolean isExpired() { return this == EXPIRED; }
 
     /**
      * Verifica si la invitación ya fue procesada.

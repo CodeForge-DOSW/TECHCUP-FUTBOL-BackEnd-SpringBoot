@@ -1,5 +1,7 @@
 package edu.eci.dosw.tech_cup.model;
 
+import java.util.Objects;
+
 /**
  * Representa una cancha donde se disputan los partidos del torneo.
  *
@@ -24,42 +26,44 @@ public class FieldModel {
      *
      * @return id de la cancha
      */
-    public Long getId() { return null; }
+    public Long getId() { return id; }
 
     /**
      * Obtiene el nombre de la cancha.
      *
      * @return nombre de la cancha
      */
-    public String getName() { return null; }
+    public String getName() { return name; }
 
     /**
      * Cambia el nombre de la cancha.
      *
      * @param name nuevo nombre
      */
-    public void setName(String name) {}
+    public void setName(String name) { this.name = name; }
 
     /**
      * Obtiene la ubicación de la cancha.
      *
      * @return ubicación
      */
-    public String getLocation() { return null; }
+    public String getLocation() { return location; }
 
     /**
      * Cambia la ubicación de la cancha.
      *
      * @param location nueva ubicación
      */
-    public void setLocation(String location) {}
+    public void setLocation(String location) { this.location = location; }
 
     /**
      * Verifica si la cancha es válida.
      *
      * @return true si tiene nombre y ubicación definidos
      */
-    public boolean isValid() { return false; }
+    public boolean isValid() {
+        return false;
+    }
 
     /**
      * Compara si dos canchas son iguales.
@@ -67,5 +71,7 @@ public class FieldModel {
      * @param other otra cancha
      * @return true si representan la misma cancha
      */
-    public boolean sameField(FieldModel other) { return false; }
+    public boolean sameField(FieldModel other) {
+        return false;
+    }
 }
