@@ -47,14 +47,14 @@ El sistema de TECHCUP FUTBOL debe tener:
 ### 2.1 Requerimiento Funcional 1
 
 | Campo | Descripción |
-|-------|-------------|
+|-------| ----------- |
 | **ID**| RF-01 |
 | **Nombre del requerimiento** | Gestión Integral del Torneo |
-| **Descripción** | *El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma.* |
+| **Descripción** | *El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma.*  |
 | **Precondiciones** | *Para que el sistema cumpla con este requerimiento, TECHCUP debe tener usuarios registrados con rol de Organizador o Administrador y acceso autenticado al sistema.* |
 | **Actor** | Organizador / Administrador |
 | **Flujo principal** | 1. El actor accede al módulo de gestión de torneos.<br>2. El sistema muestra las opciones de crear, consultar, actualizar o cancelar torneo.<br>3. El actor registra o modifica la información del torneo.<br>4. El sistema valida los datos ingresados.<br>5. El sistema guarda los cambios y actualiza el estado del torneo.<br>6. El sistema confirma la operación realizada | 
-| **Diagrama de caso de uso**  | ![img.png](img.png). |
+| **Diagrama de caso de uso**  | ![Diagrama de caso de uso - Gestión del Torneo](../uml/casosDeUso/rf01ManageTournamentUseCaseDiagram.png) |
 | **Poscondiciones** | *Se espera como resultado que el torneo quede registrado o actualizado correctamente y disponible para su consulta según los permisos definidos.* |
 ### 2.2 Requerimiento Funcional 2
 
@@ -66,7 +66,8 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe contar con un correo institucional estudiante, graduado, profesor o personal administrativo o un correo Gmail si es familiar de alguien de la Escuela. |
 | **Actor** | Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario ingresa a la plataforma y selecciona la opción de registro.<br>2. El usuario ingresa su correo y completa los datos del formulario.<br>3. El sistema valida el tipo de correo y asigna el rol correspondiente.<br>4. El usuario completa su perfil deportivo (foto, dorsal, posiciones de juego).<br>5. El sistema guarda la información y activa la cuenta.<br>6. El usuario inicia sesión con sus credenciales.<br>7. El usuario puede marcar su disponibilidad para que los capitanes lo encuentren. |
-| **Diagrama de caso de uso** |<img width="487" height="556" alt="image" src="https://github.com/user-attachments/assets/8d416d5c-4871-4ef6-8df1-9f5632b4694e" />|
+| **Diagrama de caso de uso** |<img width="487" height="556" alt="image" src="https://github.com/user-attachments/assets/8d416d5c-4871-4ef6-8df1-9f5632b4694e" />
+|
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
 
 ### 2.3 Requerimiento Funcional 3
@@ -79,7 +80,9 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe estar previamente registrado y autenticado en la plataforma. |
 | **Actor** | Administrador, Organizador, Capitán, Árbitro, Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario inicia sesión en la plataforma.<br>2. El sistema identifica el rol asignado a ese usuario.<br>3. El sistema muestra únicamente las opciones que le corresponden según su rol.<br>4. Si el usuario intenta acceder a una función que no le pertenece, el sistema le niega el acceso.<br>5. El administrador puede consultar, crear o modificar los roles cuando sea necesario.<br>6. Cualquier cambio de rol queda registrado en el sistema para auditoría. |
-| **Diagrama de caso de uso** |<img width="495" height="217" alt="image" src="https://github.com/user-attachments/assets/73710de5-2498-48f4-bfec-6ad29b568683" />|
+| **Diagrama de caso de uso** |<img width="495" height="217" alt="image" src="https://github.com/user-attachments/assets/73710de5-2498-48f4-bfec-6ad29b568683" />
+
+|
 | **Poscondiciones** | Cada usuario accede únicamente a las funciones que le corresponden, garantizando que la información y acciones del torneo estén controladas y organizadas. |
 
 ### 2.4 Requerimiento Funcional 4
@@ -131,7 +134,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | 	El equipo debe estar creado y el capitán autenticado. |
 | **Actor** | Capitán, Organizador|
 | **Flujo principal** | 1. El capitán sube el comprobante. <br>2. El sistema registra el estado como Pendiente.<br>3. El organizador revisa el comprobante.<br>4. El sistema actualiza el estado a Aprobado o Rechazado. |
-| **Diagrama de caso de uso** | ![img_1.png](img_1.png) |
+| **Diagrama de caso de uso** | <img width="434" height="302" alt="image" src="https://github.com/user-attachments/assets/b1b91836-e14b-4462-bf44-d6ce582931af" />
 | **Poscondiciones** | El equipo queda habilitado o rechazado para participar. |
 
 ### 2.8 Requerimiento Funcional 8
@@ -144,7 +147,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | 	El equipo debe estar inscrito y aprobado.|
 | **Actor** | Capitán |
 | **Flujo principal** | 1. El capitán accede a la alineación. <br>2. Selecciona titulares y reservas. <br>3. Define formación. <br>4. El sistema guarda la alineación.|
-| **Diagrama de caso de uso** | ![img_2.png](img_2.png) |
+| **Diagrama de caso de uso** | <img width="503" height="169" alt="image" src="https://github.com/user-attachments/assets/6db42b8f-c585-4ea9-bee6-aecc7e5d34a6" />
 | **Poscondiciones** | 	La alineación queda registrada para el partido. |
 
 ### 2.9 Requerimiento Funcional 9
@@ -163,14 +166,14 @@ El sistema de TECHCUP FUTBOL debe tener:
 ### 2.10 Requerimiento Funcional 10
 
 | Campo | Descripción |
-|------|------------|
+|------|--------------|
 | **ID** | RF-010|
 | **Nombre del requerimiento** | Tabla de Posiciones Automática|
 | **Descripción** | El sistema debe calcular automáticamente la tabla de posiciones del torneo, actualizando estadísticas como puntos, partidos jugados, victorias, empates, derrotas, goles a favor y goles en contra, cada vez que se registre o modifique el resultado de un partido. |
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, TECHCUP-FUTBOL debe tener previamente registro de partidos |
 | **Actor** | Organizador|
 | **Flujo principal** | 1. El usuario inicia sesión en el sistema <br>2. El usuario accede al panel principal del torneo.<br>3. El usuario selecciona la opción **“Tabla de posiciones”** en el menú del sistema<br>4. El sistema verifica si existen resultados de partidos registrados<br>5. El sistema calcula o actualiza automáticamente las estadísticas de los equipos del torneo<br>6. El sistema muestra la tabla de posiciones actualizada con la clasificación de los equipos|
-| **Diagrama de caso de uso** | ![img_3.png](img_3.png)|
+| **Diagrama de caso de uso** | ![Diagrama Generar Tabla Posiciones](../uml/casosDeUso/rf11GenerarTablaPosiciones.png)|
 | **Poscondiciones** | *Se espera como resultado la tabla de posiciones queda actualizada automáticamente y disponible para consulta|
 
 ### 2.11 Requerimiento Funcional 11
@@ -209,4 +212,3 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Flujo principal** | 1. El usuario (cualquier rol) ejecuta una acción relevante dentro del sistema.<br>2. El sistema intercepta la acción de forma transparente al usuario.<br>3. El sistema registra en el log: usuario, tipo de acción, fecha y hora, recurso afectado y resultado de la operación.<br>4. El registro queda persistido de forma inmutable en la base de datos de auditoría.<br>5. El Administrador accede al módulo de auditoría.<br>6. El sistema muestra el log completo con opciones de filtrado por usuario, fecha o tipo de acción.<br>7. El Administrador aplica los filtros deseados y el sistema actualiza la vista del log.
 | **Diagrama de caso de uso** | <img width="526" height="484" alt="imagen" src="https://github.com/user-attachments/assets/2112cddc-39ca-4468-ad3b-fee60562141e" />
 | **Poscondiciones** | Se espera como resultado: cada acción relevante queda registrada de forma automática, completa e inmutable, el Administrador puede consultar y filtrar el historial de auditoría en cualquier momento, y el sistema garantiza trazabilidad completa de las operaciones para efectos de seguridad y cumplimiento. |
-
