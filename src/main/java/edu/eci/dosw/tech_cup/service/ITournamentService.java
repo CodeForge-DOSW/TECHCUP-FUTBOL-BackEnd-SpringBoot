@@ -1,6 +1,6 @@
 package edu.eci.dosw.tech_cup.service;
 
-import edu.eci.dosw.tech_cup.model.Tournament;
+import edu.eci.dosw.tech_cup.model.TournamentModel;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public interface ITournamentService {
      * @return the created tournament with assigned id and DRAFT status
      * @throws RuntimeException if validation fails or name is not unique
      */
-    Tournament createTournament(Tournament tournament);
+    TournamentModel createTournament(TournamentModel tournament);
 
     /**
      * Retrieves a tournament by its id.
@@ -29,14 +29,14 @@ public interface ITournamentService {
      * @return the tournament if found
      * @throws RuntimeException if tournament does not exist
      */
-    Tournament getTournament(Long id);
+    TournamentModel getTournament(Long id);
 
     /**
      * Retrieves all tournaments regardless of status.
      *
      * @return list of all tournaments (may be empty)
      */
-    List<Tournament> getAllTournaments();
+    List<TournamentModel> getAllTournaments();
 
     /**
      * Updates an existing tournament's properties.
@@ -49,7 +49,7 @@ public interface ITournamentService {
      * @return the updated tournament
      * @throws RuntimeException if tournament not found, validation fails, or status does not allow updates
      */
-    Tournament updateTournament(Long id, Tournament updatedTournament);
+    TournamentModel updateTournament(Long id, TournamentModel updatedTournament);
 
     /**
      * Cancels a tournament (removes it from the system).

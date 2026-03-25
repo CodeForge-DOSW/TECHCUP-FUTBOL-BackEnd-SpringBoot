@@ -1,7 +1,7 @@
 package edu.eci.dosw.tech_cup.controller;
 
-import edu.eci.dosw.tech_cup.model.Player;
-import edu.eci.dosw.tech_cup.model.User;
+import edu.eci.dosw.tech_cup.model.PlayerModel;
+import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.service.IUserService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -51,9 +51,9 @@ public class UserController {
      */
     @PostMapping
     @Operation(summary = "Crear usuario", description = "Registra un nuevo usuario en el sistema")
-    public ResponseEntity<?> createUser(@RequestBody Player user) {
+    public ResponseEntity<?> createUser(@RequestBody PlayerModel user) {
         try {
-            User created = userService.createUser(user);
+            UserRoleModel created = userService.createUser(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -67,7 +67,7 @@ public class UserController {
      */
     @GetMapping
     @Operation(summary = "Listar usuarios", description = "Obtiene todos los usuarios registrados")
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<UserRoleModel>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
@@ -96,9 +96,9 @@ public class UserController {
      */
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar usuario", description = "Actualiza la información de un usuario existente")
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Player user) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody PlayerModel user) {
         try {
-            User updated = userService.updateUser(id, user);
+            UserRoleModel updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

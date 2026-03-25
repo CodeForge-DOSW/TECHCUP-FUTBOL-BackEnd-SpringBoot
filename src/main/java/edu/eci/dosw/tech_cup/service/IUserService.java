@@ -1,6 +1,6 @@
 package edu.eci.dosw.tech_cup.service;
 
-import edu.eci.dosw.tech_cup.model.User;
+import edu.eci.dosw.tech_cup.model.UserRoleModel;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public interface IUserService {
      * @return the created user with assigned id and active status
      * @throws RuntimeException if user is null, validation fails, or email already exists
      */
-    User createUser(User user);
+    UserRoleModel createUser(UserRoleModel user);
 
     /**
      * Retrieves a user by its unique id.
@@ -34,14 +34,14 @@ public interface IUserService {
      * @return the user if found
      * @throws RuntimeException if user does not exist
      */
-    User getUser(Long id);
+    UserRoleModel getUser(Long id);
 
     /**
      * Retrieves all users regardless of active status.
      *
      * @return list of all users (may be empty)
      */
-    List<User> getAllUsers();
+    List<UserRoleModel> getAllUsers();
 
     /**
      * Updates an existing user's properties.
@@ -53,7 +53,7 @@ public interface IUserService {
      * @return the updated user
      * @throws RuntimeException if user not found, validation fails, or email already in use
      */
-    User updateUser(Long id, User updatedUser);
+    UserRoleModel updateUser(Long id, UserRoleModel updatedUser);
 
     /**
      * Deactivates a user account (sets status to inactive).
