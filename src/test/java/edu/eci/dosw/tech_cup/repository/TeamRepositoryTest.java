@@ -33,7 +33,7 @@ class TeamRepositoryTest {
     private TournamentEntity tournament;
     private UserEntity captain;
 
-    // ─── Setup ──────────────────────────────────────────────────────────────
+    
 
     @BeforeEach
     void setUp() {
@@ -68,7 +68,7 @@ class TeamRepositoryTest {
         return team;
     }
 
-    // ─── 1. Prueba de guardado ───────────────────────────────────────────────
+    
 
     @DisplayName("Should save a team and assign an auto-generated id")
     @Test
@@ -109,7 +109,7 @@ class TeamRepositoryTest {
         assertEquals(1, teamRepository.findByStatus(false).size());
     }
 
-    // ─── 3. Prueba de relación Team → Tournament y Team → User (capitán) ────
+  
 
     @DisplayName("Should find a team by captain user id")
     @Test
@@ -146,7 +146,7 @@ class TeamRepositoryTest {
         assertEquals(tournament.getTournamentId(), saved.getTournament().getTournamentId());
     }
 
-    // ─── 4. Prueba de actualización y eliminación ────────────────────────────
+    
 
     @DisplayName("Should update team name")
     @Test
