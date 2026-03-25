@@ -26,12 +26,14 @@ public interface UserMapper {
 
     @Mapping(source = "userId",       target = "id")
     @Mapping(source = "passwordUser", target = "password")
+    @Mapping(target = "name",               ignore = true)
+    @Mapping(target = "available",          ignore = true)
+    @Mapping(target = "preferredPositions", ignore = true)
+    @Mapping(target = "jerseyNumber",       ignore = true)
+    @Mapping(target = "photoUrl",           ignore = true)
     PlayerModel toModel(UserEntity entity);
 
     @Mapping(source = "id",       target = "userId")
     @Mapping(source = "password", target = "passwordUser")
-    @Mapping(target = "jerseyNumber", ignore = true)
-    @Mapping(target = "photoUrl",     ignore = true)
-    @Mapping(target = "available",    ignore = true)
     UserEntity toEntity(PlayerModel model);
 }
