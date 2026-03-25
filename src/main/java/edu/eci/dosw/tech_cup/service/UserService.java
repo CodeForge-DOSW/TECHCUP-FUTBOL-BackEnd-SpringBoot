@@ -1,135 +1,145 @@
 package edu.eci.dosw.tech_cup.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import edu.eci.dosw.tech_cup.entity.UserEntity;
+import edu.eci.dosw.tech_cup.mapper.UserMapper;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
+import edu.eci.dosw.tech_cup.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Implementación del servicio de usuarios con persistencia JPA.
+ *
+ * <p>Reemplaza la lista en memoria del laboratorio anterior por llamadas
+ * reales al {@link UserRepository}. El flujo de cada operación es:</p>
+ * <pre>
+ *   Controller → Service → Mapper.toEntity() → Repository → Mapper.toModel() → Controller
+ * </pre>
+ */
 @Service
 public class UserService implements IUserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
-    private final List<UserRoleModel> users = new ArrayList<>();
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-    private Long idCounter = 1L;
+    public UserService(UserRepository userRepository, UserMapper userMapper) {
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
+    }
 
     @Override
-    public UserRoleModel createUser(UserRoleModel user) {
+    public PlayerModel createUser(PlayerModel user) {
         log.debug("Creating user with email: {}", user != null ? user.getEmail() : "null");
 
         if (user == null) {
             throw new RuntimeException("User cannot be null");
         }
-
         if (user.getEmail() == null || user.getEmail().trim().isEmpty()) {
             throw new RuntimeException("Email is required");
         }
-
-        boolean exists = users.stream()
-                .anyMatch(u -> u.getEmail().equals(user.getEmail()));
-
-        if (exists) {
+        if (!user.getEmail().contains("@")) {
+            throw new RuntimeException("Invalid email format");
+        }
+        if (userRepository.existsByEmail(user.getEmail())) {
             throw new RuntimeException("Email already exists");
         }
 
-        // ✅ VALIDACIÓN GENERAL (sin role)
-        if (user instanceof PlayerModel) {
-            if (!isValidEmail(user.getEmail())) {
-                throw new RuntimeException("Invalid email format");
-            }
-        }
+        UserEntity entity = userMapper.toEntity(user);
+        entity.setStatus(true);
 
-        user.setId(idCounter++);
-        user.setStatus(true);
-        users.add(user);
-
-        return user;
+        UserEntity saved = userRepository.save(entity);
+        log.info("User created with id: {}", saved.getUserId());
+        return userMapper.toModel(saved);
     }
 
     @Override
-    public UserRoleModel getUser(Long id) {
-        return users.stream()
-                .filter(u -> u.getId().equals(id))
-                .findFirst()
+    public PlayerModel getUser(Long id) {
+        UserEntity entity = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+        return userMapper.toModel(entity);
     }
 
     @Override
     public List<UserRoleModel> getAllUsers() {
-        return new ArrayList<>(users);
+        return userRepository.findAll()
+                .stream()
+                .map(userMapper::toModel)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public UserRoleModel updateUser(Long id, UserRoleModel updatedUser) {
-
+    public PlayerModel updateUser(Long id, PlayerModel updatedUser) {
         if (updatedUser == null) {
             throw new RuntimeException("Update data cannot be null");
         }
 
-        UserRoleModel existing = getUser(id);
+        UserEntity existing = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (updatedUser.getEmail() != null) {
-
             if (updatedUser.getEmail().trim().isEmpty()) {
                 throw new RuntimeException("Email cannot be empty");
             }
-
-            boolean exists = users.stream()
-                    .anyMatch(u -> u.getEmail().equals(updatedUser.getEmail())
-                            && !u.getId().equals(id));
-
-            if (exists) {
+            if (!updatedUser.getEmail().contains("@")) {
+                throw new RuntimeException("Invalid email format");
+            }
+            boolean emailTaken = userRepository.findByEmail(updatedUser.getEmail())
+                    .filter(u -> !u.getUserId().equals(id))
+                    .isPresent();
+            if (emailTaken) {
                 throw new RuntimeException("Email already exists");
             }
-
-            if (existing instanceof PlayerModel) {
-                if (!isValidEmail(updatedUser.getEmail())) {
-                    throw new RuntimeException("Invalid email format");
-                }
-            }
-
             existing.setEmail(updatedUser.getEmail());
         }
-
-        if (updatedUser.getName() != null) {
-            existing.setName(updatedUser.getName());
+        if (updatedUser.getFirstName() != null) {
+            existing.setFirstName(updatedUser.getFirstName());
+        }
+        if (updatedUser.getLastName() != null) {
+            existing.setLastName(updatedUser.getLastName());
+        }
+        if (updatedUser.getGender() != null) {
+            existing.setGender(updatedUser.getGender());
         }
 
-        return existing;
+        UserEntity saved = userRepository.save(existing);
+        return userMapper.toModel(saved);
     }
 
     @Override
     public void deactivateUser(Long id) {
-        UserRoleModel user = getUser(id);
+        UserEntity user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
         user.setStatus(false);
+        userRepository.save(user);
+        log.info("User {} deactivated", id);
     }
 
     @Override
     public void authenticate(String email, String password) {
-
         if (email == null || email.trim().isEmpty()) {
             throw new RuntimeException("Email is required");
         }
-
         if (password == null || password.trim().isEmpty()) {
             throw new RuntimeException("Password is required");
         }
 
-        users.stream()
-                .filter(u -> u.getEmail().equals(email)
-                        && u.getPassword().equals(password)
-                        && u.isStatus()) // ✅ CORREGIDO
-                .findFirst()
+        UserEntity user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Invalid credentials"));
-    }
 
-    // ✅ VALIDACIÓN SIMPLE (SIN ROLE)
-    private boolean isValidEmail(String email) {
-        return email.contains("@");
+        if (!user.getPasswordUser().equals(password)) {
+            throw new RuntimeException("Invalid credentials");
+        }
+        if (!Boolean.TRUE.equals(user.getStatus())) {
+            throw new RuntimeException("User account is inactive");
+        }
+
+        log.info("User {} authenticated successfully", email);
     }
 }

@@ -1,32 +1,84 @@
 package edu.eci.dosw.tech_cup.service;
 
+import edu.eci.dosw.tech_cup.entity.UserEntity;
+import edu.eci.dosw.tech_cup.mapper.UserMapper;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
+import edu.eci.dosw.tech_cup.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
-    private IUserService userService;
+    @Mock
+    private UserRepository userRepository;
 
-    @BeforeEach
-    void setUp() {
-        userService = new UserService();
+    @Mock
+    private UserMapper userMapper;
+
+    @InjectMocks
+    private UserService userService;
+
+    // ─── Entidades y modelos de apoyo ───────────────────────────────────────
+
+    /**
+     * Construye una UserEntity con id y datos básicos para usar como
+     * respuesta simulada del repositorio.
+     */
+    private UserEntity entityWith(Long id, String email, String name, boolean active) {
+        UserEntity e = new UserEntity();
+        e.setUserId(id);
+        e.setEmail(email);
+        e.setFirstName(name);
+        e.setStatus(active);
+        return e;
     }
+
+    /**
+     * Construye un PlayerModel con id y datos básicos para usar como
+     * respuesta simulada del mapper.
+     */
+    private PlayerModel modelWith(Long id, String email, String name, boolean active) {
+        PlayerModel m = new PlayerModel();
+        m.setId(id);
+        m.setEmail(email);
+        m.setName(name);
+        m.setStatus(active);
+        return m;
+    }
+
+    // ─── createUser ─────────────────────────────────────────────────────────
 
     @DisplayName("Should create a user successfully with valid data")
     @Test
     void shouldCreateUser() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("juan@mail.com");
-        user.setName("Juan");
+        PlayerModel input = new PlayerModel();
+        input.setEmail("juan@mail.com");
+        input.setName("Juan");
 
-        UserRoleModel result = userService.createUser(user);
+        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "Juan", true);
+        PlayerModel expectedModel = modelWith(1L, "juan@mail.com", "Juan", true);
+
+        when(userRepository.existsByEmail("juan@mail.com")).thenReturn(false);
+        when(userMapper.toEntity(input)).thenReturn(savedEntity);
+        when(userRepository.save(savedEntity)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(expectedModel);
+
+        PlayerModel result = userService.createUser(input);
 
         assertNotNull(result.getId());
         assertEquals("Juan", result.getName());
@@ -37,6 +89,7 @@ public class UserServiceTest {
     @Test
     void shouldFailCreateWhenUserIsNull() {
         assertThrows(RuntimeException.class, () -> userService.createUser(null));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
     @DisplayName("Should throw exception when email is null")
@@ -46,6 +99,7 @@ public class UserServiceTest {
         user.setName("Juan");
 
         assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
     @DisplayName("Should throw exception when email is blank")
@@ -55,52 +109,59 @@ public class UserServiceTest {
         user.setEmail("   ");
 
         assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
     @DisplayName("Should throw exception when email already exists")
     @Test
     void shouldFailCreateWhenEmailExists() {
-        PlayerModel u1 = new PlayerModel();
-        u1.setEmail("test@mail.com");
+        PlayerModel user = new PlayerModel();
+        user.setEmail("test@mail.com");
 
-        PlayerModel u2 = new PlayerModel();
-        u2.setEmail("test@mail.com");
+        when(userRepository.existsByEmail("test@mail.com")).thenReturn(true);
 
-        userService.createUser(u1);
-
-        assertThrows(RuntimeException.class, () -> userService.createUser(u2));
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verify(userRepository, never()).save(any());
     }
+
+    // ─── getUser ────────────────────────────────────────────────────────────
 
     @DisplayName("Should return user by id")
     @Test
     void shouldGetUserById() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("juan@mail.com");
-        user.setName("Juan");
+        UserEntity entity = entityWith(1L, "juan@mail.com", "Juan", true);
+        PlayerModel model = modelWith(1L, "juan@mail.com", "Juan", true);
 
-        UserRoleModel created = userService.createUser(user);
-        UserRoleModel found = userService.getUser(created.getId());
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userMapper.toModel(entity)).thenReturn(model);
+
+        UserRoleModel found = userService.getUser(1L);
 
         assertEquals("Juan", found.getName());
+        assertEquals(1L, found.getId());
     }
 
     @DisplayName("Should throw exception when user not found")
     @Test
     void shouldFailGetUser() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
         assertThrows(RuntimeException.class, () -> userService.getUser(999L));
     }
+
+    // ─── getAllUsers ─────────────────────────────────────────────────────────
 
     @DisplayName("Should return all users")
     @Test
     void shouldGetAllUsers() {
-        PlayerModel u1 = new PlayerModel();
-        u1.setEmail("a@mail.com");
+        UserEntity e1 = entityWith(1L, "a@mail.com", "Alice", true);
+        UserEntity e2 = entityWith(2L, "b@mail.com", "Bob", true);
+        PlayerModel m1 = modelWith(1L, "a@mail.com", "Alice", true);
+        PlayerModel m2 = modelWith(2L, "b@mail.com", "Bob", true);
 
-        PlayerModel u2 = new PlayerModel();
-        u2.setEmail("b@mail.com");
-
-        userService.createUser(u1);
-        userService.createUser(u2);
+        when(userRepository.findAll()).thenReturn(List.of(e1, e2));
+        when(userMapper.toModel(e1)).thenReturn(m1);
+        when(userMapper.toModel(e2)).thenReturn(m2);
 
         List<UserRoleModel> users = userService.getAllUsers();
 
@@ -110,22 +171,28 @@ public class UserServiceTest {
     @DisplayName("Should return empty list when no users")
     @Test
     void shouldReturnEmptyList() {
+        when(userRepository.findAll()).thenReturn(List.of());
+
         assertTrue(userService.getAllUsers().isEmpty());
     }
+
+    // ─── updateUser ─────────────────────────────────────────────────────────
 
     @DisplayName("Should update user name")
     @Test
     void shouldUpdateUser() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("juan@mail.com");
-        user.setName("Old");
+        UserEntity existing = entityWith(1L, "juan@mail.com", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "New", true);
+        PlayerModel resultModel = modelWith(1L, "juan@mail.com", "New", true);
 
-        UserRoleModel created = userService.createUser(user);
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("New");
 
-        PlayerModel updated = new PlayerModel();
-        updated.setName("New");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(userRepository.save(existing)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(resultModel);
 
-        UserRoleModel result = userService.updateUser(created.getId(), updated);
+        UserRoleModel result = userService.updateUser(1L, updatedPayload);
 
         assertEquals("New", result.getName());
     }
@@ -133,67 +200,75 @@ public class UserServiceTest {
     @DisplayName("Should throw exception when updating non-existing user")
     @Test
     void shouldFailUpdateUser() {
-        PlayerModel updated = new PlayerModel();
-        updated.setName("Test");
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("Test");
+
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
 
         assertThrows(RuntimeException.class,
-                () -> userService.updateUser(999L, updated));
-    }
-
-    @DisplayName("Should deactivate user")
-    @Test
-    void shouldDeactivateUser() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("test@mail.com");
-
-        UserRoleModel created = userService.createUser(user);
-
-        userService.deactivateUser(created.getId());
-
-        assertFalse(userService.getUser(created.getId()).isActive());
-    }
-
-    @DisplayName("Should keep user after deactivation")
-    @Test
-    void shouldKeepUserAfterDeactivate() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("test@mail.com");
-
-        UserRoleModel created = userService.createUser(user);
-
-        userService.deactivateUser(created.getId());
-
-        List<UserRoleModel> users = userService.getAllUsers();
-
-        assertEquals(1, users.size());
-        assertFalse(users.get(0).isActive());
+                () -> userService.updateUser(999L, updatedPayload));
     }
 
     @DisplayName("Should throw exception when updating with null payload")
     @Test
     void shouldFailUpdateWithNull() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("test@mail.com");
-
-        UserRoleModel created = userService.createUser(user);
-
         assertThrows(RuntimeException.class,
-                () -> userService.updateUser(created.getId(), null));
+                () -> userService.updateUser(1L, null));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
     @DisplayName("Should keep same id after update")
     @Test
     void shouldKeepSameId() {
-        PlayerModel user = new PlayerModel();
-        user.setEmail("test@mail.com");
+        UserEntity existing = entityWith(1L, "test@mail.com", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "test@mail.com", "Updated", true);
+        PlayerModel resultModel = modelWith(1L, "test@mail.com", "Updated", true);
 
-        UserRoleModel created = userService.createUser(user);
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("Updated");
 
-        PlayerModel updated = new PlayerModel();
-        updated.setName("Updated");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(userRepository.save(existing)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(resultModel);
 
-        UserRoleModel result = userService.updateUser(created.getId(), updated);
+        UserRoleModel result = userService.updateUser(1L, updatedPayload);
 
-        assertEquals(created.getId(), result.getId());
+        assertEquals(1L, result.getId());
+    }
+
+    // ─── deactivateUser ──────────────────────────────────────────────────────
+
+    @DisplayName("Should deactivate user")
+    @Test
+    void shouldDeactivateUser() {
+        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
+        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userRepository.save(entity)).thenReturn(entity);
+
+        userService.deactivateUser(1L);
+
+        verify(userRepository).save(entity);
+        assertFalse(entity.getStatus());
+    }
+
+    @DisplayName("Should keep user after deactivation")
+    @Test
+    void shouldKeepUserAfterDeactivate() {
+        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
+        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userRepository.save(entity)).thenReturn(entity);
+        when(userRepository.findAll()).thenReturn(List.of(entity));
+        when(userMapper.toModel(entity)).thenReturn(deactivatedModel);
+
+        userService.deactivateUser(1L);
+
+        List<UserRoleModel> users = userService.getAllUsers();
+
+        assertEquals(1, users.size());
+        assertFalse(users.get(0).isActive());
     }
 }
