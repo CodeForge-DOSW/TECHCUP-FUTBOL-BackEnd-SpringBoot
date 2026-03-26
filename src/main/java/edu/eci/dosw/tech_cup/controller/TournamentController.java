@@ -51,7 +51,7 @@ public class TournamentController {
      */
     @PostMapping
     @Operation(summary = "Create tournament", description = "Registers a new tournament in the system")
-    public ResponseEntity<?> createTournament(@RequestBody Tournament tournament) {
+    public ResponseEntity<?> createTournament(@RequestBody TournamentModel tournament) {
         try {
             TournamentModel created = tournamentService.createTournament(tournament);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
@@ -67,7 +67,7 @@ public class TournamentController {
      */
     @GetMapping
     @Operation(summary = "List tournaments", description = "Retrieves all registered tournaments")
-    public ResponseEntity<List<Tournament>> getAllTournaments() {
+    public ResponseEntity<List<TournamentModel>> getAllTournaments() {
         return ResponseEntity.ok(tournamentService.getAllTournaments());
     }
 
