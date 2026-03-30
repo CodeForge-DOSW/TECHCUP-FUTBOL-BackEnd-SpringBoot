@@ -3,75 +3,75 @@ package edu.eci.dosw.tech_cup.model;
 import java.time.LocalDateTime;
 
 /**
- * Representa una invitación enviada a un jugador para unirse a un equipo.
+ * Represents an invitation sent to a player to join a team.
  *
- * Esta clase permite gestionar el proceso de invitación, incluyendo
- * su estado, mensaje y fecha de creación.
+ * <p>This model manages the invitation workflow, including its status,
+ * optional message, and creation date.</p>
  */
 public class InvitationModel {
 
-    /** Identificador único de la invitación */
+    /** Unique identifier of the invitation. */
     private Long id;
 
-    /** Jugador que envía la invitación */
+    /** Player who sends the invitation. */
     private PlayerModel sender;
 
-    /** Jugador que recibe la invitación */
+    /** Player who receives the invitation. */
     private PlayerModel receiver;
 
-    /** Equipo al que se invita al jugador */
+    /** Team the player is invited to join. */
     private TeamModel team;
 
-    /** Mensaje opcional de la invitación */
+    /** Optional invitation message. */
     private String message;
 
-    /** Estado actual de la invitación */
+    /** Current invitation status. */
     private InvitationStatusModel status;
 
-    /** Fecha de creación de la invitación */
+    /** Invitation creation date. */
     private LocalDateTime createdAt;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Acepta la invitación.
+     * Accepts the invitation.
      *
-     * Cambia el estado de la invitación a aceptada.
+     * <p>This changes the invitation status to accepted.</p>
      */
     public void accept() { this.status = InvitationStatusModel.ACCEPTED; }
 
     /**
-     * Rechaza la invitación.
+     * Rejects the invitation.
      *
-     * Cambia el estado de la invitación a rechazada.
+     * <p>This changes the invitation status to rejected.</p>
      */
     public void reject() { this.status = InvitationStatusModel.REJECTED; }
 
     /**
-     * Verifica si la invitación está pendiente.
+     * Indicates whether the invitation is pending.
      *
-     * @return true si está en estado pendiente
+     * @return {@code true} if the invitation is pending
      */
     public boolean isPending() { return false; }
 
     /**
-     * Verifica si la invitación ha sido aceptada.
+     * Indicates whether the invitation has been accepted.
      *
-     * @return true si está aceptada
+     * @return {@code true} if the invitation is accepted
      */
     public boolean isAccepted() { return false; }
 
     /**
-     * Verifica si la invitación ha sido rechazada.
+     * Indicates whether the invitation has been rejected.
      *
-     * @return true si está rechazada
+     * @return {@code true} if the invitation is rejected
      */
     public boolean isRejected() { return false; }
 
     /**
-     * Verifica si la invitación es válida.
+     * Indicates whether the invitation contains valid required data.
      *
-     * @return true si tiene remitente, receptor y equipo definidos
+     * @return {@code true} if sender, receiver, and team are defined
      */
     public boolean isValid() {
         return false;

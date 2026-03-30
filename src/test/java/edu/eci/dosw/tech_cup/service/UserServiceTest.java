@@ -21,6 +21,12 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for {@link UserService}.
+ *
+ * <p>This test suite validates user creation, retrieval, update, and logical
+ * deactivation behavior by using mocked repository and mapper dependencies.</p>
+ */
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
@@ -33,11 +39,14 @@ public class UserServiceTest {
     @InjectMocks
     private UserService userService;
 
-    // ─── Entidades y modelos de apoyo ───────────────────────────────────────
-
     /**
-     * Construye una UserEntity con id y datos básicos para usar como
-     * respuesta simulada del repositorio.
+     * Builds a user entity for mocked repository responses.
+     *
+     * @param id persisted user identifier
+     * @param email user email
+     * @param name user display name
+     * @param active whether the user is active
+     * @return a user entity configured for tests
      */
     private UserEntity entityWith(Long id, String email, String name, boolean active) {
         UserEntity e = new UserEntity();
@@ -49,8 +58,13 @@ public class UserServiceTest {
     }
 
     /**
-     * Construye un PlayerModel con id y datos básicos para usar como
-     * respuesta simulada del mapper.
+     * Builds a player model for mocked mapper responses.
+     *
+     * @param id user identifier
+     * @param email user email
+     * @param name user display name
+     * @param active whether the user is active
+     * @return a player model configured for assertions
      */
     private PlayerModel modelWith(Long id, String email, String name, boolean active) {
         PlayerModel m = new PlayerModel();
@@ -61,8 +75,9 @@ public class UserServiceTest {
         return m;
     }
 
-    // ─── createUser ─────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that a user is created successfully when valid data is provided.
+     */
     @DisplayName("Should create a user successfully with valid data")
     @Test
     void shouldCreateUser() {
@@ -85,6 +100,9 @@ public class UserServiceTest {
         assertTrue(result.isActive());
     }
 
+    /**
+     * Verifies that creation fails when the user payload is null.
+     */
     @DisplayName("Should throw exception when creating user with null")
     @Test
     void shouldFailCreateWhenUserIsNull() {
@@ -92,6 +110,9 @@ public class UserServiceTest {
         verifyNoInteractions(userRepository, userMapper);
     }
 
+    /**
+     * Verifies that creation fails when the email is missing.
+     */
     @DisplayName("Should throw exception when email is null")
     @Test
     void shouldFailCreateWhenEmailIsNull() {
@@ -102,6 +123,9 @@ public class UserServiceTest {
         verifyNoInteractions(userRepository, userMapper);
     }
 
+    /**
+     * Verifies that creation fails when the email is blank.
+     */
     @DisplayName("Should throw exception when email is blank")
     @Test
     void shouldFailCreateWhenEmailIsBlank() {
@@ -112,6 +136,9 @@ public class UserServiceTest {
         verifyNoInteractions(userRepository, userMapper);
     }
 
+    /**
+     * Verifies that creation fails when another user already has the same email.
+     */
     @DisplayName("Should throw exception when email already exists")
     @Test
     void shouldFailCreateWhenEmailExists() {
@@ -124,8 +151,9 @@ public class UserServiceTest {
         verify(userRepository, never()).save(any());
     }
 
-    // ─── getUser ────────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that a user can be retrieved by identifier.
+     */
     @DisplayName("Should return user by id")
     @Test
     void shouldGetUserById() {
@@ -141,6 +169,9 @@ public class UserServiceTest {
         assertEquals(1L, found.getId());
     }
 
+    /**
+     * Verifies that retrieval fails when the requested user does not exist.
+     */
     @DisplayName("Should throw exception when user not found")
     @Test
     void shouldFailGetUser() {
@@ -149,8 +180,9 @@ public class UserServiceTest {
         assertThrows(RuntimeException.class, () -> userService.getUser(999L));
     }
 
-    // ─── getAllUsers ─────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that the service returns all stored users.
+     */
     @DisplayName("Should return all users")
     @Test
     void shouldGetAllUsers() {
@@ -168,6 +200,9 @@ public class UserServiceTest {
         assertEquals(2, users.size());
     }
 
+    /**
+     * Verifies that the service returns an empty list when no users exist.
+     */
     @DisplayName("Should return empty list when no users")
     @Test
     void shouldReturnEmptyList() {
@@ -176,8 +211,9 @@ public class UserServiceTest {
         assertTrue(userService.getAllUsers().isEmpty());
     }
 
-    // ─── updateUser ─────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that updating a user persists the modified data.
+     */
     @DisplayName("Should update user name")
     @Test
     void shouldUpdateUser() {
@@ -197,6 +233,9 @@ public class UserServiceTest {
         assertEquals("New", result.getName());
     }
 
+    /**
+     * Verifies that updating fails when the target user does not exist.
+     */
     @DisplayName("Should throw exception when updating non-existing user")
     @Test
     void shouldFailUpdateUser() {
@@ -209,6 +248,9 @@ public class UserServiceTest {
                 () -> userService.updateUser(999L, updatedPayload));
     }
 
+    /**
+     * Verifies that updating fails when the request payload is null.
+     */
     @DisplayName("Should throw exception when updating with null payload")
     @Test
     void shouldFailUpdateWithNull() {
@@ -217,6 +259,9 @@ public class UserServiceTest {
         verifyNoInteractions(userRepository, userMapper);
     }
 
+    /**
+     * Verifies that updating a user does not change its identifier.
+     */
     @DisplayName("Should keep same id after update")
     @Test
     void shouldKeepSameId() {
@@ -236,8 +281,9 @@ public class UserServiceTest {
         assertEquals(1L, result.getId());
     }
 
-    // ─── deactivateUser ──────────────────────────────────────────────────────
-
+    /**
+     * Verifies that deactivating a user sets its status to inactive and saves the change.
+     */
     @DisplayName("Should deactivate user")
     @Test
     void shouldDeactivateUser() {
@@ -253,6 +299,9 @@ public class UserServiceTest {
         assertFalse(entity.getStatus());
     }
 
+    /**
+     * Verifies that a deactivated user remains stored and is returned as inactive.
+     */
     @DisplayName("Should keep user after deactivation")
     @Test
     void shouldKeepUserAfterDeactivate() {

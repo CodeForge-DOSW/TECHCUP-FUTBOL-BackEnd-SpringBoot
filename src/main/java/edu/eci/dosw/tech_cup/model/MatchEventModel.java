@@ -1,53 +1,53 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Representa un evento ocurrido durante un partido.
+ * Represents an event that occurred during a match.
  *
- * Esta clase permite registrar acciones como goles y sanciones,
- * asociándolas a un jugador, un equipo y un minuto específico del partido.
+ * <p>This model records actions such as goals and sanctions, linking them to a
+ * player, a team, and a specific minute of the match.</p>
  */
 public class MatchEventModel {
 
-    /** Identificador único del evento */
+    /** Unique identifier of the event. */
     private Long id;
 
-    /** Minuto en el que ocurrió el evento */
+    /** Minute in which the event occurred. */
     private int minute;
 
-    /** Jugador que realizó el evento */
+    /** Player responsible for the event. */
     private PlayerModel player;
 
-    /** Tipo de evento */
+    /** Event type. */
     private EventTypeModel type;
 
-    /** Equipo al que pertenece el jugador */
+    /** Team to which the player belongs. */
     private TeamModel team;
 
     /**
-     * Verifica si el evento corresponde a un gol.
+     * Indicates whether the event corresponds to a goal.
      *
-     * @return true si es un gol
+     * @return {@code true} if the event is a goal
      */
     public boolean isGoal() { return type != null && type.isGoal(); }
 
     /**
-     * Verifica si el evento corresponde a una tarjeta amarilla.
+     * Indicates whether the event corresponds to a yellow card.
      *
-     * @return true si es tarjeta amarilla
+     * @return {@code true} if the event is a yellow card
      */
     public boolean isYellowCard() { return type != null && type.isYellowCard(); }
 
     /**
-     * Verifica si el evento corresponde a una tarjeta roja.
+     * Indicates whether the event corresponds to a red card.
      *
-     * @return true si es tarjeta roja
+     * @return {@code true} if the event is a red card
      */
     public boolean isRedCard() { return false; }
 
     /**
-     * Verifica si el evento es válido.
+     * Indicates whether the event contains valid required data.
      *
-     * @return true si tiene jugador, equipo y tipo definidos
+     * @return {@code true} if player, team, and type are defined
      */
     public boolean isValid() { return false; }
 

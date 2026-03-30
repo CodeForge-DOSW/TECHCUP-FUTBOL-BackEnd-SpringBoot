@@ -6,24 +6,30 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * Mapper MapStruct entre {@link UserEntity} (capa de persistencia)
- * y {@link PlayerModel} (implementación concreta de {@code UserRoleModel}).
+ * MapStruct mapper between {@link UserEntity} and {@link PlayerModel}.
  *
- * <p>MapStruct requiere una clase concreta como destino — no puede instanciar
- * clases abstractas. {@code PlayerModel} hereda todos los campos de perfil
- * personal de {@code UserRoleModel}, por lo que el mapeo es completo.</p>
+ * <p>MapStruct requires a concrete destination type and cannot instantiate
+ * abstract classes directly. {@code PlayerModel} is used as the target model
+ * because it inherits the shared user profile fields defined in
+ * {@code UserRoleModel}.</p>
  *
- * <p>Correspondencia de campos:</p>
+ * <p>Main field correspondence:</p>
  * <pre>
- *   UserEntity.userId       ↔  PlayerModel.id
- *   UserEntity.passwordUser ↔  PlayerModel.password
- *   UserEntity.status       ↔  PlayerModel.status
- *   (resto de campos tienen el mismo nombre en ambos lados)
+ *   UserEntity.userId       ↔ PlayerModel.id
+ *   UserEntity.passwordUser ↔ PlayerModel.password
+ *   UserEntity.status       ↔ PlayerModel.status
+ *   Remaining properties keep the same name on both sides.
  * </pre>
  */
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
+    /**
+     * Maps a persistence entity to the player model used by the service layer.
+     *
+     * @param entity source user entity
+     * @return mapped player model
+     */
     @Mapping(source = "userId",       target = "id")
     @Mapping(source = "passwordUser", target = "password")
     @Mapping(target = "name",               ignore = true)
@@ -33,6 +39,12 @@ public interface UserMapper {
     @Mapping(target = "photoUrl",           ignore = true)
     PlayerModel toModel(UserEntity entity);
 
+    /**
+     * Maps a player model to the persistence entity used by the repository layer.
+     *
+     * @param model source player model
+     * @return mapped user entity
+     */
     @Mapping(source = "id",       target = "userId")
     @Mapping(source = "password", target = "passwordUser")
     UserEntity toEntity(PlayerModel model);

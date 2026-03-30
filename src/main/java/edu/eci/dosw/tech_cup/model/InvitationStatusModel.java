@@ -1,65 +1,65 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los estados de una invitación dentro del sistema.
+ * Enumerates the statuses of an invitation within the system.
  *
- * Este enum permite gestionar el ciclo de vida de una invitación,
- * desde su creación hasta su aceptación, rechazo o expiración.
+ * <p>This enum manages the lifecycle of an invitation, from creation to
+ * acceptance, rejection, or expiration.</p>
  */
 public enum InvitationStatusModel {
 
-    /** Invitación pendiente de respuesta */
+    /** Invitation is waiting for a response. */
     PENDING,
 
-    /** Invitación aceptada */
+    /** Invitation has been accepted. */
     ACCEPTED,
 
-    /** Invitación rechazada */
+    /** Invitation has been rejected. */
     REJECTED,
 
-    /** Invitación expirada */
+    /** Invitation has expired. */
     EXPIRED;
 
 
     /**
-     * Verifica si la invitación está pendiente.
+     * Indicates whether the invitation is pending.
      *
-     * @return true si es PENDING
+     * @return {@code true} if the status is {@link #PENDING}
      */
     public boolean isPending() { return this == PENDING; }
 
     /**
-     * Verifica si la invitación ha sido aceptada.
+     * Indicates whether the invitation has been accepted.
      *
-     * @return true si es ACCEPTED
+     * @return {@code true} if the status is {@link #ACCEPTED}
      */
     public boolean isAccepted() { return this == ACCEPTED; }
 
     /**
-     * Verifica si la invitación ha sido rechazada.
+     * Indicates whether the invitation has been rejected.
      *
-     * @return true si es REJECTED
+     * @return {@code true} if the status is {@link #REJECTED}
      */
     public boolean isRejected() { return this == REJECTED; }
 
     /**
-     * Verifica si la invitación ha expirado.
+     * Indicates whether the invitation has expired.
      *
-     * @return true si es EXPIRED
+     * @return {@code true} if the status is {@link #EXPIRED}
      */
     public boolean isExpired() { return this == EXPIRED; }
 
     /**
-     * Verifica si la invitación ya fue procesada.
+     * Indicates whether the invitation has already reached a final state.
      *
-     * @return true si está aceptada, rechazada o expirada
+     * @return {@code true} if the invitation is accepted, rejected, or expired
      */
     public boolean isFinalized() { return false; }
 
     /**
-     * Verifica si la invitación aún está activa.
+     * Indicates whether the invitation is still active.
      *
-     * @return true si está pendiente
+     * @return {@code true} if the invitation is still pending
      */
     public boolean isActive() { return false; }
 }

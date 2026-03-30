@@ -21,6 +21,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for {@link TournamentService}.
+ *
+ * <p>This test suite validates tournament creation rules, lifecycle transitions,
+ * and retrieval behavior by using mocked repository and mapper dependencies.</p>
+ */
 @ExtendWith(MockitoExtension.class)
 public class TournamentServiceTest {
 
@@ -33,14 +39,22 @@ public class TournamentServiceTest {
     @InjectMocks
     private TournamentService tournamentService;
 
-    // LocalDate reemplaza LocalDateTime — TournamentModel y TournamentEntity usan LocalDate
+    /**
+     * Shared future start date used by valid tournament fixtures.
+     */
     private static final LocalDate FUTURE_START = LocalDate.now().plusDays(10);
-    private static final LocalDate FUTURE_END   = LocalDate.now().plusDays(20);
-
-    // ─── Helpers ────────────────────────────────────────────────────────────
 
     /**
-     * Construye un TournamentModel con todos los campos válidos.
+     * Shared future end date used by valid tournament fixtures.
+     */
+    private static final LocalDate FUTURE_END   = LocalDate.now().plusDays(20);
+
+
+    /**
+     * Builds a tournament model with valid default data.
+     *
+     * @param name tournament name to assign
+     * @return a valid tournament model ready for service operations
      */
     private TournamentModel buildValidTournament(String name) {
         TournamentModel t = new TournamentModel();
@@ -53,8 +67,12 @@ public class TournamentServiceTest {
     }
 
     /**
-     * Construye una TournamentEntity con id y status para usar como
-     * respuesta simulada del repositorio.
+     * Builds a tournament entity for mocked repository responses.
+     *
+     * @param id persisted tournament identifier
+     * @param name tournament name
+     * @param status stored lifecycle status
+     * @return a tournament entity configured for tests
      */
     private TournamentEntity entityWith(Long id, String name, String status) {
         TournamentEntity e = new TournamentEntity();
@@ -69,8 +87,12 @@ public class TournamentServiceTest {
     }
 
     /**
-     * Construye un TournamentModel con id y status para usar como
-     * respuesta simulada del mapper.
+     * Builds a tournament model for mocked mapper responses.
+     *
+     * @param id tournament identifier
+     * @param name tournament name
+     * @param status lifecycle status enum
+     * @return a tournament model configured for assertions
      */
     private TournamentModel modelWith(Long id, String name, TournamentStatusModel status) {
         TournamentModel m = new TournamentModel();
@@ -84,8 +106,9 @@ public class TournamentServiceTest {
         return m;
     }
 
-    // ─── CREATE ─────────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that a tournament is created successfully when all required fields are valid.
+     */
     @DisplayName("Should create a tournament with all valid fields")
     @Test
     void shouldCreateTournamentWithValidData() {
@@ -105,6 +128,9 @@ public class TournamentServiceTest {
         assertEquals(TournamentStatusModel.DRAFT, result.getStatus());
     }
 
+    /**
+     * Verifies that newly created tournaments always start in DRAFT status.
+     */
     @DisplayName("Should assign DRAFT as initial status when creating a tournament")
     @Test
     void shouldAssignDraftStatusOnCreate() {
@@ -122,6 +148,9 @@ public class TournamentServiceTest {
         assertEquals(TournamentStatusModel.DRAFT, result.getStatus());
     }
 
+    /**
+     * Verifies that separate tournament creations produce distinct identifiers.
+     */
     @DisplayName("Should auto-assign different IDs to each tournament")
     @Test
     void shouldAutoAssignIdOnCreate() {
@@ -146,6 +175,9 @@ public class TournamentServiceTest {
         assertNotEquals(r1.getId(), r2.getId());
     }
 
+    /**
+     * Verifies that creation fails when the tournament payload is null.
+     */
     @DisplayName("Should throw exception when creating a null tournament")
     @Test
     void shouldFailCreateWhenTournamentIsNull() {
@@ -153,6 +185,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the tournament name is null.
+     */
     @DisplayName("Should throw exception when name is null")
     @Test
     void shouldFailCreateWhenNameIsNull() {
@@ -161,6 +196,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the tournament name is blank.
+     */
     @DisplayName("Should throw exception when name is blank")
     @Test
     void shouldFailCreateWhenNameIsBlank() {
@@ -169,6 +207,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the start date is missing.
+     */
     @DisplayName("Should throw exception when start date is null")
     @Test
     void shouldFailCreateWhenStartDateIsNull() {
@@ -179,6 +220,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the end date is missing.
+     */
     @DisplayName("Should throw exception when end date is null")
     @Test
     void shouldFailCreateWhenEndDateIsNull() {
@@ -189,6 +233,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the end date is before the start date.
+     */
     @DisplayName("Should throw exception when end date is before start date")
     @Test
     void shouldFailCreateWhenEndDateBeforeStartDate() {
@@ -200,6 +247,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the maximum team count is less than two.
+     */
     @DisplayName("Should throw exception when maxOfTeams is less than 2")
     @Test
     void shouldFailCreateWhenMaxTeamsLessThanTwo() {
@@ -210,6 +260,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the maximum team count is not provided.
+     */
     @DisplayName("Should throw exception when maxOfTeams is null")
     @Test
     void shouldFailCreateWhenMaxTeamsIsNull() {
@@ -220,6 +273,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation fails when the team registration cost is negative.
+     */
     @DisplayName("Should throw exception when team cost is negative")
     @Test
     void shouldFailCreateWhenTeamCostIsNegative() {
@@ -230,6 +286,9 @@ public class TournamentServiceTest {
         verifyNoInteractions(tournamentRepository, tournamentMapper);
     }
 
+    /**
+     * Verifies that creation allows a zero registration cost.
+     */
     @DisplayName("Should allow creating a tournament with zero team cost")
     @Test
     void shouldAllowZeroTeamCost() {
@@ -247,6 +306,9 @@ public class TournamentServiceTest {
         assertNotNull(tournamentService.createTournament(input).getId());
     }
 
+    /**
+     * Verifies that creation fails when another tournament already uses the same name.
+     */
     @DisplayName("Should throw exception when a tournament with the same name already exists")
     @Test
     void shouldFailCreateWhenNameAlreadyExists() {
@@ -258,8 +320,9 @@ public class TournamentServiceTest {
         verify(tournamentRepository, never()).save(any());
     }
 
-    // ─── LIFECYCLE ──────────────────────────────────────────────────────────
-
+    /**
+     * Verifies that starting a draft tournament moves it to ACTIVE.
+     */
     @DisplayName("Should move tournament from DRAFT to ACTIVE when starting")
     @Test
     void shouldStartTournamentFromDraft() {
@@ -273,6 +336,9 @@ public class TournamentServiceTest {
         assertEquals("active", entity.getStatus());
     }
 
+    /**
+     * Verifies that starting an active tournament advances it to IN_PROGRESS.
+     */
     @DisplayName("Should move tournament from ACTIVE to IN_PROGRESS when starting again")
     @Test
     void shouldMoveFromActiveToInProgress() {
@@ -287,6 +353,9 @@ public class TournamentServiceTest {
         assertEquals("in_progress", entity.getStatus());
     }
 
+    /**
+     * Verifies that a tournament can be finished only after reaching IN_PROGRESS.
+     */
     @DisplayName("Should finish tournament from IN_PROGRESS")
     @Test
     void shouldFinishTournamentFromInProgress() {
@@ -302,6 +371,9 @@ public class TournamentServiceTest {
         assertEquals("finished", entity.getStatus());
     }
 
+    /**
+     * Verifies that a tournament in DRAFT status is not considered running.
+     */
     @DisplayName("Should not consider DRAFT as active")
     @Test
     void shouldNotBeActiveWhenDraft() {
@@ -318,6 +390,9 @@ public class TournamentServiceTest {
         assertFalse(created.isRunning());
     }
 
+    /**
+     * Verifies that a tournament in ACTIVE status is considered running.
+     */
     @DisplayName("Should be active when tournament is ACTIVE")
     @Test
     void shouldBeActiveWhenActive() {
@@ -334,6 +409,9 @@ public class TournamentServiceTest {
         assertTrue(result.isRunning());
     }
 
+    /**
+     * Verifies that a tournament in IN_PROGRESS status is considered running.
+     */
     @DisplayName("Should be active when tournament is IN_PROGRESS")
     @Test
     void shouldBeActiveWhenInProgress() {

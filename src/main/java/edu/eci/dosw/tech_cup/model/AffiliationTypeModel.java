@@ -1,78 +1,77 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los tipos de afiliación institucional que puede tener un usuario
- * dentro del sistema.
+ * Enumerates the institutional affiliation types a user can have within the system.
  *
- * Este enum permite clasificar a los jugadores según su relación con la institución,
- * lo cual es fundamental para validar reglas del torneo como elegibilidad,
- * inscripción y composición de equipos.
+ * <p>This enum classifies users according to their relationship with the
+ * institution, which is relevant for tournament rules such as eligibility,
+ * registration, and team composition.</p>
  */
 public enum AffiliationTypeModel {
 
-    /** Egresado de la institución */
+    /** Graduate of the institution. */
     GRADUATE,
 
-    /** Personal administrativo */
+    /** Administrative staff member. */
     ADMINISTRATIVE_PERSONAL,
 
-    /** Profesor */
+    /** Professor. */
     PROFESSOR,
 
-    /** Familiar de miembro institucional */
+    /** Family member of an institutional member. */
     FAMILY,
 
-    /** Estudiante activo */
+    /** Active student. */
     STUDENT;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Verifica si el usuario es estudiante.
+     * Indicates whether the affiliation type is student.
      *
-     * @return true si es estudiante
+     * @return {@code true} if the type is {@link #STUDENT}
      */
     public boolean isStudent() { return this == STUDENT; }
 
     /**
-     * Verifica si el usuario es egresado.
+     * Indicates whether the affiliation type is graduate.
      *
-     * @return true si es egresado
+     * @return {@code true} if the type is {@link #GRADUATE}
      */
     public boolean isGraduate() { return this == GRADUATE; }
 
     /**
-     * Verifica si el usuario pertenece al personal administrativo.
+     * Indicates whether the affiliation type is administrative staff.
      *
-     * @return true si es administrativo
+     * @return {@code true} if the type is {@link #ADMINISTRATIVE_PERSONAL}
      */
     public boolean isAdministrative() { return this == ADMINISTRATIVE_PERSONAL; }
 
     /**
-     * Verifica si el usuario es profesor.
+     * Indicates whether the affiliation type is professor.
      *
-     * @return true si es profesor
+     * @return {@code true} if the type is {@link #PROFESSOR}
      */
     public boolean isProfessor() { return this == PROFESSOR; }
 
     /**
-     * Verifica si el usuario es un familiar.
+     * Indicates whether the affiliation type is family.
      *
-     * @return true si es familiar
+     * @return {@code true} if the type is {@link #FAMILY}
      */
     public boolean isFamily() { return this == FAMILY; }
 
     /**
-     * Verifica si el usuario pertenece directamente a la institución.
+     * Indicates whether the affiliation belongs directly to the institution.
      *
-     * @return true si es estudiante, egresado, profesor o administrativo
+     * @return {@code true} if the type is student, graduate, professor, or administrative
      */
     public boolean isInstitutional() { return false; }
 
     /**
-     * Verifica si el usuario es externo a la institución.
+     * Indicates whether the affiliation is external to the institution.
      *
-     * @return true si es familiar
+     * @return {@code true} if the type is family
      */
     public boolean isExternal() { return isFamily(); }
 }

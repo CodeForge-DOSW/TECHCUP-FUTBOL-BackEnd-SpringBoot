@@ -1,50 +1,49 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los tipos de eventos que pueden ocurrir durante un partido.
+ * Enumerates the event types that may occur during a match.
  *
- * Este enum permite clasificar acciones como goles y sanciones,
- * siendo utilizado en MatchEventModel para registrar y procesar
- * los eventos del juego.
+ * <p>This enum classifies actions such as goals and disciplinary cards and is
+ * used by {@code MatchEventModel} to record and process gameplay events.</p>
  */
 public enum EventTypeModel {
 
-    /** Gol anotado por un jugador */
+    /** Goal scored by a player. */
     GOAL,
 
-    /** Tarjeta amarilla */
+    /** Yellow card. */
     YELLOW_CARD,
 
-    /** Tarjeta roja */
+    /** Red card. */
     RED_CARD;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Verifica si el evento corresponde a un gol.
+     * Indicates whether the event type is a goal.
      *
-     * @return true si es GOAL
+     * @return {@code true} if the event type is {@link #GOAL}
      */
     public boolean isGoal() { return this == GOAL; }
 
     /**
-     * Verifica si el evento corresponde a una tarjeta amarilla.
+     * Indicates whether the event type is a yellow card.
      *
-     * @return true si es YELLOW_CARD
+     * @return {@code true} if the event type is {@link #YELLOW_CARD}
      */
     public boolean isYellowCard() { return this == YELLOW_CARD; }
 
     /**
-     * Verifica si el evento corresponde a una tarjeta roja.
+     * Indicates whether the event type is a red card.
      *
-     * @return true si es RED_CARD
+     * @return {@code true} if the event type is {@link #RED_CARD}
      */
     public boolean isRedCard() { return this == RED_CARD; }
 
     /**
-     * Verifica si el evento corresponde a una sanción (tarjeta).
+     * Indicates whether the event type is a disciplinary card.
      *
-     * @return true si es amarilla o roja
+     * @return {@code true} if the event type is yellow or red card
      */
     public boolean isCard() { return false; }
 }

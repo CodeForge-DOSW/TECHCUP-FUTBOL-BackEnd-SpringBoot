@@ -1,82 +1,81 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Representa las estadísticas individuales de un jugador dentro del torneo.
+ * Represents the individual statistics of a player within the tournament.
  *
- * Esta clase permite almacenar información como goles y sanciones,
- * siendo utilizada para generar rankings como máximos goleadores
- * y análisis de rendimiento.
+ * <p>This model stores data such as goals and disciplinary cards and is used
+ * to generate rankings and performance analysis.</p>
  */
 public class PlayerStatsModel {
 
-    /** Jugador al que pertenecen las estadísticas */
+    /** Player associated with these statistics. */
     private PlayerModel player;
 
-    /** Cantidad de goles anotados */
+    /** Number of goals scored. */
     private int goals;
 
-    /** Cantidad de tarjetas amarillas */
+    /** Number of yellow cards received. */
     private int yellowCards;
 
-    /** Cantidad de tarjetas rojas */
+    /** Number of red cards received. */
     private int redCards;
 
     /**
-     * Obtiene el jugador asociado a las estadísticas.
+     * Returns the player associated with these statistics.
      *
-     * @return jugador
+     * @return related player
      */
     public PlayerModel getPlayer() { return player; }
 
     public void setPlayer(PlayerModel player) { this.player = player; }
 
     /**
-     * Obtiene la cantidad de goles.
+     * Returns the number of goals scored.
      *
-     * @return número de goles
+     * @return goal count
      */
     public int getGoals() { return goals; }
 
     /**
-     * Obtiene la cantidad de tarjetas amarillas.
+     * Returns the number of yellow cards received.
      *
-     * @return número de tarjetas amarillas
+     * @return yellow card count
      */
     public int getYellowCards() { return yellowCards; }
 
     /**
-     * Obtiene la cantidad de tarjetas rojas.
+     * Returns the number of red cards received.
      *
-     * @return número de tarjetas rojas
+     * @return red card count
      */
     public int getRedCards() { return redCards; }
 
     /**
-     * Incrementa la cantidad de goles.
+     * Increments the goal count.
      */
     public void addGoal() { goals++; }
 
     /**
-     * Incrementa la cantidad de tarjetas amarillas.
+     * Increments the yellow card count.
      */
     public void addYellowCard() { yellowCards++; }
 
     /**
-     * Incrementa la cantidad de tarjetas rojas.
+     * Increments the red card count.
      */
     public void addRedCard() { redCards++; }
 
     /**
-     * Verifica si el jugador tiene sanciones.
+     * Indicates whether the player has any cards recorded.
      *
-     * @return true si tiene tarjetas
+     * @return {@code true} if the player has disciplinary cards
      */
     public boolean hasCards() { return false; }
 
     /**
-     * Verifica si el jugador tiene tarjeta roja.
+     * Indicates whether the player has at least one red card.
      *
-     * @return true si tiene al menos una roja
+     * @return {@code true} if the player has at least one red card
      */
     public boolean hasRedCard() { return false; }
 }

@@ -4,38 +4,38 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Permite construir instancias de TeamModel utilizando el patrón Builder.
+ * Builds {@link TeamModel} instances using the Builder pattern.
  *
- * Esta clase facilita la creación de equipos paso a paso, permitiendo
- * configurar sus atributos antes de generar la instancia final.
+ * <p>This helper allows a team to be configured step by step before creating
+ * the final model instance.</p>
  */
 public class TeamBuilderModel {
 
-    /** Nombre del equipo */
+    /** Team name. */
     private String name;
 
-    /** Color del equipo */
+    /** Team color. */
     private String color;
 
-    /** Logo del equipo */
+    /** Team logo. */
     private String logo;
 
-    /** Capitán del equipo */
+    /** Team captain. */
     private PlayerModel captain;
 
-    /** Lista de jugadores */
+    /** Player list. */
     private List<PlayerModel> players;
 
-    /** Estado del equipo */
+    /** Team status. */
     private TeamStatusModel status;
 
 
 
     /**
-     * Define el nombre del equipo.
+     * Sets the team name.
      *
-     * @param name nombre del equipo
-     * @return instancia del builder
+     * @param name team name
+     * @return current builder instance
      */
     public TeamBuilderModel setName(String name) {
         this.name = name;
@@ -43,10 +43,10 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Define el color del equipo.
+     * Sets the team color.
      *
-     * @param color color del equipo
-     * @return instancia del builder
+     * @param color team color
+     * @return current builder instance
      */
     public TeamBuilderModel setColor(String color) {
         this.color = color;
@@ -54,10 +54,10 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Define el logo del equipo.
+     * Sets the team logo.
      *
-     * @param logo logo del equipo
-     * @return instancia del builder
+     * @param logo team logo
+     * @return current builder instance
      */
     public TeamBuilderModel setLogo(String logo) {
         this.logo = logo;
@@ -65,10 +65,10 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Define el capitán del equipo.
+     * Sets the team captain.
      *
-     * @param captain jugador capitán
-     * @return instancia del builder
+     * @param captain captain player
+     * @return current builder instance
      */
     public TeamBuilderModel setCaptain(PlayerModel captain) {
         this.captain = captain;
@@ -76,10 +76,10 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Agrega un jugador al equipo.
+     * Adds a player to the team being built.
      *
-     * @param player jugador a agregar
-     * @return instancia del builder
+     * @param player player to add
+     * @return current builder instance
      */
     public TeamBuilderModel addPlayer(PlayerModel player) {
         if (player == null) {
@@ -95,10 +95,10 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Define el estado del equipo.
+     * Sets the team status.
      *
-     * @param status estado del equipo
-     * @return instancia del builder
+     * @param status team status
+     * @return current builder instance
      */
     public TeamBuilderModel setStatus(TeamStatusModel status) {
         this.status = status;
@@ -106,9 +106,9 @@ public class TeamBuilderModel {
     }
 
     /**
-     * Construye la instancia final de TeamModel.
+     * Builds the final {@link TeamModel} instance.
      *
-     * @return equipo construido
+     * @return constructed team
      */
     public TeamModel build() {
         TeamModel team = new TeamModel();

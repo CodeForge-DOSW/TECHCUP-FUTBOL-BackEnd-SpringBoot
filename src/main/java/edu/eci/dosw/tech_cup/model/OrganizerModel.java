@@ -3,21 +3,21 @@ package edu.eci.dosw.tech_cup.model;
 import java.time.LocalDateTime;
 
 /**
- * Representa un organizador del torneo.
+ * Represents a tournament organizer.
  *
- * Es responsable de gestionar el ciclo de vida del torneo, incluyendo
- * su creación, inicio, finalización y la revisión de inscripciones.
+ * <p>This role is responsible for managing the tournament lifecycle, including
+ * creation, start, completion, and registration review.</p>
  */
 public class OrganizerModel extends UserRoleModel {
 
     /**
-     * Crea un nuevo torneo.
+     * Creates a new tournament.
      *
-     * @param startDate fecha de inicio
-     * @param endDate fecha de fin
-     * @param maxTeams número máximo de equipos
-     * @param costPerTeam costo por equipo
-     * @return nuevo torneo creado
+     * @param startDate tournament start date
+     * @param endDate tournament end date
+     * @param maxTeams maximum number of teams
+     * @param costPerTeam registration cost per team
+     * @return newly created tournament
      */
     public TournamentModel createTournament(
             LocalDateTime startDate,
@@ -29,37 +29,37 @@ public class OrganizerModel extends UserRoleModel {
     }
 
     /**
-     * Inicia un torneo.
+     * Starts a tournament.
      *
-     * @param tournament torneo a iniciar
+     * @param tournament tournament to start
      */
     public void startTournament(TournamentModel tournament) {
 
     }
 
     /**
-     * Finaliza un torneo.
+     * Finishes a tournament.
      *
-     * @param tournament torneo a finalizar
+     * @param tournament tournament to finish
      */
     public void finishTournament(TournamentModel tournament) {
 
     }
 
     /**
-     * Obtiene un torneo por su identificador.
+     * Retrieves a tournament by its identifier.
      *
-     * @param id identificador del torneo
-     * @return torneo encontrado
+     * @param id tournament identifier
+     * @return matching tournament
      */
     public TournamentModel getTournament(Long id) {
         return null;
     }
 
     /**
-     * Revisa una inscripción de equipo.
+     * Reviews a team registration.
      *
-     * @param registration inscripción a revisar
+     * @param registration registration to review
      */
     public void reviewRegistration(RegistrationModel registration) {
 

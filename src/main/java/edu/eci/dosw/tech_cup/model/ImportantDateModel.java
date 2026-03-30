@@ -3,67 +3,67 @@ package edu.eci.dosw.tech_cup.model;
 import java.time.LocalDateTime;
 
 /**
- * Representa una fecha importante dentro del torneo.
+ * Represents an important date within the tournament.
  *
- * Esta clase permite registrar eventos clave como inicio del torneo,
- * cierre de inscripciones, fechas límite, entre otros.
+ * <p>This model is used to register key events such as tournament start,
+ * registration deadlines, and other milestone dates.</p>
  */
 public class ImportantDateModel {
 
-    /** Nombre o descripción de la fecha importante */
+    /** Name or description of the important date. */
     private String name;
 
-    /** Fecha y hora del evento */
+    /** Date and time of the event. */
     private LocalDateTime date;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Obtiene el nombre de la fecha importante.
+     * Returns the name of the important date.
      *
-     * @return nombre o descripción
+     * @return name or description
      */
     public String getName() { return name; }
 
     /**
-     * Cambia el nombre de la fecha importante.
+     * Sets the name of the important date.
      *
-     * @param name nuevo nombre
+     * @param name new name
      */
     public void setName(String name) { this.name = name; }
 
     /**
-     * Obtiene la fecha del evento.
+     * Returns the event date.
      *
-     * @return fecha y hora
+     * @return event date and time
      */
     public LocalDateTime getDate() { return date; }
 
     /**
-     * Cambia la fecha del evento.
+     * Sets the event date.
      *
-     * @param date nueva fecha
+     * @param date new date
      */
     public void setDate(LocalDateTime date) { this.date = date; }
 
     /**
-     * Verifica si la fecha es válida.
+     * Indicates whether the important date is valid.
      *
-     * @return true si tiene nombre y fecha definidos
+     * @return {@code true} if both name and date are defined
      */
     public boolean isValid() { return name != null && !name.trim().isEmpty() && date != null; }
 
     /**
-     * Verifica si la fecha ya ocurrió.
+     * Indicates whether the date has already passed.
      *
-     * @return true si la fecha es anterior al momento actual
+     * @return {@code true} if the date is earlier than the current moment
      */
     public boolean hasPassed() { return date != null && date.isBefore(LocalDateTime.now()); }
 
     /**
-     * Verifica si la fecha está próxima a ocurrir.
+     * Indicates whether the date is coming up soon.
      *
-     * @return true si está cerca en el tiempo
+     * @return {@code true} if the date is near in time
      */
     public boolean isUpcoming() {
         return false;

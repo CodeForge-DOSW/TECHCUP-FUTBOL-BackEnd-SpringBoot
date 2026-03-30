@@ -14,6 +14,12 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Repository integration tests for {@link TournamentRepository}.
+ *
+ * <p>This test suite validates persistence behavior and derived queries for
+ * {@link TournamentEntity}, including lookups by name and lifecycle status.</p>
+ */
 @DataJpaTest
 @ActiveProfiles("test")
 class TournamentRepositoryTest {
@@ -21,8 +27,13 @@ class TournamentRepositoryTest {
     @Autowired
     private TournamentRepository tournamentRepository;
 
-  
-
+    /**
+     * Builds a valid tournament entity for repository tests.
+     *
+     * @param name tournament name to assign
+     * @param status lifecycle status to assign
+     * @return a non-persisted tournament entity ready for repository operations
+     */
     private TournamentEntity buildTournament(String name, String status) {
         TournamentEntity t = new TournamentEntity();
         t.setName(name);
@@ -34,8 +45,9 @@ class TournamentRepositoryTest {
         return t;
     }
 
-  
-
+    /**
+     * Verifies that saving a tournament persists the entity and generates its identifier.
+     */
     @DisplayName("Should save a tournament and assign an auto-generated id")
     @Test
     void shouldSaveTournament() {
@@ -48,8 +60,9 @@ class TournamentRepositoryTest {
         assertEquals("draft", saved.getStatus());
     }
 
-
-
+    /**
+     * Verifies that tournament lookup by name is case-insensitive.
+     */
     @DisplayName("Should find a tournament by name ignoring case")
     @Test
     void shouldFindByNameIgnoreCase() {
@@ -62,6 +75,9 @@ class TournamentRepositoryTest {
         assertTrue(lower.isPresent());
     }
 
+    /**
+     * Verifies the existence query used to detect duplicate tournament names.
+     */
     @DisplayName("Should return true when tournament name already exists")
     @Test
     void shouldDetectExistingName() {
@@ -72,6 +88,9 @@ class TournamentRepositoryTest {
         assertFalse(tournamentRepository.existsByNameIgnoreCase("Otro Torneo"));
     }
 
+    /**
+     * Verifies that tournaments can be filtered by their stored status value.
+     */
     @DisplayName("Should find tournaments by status")
     @Test
     void shouldFindByStatus() {
@@ -86,8 +105,9 @@ class TournamentRepositoryTest {
         assertEquals(1, actives.size());
     }
 
-   
-
+    /**
+     * Verifies that multiple tournaments are persisted independently.
+     */
     @DisplayName("Should save two tournaments with different names independently")
     @Test
     void shouldSaveMultipleTournamentsIndependently() {
@@ -98,8 +118,9 @@ class TournamentRepositoryTest {
         assertEquals(2, tournamentRepository.findAll().size());
     }
 
-   
-
+    /**
+     * Verifies that updating and saving a managed tournament persists the new status.
+     */
     @DisplayName("Should update tournament status")
     @Test
     void shouldUpdateTournamentStatus() {
@@ -111,6 +132,9 @@ class TournamentRepositoryTest {
         assertEquals("active", updated.getStatus());
     }
 
+    /**
+     * Verifies that deleting a tournament by identifier removes it from the repository.
+     */
     @DisplayName("Should delete a tournament by id")
     @Test
     void shouldDeleteTournament() {

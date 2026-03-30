@@ -3,55 +3,54 @@ package edu.eci.dosw.tech_cup.model;
 import java.util.Objects;
 
 /**
- * Representa una carrera académica dentro de la institución.
+ * Represents an academic program within the institution.
  *
- * Esta entidad permite identificar la formación académica de los usuarios,
- * siendo utilizada para validar reglas del sistema como elegibilidad
- * y composición de equipos en el torneo.
+ * <p>This model identifies the academic background associated with users and is
+ * used to validate system rules such as eligibility and team composition.</p>
  */
 public class CareerModel {
 
-    /** Identificador único de la carrera */
+    /** Unique identifier of the academic program. */
     private Long id;
 
-    /** Nombre de la carrera (ej: Ingeniería de Sistemas) */
+    /** Name of the academic program. */
     private String name;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Obtiene el identificador de la carrera.
+     * Returns the academic program identifier.
      *
-     * @return id de la carrera
+     * @return program id
      */
     public Long getId() { return id; }
 
     /**
-     * Obtiene el nombre de la carrera.
+     * Returns the academic program name.
      *
-     * @return nombre de la carrera
+     * @return program name
      */
     public String getName() { return name; }
 
     /**
-     * Cambia el nombre de la carrera.
+     * Sets the academic program name.
      *
-     * @param name nuevo nombre
+     * @param name new program name
      */
     public void setName(String name) { this.name = name; }
 
     /**
-     * Verifica si la carrera es válida.
+     * Indicates whether the academic program is valid.
      *
-     * @return true si tiene nombre definido
+     * @return {@code true} if the program has a defined name
      */
     public boolean isValid() { return false; }
 
     /**
-     * Compara si dos carreras son iguales.
+     * Compares whether two academic programs represent the same career.
      *
-     * @param other otra carrera
-     * @return true si representan la misma carrera
+     * @param other other academic program
+     * @return {@code true} if both objects represent the same program
      */
     public boolean sameCareer(CareerModel other) {
         return false;

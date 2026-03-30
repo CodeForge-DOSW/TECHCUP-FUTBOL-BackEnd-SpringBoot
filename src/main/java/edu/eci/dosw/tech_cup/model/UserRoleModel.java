@@ -3,49 +3,51 @@ package edu.eci.dosw.tech_cup.model;
 import java.time.LocalDate;
 
 /**
- * Representa un usuario base dentro del sistema.
+ * Base abstract model for users within the system.
  *
- * <p>Esta clase abstracta define los atributos y comportamientos comunes
- * para todos los tipos de usuarios (jugadores, administradores, organizadores,
- * árbitros). Los campos de perfil personal reflejan directamente los campos
- * de {@code UserEntity} para que el mapper MapStruct funcione sin conversiones
- * adicionales.</p>
+ * <p>This class defines the shared attributes and behaviors for all user roles,
+ * such as players, administrators, organizers, and referees. Its profile fields
+ * intentionally mirror the structure of {@code UserEntity} so mappers can
+ * convert between layers without extra transformation logic.</p>
  */
 public abstract class UserRoleModel {
 
-    /** Identificador único del usuario (PK de base de datos) */
+    /** Unique user identifier. */
     protected Long id;
 
-    /** Nombre del usuario — campo compuesto firstName + lastName en entity */
+    /** Display name of the user. */
     protected String name;
 
-    /** Correo electrónico del usuario */
+    /** User email address. */
     protected String email;
 
-    /** Contraseña del usuario */
+    /** User password value. */
     protected String password;
 
-    /** Estado del usuario (activo/inactivo) */
+    /** Indicates whether the user is active. */
     protected boolean status;
 
-    // ===== Campos de perfil personal (alineados con UserEntity) =====
+    // ===== Profile fields aligned with UserEntity =====
 
-    /** Nombre de pila */
+    /** User first name. */
     protected String firstName;
 
-    /** Apellido */
+    /** User last name. */
     protected String lastName;
 
-    /** Documento de identificación */
+    /** Identification document or institutional identifier. */
     protected String identification;
 
-    /** Fecha de nacimiento */
+    /** User birth date. */
     protected LocalDate dateBirth;
 
-    /** Género */
+    /** User gender value. */
     protected String gender;
 
-    // ===================== GETTERS & SETTERS =====================
+    /** User category such as student, professor, graduate, administrative, or family. */
+    protected String userType;
+
+    // ===================== Getters and setters =====================
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -77,11 +79,20 @@ public abstract class UserRoleModel {
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
 
-    // ===================== MÉTODOS DE DOMINIO =====================
+    public String getUserType() { return userType; }
+    public void setUserType(String userType) { this.userType = userType; }
 
-    /** Desactiva el usuario cambiando su estado a inactivo. */
+    // ===================== Domain methods =====================
+
+    /**
+     * Marks the user as inactive.
+     */
     public void deactivate() { this.status = false; }
 
-    /** Verifica si el usuario está activo. */
+    /**
+     * Indicates whether the user is currently active.
+     *
+     * @return {@code true} when the user is active; {@code false} otherwise
+     */
     public boolean isActive() { return status; }
 }
