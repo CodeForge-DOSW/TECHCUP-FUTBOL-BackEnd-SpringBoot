@@ -8,6 +8,7 @@ import edu.eci.dosw.tech_cup.repository.TournamentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -35,6 +36,7 @@ public class TournamentService implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public TournamentModel createTournament(TournamentModel tournament) {
         log.debug("Creating tournament: {}", tournament != null ? tournament.getName() : "null");
 
@@ -88,6 +90,7 @@ public class TournamentService implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public TournamentModel updateTournament(Long id, TournamentModel updatedTournament) {
         if (updatedTournament == null) {
             throw new RuntimeException("Update data cannot be null");
@@ -136,6 +139,7 @@ public class TournamentService implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public void cancelTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tournament not found"));
@@ -151,6 +155,7 @@ public class TournamentService implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public void startTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tournament not found"));
@@ -171,6 +176,7 @@ public class TournamentService implements ITournamentService {
     }
 
     @Override
+    @Transactional
     public void finishTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tournament not found"));

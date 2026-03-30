@@ -33,7 +33,7 @@ class TeamRepositoryTest {
     private TournamentEntity tournament;
     private UserEntity captain;
 
-    
+
 
     @BeforeEach
     void setUp() {
@@ -54,6 +54,7 @@ class TeamRepositoryTest {
         u.setIdentification("5001");
         u.setDateBirth(LocalDate.of(1998, 5, 20));
         u.setStatus(true);
+        u.setUserType("student");
         captain = userRepository.save(u);
     }
 
@@ -68,7 +69,7 @@ class TeamRepositoryTest {
         return team;
     }
 
-    
+
 
     @DisplayName("Should save a team and assign an auto-generated id")
     @Test
@@ -109,7 +110,7 @@ class TeamRepositoryTest {
         assertEquals(1, teamRepository.findByStatus(false).size());
     }
 
-  
+
 
     @DisplayName("Should find a team by captain user id")
     @Test
@@ -146,7 +147,7 @@ class TeamRepositoryTest {
         assertEquals(tournament.getTournamentId(), saved.getTournament().getTournamentId());
     }
 
-    
+
 
     @DisplayName("Should update team name")
     @Test

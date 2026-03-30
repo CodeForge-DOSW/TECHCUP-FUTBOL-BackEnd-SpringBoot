@@ -8,6 +8,7 @@ import edu.eci.dosw.tech_cup.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +36,7 @@ public class UserService implements IUserService {
     }
 
     @Override
+    @Transactional
     public PlayerModel createUser(PlayerModel user) {
         log.debug("Creating user with email: {}", user != null ? user.getEmail() : "null");
 
@@ -50,6 +52,18 @@ public class UserService implements IUserService {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new RuntimeException("Email already exists");
         }
+
+        // Validate userType against DB CHECK constraint
+        if (user.getUserType() == null || user.getUserType().trim().isEmpty()) {
+            user.setUserType("student"); // default
+        }
+        String type = user.getUserType().trim().toLowerCase();
+        if (!type.equals("student") && !type.equals("professor") && !type.equals("graduate")
+                && !type.equals("administrative") && !type.equals("family")) {
+            throw new RuntimeException(
+                    "Invalid user type. Allowed: student, professor, graduate, administrative, family");
+        }
+        user.setUserType(type);
 
         UserEntity entity = userMapper.toEntity(user);
         entity.setStatus(true);
@@ -75,6 +89,7 @@ public class UserService implements IUserService {
     }
 
     @Override
+    @Transactional
     public PlayerModel updateUser(Long id, PlayerModel updatedUser) {
         if (updatedUser == null) {
             throw new RuntimeException("Update data cannot be null");
@@ -113,6 +128,7 @@ public class UserService implements IUserService {
     }
 
     @Override
+    @Transactional
     public void deactivateUser(Long id) {
         UserEntity user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));

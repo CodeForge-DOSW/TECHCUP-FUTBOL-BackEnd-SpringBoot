@@ -10,13 +10,11 @@ import java.time.LocalDate;
  * Base JPA entity for users registered in the platform.
  *
  * <p>This class stores the common personal and authentication data shared by
- * all user types. It uses single-table inheritance so specialized user roles
- * can be persisted in the same database table.</p>
+ * all user types. The {@code user_type} column is mapped as a regular field
+ * so it can be set explicitly and satisfies the database CHECK constraint.</p>
  */
 @Entity
 @Table(name = "\"user\"")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public class UserEntity {
 
     /**
@@ -26,6 +24,15 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long userId;
+
+    /**
+     * Type of user within the institution.
+     * Valid values: student, professor, graduate, administrative, family.
+     * Maps to the CHECK constraint in the database.
+     */
+    @NotBlank
+    @Column(name = "user_type", nullable = false, length = 30)
+    private String userType;
 
     /**
      * User first name.
@@ -109,6 +116,20 @@ public class UserEntity {
         this.gender         = gender;
         this.status         = true;
     }
+
+    /**
+     * Returns the user type (student, professor, graduate, administrative, family).
+     *
+     * @return user type value
+     */
+    public String getUserType() { return userType; }
+
+    /**
+     * Updates the user type.
+     *
+     * @param userType new user type value
+     */
+    public void setUserType(String userType) { this.userType = userType; }
 
     /**
      * Returns the user identifier.

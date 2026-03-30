@@ -37,7 +37,6 @@ public class TournamentServiceTest {
     private static final LocalDate FUTURE_START = LocalDate.now().plusDays(10);
     private static final LocalDate FUTURE_END   = LocalDate.now().plusDays(20);
 
-    // ─── Helpers ────────────────────────────────────────────────────────────
 
     /**
      * Construye un TournamentModel con todos los campos válidos.
@@ -84,7 +83,6 @@ public class TournamentServiceTest {
         return m;
     }
 
-    // ─── CREATE ─────────────────────────────────────────────────────────────
 
     @DisplayName("Should create a tournament with all valid fields")
     @Test
@@ -258,7 +256,6 @@ public class TournamentServiceTest {
         verify(tournamentRepository, never()).save(any());
     }
 
-    // ─── LIFECYCLE ──────────────────────────────────────────────────────────
 
     @DisplayName("Should move tournament from DRAFT to ACTIVE when starting")
     @Test

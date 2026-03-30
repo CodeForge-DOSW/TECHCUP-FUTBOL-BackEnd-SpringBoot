@@ -45,6 +45,9 @@ public abstract class UserRoleModel {
     /** Género */
     protected String gender;
 
+    /** Tipo de usuario (student, professor, graduate, administrative, family) */
+    protected String userType;
+
     // ===================== GETTERS & SETTERS =====================
 
     public Long getId() { return id; }
@@ -76,6 +79,9 @@ public abstract class UserRoleModel {
 
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
+
+    public String getUserType() { return userType; }
+    public void setUserType(String userType) { this.userType = userType; }
 
     // ===================== MÉTODOS DE DOMINIO =====================
 

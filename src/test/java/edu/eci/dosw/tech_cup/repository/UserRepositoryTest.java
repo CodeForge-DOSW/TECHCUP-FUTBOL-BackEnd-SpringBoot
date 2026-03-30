@@ -31,6 +31,7 @@ class UserRepositoryTest {
         user.setDateBirth(LocalDate.of(2000, 1, 15));
         user.setGender("M");
         user.setStatus(true);
+        user.setUserType("student");
         return user;
     }
 
