@@ -1,224 +1,188 @@
 package edu.eci.dosw.tech_cup.service;
 
-import edu.eci.dosw.tech_cup.model.Tournament;
-import edu.eci.dosw.tech_cup.model.TournamentStatus;
-
+import edu.eci.dosw.tech_cup.entity.TournamentEntity;
+import edu.eci.dosw.tech_cup.mapper.TournamentMapper;
+import edu.eci.dosw.tech_cup.model.TournamentModel;
+import edu.eci.dosw.tech_cup.model.TournamentStatusModel;
+import edu.eci.dosw.tech_cup.repository.TournamentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * Implementation of tournament business logic and state management.
+ * Implementación del servicio de torneos.
  *
- * <p>Manages tournament CRUD operations with comprehensive validation,
- * enforces state transitions (DRAFT → STARTED → FINISHED), and maintains
- * business rules (unique names, date constraints, team limits).</p>
+ * <p>Coordina el acceso a {@link TournamentRepository} (capa JPA) y la conversión
+ * entre entidades y modelos mediante {@link TournamentMapper}. Las validaciones
+ * de negocio (fechas, estado, nombre único) se aplican aquí antes de persistir.</p>
  */
 @Service
 public class TournamentService implements ITournamentService {
 
     private static final Logger log = LoggerFactory.getLogger(TournamentService.class);
 
-    /**
-     * In-memory storage of tournaments (should be replaced with a database repository).
-     */
-    private final List<Tournament> tournaments = new ArrayList<>();
+    private final TournamentRepository tournamentRepository;
+    private final TournamentMapper tournamentMapper;
 
-    /**
-     * Identifier generator for new tournaments.
-     */
-    private Long idCounter = 1L;
+    public TournamentService(TournamentRepository tournamentRepository,
+                             TournamentMapper tournamentMapper) {
+        this.tournamentRepository = tournamentRepository;
+        this.tournamentMapper = tournamentMapper;
+    }
 
     @Override
-    public Tournament createTournament(Tournament tournament) {
-        log.debug("Creating tournament with name: {}", tournament != null ? tournament.getName() : "null");
-        try {
-            if (tournament == null) {
-                log.error("Attempt to create tournament with null data");
-                throw new RuntimeException("Tournament cannot be null");
-            }
-            if (tournament.getName() == null || tournament.getName().trim().isEmpty()) {
-                log.error("Tournament name is required");
-                throw new RuntimeException("Tournament name is required");
-            }
-            if (tournament.getStartDate() == null) {
-                log.error("Start date is required for tournament: {}", tournament.getName());
-                throw new RuntimeException("Start date is required");
-            }
-            if (tournament.getEndDate() == null) {
-                log.error("End date is required for tournament: {}", tournament.getName());
-                throw new RuntimeException("End date is required");
-            }
-            if (tournament.getEndDate().isBefore(tournament.getStartDate())) {
-                log.error("End date is before start date for tournament: {}", tournament.getName());
-                throw new RuntimeException("End date cannot be before start date");
-            }
-            if (tournament.getMaxOfTeams() == null || tournament.getMaxOfTeams() < 2) {
-                log.error("Invalid max teams value for tournament: {}", tournament.getName());
-                throw new RuntimeException("Max teams must be at least 2");
-            }
-            if (tournament.getTeamCost() == null || tournament.getTeamCost().compareTo(BigDecimal.ZERO) < 0) {
-                log.error("Negative team cost for tournament: {}", tournament.getName());
-                throw new RuntimeException("Team cost cannot be negative");
-            }
+    public TournamentModel createTournament(TournamentModel tournament) {
+        log.debug("Creating tournament: {}", tournament != null ? tournament.getName() : "null");
 
-            boolean nameExists = tournaments.stream()
-                    .anyMatch(t -> t.getName().equalsIgnoreCase(tournament.getName()));
-            if (nameExists) {
-                log.warn("Attempt to create tournament with an existing name: {}", tournament.getName());
+        if (tournament == null) {
+            throw new RuntimeException("Tournament cannot be null");
+        }
+        if (tournament.getName() == null || tournament.getName().trim().isEmpty()) {
+            throw new RuntimeException("Tournament name is required");
+        }
+        if (tournament.getStartDate() == null) {
+            throw new RuntimeException("Start date is required");
+        }
+        if (tournament.getEndDate() == null) {
+            throw new RuntimeException("End date is required");
+        }
+        if (tournament.getEndDate().isBefore(tournament.getStartDate())) {
+            throw new RuntimeException("End date cannot be before start date");
+        }
+        if (tournament.getMaxOfTeams() == null || tournament.getMaxOfTeams() < 2) {
+            throw new RuntimeException("Tournament must have at least 2 teams");
+        }
+        if (tournament.getTeamCost() != null
+                && tournament.getTeamCost().compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Team cost cannot be negative");
+        }
+        if (tournamentRepository.existsByNameIgnoreCase(tournament.getName())) {
+            throw new RuntimeException("A tournament with that name already exists");
+        }
+
+        tournament.setStatus(TournamentStatusModel.DRAFT);
+        TournamentEntity entity = tournamentMapper.toEntity(tournament);
+        TournamentEntity saved = tournamentRepository.save(entity);
+
+        log.info("Tournament created with id: {}", saved.getTournamentId());
+        return tournamentMapper.toModel(saved);
+    }
+
+    @Override
+    public TournamentModel getTournament(Long id) {
+        TournamentEntity entity = tournamentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+        return tournamentMapper.toModel(entity);
+    }
+
+    @Override
+    public List<TournamentModel> getAllTournaments() {
+        return tournamentRepository.findAll()
+                .stream()
+                .map(tournamentMapper::toModel)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public TournamentModel updateTournament(Long id, TournamentModel updatedTournament) {
+        if (updatedTournament == null) {
+            throw new RuntimeException("Update data cannot be null");
+        }
+
+        TournamentEntity existing = tournamentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+
+        TournamentStatusModel currentStatus =
+                TournamentStatusModel.valueOf(existing.getStatus().toUpperCase());
+        if (currentStatus.isFinished()) {
+            throw new RuntimeException("Cannot update a FINISHED tournament");
+        }
+
+        if (updatedTournament.getName() != null) {
+            boolean nameTaken = tournamentRepository
+                    .findByNameIgnoreCase(updatedTournament.getName())
+                    .filter(t -> !t.getTournamentId().equals(id))
+                    .isPresent();
+            if (nameTaken) {
                 throw new RuntimeException("A tournament with that name already exists");
             }
-
-            tournament.setId(idCounter++);
-            tournament.setStatus(TournamentStatus.DRAFT.name());
-            tournaments.add(tournament);
-            log.info("Tournament created successfully: {}", tournament.getName());
-            return tournament;
-        } catch (RuntimeException e) {
-            log.error("Error creating tournament", e);
-            throw e;
+            existing.setName(updatedTournament.getName());
         }
-    }
-
-    @Override
-    public Tournament getTournament(Long id) {
-        log.debug("Searching tournament with id: {}", id);
-        try {
-            Tournament tournament = tournaments.stream()
-                    .filter(t -> t.getId().equals(id))
-                    .findFirst()
-                    .orElseThrow(() -> new RuntimeException("Tournament not found"));
-            log.info("Tournament found with id: {}", id);
-            return tournament;
-        } catch (RuntimeException e) {
-            log.error("Error searching tournament with id: {}", id, e);
-            throw e;
+        if (updatedTournament.getStartDate() != null) {
+            existing.setStartDate(updatedTournament.getStartDate());
         }
-    }
-
-    @Override
-    public List<Tournament> getAllTournaments() {
-        log.debug("Fetching all tournaments");
-        try {
-            log.info("Returning {} tournaments", tournaments.size());
-            return new ArrayList<>(tournaments);
-        } catch (Exception e) {
-            log.error("Error fetching tournament list", e);
-            throw e;
+        if (updatedTournament.getEndDate() != null) {
+            if (updatedTournament.getEndDate().isBefore(existing.getStartDate())) {
+                throw new RuntimeException("End date cannot be before start date");
+            }
+            existing.setEndDate(updatedTournament.getEndDate());
         }
-    }
-
-    @Override
-    public Tournament updateTournament(Long id, Tournament updatedTournament) {
-        log.debug("Updating tournament with id: {}", id);
-        try {
-            if (updatedTournament == null) {
-                log.error("Attempt to update tournament {} with null data", id);
-                throw new RuntimeException("Update data cannot be null");
-            }
-
-            Tournament existing = getTournament(id);
-
-            if (TournamentStatus.FINISHED.name().equals(existing.getStatus())) {
-                log.error("Attempt to update finished tournament with id: {}", id);
-                throw new RuntimeException("Cannot update a FINISHED tournament");
-            }
-
-            if (updatedTournament.getName() != null) {
-                if (updatedTournament.getName().trim().isEmpty()) {
-                    log.error("Empty name while updating tournament: {}", id);
-                    throw new RuntimeException("Tournament name cannot be empty");
-                }
-                boolean nameExists = tournaments.stream()
-                        .anyMatch(t -> t.getName().equalsIgnoreCase(updatedTournament.getName())
-                                && !t.getId().equals(id));
-                if (nameExists) {
-                    log.warn("Attempt to update tournament {} with an existing name: {}", id, updatedTournament.getName());
-                    throw new RuntimeException("A tournament with that name already exists");
-                }
-                existing.setName(updatedTournament.getName());
-            }
-
-            if (updatedTournament.getStartDate() != null) {
-                existing.setStartDate(updatedTournament.getStartDate());
-            }
-
-            if (updatedTournament.getEndDate() != null) {
-                if (updatedTournament.getEndDate().isBefore(existing.getStartDate())) {
-                    log.error("End date is before start date for tournament: {}", id);
-                    throw new RuntimeException("End date cannot be before start date");
-                }
-                existing.setEndDate(updatedTournament.getEndDate());
-            }
-
-            if (updatedTournament.getMaxOfTeams() != null) {
-                if (updatedTournament.getMaxOfTeams() < 2) {
-                    log.error("Invalid max teams value for tournament: {}", id);
-                    throw new RuntimeException("Max teams must be at least 2");
-                }
-                existing.setMaxOfTeams(updatedTournament.getMaxOfTeams());
-            }
-
-            if (updatedTournament.getTeamCost() != null) {
-                if (updatedTournament.getTeamCost().compareTo(BigDecimal.ZERO) < 0) {
-                    log.error("Negative team cost for tournament: {}", id);
-                    throw new RuntimeException("Team cost cannot be negative");
-                }
-                existing.setTeamCost(updatedTournament.getTeamCost());
-            }
-
-            log.info("Tournament updated successfully with id: {}", id);
-            return existing;
-        } catch (RuntimeException e) {
-            log.error("Error updating tournament with id: {}", id, e);
-            throw e;
+        if (updatedTournament.getMaxOfTeams() != null) {
+            existing.setNumberOfTeams(updatedTournament.getMaxOfTeams());
         }
+        if (updatedTournament.getTeamCost() != null) {
+            if (updatedTournament.getTeamCost().compareTo(BigDecimal.ZERO) < 0) {
+                throw new RuntimeException("Team cost cannot be negative");
+            }
+            existing.setTeamCost(updatedTournament.getTeamCost());
+        }
+
+        TournamentEntity saved = tournamentRepository.save(existing);
+        return tournamentMapper.toModel(saved);
     }
 
     @Override
     public void cancelTournament(Long id) {
-        log.debug("Cancelling tournament with id: {}", id);
-        try {
-            Tournament tournament = getTournament(id);
-            if (!TournamentStatus.DRAFT.name().equals(tournament.getStatus())) {
-                log.error("Attempt to cancel tournament that is not in DRAFT status: {}", id);
-                throw new RuntimeException("Tournament can only be cancelled when in DRAFT status");
-            }
-            tournaments.remove(tournament);
-            log.info("Tournament cancelled successfully with id: {}", id);
-        } catch (RuntimeException e) {
-            log.error("Error cancelling tournament with id: {}", id, e);
-            throw e;
+        TournamentEntity entity = tournamentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+
+        TournamentStatusModel status =
+                TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());
+        if (!status.isDraft()) {
+            throw new RuntimeException("Tournament can only be cancelled when in DRAFT status");
         }
+
+        tournamentRepository.delete(entity);
+        log.info("Tournament {} cancelled and deleted", id);
     }
 
     @Override
     public void startTournament(Long id) {
-        log.debug("Starting tournament with id: {}", id);
-        try {
-            Tournament tournament = getTournament(id);
-            tournament.startTournament();
-            log.info("Tournament started successfully with id: {}", id);
-        } catch (RuntimeException e) {
-            log.error("Error starting tournament with id: {}", id, e);
-            throw e;
+        TournamentEntity entity = tournamentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+
+        TournamentStatusModel status =
+                TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());
+
+        if (status.isDraft()) {
+            entity.setStatus(TournamentStatusModel.ACTIVE.name().toLowerCase());
+        } else if (status.isActive()) {
+            entity.setStatus(TournamentStatusModel.IN_PROGRESS.name().toLowerCase());
+        } else {
+            throw new RuntimeException("Tournament cannot be started from status: " + status);
         }
+
+        tournamentRepository.save(entity);
+        log.info("Tournament {} advanced to status: {}", id, entity.getStatus());
     }
 
     @Override
     public void finishTournament(Long id) {
-        log.debug("Finishing tournament with id: {}", id);
-        try {
-            Tournament tournament = getTournament(id);
-            tournament.finishTournament();
-            log.info("Tournament finished successfully with id: {}", id);
-        } catch (RuntimeException e) {
-            log.error("Error finishing tournament with id: {}", id, e);
-            throw e;
+        TournamentEntity entity = tournamentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+
+        TournamentStatusModel status =
+                TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());
+        if (!status.isInProgress()) {
+            throw new RuntimeException("Tournament must be IN_PROGRESS to finish");
         }
+
+        entity.setStatus(TournamentStatusModel.FINISHED.name().toLowerCase());
+        tournamentRepository.save(entity);
+        log.info("Tournament {} finished", id);
     }
 }

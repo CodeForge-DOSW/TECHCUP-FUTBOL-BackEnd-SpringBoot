@@ -1,8 +1,8 @@
 package edu.eci.dosw.tech_cup.controller;
 
+import edu.eci.dosw.tech_cup.model.TournamentModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import edu.eci.dosw.tech_cup.model.Tournament;
 import edu.eci.dosw.tech_cup.service.ITournamentService;
 
 import org.springframework.http.HttpStatus;
@@ -51,9 +51,9 @@ public class TournamentController {
      */
     @PostMapping
     @Operation(summary = "Create tournament", description = "Registers a new tournament in the system")
-    public ResponseEntity<?> createTournament(@RequestBody Tournament tournament) {
+    public ResponseEntity<?> createTournament(@RequestBody TournamentModel tournament) {
         try {
-            Tournament created = tournamentService.createTournament(tournament);
+            TournamentModel created = tournamentService.createTournament(tournament);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -67,7 +67,7 @@ public class TournamentController {
      */
     @GetMapping
     @Operation(summary = "List tournaments", description = "Retrieves all registered tournaments")
-    public ResponseEntity<List<Tournament>> getAllTournaments() {
+    public ResponseEntity<List<TournamentModel>> getAllTournaments() {
         return ResponseEntity.ok(tournamentService.getAllTournaments());
     }
 
@@ -97,9 +97,9 @@ public class TournamentController {
     @PutMapping("/{id}")
     @Operation(summary = "Update tournament", description = "Updates information for an existing tournament")
     public ResponseEntity<?> updateTournament(@PathVariable Long id,
-                                              @RequestBody Tournament tournament) {
+                                              @RequestBody TournamentModel tournament) {
         try {
-            Tournament updated = tournamentService.updateTournament(id, tournament);
+            TournamentModel updated = tournamentService.updateTournament(id, tournament);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

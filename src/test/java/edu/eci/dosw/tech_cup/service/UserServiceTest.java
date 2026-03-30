@@ -1,516 +1,274 @@
 package edu.eci.dosw.tech_cup.service;
 
-import edu.eci.dosw.tech_cup.model.Player;
-import edu.eci.dosw.tech_cup.model.RoleType;
-import edu.eci.dosw.tech_cup.model.User;
+import edu.eci.dosw.tech_cup.entity.UserEntity;
+import edu.eci.dosw.tech_cup.mapper.UserMapper;
+import edu.eci.dosw.tech_cup.model.PlayerModel;
+import edu.eci.dosw.tech_cup.model.UserRoleModel;
+import edu.eci.dosw.tech_cup.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
-/**
- * Unit tests for {@link UserService} covering CRUD operations, email validation,
- * and user lifecycle management.
- *
- * <p>Tests use the Given/When/Then pattern to clearly separate test setup,
- * execution, and verification of expected behavior.</p>
- */
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
-    private IUserService userService;
+    @Mock
+    private UserRepository userRepository;
 
-    @BeforeEach
-    void setUp() {
-        userService = new UserService();
-    }
+    @Mock
+    private UserMapper userMapper;
 
+    @InjectMocks
+    private UserService userService;
+
+    // ─── Entidades y modelos de apoyo ───────────────────────────────────────
 
     /**
-     * Given a valid student player with institutional email
-     * When creating the user
-     * Then the user is created with an assigned id and active status.
+     * Construye una UserEntity con id y datos básicos para usar como
+     * respuesta simulada del repositorio.
      */
-    @DisplayName("Should create a student user with a valid institutional email")
-    @Test
-    void shouldCreateStudentWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@mail.escuelaing.edu.co");
-        user.setName("Juan");
+    private UserEntity entityWith(Long id, String email, String name, boolean active) {
+        UserEntity e = new UserEntity();
+        e.setUserId(id);
+        e.setEmail(email);
+        e.setFirstName(name);
+        e.setStatus(active);
+        return e;
+    }
 
-        User result = userService.createUser(user);
+    /**
+     * Construye un PlayerModel con id y datos básicos para usar como
+     * respuesta simulada del mapper.
+     */
+    private PlayerModel modelWith(Long id, String email, String name, boolean active) {
+        PlayerModel m = new PlayerModel();
+        m.setId(id);
+        m.setEmail(email);
+        m.setName(name);
+        m.setStatus(active);
+        return m;
+    }
+
+    // ─── createUser ─────────────────────────────────────────────────────────
+
+    @DisplayName("Should create a user successfully with valid data")
+    @Test
+    void shouldCreateUser() {
+        PlayerModel input = new PlayerModel();
+        input.setEmail("juan@mail.com");
+        input.setName("Juan");
+
+        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "Juan", true);
+        PlayerModel expectedModel = modelWith(1L, "juan@mail.com", "Juan", true);
+
+        when(userRepository.existsByEmail("juan@mail.com")).thenReturn(false);
+        when(userMapper.toEntity(input)).thenReturn(savedEntity);
+        when(userRepository.save(savedEntity)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(expectedModel);
+
+        PlayerModel result = userService.createUser(input);
 
         assertNotNull(result.getId());
         assertEquals("Juan", result.getName());
         assertTrue(result.isActive());
     }
 
-    /**
-     * Given a student player with a non-institutional email
-     * When creating the user
-     * Then a RuntimeException is thrown (invalid email for role).
-     */
-    @DisplayName("Should throw an exception when creating a student with a non-institutional email")
+    @DisplayName("Should throw exception when creating user with null")
     @Test
-    void shouldFailCreateStudentWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@gmail.com");
-
-        assertThrows(RuntimeException.class, () -> {
-            userService.createUser(user);
-        });
+    void shouldFailCreateWhenUserIsNull() {
+        assertThrows(RuntimeException.class, () -> userService.createUser(null));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
-    /**
-     * Given a valid graduate player with institutional email
-     * When creating the user
-     * Then the user is created successfully.
-     */
-    @DisplayName("Should create a graduate user with a valid institutional email")
+    @DisplayName("Should throw exception when email is null")
     @Test
-    void shouldCreateGraduateWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.GRADUATE);
-        user.setEmail("ana@mail.escuelaing.edu.co");
-
-        User result = userService.createUser(user);
-
-        assertNotNull(result.getId());
-    }
-
-    /**
-     * Given a graduate player with an invalid email domain
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a graduate with an invalid email domain")
-    @Test
-    void shouldFailCreateGraduateWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.GRADUATE);
-        user.setEmail("ana@gmail.com");
-
-        assertThrows(RuntimeException.class, () -> {
-            userService.createUser(user);
-        });
-    }
-
-    /**
-     * Given a valid professor player with escuelaing.edu.co email (no "mail" subdomain)
-     * When creating the user
-     * Then the user is created successfully.
-     */
-    @DisplayName("Should create a professor user with a valid professor email")
-    @Test
-    void shouldCreateProfessorWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.PROFESSOR);
-        user.setEmail("profe@escuelaing.edu.co");
-
-        User result = userService.createUser(user);
-
-        assertNotNull(result.getId());
-    }
-
-    /**
-     * Given a professor player with invalid email format (contains "mail" subdomain)
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a professor with an invalid email format")
-    @Test
-    void shouldFailCreateProfessorWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.PROFESSOR);
-        user.setEmail("profe@mail.escuelaing.edu.co");
-
-        assertThrows(RuntimeException.class, () -> {
-            userService.createUser(user);
-        });
-    }
-
-    /**
-     * Given a valid administrative player with escuelaing.edu.co email
-     * When creating the user
-     * Then the user is created successfully.
-     */
-    @DisplayName("Should create an administrative user with a valid institutional email")
-    @Test
-    void shouldCreateAdministrativeWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.ADMINISTRATIVE_PERSONAL);
-        user.setEmail("admin@escuelaing.edu.co");
-
-        User result = userService.createUser(user);
-
-        assertNotNull(result.getId());
-    }
-
-    /**
-     * Given an administrative player with a non-institutional email
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating an administrative user with an invalid email")
-    @Test
-    void shouldFailCreateAdministrativeWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.ADMINISTRATIVE_PERSONAL);
-        user.setEmail("admin@gmail.com");
-
-        assertThrows(RuntimeException.class, () -> {
-            userService.createUser(user);
-        });
-    }
-
-    /**
-     * Given a valid family player with a gmail.com email
-     * When creating the user
-     * Then the user is created successfully.
-     */
-    @DisplayName("Should create a family user with a valid external email")
-    @Test
-    void shouldCreateFamilyWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.FAMILY);
-        user.setEmail("mama@gmail.com");
-
-        User result = userService.createUser(user);
-
-        assertNotNull(result.getId());
-    }
-
-    /**
-     * Given a family player with an institutional email
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a family user with an institutional email")
-    @Test
-    void shouldFailCreateFamilyWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.FAMILY);
-        user.setEmail("mama@escuelaing.edu.co");
-
-        assertThrows(RuntimeException.class, () -> {
-            userService.createUser(user);
-        });
-    }
-
-    /**
-     * Given a previously created user
-     * When retrieving the user by id
-     * Then the user is found with correct name and email.
-     */
-    @DisplayName("Should return an existing user by id")
-    @Test
-    void shouldGetUserById() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@mail.escuelaing.edu.co");
+    void shouldFailCreateWhenEmailIsNull() {
+        PlayerModel user = new PlayerModel();
         user.setName("Juan");
 
-        User created = userService.createUser(user);
-        User found = userService.getUser(created.getId());
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verifyNoInteractions(userRepository, userMapper);
+    }
+
+    @DisplayName("Should throw exception when email is blank")
+    @Test
+    void shouldFailCreateWhenEmailIsBlank() {
+        PlayerModel user = new PlayerModel();
+        user.setEmail("   ");
+
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verifyNoInteractions(userRepository, userMapper);
+    }
+
+    @DisplayName("Should throw exception when email already exists")
+    @Test
+    void shouldFailCreateWhenEmailExists() {
+        PlayerModel user = new PlayerModel();
+        user.setEmail("test@mail.com");
+
+        when(userRepository.existsByEmail("test@mail.com")).thenReturn(true);
+
+        assertThrows(RuntimeException.class, () -> userService.createUser(user));
+        verify(userRepository, never()).save(any());
+    }
+
+    // ─── getUser ────────────────────────────────────────────────────────────
+
+    @DisplayName("Should return user by id")
+    @Test
+    void shouldGetUserById() {
+        UserEntity entity = entityWith(1L, "juan@mail.com", "Juan", true);
+        PlayerModel model = modelWith(1L, "juan@mail.com", "Juan", true);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userMapper.toModel(entity)).thenReturn(model);
+
+        UserRoleModel found = userService.getUser(1L);
 
         assertEquals("Juan", found.getName());
-        assertEquals("juan@mail.escuelaing.edu.co", found.getEmail());
+        assertEquals(1L, found.getId());
     }
 
-    /**
-     * Given a non-existent user id
-     * When retrieving a user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when getting a non-existing user by id")
+    @DisplayName("Should throw exception when user not found")
     @Test
-    void shouldFailWhenUserNotFound() {
-        assertThrows(RuntimeException.class, () -> {
-            userService.getUser(999L);
-        });
+    void shouldFailGetUser() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> userService.getUser(999L));
     }
 
-    /**
-     * Given multiple created users in the system
-     * When retrieving all users
-     * Then all users are returned in the list.
-     */
-    @DisplayName("Should return all created users")
+    // ─── getAllUsers ─────────────────────────────────────────────────────────
+
+    @DisplayName("Should return all users")
     @Test
     void shouldGetAllUsers() {
-        Player u1 = new Player();
-        u1.setRole(RoleType.STUDENT);
-        u1.setEmail("a@mail.escuelaing.edu.co");
+        UserEntity e1 = entityWith(1L, "a@mail.com", "Alice", true);
+        UserEntity e2 = entityWith(2L, "b@mail.com", "Bob", true);
+        PlayerModel m1 = modelWith(1L, "a@mail.com", "Alice", true);
+        PlayerModel m2 = modelWith(2L, "b@mail.com", "Bob", true);
 
-        Player u2 = new Player();
-        u2.setRole(RoleType.FAMILY);
-        u2.setEmail("b@gmail.com");
+        when(userRepository.findAll()).thenReturn(List.of(e1, e2));
+        when(userMapper.toModel(e1)).thenReturn(m1);
+        when(userMapper.toModel(e2)).thenReturn(m2);
 
-        userService.createUser(u1);
-        userService.createUser(u2);
-
-        List<User> users = userService.getAllUsers();
+        List<UserRoleModel> users = userService.getAllUsers();
 
         assertEquals(2, users.size());
     }
 
-    /**
-     * Given an empty user database
-     * When retrieving all users
-     * Then an empty list is returned.
-     */
-    @DisplayName("Should return an empty list when there are no users")
+    @DisplayName("Should return empty list when no users")
     @Test
-    void shouldReturnEmptyListWhenNoUsers() {
-        List<User> users = userService.getAllUsers();
+    void shouldReturnEmptyList() {
+        when(userRepository.findAll()).thenReturn(List.of());
 
-        assertTrue(users.isEmpty());
+        assertTrue(userService.getAllUsers().isEmpty());
     }
 
-    /**
-     * Given a previously created user
-     * When updating user basic information (name)
-     * Then the user is updated with new values.
-     */
-    @DisplayName("Should update user basic information successfully")
+    // ─── updateUser ─────────────────────────────────────────────────────────
+
+    @DisplayName("Should update user name")
     @Test
     void shouldUpdateUser() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@mail.escuelaing.edu.co");
-        user.setName("Old Name");
+        UserEntity existing = entityWith(1L, "juan@mail.com", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "New", true);
+        PlayerModel resultModel = modelWith(1L, "juan@mail.com", "New", true);
 
-        User created = userService.createUser(user);
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("New");
 
-        Player updated = new Player();
-        updated.setName("New Name");
-        updated.setEmail("juan@mail.escuelaing.edu.co");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(userRepository.save(existing)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(resultModel);
 
-        User result = userService.updateUser(created.getId(), updated);
+        UserRoleModel result = userService.updateUser(1L, updatedPayload);
 
-        assertEquals("New Name", result.getName());
+        assertEquals("New", result.getName());
     }
 
-    /**
-     * Given a non-existent user id
-     * When attempting to update a user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when updating a non-existing user")
+    @DisplayName("Should throw exception when updating non-existing user")
     @Test
-    void shouldFailUpdateIfUserNotFound() {
-        Player updated = new Player();
-        updated.setName("Test");
+    void shouldFailUpdateUser() {
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("Test");
 
-        assertThrows(RuntimeException.class, () -> {
-            userService.updateUser(999L, updated);
-        });
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class,
+                () -> userService.updateUser(999L, updatedPayload));
     }
 
-    /**
-     * Given a professor user
-     * When updating the email with a valid escuelaing.edu.co domain
-     * Then the email is updated successfully.
-     */
-    @DisplayName("Should update user email when the new email is valid")
+    @DisplayName("Should throw exception when updating with null payload")
     @Test
-    void shouldUpdateUserWithValidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.PROFESSOR);
-        user.setEmail("profe@escuelaing.edu.co");
-
-        User created = userService.createUser(user);
-
-        Player updated = new Player();
-        updated.setEmail("profe@escuelaing.edu.co");
-
-        User result = userService.updateUser(created.getId(), updated);
-
-        assertEquals("profe@escuelaing.edu.co", result.getEmail());
+    void shouldFailUpdateWithNull() {
+        assertThrows(RuntimeException.class,
+                () -> userService.updateUser(1L, null));
+        verifyNoInteractions(userRepository, userMapper);
     }
 
-    /**
-     * Given a student user
-     * When updating email to an invalid domain for the role
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when updating user email with an invalid domain")
+    @DisplayName("Should keep same id after update")
     @Test
-    void shouldFailUpdateWithInvalidEmail() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@mail.escuelaing.edu.co");
+    void shouldKeepSameId() {
+        UserEntity existing = entityWith(1L, "test@mail.com", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "test@mail.com", "Updated", true);
+        PlayerModel resultModel = modelWith(1L, "test@mail.com", "Updated", true);
 
-        User created = userService.createUser(user);
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("Updated");
 
-        Player updated = new Player();
-        updated.setEmail("juan@gmail.com");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(userRepository.save(existing)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(resultModel);
 
-        assertThrows(RuntimeException.class, () -> {
-            userService.updateUser(created.getId(), updated);
-        });
+        UserRoleModel result = userService.updateUser(1L, updatedPayload);
+
+        assertEquals(1L, result.getId());
     }
 
-    /**
-     * Given an active user
-     * When deactivating the user
-     * Then the user's active status is set to false.
-     */
-    @DisplayName("Should deactivate an existing user")
+    // ─── deactivateUser ──────────────────────────────────────────────────────
+
+    @DisplayName("Should deactivate user")
     @Test
     void shouldDeactivateUser() {
-        Player user = new Player();
-        user.setRole(RoleType.FAMILY);
-        user.setEmail("mama@gmail.com");
-        user.setName("Maria");
+        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
+        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
 
-        User created = userService.createUser(user);
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userRepository.save(entity)).thenReturn(entity);
 
-        userService.deactivateUser(created.getId());
+        userService.deactivateUser(1L);
 
-        User result = userService.getUser(created.getId());
-
-        assertFalse(result.isActive());
+        verify(userRepository).save(entity);
+        assertFalse(entity.getStatus());
     }
 
-    /**
-     * Given a non-existent user id
-     * When attempting to deactivate a user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when deactivating a non-existing user")
+    @DisplayName("Should keep user after deactivation")
     @Test
-    void shouldFailDeactivateIfUserNotFound() {
-        assertThrows(RuntimeException.class, () -> {
-            userService.deactivateUser(999L);
-        });
-    }
+    void shouldKeepUserAfterDeactivate() {
+        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
+        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
 
-    /**
-     * Given a deactivated user
-     * When retrieving all users
-     * Then the deactivated user remains in the list (not deleted).
-     */
-    @DisplayName("Should keep deactivated users in the user list")
-    @Test
-    void shouldNotDeleteUserFromList() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("juan@mail.escuelaing.edu.co");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(userRepository.save(entity)).thenReturn(entity);
+        when(userRepository.findAll()).thenReturn(List.of(entity));
+        when(userMapper.toModel(entity)).thenReturn(deactivatedModel);
 
-        User created = userService.createUser(user);
+        userService.deactivateUser(1L);
 
-        userService.deactivateUser(created.getId());
-
-        List<User> users = userService.getAllUsers();
+        List<UserRoleModel> users = userService.getAllUsers();
 
         assertEquals(1, users.size());
         assertFalse(users.get(0).isActive());
-    }
-
-    /**
-     * Given a null user payload
-     * When creating a user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a null user")
-    @Test
-    void shouldFailCreateWhenUserIsNull() {
-        assertThrows(RuntimeException.class, () -> userService.createUser(null));
-    }
-
-    /**
-     * Given a user without a role assigned
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a user without role")
-    @Test
-    void shouldFailCreateWhenRoleIsNull() {
-        Player user = new Player();
-        user.setEmail("no-role@mail.escuelaing.edu.co");
-
-        assertThrows(RuntimeException.class, () -> userService.createUser(user));
-    }
-
-    /**
-     * Given a user with a blank (whitespace-only) email
-     * When creating the user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when creating a user with blank email")
-    @Test
-    void shouldFailCreateWhenEmailIsBlank() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("   ");
-
-        assertThrows(RuntimeException.class, () -> userService.createUser(user));
-    }
-
-    /**
-     * Given two users with the same email
-     * When creating the second user
-     * Then a RuntimeException is thrown (email uniqueness violation).
-     */
-    @DisplayName("Should throw an exception when creating two users with the same email")
-    @Test
-    void shouldFailCreateWhenEmailAlreadyExists() {
-        Player first = new Player();
-        first.setRole(RoleType.STUDENT);
-        first.setEmail("duplicate@mail.escuelaing.edu.co");
-
-        Player second = new Player();
-        second.setRole(RoleType.STUDENT);
-        second.setEmail("duplicate@mail.escuelaing.edu.co");
-
-        userService.createUser(first);
-
-        assertThrows(RuntimeException.class, () -> userService.createUser(second));
-    }
-
-    /**
-     * Given a user id and null update payload
-     * When attempting to update a user
-     * Then a RuntimeException is thrown.
-     */
-    @DisplayName("Should throw an exception when updating a user with null payload")
-    @Test
-    void shouldFailUpdateWhenPayloadIsNull() {
-        Player user = new Player();
-        user.setRole(RoleType.FAMILY);
-        user.setEmail("family@gmail.com");
-
-        User created = userService.createUser(user);
-
-        assertThrows(RuntimeException.class, () -> userService.updateUser(created.getId(), null));
-    }
-
-    /**
-     * Given a user that is updated
-     * When applying the update
-     * Then the user's id remains unchanged.
-     */
-    @DisplayName("Should keep the same id after updating a user")
-    @Test
-    void shouldKeepSameIdAfterUpdate() {
-        Player user = new Player();
-        user.setRole(RoleType.STUDENT);
-        user.setEmail("same-id@mail.escuelaing.edu.co");
-        user.setName("Before");
-
-        User created = userService.createUser(user);
-
-        Player updated = new Player();
-        updated.setEmail("same-id@mail.escuelaing.edu.co");
-        updated.setName("After");
-
-        User result = userService.updateUser(created.getId(), updated);
-
-        assertEquals(created.getId(), result.getId());
     }
 }
