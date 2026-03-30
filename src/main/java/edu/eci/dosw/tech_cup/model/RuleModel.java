@@ -1,43 +1,43 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Representa una regla dentro del torneo.
+ * Represents a rule within the tournament.
  *
- * Esta clase permite definir las condiciones y restricciones que deben
- * cumplirse durante el desarrollo del torneo, como requisitos de equipos,
- * comportamiento de jugadores o normas de juego.
+ * <p>This model defines conditions and restrictions that must be respected
+ * during tournament execution, such as team requirements, player behavior,
+ * or gameplay rules.</p>
  */
 public class RuleModel {
 
-    /** Descripción de la regla */
+    /** Rule description. */
     private String description;
 
 
     /**
-     * Obtiene la descripción de la regla.
+     * Returns the rule description.
      *
-     * @return descripción de la regla
+     * @return rule description
      */
     public String getDescription() { return description; }
 
     /**
-     * Cambia la descripción de la regla.
+     * Sets the rule description.
      *
-     * @param description nueva descripción
+     * @param description new rule description
      */
     public void setDescription(String description) { this.description = description; }
 
     /**
-     * Verifica si la regla es válida.
+     * Indicates whether the rule is valid.
      *
-     * @return true si la descripción no es nula ni vacía
+     * @return {@code true} if the description is not null or empty
      */
     public boolean isValid() { return false; }
 
     /**
-     * Verifica si la regla aplica a un contexto específico.
+     * Indicates whether the rule applies in the current context.
      *
-     * @return true si aplica
+     * @return {@code true} if the rule applies
      */
     public boolean applies() { return isValid(); }
 }

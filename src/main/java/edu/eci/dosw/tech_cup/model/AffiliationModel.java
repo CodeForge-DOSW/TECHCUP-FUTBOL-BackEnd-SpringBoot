@@ -5,85 +5,83 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Representa la afiliación institucional de un usuario dentro del sistema.
+ * Represents the institutional affiliation of a user within the system.
  *
- * Esta clase permite identificar el tipo de vínculo del usuario con la institución
- * (estudiante, egresado, etc.) y las carreras a las que pertenece.
- *
- * Es fundamental para validar reglas del torneo como elegibilidad y
- * composición de equipos.
+ * <p>This model identifies the user's relationship with the institution
+ * (student, graduate, and so on) and the academic programs associated with it.
+ * It is relevant for validating tournament rules such as eligibility and team composition.</p>
  */
 public class AffiliationModel {
 
-    /** Tipo de afiliación del usuario */
+    /** User affiliation type. */
     private AffiliationTypeModel type;
 
-    /** Lista de carreras a las que pertenece el usuario */
+    /** List of academic programs associated with the user. */
     private List<CareerModel> careers;
 
     /**
-     * Verifica si el usuario es estudiante.
+     * Indicates whether the user is a student.
      *
-     * @return true si es estudiante
+     * @return {@code true} if the affiliation is student
      */
     public boolean isStudent() { return false; }
 
     /**
-     * Verifica si el usuario es egresado.
+     * Indicates whether the user is a graduate.
      *
-     * @return true si es egresado
+     * @return {@code true} if the affiliation is graduate
      */
     public boolean isGraduate() { return type != null && type.isGraduate(); }
 
     /**
-     * Verifica si el usuario pertenece al personal administrativo.
+     * Indicates whether the user belongs to the administrative staff.
      *
-     * @return true si es administrativo
+     * @return {@code true} if the affiliation is administrative
      */
     public boolean isAdministrative() { return type != null && type.isAdministrative(); }
 
     /**
-     * Verifica si el usuario pertenece a una carrera específica.
+     * Indicates whether the user belongs to a specific academic program.
      *
-     * @param career carrera a validar
-     * @return true si pertenece a la carrera
+     * @param career academic program to validate
+     * @return {@code true} if the affiliation includes the given program
      */
     public boolean belongsToCareer(CareerModel career) {
         return false;
     }
 
     /**
-     * Verifica si el usuario pertenece a alguna de las carreras registradas.
+     * Indicates whether the user belongs to any of the provided academic programs.
      *
-     * @param careers lista de carreras
-     * @return true si pertenece al menos a una
+     * @param careers list of academic programs
+     * @return {@code true} if the affiliation matches at least one program
      */
     public boolean belongsToAnyCareer(List<CareerModel> careers) {
         return false;
     }
 
     /**
-     * Agrega una carrera a la afiliación.
+     * Adds an academic program to the affiliation.
      *
-     * @param career carrera a agregar
+     * @param career academic program to add
      */
     public void addCareer(CareerModel career) {
 
     }
 
     /**
-     * Elimina una carrera de la afiliación.
+     * Removes an academic program from the affiliation.
      *
-     * @param career carrera a eliminar
+     * @param career academic program to remove
      */
     public void removeCareer(CareerModel career) {
 
     }
 
     /**
-     * Cambia el tipo de afiliación del usuario.
+     * Changes the affiliation type of the user.
      *
-     * @param type nuevo tipo de afiliación
+     * @param type new affiliation type
      */
     public void changeType(AffiliationTypeModel type) { this.type = type; }
 }

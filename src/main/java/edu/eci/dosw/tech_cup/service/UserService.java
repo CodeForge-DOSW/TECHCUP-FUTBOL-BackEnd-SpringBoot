@@ -14,27 +14,49 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Implementación del servicio de usuarios con persistencia JPA.
+ * JPA-backed implementation of the user service contract.
  *
- * <p>Reemplaza la lista en memoria del laboratorio anterior por llamadas
- * reales al {@link UserRepository}. El flujo de cada operación es:</p>
- * <pre>
- *   Controller → Service → Mapper.toEntity() → Repository → Mapper.toModel() → Controller
- * </pre>
+ * <p>This service centralizes validation, persistence, and authentication rules
+ * for platform users. It coordinates entity-model conversions through
+ * {@link UserMapper} and delegates database access to {@link UserRepository}.</p>
  */
 @Service
 public class UserService implements IUserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
+    /**
+     * Repository used to persist and query user records.
+     */
     private final UserRepository userRepository;
+
+    /**
+     * Mapper used to convert between persistence entities and service models.
+     */
     private final UserMapper userMapper;
 
+    /**
+     * Creates the service with its repository and mapper dependencies.
+     *
+     * @param userRepository repository for user persistence operations
+     * @param userMapper mapper for entity-model conversions
+     */
     public UserService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
     }
 
+    /**
+     * Creates a new user after validating the request data and email uniqueness.
+     *
+     * <p>If the user type is missing, the service defaults it to {@code student}.
+     * The resulting persisted account is always marked as active.</p>
+     *
+     * @param user user data to validate and persist
+     * @return the persisted user mapped back to the service model
+     * @throws RuntimeException if the payload is null, the email is invalid or duplicated,
+     * or the user type is not allowed
+     */
     @Override
     @Transactional
     public PlayerModel createUser(PlayerModel user) {
@@ -73,6 +95,13 @@ public class UserService implements IUserService {
         return userMapper.toModel(saved);
     }
 
+    /**
+     * Retrieves a user by its identifier.
+     *
+     * @param id unique user identifier
+     * @return the mapped user model
+     * @throws RuntimeException if no user exists with the given identifier
+     */
     @Override
     public PlayerModel getUser(Long id) {
         UserEntity entity = userRepository.findById(id)
@@ -80,6 +109,11 @@ public class UserService implements IUserService {
         return userMapper.toModel(entity);
     }
 
+    /**
+     * Retrieves every stored user.
+     *
+     * @return a list of mapped user models, which may be empty
+     */
     @Override
     public List<UserRoleModel> getAllUsers() {
         return userRepository.findAll()
@@ -88,6 +122,18 @@ public class UserService implements IUserService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Updates selected fields of an existing user.
+     *
+     * <p>Only non-null fields from the incoming payload are applied. When the
+     * email is updated, the service validates format and uniqueness first.</p>
+     *
+     * @param id identifier of the user to update
+     * @param updatedUser payload containing the fields to modify
+     * @return the updated user mapped back to the service model
+     * @throws RuntimeException if the payload is null, the user does not exist,
+     * or the email is invalid or already in use
+     */
     @Override
     @Transactional
     public PlayerModel updateUser(Long id, PlayerModel updatedUser) {
@@ -127,6 +173,12 @@ public class UserService implements IUserService {
         return userMapper.toModel(saved);
     }
 
+    /**
+     * Performs a logical delete by marking the user as inactive.
+     *
+     * @param id identifier of the user to deactivate
+     * @throws RuntimeException if the user does not exist
+     */
     @Override
     @Transactional
     public void deactivateUser(Long id) {
@@ -137,6 +189,14 @@ public class UserService implements IUserService {
         log.info("User {} deactivated", id);
     }
 
+    /**
+     * Authenticates a user by validating email, password, and active status.
+     *
+     * @param email user email address
+     * @param password raw password value to verify
+     * @throws RuntimeException if input data is missing, credentials are invalid,
+     * or the account is inactive
+     */
     @Override
     public void authenticate(String email, String password) {
         if (email == null || email.trim().isEmpty()) {

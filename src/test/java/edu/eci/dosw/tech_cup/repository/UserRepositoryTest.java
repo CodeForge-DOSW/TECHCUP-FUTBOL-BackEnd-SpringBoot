@@ -13,6 +13,12 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Repository integration tests for {@link UserRepository}.
+ *
+ * <p>This test suite verifies persistence behavior and derived JPA queries for
+ * {@link UserEntity}, including lookups by email, identification, and status.</p>
+ */
 @DataJpaTest
 @ActiveProfiles("test")
 class UserRepositoryTest {
@@ -20,7 +26,13 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-
+    /**
+     * Builds a valid user entity for repository tests.
+     *
+     * @param email email address to assign
+     * @param identification identification value to assign
+     * @return a non-persisted user entity ready for repository operations
+     */
     private UserEntity buildUser(String email, String identification) {
         UserEntity user = new UserEntity();
         user.setFirstName("Juan");
@@ -35,7 +47,9 @@ class UserRepositoryTest {
         return user;
     }
 
-
+    /**
+     * Verifies that saving a user persists the entity and generates its identifier.
+     */
     @DisplayName("Should save a user and assign an auto-generated id")
     @Test
     void shouldSaveUser() {
@@ -48,7 +62,9 @@ class UserRepositoryTest {
         assertTrue(saved.getStatus());
     }
 
-
+    /**
+     * Verifies that a user can be retrieved by email address.
+     */
     @DisplayName("Should find a user by email")
     @Test
     void shouldFindByEmail() {
@@ -60,6 +76,9 @@ class UserRepositoryTest {
         assertEquals("Juan", found.map(UserEntity::getFirstName).orElse(""));
     }
 
+    /**
+     * Verifies the existence query used to detect duplicate user emails.
+     */
     @DisplayName("Should return true when email already exists")
     @Test
     void shouldDetectExistingEmail() {
@@ -69,6 +88,9 @@ class UserRepositoryTest {
         assertFalse(userRepository.existsByEmail("noexiste@mail.com"));
     }
 
+    /**
+     * Verifies that users can be filtered by their active flag.
+     */
     @DisplayName("Should find users by status")
     @Test
     void shouldFindByStatus() {
@@ -86,6 +108,9 @@ class UserRepositoryTest {
         assertEquals(1, inactiveUsers.size());
     }
 
+    /**
+     * Verifies that a user can be retrieved by identification value.
+     */
     @DisplayName("Should find a user by identification")
     @Test
     void shouldFindByIdentification() {
@@ -97,7 +122,9 @@ class UserRepositoryTest {
         assertEquals("9999", found.get().getIdentification());
     }
 
-
+    /**
+     * Verifies that multiple users can be persisted as long as emails remain unique.
+     */
     @DisplayName("Should persist multiple users in the same table with unique emails")
     @Test
     void shouldSaveMultipleUsersWithUniqueEmails() {
@@ -110,7 +137,9 @@ class UserRepositoryTest {
         assertEquals(3, all.size());
     }
 
-
+    /**
+     * Verifies that updating and saving a managed user persists the new status.
+     */
     @DisplayName("Should update user status to inactive")
     @Test
     void shouldUpdateUserStatus() {
@@ -122,6 +151,9 @@ class UserRepositoryTest {
         assertFalse(updated.getStatus());
     }
 
+    /**
+     * Verifies that deleting a user by identifier removes it from the repository.
+     */
     @DisplayName("Should delete a user by id")
     @Test
     void shouldDeleteUser() {

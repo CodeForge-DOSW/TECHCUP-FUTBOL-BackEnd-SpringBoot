@@ -6,23 +6,34 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * Mapper MapStruct entre {@link TeamEntity} (capa de persistencia)
- * y {@link TeamResponseModel} (DTO de respuesta de la API).
+ * MapStruct mapper between {@link TeamEntity} and {@link TeamResponseModel}.
  *
- * <p>Usa {@link TeamResponseModel} en lugar de {@code TeamModel} para evitar
- * conflicto con el {@code TeamModel} de dominio que usa {@code TeamBuilderModel}.
- * Solo expone IDs de relaciones (tournamentId, captainId) para evitar
- * referencias circulares al serializar JSON.</p>
+ * <p>This mapper uses {@link TeamResponseModel} instead of {@code TeamModel}
+ * to keep API responses flat and avoid circular references during JSON
+ * serialization. Related objects are exposed only through their identifiers,
+ * such as {@code tournamentId} and {@code captainId}.</p>
  */
 @Mapper(componentModel = "spring")
 public interface TeamMapper {
 
+    /**
+     * Maps a persistence entity to the team response model used by the API layer.
+     *
+     * @param entity source team entity
+     * @return mapped team response model
+     */
     @Mapping(source = "teamId",                  target = "id")
     @Mapping(source = "status",                  target = "active")
     @Mapping(source = "tournament.tournamentId", target = "tournamentId")
     @Mapping(source = "captain.userId",          target = "captainId")
     TeamResponseModel toModel(TeamEntity entity);
 
+    /**
+     * Maps a team response model to the persistence entity used by the repository layer.
+     *
+     * @param model source team response model
+     * @return mapped team entity
+     */
     @Mapping(source = "id",     target = "teamId")
     @Mapping(source = "active", target = "status")
     @Mapping(target = "tournament", ignore = true)

@@ -5,109 +5,108 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Representa un partido dentro del torneo.
+ * Represents a match within the tournament.
  *
- * Esta clase encapsula toda la información relacionada con un encuentro,
- * incluyendo los equipos participantes, marcador, alineaciones, eventos
- * y estado del partido.
+ * <p>This model encapsulates all information related to a fixture, including
+ * participating teams, score, lineups, events, venue, and match status.</p>
  */
 public class MatchModel {
 
-    /** Identificador único del partido */
+    /** Unique identifier of the match. */
     private Long id;
 
-    /** Torneo al que pertenece el partido */
+    /** Tournament to which the match belongs. */
     private TournamentModel tournament;
 
-    /** Equipo local */
+    /** Home team. */
     private TeamModel homeTeam;
 
-    /** Equipo visitante */
+    /** Away team. */
     private TeamModel awayTeam;
 
-    /** Fase del torneo */
+    /** Tournament phase of the match. */
     private MatchPhaseModel phase;
 
-    /** Estado actual del partido */
+    /** Current match status. */
     private MatchStatusModel status;
 
-    /** Cancha donde se juega el partido */
+    /** Field where the match is played. */
     private FieldModel field;
 
-    /** Fecha y hora del partido */
+    /** Match date and time. */
     private LocalDateTime date;
 
-    /** Marcador del equipo local */
+    /** Score of the home team. */
     private int scoreHome;
 
-    /** Marcador del equipo visitante */
+    /** Score of the away team. */
     private int scoreAway;
 
-    /** Árbitro asignado */
+    /** Assigned referee. */
     private RefereeModel referee;
 
-    /** Alineación del equipo local */
+    /** Home team lineup. */
     private LineupModel homeLineup;
 
-    /** Alineación del equipo visitante */
+    /** Away team lineup. */
     private LineupModel awayLineup;
 
-    /** Lista de eventos del partido */
+    /** List of events recorded during the match. */
     private List<MatchEventModel> events;
 
     /**
-     * Obtiene el marcador del partido en formato texto.
+     * Returns the score of the match as formatted text.
      *
-     * @return marcador como string (ej: "2 - 1")
+     * @return score string, for example {@code "2 - 1"}
      */
     public String getScore() { return ""; }
 
     /**
-     * Verifica si el partido ha finalizado.
+     * Indicates whether the match has finished.
      *
-     * @return true si está en estado FINISHED
+     * @return {@code true} if the status is finished
      */
     public boolean isFinished() { return false; }
 
     /**
-     * Obtiene la alineación de un equipo específico.
+     * Returns the lineup associated with the opposite team.
      *
-     * @param team equipo a consultar
-     * @return alineación correspondiente
+     * @param team team used as reference
+     * @return corresponding opponent lineup
      */
     public LineupModel getOpponentLineup(TeamModel team) {
         return null;
     }
 
     /**
-     * Verifica si el partido puede iniciar.
+     * Indicates whether the match can start.
      *
-     * @return true si cumple condiciones para iniciar
+     * @return {@code true} if the match satisfies the conditions to start
      */
     public boolean canStartMatch() {
         return false;
     }
 
     /**
-     * Obtiene el equipo ganador del partido.
+     * Returns the winning team of the match.
      *
-     * @return equipo ganador o null si hay empate
+     * @return winning team, or {@code null} if the match is a draw
      */
     public TeamModel getWinner() {
         return null;
     }
 
     /**
-     * Verifica si el partido terminó en empate.
+     * Indicates whether the match ended in a draw.
      *
-     * @return true si los marcadores son iguales
+     * @return {@code true} if both scores are equal
      */
     public boolean isDraw() { return false; }
 
     /**
-     * Verifica si el partido es válido.
+     * Indicates whether the match contains valid required data.
      *
-     * @return true si tiene equipos, fecha y cancha definidos
+     * @return {@code true} if teams, date, and field are defined
      */
     public boolean isValid() {
         return false;

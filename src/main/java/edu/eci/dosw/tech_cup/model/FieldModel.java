@@ -3,73 +3,73 @@ package edu.eci.dosw.tech_cup.model;
 import java.util.Objects;
 
 /**
- * Representa una cancha donde se disputan los partidos del torneo.
+ * Represents a field where tournament matches are played.
  *
- * Esta entidad permite identificar la ubicación física de los encuentros,
- * siendo utilizada para organizar la logística de los partidos.
+ * <p>This model identifies the physical location of matches and is used
+ * to organize match logistics.</p>
  */
 public class FieldModel {
 
-    /** Identificador único de la cancha */
+    /** Unique identifier of the field. */
     private Long id;
 
-    /** Nombre de la cancha */
+    /** Field name. */
     private String name;
 
-    /** Ubicación de la cancha */
+    /** Field location. */
     private String location;
 
-    // ===================== MÉTODOS =====================
+    // ===================== Domain methods =====================
 
     /**
-     * Obtiene el identificador de la cancha.
+     * Returns the field identifier.
      *
-     * @return id de la cancha
+     * @return field id
      */
     public Long getId() { return id; }
 
     /**
-     * Obtiene el nombre de la cancha.
+     * Returns the field name.
      *
-     * @return nombre de la cancha
+     * @return field name
      */
     public String getName() { return name; }
 
     /**
-     * Cambia el nombre de la cancha.
+     * Sets the field name.
      *
-     * @param name nuevo nombre
+     * @param name new name
      */
     public void setName(String name) { this.name = name; }
 
     /**
-     * Obtiene la ubicación de la cancha.
+     * Returns the field location.
      *
-     * @return ubicación
+     * @return field location
      */
     public String getLocation() { return location; }
 
     /**
-     * Cambia la ubicación de la cancha.
+     * Sets the field location.
      *
-     * @param location nueva ubicación
+     * @param location new location
      */
     public void setLocation(String location) { this.location = location; }
 
     /**
-     * Verifica si la cancha es válida.
+     * Indicates whether the field is valid.
      *
-     * @return true si tiene nombre y ubicación definidos
+     * @return {@code true} if both name and location are defined
      */
     public boolean isValid() {
         return false;
     }
 
     /**
-     * Compara si dos canchas son iguales.
+     * Compares whether two fields represent the same venue.
      *
-     * @param other otra cancha
-     * @return true si representan la misma cancha
+     * @param other other field
+     * @return {@code true} if both fields represent the same venue
      */
     public boolean sameField(FieldModel other) {
         return false;

@@ -1,56 +1,55 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los tipos de formaciones tácticas que puede utilizar un equipo
- * dentro del sistema.
+ * Enumerates the tactical formations a team can use within the system.
  *
- * Cada valor representa una distribución específica de jugadores en el campo,
- * la cual es utilizada por LineupModel para validar la alineación.
+ * <p>Each value represents a specific player distribution on the field and is
+ * used by {@code LineupModel} to validate team lineups.</p>
  */
 public enum FormationTypeModel {
 
-    /** Formación 3-2-1 */
+    /** 3-2-1 formation. */
     THREE_TWO_ONE,
 
-    /** Formación 2-2-2 */
+    /** 2-2-2 formation. */
     TWO_TWO_TWO,
 
-    /** Formación 1-4-1 */
+    /** 1-4-1 formation. */
     ONE_FOUR_ONE,
 
-    /** Formación 2-3-1 */
+    /** 2-3-1 formation. */
     TWO_THREE_ONE,
 
-    /** Formación 3-1-2 */
+    /** 3-1-2 formation. */
     THREE_ONE_TWO,
 
-    /** Formación 2-1-3 */
+    /** 2-1-3 formation. */
     TWO_ONE_THREE,
 
-    /** Formación 1-3-2 */
+    /** 1-3-2 formation. */
     ONE_THREE_TWO,
 
-    /** Formación 0-4-3 */
+    /** 0-4-3 formation. */
     ZERO_FOUR_THREE,
 
-    /** Formación 2-4-0 */
+    /** 2-4-0 formation. */
     TWO_FOUR_ZERO,
 
-    /** Formación 3-3-0 */
+    /** 3-3-0 formation. */
     THREE_THREE_ZERO,
 
-    /** Formación 4-1-1 */
+    /** 4-1-1 formation. */
     FOUR_ONE_ONE,
 
-    /** Formación 4-2-0 */
+    /** 4-2-0 formation. */
     FOUR_TWO_ZERO,
 
-    /** Formación 5-1-0 */
+    /** 5-1-0 formation. */
     FIVE_ONE_ZERO,
 
-    /** Formación 0-5-1 */
+    /** 0-5-1 formation. */
     ZERO_FIVE_ONE,
 
-    /** Formación 1-2-3 */
+    /** 1-2-3 formation. */
     ONE_TWO_THREE;
 }

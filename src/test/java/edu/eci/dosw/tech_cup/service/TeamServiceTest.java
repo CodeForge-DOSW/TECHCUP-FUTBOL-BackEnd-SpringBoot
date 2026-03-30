@@ -24,6 +24,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+/**
+ * Unit tests for {@link TeamService}.
+ *
+ * <p>This test suite validates the service rules for team creation, retrieval,
+ * update, filtering, and logical deactivation by using mocked repositories
+ * and mapper dependencies.</p>
+ */
 @ExtendWith(MockitoExtension.class)
 public class TeamServiceTest {
 
@@ -45,8 +52,14 @@ public class TeamServiceTest {
     @InjectMocks
     private TeamService teamService;
 
-
-
+    /**
+     * Builds a valid team request model for service tests.
+     *
+     * @param name team name to assign
+     * @param tournamentId related tournament identifier
+     * @param captainId related captain identifier
+     * @return a team payload ready for service operations
+     */
     private TeamResponseModel buildValidTeam(String name, Long tournamentId, Long captainId) {
         TeamResponseModel t = new TeamResponseModel();
         t.setName(name);
@@ -57,6 +70,14 @@ public class TeamServiceTest {
         return t;
     }
 
+    /**
+     * Builds a team entity with the provided identity and status values.
+     *
+     * @param id persisted team identifier
+     * @param name team name to assign
+     * @param active whether the team is active
+     * @return a team entity configured for mock responses
+     */
     private TeamEntity entityWith(Long id, String name, boolean active) {
         TeamEntity e = new TeamEntity();
         e.setTeamId(id);
@@ -66,6 +87,16 @@ public class TeamServiceTest {
         return e;
     }
 
+    /**
+     * Builds a team response model with the provided values.
+     *
+     * @param id team identifier
+     * @param name team name
+     * @param active whether the team is active
+     * @param tournamentId related tournament identifier
+     * @param captainId related captain identifier
+     * @return a response model configured for assertions
+     */
     private TeamResponseModel responseWith(Long id, String name, boolean active,
                                            Long tournamentId, Long captainId) {
         TeamResponseModel m = new TeamResponseModel();
@@ -78,6 +109,12 @@ public class TeamServiceTest {
         return m;
     }
 
+    /**
+     * Builds a tournament entity for mock repository responses.
+     *
+     * @param id tournament identifier
+     * @return a tournament entity with basic valid data
+     */
     private TournamentEntity tournamentEntity(Long id) {
         TournamentEntity t = new TournamentEntity();
         t.setTournamentId(id);
@@ -86,6 +123,12 @@ public class TeamServiceTest {
         return t;
     }
 
+    /**
+     * Builds a user entity for mock captain lookups.
+     *
+     * @param id user identifier
+     * @return a user entity with basic valid data
+     */
     private UserEntity userEntity(Long id) {
         UserEntity u = new UserEntity();
         u.setUserId(id);
@@ -94,7 +137,9 @@ public class TeamServiceTest {
         return u;
     }
 
-
+    /**
+     * Verifies that a team is created successfully when all required data is valid.
+     */
     @DisplayName("Should create a team successfully with valid data")
     @Test
     void shouldCreateTeam() {
@@ -121,6 +166,9 @@ public class TeamServiceTest {
         assertEquals(2L, result.getCaptainId());
     }
 
+    /**
+     * Verifies that team creation fails when the request payload is null.
+     */
     @DisplayName("Should throw exception when creating team with null data")
     @Test
     void shouldFailCreateWhenNull() {
@@ -135,6 +183,9 @@ public class TeamServiceTest {
         assertThrows(RuntimeException.class, () -> teamService.createTeam(input));
     }
 
+    /**
+     * Verifies that team creation fails when the team name is blank.
+     */
     @DisplayName("Should throw exception when team name is blank")
     @Test
     void shouldFailCreateWhenNameIsBlank() {
@@ -153,6 +204,9 @@ public class TeamServiceTest {
         assertEquals("Tournament not found", ex.getMessage());
     }
 
+    /**
+     * Verifies that team creation fails when the captain user does not exist.
+     */
     @DisplayName("Should throw exception when captain user not found")
     @Test
     void shouldFailCreateWhenCaptainNotFound() {
@@ -168,6 +222,9 @@ public class TeamServiceTest {
         assertEquals("Captain user not found", ex.getMessage());
     }
 
+    /**
+     * Verifies that team creation fails when the team name already exists in the same tournament.
+     */
     @DisplayName("Should throw exception when team name already exists in tournament")
     @Test
     void shouldFailCreateWhenDuplicateNameInTournament() {
@@ -182,6 +239,9 @@ public class TeamServiceTest {
         assertTrue(ex.getMessage().contains("already exists"));
     }
 
+    /**
+     * Verifies that team creation fails when the selected user already captains another team.
+     */
     @DisplayName("Should throw exception when user is already captain of another team")
     @Test
     void shouldFailCreateWhenCaptainAlreadyTaken() {
@@ -200,6 +260,9 @@ public class TeamServiceTest {
         assertTrue(ex.getMessage().contains("already captain"));
     }
 
+    /**
+     * Verifies that a team can be created without a tournament assignment.
+     */
     @DisplayName("Should allow creating team without tournament (null tournamentId)")
     @Test
     void shouldCreateTeamWithoutTournament() {
@@ -217,7 +280,9 @@ public class TeamServiceTest {
         assertNull(result.getTournamentId());
     }
 
-
+    /**
+     * Verifies that a team can be retrieved by its identifier.
+     */
     @DisplayName("Should return team by id")
     @Test
     void shouldGetTeamById() {
@@ -233,6 +298,9 @@ public class TeamServiceTest {
         assertEquals(1L, result.getId());
     }
 
+    /**
+     * Verifies that retrieval fails when the requested team does not exist.
+     */
     @DisplayName("Should throw exception when team not found")
     @Test
     void shouldFailGetTeamNotFound() {
@@ -240,7 +308,9 @@ public class TeamServiceTest {
         assertThrows(RuntimeException.class, () -> teamService.getTeam(999L));
     }
 
-
+    /**
+     * Verifies that the service returns all teams mapped to response models.
+     */
     @DisplayName("Should return all teams")
     @Test
     void shouldGetAllTeams() {
@@ -257,6 +327,9 @@ public class TeamServiceTest {
         assertEquals(2, teams.size());
     }
 
+    /**
+     * Verifies that the service returns an empty list when no teams are stored.
+     */
     @DisplayName("Should return empty list when no teams")
     @Test
     void shouldReturnEmptyList() {
@@ -264,7 +337,9 @@ public class TeamServiceTest {
         assertTrue(teamService.getAllTeams().isEmpty());
     }
 
-
+    /**
+     * Verifies that the service filters teams by tournament identifier.
+     */
     @DisplayName("Should return teams filtered by tournament")
     @Test
     void shouldGetTeamsByTournament() {
@@ -279,8 +354,9 @@ public class TeamServiceTest {
         assertEquals(1L, teams.get(0).getTournamentId());
     }
 
-
-
+    /**
+     * Verifies that updating a team persists the new name.
+     */
     @DisplayName("Should update team name")
     @Test
     void shouldUpdateTeamName() {
@@ -299,6 +375,9 @@ public class TeamServiceTest {
         assertEquals("New Name", result.getName());
     }
 
+    /**
+     * Verifies that updating fails when the target team does not exist.
+     */
     @DisplayName("Should throw exception when updating non-existing team")
     @Test
     void shouldFailUpdateTeamNotFound() {
@@ -308,12 +387,18 @@ public class TeamServiceTest {
         assertThrows(RuntimeException.class, () -> teamService.updateTeam(999L, payload));
     }
 
+    /**
+     * Verifies that updating fails when the request payload is null.
+     */
     @DisplayName("Should throw exception when updating with null payload")
     @Test
     void shouldFailUpdateWithNull() {
         assertThrows(RuntimeException.class, () -> teamService.updateTeam(1L, null));
     }
 
+    /**
+     * Verifies that updating the captain fails when the new captain already leads another team.
+     */
     @DisplayName("Should throw exception when new captain is already captain of another team")
     @Test
     void shouldFailUpdateWhenCaptainTaken() {
@@ -329,7 +414,9 @@ public class TeamServiceTest {
         assertThrows(RuntimeException.class, () -> teamService.updateTeam(1L, payload));
     }
 
-
+    /**
+     * Verifies that deactivating a team changes its status to inactive and saves it.
+     */
     @DisplayName("Should deactivate team")
     @Test
     void shouldDeactivateTeam() {
@@ -344,6 +431,9 @@ public class TeamServiceTest {
         assertFalse(entity.getStatus());
     }
 
+    /**
+     * Verifies that deactivation fails when the requested team does not exist.
+     */
     @DisplayName("Should throw exception when deactivating non-existing team")
     @Test
     void shouldFailDeactivateNotFound() {

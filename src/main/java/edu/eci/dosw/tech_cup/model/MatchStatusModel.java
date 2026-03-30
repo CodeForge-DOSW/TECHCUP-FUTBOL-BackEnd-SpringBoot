@@ -1,64 +1,64 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los estados en los que puede encontrarse un partido dentro del sistema.
+ * Enumerates the possible statuses of a match within the system.
  *
- * Este enum permite gestionar el ciclo de vida de un MatchModel,
- * desde su programación hasta su finalización o cancelación.
+ * <p>This enum manages the lifecycle of a {@code MatchModel}, from scheduling
+ * to completion or cancellation.</p>
  */
 public enum MatchStatusModel {
 
-    /** Partido programado pero no iniciado */
+    /** Match is scheduled but has not started yet. */
     SCHEDULED,
 
-    /** Partido en curso */
+    /** Match is currently in progress. */
     IN_PROGRESS,
 
-    /** Partido finalizado */
+    /** Match has finished. */
     FINISHED,
 
-    /** Partido cancelado */
+    /** Match has been cancelled. */
     CANCELLED;
 
     /**
-     * Verifica si el partido está programado.
+     * Indicates whether the match is scheduled.
      *
-     * @return true si está en estado SCHEDULED
+     * @return {@code true} if the status is {@link #SCHEDULED}
      */
     public boolean isScheduled() { return this == SCHEDULED; }
 
     /**
-     * Verifica si el partido está en progreso.
+     * Indicates whether the match is in progress.
      *
-     * @return true si está en estado IN_PROGRESS
+     * @return {@code true} if the status is {@link #IN_PROGRESS}
      */
     public boolean isInProgress() { return this == IN_PROGRESS; }
 
     /**
-     * Verifica si el partido ha finalizado.
+     * Indicates whether the match has finished.
      *
-     * @return true si está en estado FINISHED
+     * @return {@code true} if the status is {@link #FINISHED}
      */
     public boolean isFinished() { return this == FINISHED; }
 
     /**
-     * Verifica si el partido ha sido cancelado.
+     * Indicates whether the match has been cancelled.
      *
-     * @return true si está en estado CANCELLED
+     * @return {@code true} if the status is {@link #CANCELLED}
      */
     public boolean isCancelled() { return this == CANCELLED; }
 
     /**
-     * Verifica si el partido puede ser modificado.
+     * Indicates whether the match can still be modified.
      *
-     * @return true si está programado o en progreso
+     * @return {@code true} if the match is scheduled or in progress
      */
     public boolean isEditable() { return isScheduled() || isInProgress(); }
 
     /**
-     * Verifica si el partido ya no admite cambios.
+     * Indicates whether the match no longer accepts changes.
      *
-     * @return true si está finalizado o cancelado
+     * @return {@code true} if the match is finished or cancelled
      */
     public boolean isClosed() { return isFinished() || isCancelled(); }
 }

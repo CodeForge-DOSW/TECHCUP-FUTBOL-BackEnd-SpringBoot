@@ -1,76 +1,75 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define las posiciones que puede ocupar un jugador dentro del campo.
+ * Enumerates the positions a player can occupy on the field.
  *
- * Este enum permite clasificar a los jugadores según su rol en el juego,
- * siendo utilizado en LineupModel para asignar posiciones y validar
- * la alineación del equipo.
+ * <p>This enum classifies players according to their gameplay role and is used
+ * by lineup-related logic to assign and validate positions.</p>
  */
 public enum PositionModel {
 
-    /** Portero */
+    /** Goalkeeper position. */
     GOALKEEPER,
 
-    /** Defensor */
+    /** Defender position. */
     DEFENDER,
 
-    /** Mediocampista */
+    /** Midfielder position. */
     MIDFIELDER,
 
-    /** Delantero */
+    /** Forward position. */
     FORWARD;
 
     /**
-     * Verifica si la posición corresponde a portero.
+     * Indicates whether the position is goalkeeper.
      *
-     * @return true si es portero
+     * @return {@code true} if the position is {@link #GOALKEEPER}
      */
     public boolean isGoalkeeper() {
         return false;
     }
 
     /**
-     * Verifica si la posición corresponde a defensor.
+     * Indicates whether the position is defender.
      *
-     * @return true si es defensor
+     * @return {@code true} if the position is {@link #DEFENDER}
      */
     public boolean isDefender() {
         return false;
     }
 
     /**
-     * Verifica si la posición corresponde a mediocampista.
+     * Indicates whether the position is midfielder.
      *
-     * @return true si es mediocampista
+     * @return {@code true} if the position is {@link #MIDFIELDER}
      */
     public boolean isMidfielder() {
         return false;
     }
 
     /**
-     * Verifica si la posición corresponde a delantero.
+     * Indicates whether the position is forward.
      *
-     * @return true si es delantero
+     * @return {@code true} if the position is {@link #FORWARD}
      */
     public boolean isForward() {
         return false;
     }
 
     /**
-     * Verifica si la posición es ofensiva.
+     * Indicates whether the position is considered attacking.
      *
-     * @return true si la posición se considera ofensiva
+     * @return {@code true} if the position is considered offensive
      */
     public boolean isAttackingRole() {
         return false;
     }
 
     /**
-     * Convierte un texto en una posición del sistema.
+     * Converts a text value into a system position.
      *
-     * @param value valor de texto a convertir
-     * @return posición correspondiente o null si no aplica
+     * @param value text value to convert
+     * @return matching position, or {@code null} if the value does not apply
      */
     public static PositionModel fromString(String value) {
         return null;

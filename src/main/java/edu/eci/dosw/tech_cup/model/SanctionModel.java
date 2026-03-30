@@ -1,72 +1,72 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Representa una sanción dentro del torneo.
+ * Represents a sanction within the tournament.
  *
- * Esta clase permite definir penalizaciones aplicables a jugadores o equipos
- * cuando incumplen las reglas del sistema.
+ * <p>This model defines penalties that can be applied to players or teams when
+ * they violate competition rules.</p>
  */
 public class SanctionModel {
 
     /**
-     * Descripción de la sanción
+     * Description of the sanction.
      */
     private String description;
 
     /**
-     * Penalización asociada a la sanción
+     * Penalty associated with the sanction.
      */
     private String penalty;
 
     /**
-     * Obtiene la descripción de la sanción.
+     * Returns the sanction description.
      *
-     * @return descripción
+     * @return sanction description
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Cambia la descripción de la sanción.
+     * Sets the sanction description.
      *
-     * @param description nueva descripción
+     * @param description new sanction description
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * Obtiene la penalización.
+     * Returns the associated penalty.
      *
-     * @return penalización
+     * @return sanction penalty
      */
     public String getPenalty() {
         return penalty;
     }
 
     /**
-     * Cambia la penalización.
+     * Sets the associated penalty.
      *
-     * @param penalty nueva penalización
+     * @param penalty new sanction penalty
      */
     public void setPenalty(String penalty) {
         this.penalty = penalty;
     }
 
     /**
-     * Verifica si la sanción es válida.
+     * Indicates whether the sanction is valid.
      *
-     * @return true si tiene descripción y penalización
+     * @return {@code true} if the sanction has both description and penalty
      */
     public boolean isValid() {
         return false;
     }
 
     /**
-     * Verifica si la sanción es grave.
+     * Indicates whether the sanction is severe.
      *
-     * @return true si implica una penalización severa
+     * @return {@code true} if the sanction implies a severe penalty
      */
     public boolean isSevere() {
         return false;
