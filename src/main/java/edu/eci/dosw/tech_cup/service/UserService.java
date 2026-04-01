@@ -75,9 +75,9 @@ public class UserService implements IUserService {
             throw new RuntimeException("Email already exists");
         }
 
-        // Validate userType against DB CHECK constraint
+
         if (user.getUserType() == null || user.getUserType().trim().isEmpty()) {
-            user.setUserType("student"); // default
+            user.setUserType("student");
         }
         String type = user.getUserType().trim().toLowerCase();
         if (!type.equals("student") && !type.equals("professor") && !type.equals("graduate")
@@ -86,6 +86,31 @@ public class UserService implements IUserService {
                     "Invalid user type. Allowed: student, professor, graduate, administrative, family");
         }
         user.setUserType(type);
+
+
+        String email = user.getEmail().trim().toLowerCase();
+        switch (type) {
+            case "student":
+            case "graduate":
+                if (!email.endsWith("@mail.escuelaing.edu.co")) {
+                    throw new RuntimeException(
+                            "Students and graduates must use institutional email (@mail.escuelaing.edu.co)");
+                }
+                break;
+            case "professor":
+            case "administrative":
+                if (!email.endsWith("@escuelaing.edu.co")) {
+                    throw new RuntimeException(
+                            "Staff must use institutional email (@escuelaing.edu.co)");
+                }
+                break;
+            case "family":
+                if (!email.endsWith("@gmail.com")) {
+                    throw new RuntimeException(
+                            "Family members must use a Gmail account (@gmail.com)");
+                }
+                break;
+        }
 
         UserEntity entity = userMapper.toEntity(user);
         entity.setStatus(true);

@@ -82,13 +82,13 @@ public class UserServiceTest {
     @Test
     void shouldCreateUser() {
         PlayerModel input = new PlayerModel();
-        input.setEmail("juan@mail.com");
+        input.setEmail("juan@mail.escuelaing.edu.co");
         input.setName("Juan");
 
-        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "Juan", true);
-        PlayerModel expectedModel = modelWith(1L, "juan@mail.com", "Juan", true);
+        UserEntity savedEntity = entityWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
+        PlayerModel expectedModel = modelWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
 
-        when(userRepository.existsByEmail("juan@mail.com")).thenReturn(false);
+        when(userRepository.existsByEmail("juan@mail.escuelaing.edu.co")).thenReturn(false);
         when(userMapper.toEntity(input)).thenReturn(savedEntity);
         when(userRepository.save(savedEntity)).thenReturn(savedEntity);
         when(userMapper.toModel(savedEntity)).thenReturn(expectedModel);
@@ -143,9 +143,9 @@ public class UserServiceTest {
     @Test
     void shouldFailCreateWhenEmailExists() {
         PlayerModel user = new PlayerModel();
-        user.setEmail("test@mail.com");
+        user.setEmail("test@mail.escuelaing.edu.co");
 
-        when(userRepository.existsByEmail("test@mail.com")).thenReturn(true);
+        when(userRepository.existsByEmail("test@mail.escuelaing.edu.co")).thenReturn(true);
 
         assertThrows(RuntimeException.class, () -> userService.createUser(user));
         verify(userRepository, never()).save(any());
@@ -157,8 +157,8 @@ public class UserServiceTest {
     @DisplayName("Should return user by id")
     @Test
     void shouldGetUserById() {
-        UserEntity entity = entityWith(1L, "juan@mail.com", "Juan", true);
-        PlayerModel model = modelWith(1L, "juan@mail.com", "Juan", true);
+        UserEntity entity = entityWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
+        PlayerModel model = modelWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
         when(userMapper.toModel(entity)).thenReturn(model);
@@ -186,10 +186,10 @@ public class UserServiceTest {
     @DisplayName("Should return all users")
     @Test
     void shouldGetAllUsers() {
-        UserEntity e1 = entityWith(1L, "a@mail.com", "Alice", true);
-        UserEntity e2 = entityWith(2L, "b@mail.com", "Bob", true);
-        PlayerModel m1 = modelWith(1L, "a@mail.com", "Alice", true);
-        PlayerModel m2 = modelWith(2L, "b@mail.com", "Bob", true);
+        UserEntity e1 = entityWith(1L, "a@mail.escuelaing.edu.co", "Alice", true);
+        UserEntity e2 = entityWith(2L, "b@mail.escuelaing.edu.co", "Bob", true);
+        PlayerModel m1 = modelWith(1L, "a@mail.escuelaing.edu.co", "Alice", true);
+        PlayerModel m2 = modelWith(2L, "b@mail.escuelaing.edu.co", "Bob", true);
 
         when(userRepository.findAll()).thenReturn(List.of(e1, e2));
         when(userMapper.toModel(e1)).thenReturn(m1);
@@ -217,9 +217,9 @@ public class UserServiceTest {
     @DisplayName("Should update user name")
     @Test
     void shouldUpdateUser() {
-        UserEntity existing = entityWith(1L, "juan@mail.com", "Old", true);
-        UserEntity savedEntity = entityWith(1L, "juan@mail.com", "New", true);
-        PlayerModel resultModel = modelWith(1L, "juan@mail.com", "New", true);
+        UserEntity existing = entityWith(1L, "juan@mail.escuelaing.edu.co", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "juan@mail.escuelaing.edu.co", "New", true);
+        PlayerModel resultModel = modelWith(1L, "juan@mail.escuelaing.edu.co", "New", true);
 
         PlayerModel updatedPayload = new PlayerModel();
         updatedPayload.setName("New");
@@ -265,9 +265,9 @@ public class UserServiceTest {
     @DisplayName("Should keep same id after update")
     @Test
     void shouldKeepSameId() {
-        UserEntity existing = entityWith(1L, "test@mail.com", "Old", true);
-        UserEntity savedEntity = entityWith(1L, "test@mail.com", "Updated", true);
-        PlayerModel resultModel = modelWith(1L, "test@mail.com", "Updated", true);
+        UserEntity existing = entityWith(1L, "test@mail.escuelaing.edu.co", "Old", true);
+        UserEntity savedEntity = entityWith(1L, "test@mail.escuelaing.edu.co", "Updated", true);
+        PlayerModel resultModel = modelWith(1L, "test@mail.escuelaing.edu.co", "Updated", true);
 
         PlayerModel updatedPayload = new PlayerModel();
         updatedPayload.setName("Updated");
@@ -287,8 +287,7 @@ public class UserServiceTest {
     @DisplayName("Should deactivate user")
     @Test
     void shouldDeactivateUser() {
-        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
-        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
+        UserEntity entity = entityWith(1L, "test@mail.escuelaing.edu.co", "Test", true);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
         when(userRepository.save(entity)).thenReturn(entity);
@@ -305,8 +304,8 @@ public class UserServiceTest {
     @DisplayName("Should keep user after deactivation")
     @Test
     void shouldKeepUserAfterDeactivate() {
-        UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
-        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
+        UserEntity entity = entityWith(1L, "test@mail.escuelaing.edu.co", "Test", true);
+        PlayerModel deactivatedModel = modelWith(1L, "test@mail.escuelaing.edu.co", "Test", false);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
         when(userRepository.save(entity)).thenReturn(entity);
