@@ -1,5 +1,7 @@
 package edu.eci.dosw.tech_cup.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 
 /**
@@ -51,7 +53,7 @@ public abstract class UserRoleModel {
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
+    @JsonIgnore
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
@@ -94,5 +96,6 @@ public abstract class UserRoleModel {
      *
      * @return {@code true} when the user is active; {@code false} otherwise
      */
+    @JsonIgnore
     public boolean isActive() { return status; }
 }
