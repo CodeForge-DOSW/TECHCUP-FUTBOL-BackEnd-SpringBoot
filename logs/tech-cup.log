@@ -3091,3 +3091,8 @@ Syntax error in SQL statement "\000d\000a    create table team_player (\000d\000
 2026-03-31T23:38:50.809-05:00  INFO 23580 --- [tech_cup] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2026-03-31T23:38:50.811-05:00  INFO 23580 --- [tech_cup] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2026-03-31T23:38:51.385-05:00  INFO 23580 --- [tech_cup] [http-nio-8080-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 352 ms
+2026-03-31T23:41:56.621-05:00  INFO 23580 --- [tech_cup] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-31T23:41:56.628-05:00  INFO 23580 --- [tech_cup] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-31T23:41:56.631-05:00  INFO 23580 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T23:41:56.634-05:00  INFO 23580 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-31T23:41:56.637-05:00  INFO 23580 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
