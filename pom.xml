@@ -114,6 +114,12 @@
 			<scope>test</scope>
 		</dependency>
 
+        <!-- Web security (filters, authentication/authorization, and baseline config). -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
 	</dependencies>
 
 	<!-- Compilation, quality, and coverage plugins. -->
