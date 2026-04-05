@@ -1858,3 +1858,45 @@ This generated password is for development use only. Your security configuration
 2026-04-05T18:22:32.431-05:00  INFO 33912 --- [tech_cup] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-04-05T18:22:32.435-05:00  INFO 33912 --- [tech_cup] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2026-04-05T18:22:32.457-05:00  INFO 33912 --- [tech_cup] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2026-04-05T18:25:57.595-05:00  INFO 33912 --- [tech_cup] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-05T18:25:57.696-05:00  INFO 33912 --- [tech_cup] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-04-05T18:25:57.797-05:00  INFO 33912 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-05T18:25:57.952-05:00  INFO 33912 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-05T18:26:00.196-05:00  INFO 33912 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-05T18:26:16.748-05:00  INFO 15228 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Starting TechCupApplication using Java 23.0.1 with PID 15228 (C:\Users\jsegu\Documents\2026\TECHCUP-FUTBOL-BackEnd-SpringBoot\target\classes started by jsegu in C:\Users\jsegu\Documents\2026\TECHCUP-FUTBOL-BackEnd-SpringBoot)
+2026-04-05T18:26:16.754-05:00  INFO 15228 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-04-05T18:26:18.084-05:00  INFO 15228 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-05T18:26:18.199-05:00  INFO 15228 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 4 JPA repository interfaces.
+2026-04-05T18:26:19.107-05:00  INFO 15228 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-04-05T18:26:19.143-05:00  INFO 15228 --- [tech_cup] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-05T18:26:19.144-05:00  INFO 15228 --- [tech_cup] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-04-05T18:26:19.306-05:00  INFO 15228 --- [tech_cup] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2444 ms
+2026-04-05T18:26:19.673-05:00  INFO 15228 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-05T18:26:19.794-05:00  INFO 15228 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-04-05T18:26:20.632-05:00  INFO 15228 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-05T18:26:20.695-05:00  INFO 15228 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-05T18:26:24.068-05:00  INFO 15228 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4aa517c3
+2026-04-05T18:26:24.071-05:00  INFO 15228 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-05T18:26:24.503-05:00  WARN 15228 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-05T18:26:25.309-05:00  INFO 15228 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://ep-quiet-lake-antvz9rv.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: neondb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-05T18:26:27.036-05:00  INFO 15228 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-05T18:26:28.264-05:00  INFO 15228 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-05T18:26:28.432-05:00  INFO 15228 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-05T18:26:29.082-05:00  WARN 15228 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-05T18:26:29.856-05:00  INFO 15228 --- [tech_cup] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-05T18:26:30.425-05:00  INFO 15228 --- [tech_cup] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-04-05T18:26:30.436-05:00  INFO 15228 --- [tech_cup] [main] e.eci.dosw.tech_cup.TechCupApplication   : Started TechCupApplication in 14.439 seconds (process running for 15.143)
+2026-04-05T18:26:37.168-05:00  INFO 15228 --- [tech_cup] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-05T18:26:37.169-05:00  INFO 15228 --- [tech_cup] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-05T18:26:37.171-05:00  INFO 15228 --- [tech_cup] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

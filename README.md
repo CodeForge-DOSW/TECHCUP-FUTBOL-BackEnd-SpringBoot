@@ -45,3 +45,6 @@
 
 7. Resultado de la solicitud de autenticación con el token JWT
 ![img_2.png](src/main/resources/docs/images/lab10/img_2.png)
+
+12. Resultado de la solicitud de autenticación con el token JWT configurado usuario y contraseña
+![img_3.png](src/main/resources/docs/images/lab10/img_3.png)
