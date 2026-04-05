@@ -43,3 +43,5 @@
 4. Request de Users en Postman solicitando usuario y contraseña
 ![img_1.png](src/main/resources/docs/images/lab10/img_1.png)
 
+7. Resultado de la solicitud de autenticación con el token JWT
+![img_2.png](src/main/resources/docs/images/lab10/img_2.png)
