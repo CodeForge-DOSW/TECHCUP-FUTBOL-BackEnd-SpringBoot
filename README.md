@@ -128,3 +128,14 @@ Representa equipos y define relaciones entre entidades.
 - Usuarios CRUD → UserEntity  
 - Torneos CRUD → TournamentEntity  
 - Relaciones entre entidades → TeamEntity  
+
+# Laboratorio-9
+
+## Parte-1
+
+### 1. Postman
+
+![img.png](img.png)
+
+
+
