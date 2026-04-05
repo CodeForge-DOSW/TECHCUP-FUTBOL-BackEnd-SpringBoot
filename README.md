@@ -32,11 +32,14 @@
 
 # Laboratorio-9
 
-## Parte-1
+## Parte 1
 
-### 1. Postman
+1. Postman
 
-![img.png](img.png)
+![img.png](src/main/resources/docs/images/lab10/img.png)
 
+## Parte 2
 
+4. Request de Users en Postman solicitando usuario y contraseña
+![img_1.png](src/main/resources/docs/images/lab10/img_1.png)
 
