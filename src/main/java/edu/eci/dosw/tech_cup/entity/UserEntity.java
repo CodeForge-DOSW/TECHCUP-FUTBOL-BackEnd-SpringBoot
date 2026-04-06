@@ -3,8 +3,9 @@ package edu.eci.dosw.tech_cup.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Base JPA entity for users registered in the platform.
@@ -89,6 +90,19 @@ public class UserEntity {
     private Boolean status = true;
 
     /**
+     * Set of roles assigned to this user.
+     * Owns the join table {@code user_roles} with columns
+     * {@code user_id} and {@code role_id}.
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleEntity> roles = new HashSet<>();
+
+    /**
      * Creates an empty user entity required by JPA.
      */
     public UserEntity() {}
@@ -96,13 +110,13 @@ public class UserEntity {
     /**
      * Creates a user with the common required profile information.
      *
-     * @param firstName user first name
-     * @param lastName user last name
-     * @param email unique email address
-     * @param passwordUser password stored for authentication
+     * @param firstName      user first name
+     * @param lastName       user last name
+     * @param email          unique email address
+     * @param passwordUser   password stored for authentication
      * @param identification identification value
-     * @param dateBirth birth date
-     * @param gender gender value
+     * @param dateBirth      birth date
+     * @param gender         gender value
      */
     public UserEntity(String firstName, String lastName, String email,
                       String passwordUser, String identification,
@@ -118,20 +132,6 @@ public class UserEntity {
     }
 
     /**
-     * Returns the user type (student, professor, graduate, administrative, family).
-     *
-     * @return user type value
-     */
-    public String getUserType() { return userType; }
-
-    /**
-     * Updates the user type.
-     *
-     * @param userType new user type value
-     */
-    public void setUserType(String userType) { this.userType = userType; }
-
-    /**
      * Returns the user identifier.
      *
      * @return persisted user id
@@ -144,6 +144,20 @@ public class UserEntity {
      * @param userId new user id
      */
     public void setUserId(Long userId) { this.userId = userId; }
+
+    /**
+     * Returns the user type (student, professor, graduate, administrative, family).
+     *
+     * @return user type value
+     */
+    public String getUserType() { return userType; }
+
+    /**
+     * Updates the user type.
+     *
+     * @param userType new user type value
+     */
+    public void setUserType(String userType) { this.userType = userType; }
 
     /**
      * Returns the user's first name.
@@ -256,4 +270,18 @@ public class UserEntity {
      * @param status new active flag
      */
     public void setStatus(Boolean status) { this.status = status; }
+
+    /**
+     * Returns the set of roles assigned to this user.
+     *
+     * @return set of roles
+     */
+    public Set<RoleEntity> getRoles() { return roles; }
+
+    /**
+     * Updates the set of roles assigned to this user.
+     *
+     * @param roles new set of roles
+     */
+    public void setRoles(Set<RoleEntity> roles) { this.roles = roles; }
 }
