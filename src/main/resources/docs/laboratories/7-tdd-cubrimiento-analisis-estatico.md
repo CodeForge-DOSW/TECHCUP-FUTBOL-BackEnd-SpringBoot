@@ -1,12 +1,14 @@
-# 🧠 README – GUÍA PRÁCTICA PARA PARCIAL (TDD, TESTING, COBERTURA, SONAR)
+# LABORATORIO 7: TDD - CUBRIMIENTO - ANÁLISIS ESTÁTICO
+
+## Procedimientos
 
 Basado en los temas del laboratorio
 
 ---
 
-# 🧪 1. CÓMO HACER PRUEBAS UNITARIAS (JUNIT 5)
+### CÓMO HACER PRUEBAS UNITARIAS (JUNIT 5)
 
-## 📌 Estructura básica
+#### Estructura básica
 
 ```java
 class NombreClaseTest {
@@ -24,7 +26,7 @@ class NombreClaseTest {
 
 ---
 
-## ⚙️ Flujo real al escribir una prueba
+### ⚙️ Flujo real al escribir una prueba
 
 1. Crear objetos necesarios
 2. Ejecutar el método que quieres probar
@@ -32,7 +34,7 @@ class NombreClaseTest {
 
 ---
 
-## 🧩 Asserts más usados
+### 🧩 Asserts más usados
 
 ```java
 assertEquals(esperado, obtenido);
@@ -44,7 +46,7 @@ assertNull(objeto);
 
 ---
 
-## 🎯 Qué debes probar SIEMPRE
+### Qué debes probar SIEMPRE
 
 * Casos normales (funciona bien)
 * Casos borde (valores límite)
@@ -53,7 +55,7 @@ assertNull(objeto);
 
 ---
 
-## ⚠️ Tips clave de parcial
+### Tips clave de parcial
 
 * El nombre del test describe el comportamiento
 * Un test = una sola cosa
@@ -61,9 +63,9 @@ assertNull(objeto);
 
 ---
 
-# 🔁 2. CÓMO APLICAR TDD (TEST DRIVEN DEVELOPMENT)
+## CÓMO APLICAR TDD (TEST DRIVEN DEVELOPMENT)
 
-## 🔄 Ciclo TDD
+### Ciclo TDD
 
 1. 🔴 Escribir test (falla)
 2. 🟢 Hacer código mínimo (pasa)
@@ -71,7 +73,7 @@ assertNull(objeto);
 
 ---
 
-## 📌 Cómo hacerlo en práctica
+### Cómo hacerlo en práctica
 
 1. Lees el método que debes implementar
 2. Escribes un test basado en esa descripción
@@ -81,7 +83,7 @@ assertNull(objeto);
 
 ---
 
-## 🎯 En el parcial
+### En el parcial
 
 * Primero piensas en **condiciones**
 * Luego haces tests para cada condición
@@ -89,16 +91,16 @@ assertNull(objeto);
 
 ---
 
-# 📊 3. CÓMO GENERAR COBERTURA (JACOCO)
+## CÓMO GENERAR COBERTURA (JACOCO)
 
-## 📌 Qué es lo importante
+### Qué es lo importante
 
 * Mide qué tanto código cubren tus pruebas
 * Se ejecuta automáticamente con Maven
 
 ---
 
-## ⚙️ Cómo usarlo
+### Cómo usarlo
 
 ```bash
 mvn test
@@ -106,7 +108,7 @@ mvn test
 
 ---
 
-## 📁 Dónde ver resultados
+### Dónde ver resultados
 
 ```id="2b6h8m"
 target/site/jacoco/index.html
@@ -114,7 +116,7 @@ target/site/jacoco/index.html
 
 ---
 
-## 📊 Qué debes mirar
+### Qué debes mirar
 
 * % cobertura total
 * Cobertura por clase
@@ -122,7 +124,7 @@ target/site/jacoco/index.html
 
 ---
 
-## 🎯 Cómo subir la cobertura
+### Cómo subir la cobertura
 
 * Crear más pruebas
 * Cubrir:
@@ -134,16 +136,16 @@ target/site/jacoco/index.html
 
 ---
 
-## ⚠️ Regla típica
+### Regla típica
 
 * Mínimo: 80%
 * Ideal: >85%
 
 ---
 
-# 🔍 4. CÓMO HACER ANÁLISIS ESTÁTICO (SONARQUBE)
+## CÓMO HACER ANÁLISIS ESTÁTICO (SONARQUBE)
 
-## 📌 Qué hace
+### Qué hace
 
 * Detecta errores
 * Code smells
@@ -152,7 +154,7 @@ target/site/jacoco/index.html
 
 ---
 
-## ⚙️ Flujo práctico
+### Flujo práctico
 
 1. Tener Sonar corriendo
 2. Tener token
@@ -164,7 +166,7 @@ mvn verify sonar:sonar -Dsonar.token=TOKEN
 
 ---
 
-## 📊 Qué revisar en Sonar
+### Qué revisar en Sonar
 
 * Bugs
 * Vulnerabilities
@@ -174,75 +176,16 @@ mvn verify sonar:sonar -Dsonar.token=TOKEN
 
 ---
 
-## 🎯 Qué te pueden pedir en parcial
+### Qué te pueden pedir en parcial
 
 * Ejecutar análisis
 * Interpretar resultados
 * Corregir código
 
----
-
-# 📦 5. CÓMO MANEJAR DEPENDENCIAS (MAVEN)
-
-## 📌 Agregar dependencia
-
-```xml
-<dependency>
-    <groupId>...</groupId>
-    <artifactId>...</artifactId>
-    <version>...</version>
-</dependency>
-```
 
 ---
 
-## ⚙️ Comandos clave
-
-```bash
-mvn clean
-mvn compile
-mvn test
-mvn package
-```
-
----
-
-## 🎯 Tip importante
-
-* Si algo falla → `mvn clean install`
-
----
-
-# 🌿 6. CÓMO TRABAJAR CON RAMAS (GIT)
-
-## 📌 Flujo básico
-
-```bash
-git checkout -b feature/nombre
-git add .
-git commit -m "mensaje"
-git push origin feature/nombre
-```
-
----
-
-## 🔀 Pull Request
-
-* De `feature` → `develop`
-* Otro revisa
-* Luego merge
-
----
-
-## 🎯 Buenas prácticas
-
-* 1 feature = 1 rama
-* Commits claros
-* No trabajar en main
-
----
-
-# 🧠 7. CÓMO PENSAR CASOS DE PRUEBA (CLAVE)
+## CÓMO PENSAR CASOS DE PRUEBA (CLAVE)
 
 Cuando veas un método:
 
@@ -255,7 +198,7 @@ Cuando veas un método:
 
 ---
 
-## 📌 Plantilla mental
+### Plantilla mental
 
 ```id="kzbx3c"
 caso_exitoso
@@ -266,7 +209,7 @@ caso_regla_negocio
 
 ---
 
-# 🧠 RESUMEN ULTRA RÁPIDO (PARA EL PARCIAL)
+## RESUMEN ULTRA RÁPIDO (PARA EL PARCIAL)
 
 * Tests = Arrange + Act + Assert
 * TDD = test → código → refactor
