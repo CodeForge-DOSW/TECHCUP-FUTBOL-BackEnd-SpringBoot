@@ -148,20 +148,27 @@ public class UserService implements IUserService {
 
     @Override
     public void assignRole(Long targetUserId, String newRole, Long adminUserId) {
+        if (newRole == null || newRole.trim().isEmpty()) {
+            throw new RuntimeException("Role cannot be empty");
+        }
+        String normalizedRole = newRole.trim().toUpperCase();
+        if (!normalizedRole.equals("PLAYER") && !normalizedRole.equals("ADMIN")
+                && !normalizedRole.equals("ORGANIZER") && !normalizedRole.equals("REFEREE")) {
+            throw new RuntimeException("Invalid role. Allowed values: PLAYER, ADMIN, ORGANIZER, REFEREE");
+        }
+
         UserEntity admin = userRepository.findById(adminUserId)
                 .orElseThrow(() -> new NotFoundException("Admin user not found"));
 
-        PlayerModel adminModel = userMapper.toModel(admin);
-        if (!"ADMIN".equalsIgnoreCase(adminModel.getRole())) {
+        if (!"ADMIN".equalsIgnoreCase(admin.getRole())) {
             throw new RuntimeException("Only administrators can assign roles");
         }
 
         UserEntity target = userRepository.findById(targetUserId)
                 .orElseThrow(() -> new NotFoundException("Target user not found"));
 
-        PlayerModel targetModel = userMapper.toModel(target);
-        targetModel.setRole(newRole.toUpperCase());
-        userRepository.save(userMapper.toEntity(targetModel));
-        log.info("Role {} assigned to user {} by admin {}", newRole, targetUserId, adminUserId);
+        target.setRole(normalizedRole);
+        userRepository.save(target);
+        log.info("Role {} assigned to user {} by admin {}", normalizedRole, targetUserId, adminUserId);
     }
 }

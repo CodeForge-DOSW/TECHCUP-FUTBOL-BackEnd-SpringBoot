@@ -46,6 +46,7 @@ public class UserServiceTest {
         e.setEmail(email);
         e.setFirstName(name);
         e.setStatus(active);
+        e.setRole("PLAYER");
         return e;
     }
 
@@ -410,11 +411,9 @@ public class UserServiceTest {
     @Test
     void shouldThrowWhenCallerIsNotAdmin() {
         UserEntity nonAdminEntity = entityWith(2L, "user@mail.com", "User", true);
-        PlayerModel nonAdminModel = modelWith(2L, "user@mail.com", "User", true);
-        nonAdminModel.setRole("PLAYER");
+        nonAdminEntity.setRole("PLAYER");
 
         when(userRepository.findById(2L)).thenReturn(Optional.of(nonAdminEntity));
-        when(userMapper.toModel(nonAdminEntity)).thenReturn(nonAdminModel);
 
         assertThrows(RuntimeException.class,
                 () -> userService.assignRole(1L, "ORGANIZER", 2L));
@@ -424,11 +423,9 @@ public class UserServiceTest {
     @Test
     void shouldThrowNotFoundWhenTargetUserNotFound() {
         UserEntity adminEntity = entityWith(1L, "admin@mail.com", "Admin", true);
-        PlayerModel adminModel = modelWith(1L, "admin@mail.com", "Admin", true);
-        adminModel.setRole("ADMIN");
+        adminEntity.setRole("ADMIN");
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(adminEntity));
-        when(userMapper.toModel(adminEntity)).thenReturn(adminModel);
         when(userRepository.findById(999L)).thenReturn(Optional.empty());
 
         assertThrows(NotFoundException.class,
