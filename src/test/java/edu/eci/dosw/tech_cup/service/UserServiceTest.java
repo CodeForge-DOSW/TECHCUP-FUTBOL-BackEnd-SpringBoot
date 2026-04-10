@@ -1,6 +1,7 @@
 package edu.eci.dosw.tech_cup.service;
 
 import edu.eci.dosw.tech_cup.entity.UserEntity;
+import edu.eci.dosw.tech_cup.exception.NotFoundException;
 import edu.eci.dosw.tech_cup.mapper.UserMapper;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
@@ -45,6 +46,7 @@ public class UserServiceTest {
         e.setEmail(email);
         e.setFirstName(name);
         e.setStatus(active);
+        e.setRole("PLAYER");
         return e;
     }
 
@@ -253,6 +255,14 @@ public class UserServiceTest {
         assertFalse(entity.getStatus());
     }
 
+    @DisplayName("Should throw NotFoundException when deactivating non-existing user")
+    @Test
+    void shouldThrowNotFoundWhenDeactivatingNonExistingUser() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> userService.deactivateUser(999L));
+    }
+
     @DisplayName("Should keep user after deactivation")
     @Test
     void shouldKeepUserAfterDeactivate() {
@@ -270,5 +280,155 @@ public class UserServiceTest {
 
         assertEquals(1, users.size());
         assertFalse(users.get(0).isActive());
+    }
+
+    // ─── authenticate ───────────────────────────────────────────────────────
+
+    @DisplayName("Should authenticate successfully with valid credentials")
+    @Test
+    void shouldAuthenticateSuccessfully() {
+        UserEntity entity = entityWith(1L, "user@mail.com", "User", true);
+        entity.setPasswordUser("secret");
+        entity.setStatus(true);
+
+        when(userRepository.findByEmail("user@mail.com")).thenReturn(Optional.of(entity));
+
+        assertDoesNotThrow(() -> userService.authenticate("user@mail.com", "secret"));
+    }
+
+    @DisplayName("Should throw exception when authenticating with null email")
+    @Test
+    void shouldFailAuthenticateWhenEmailIsNull() {
+        assertThrows(RuntimeException.class, () -> userService.authenticate(null, "pass"));
+        verifyNoInteractions(userRepository);
+    }
+
+    @DisplayName("Should throw exception when authenticating with blank email")
+    @Test
+    void shouldFailAuthenticateWhenEmailIsBlank() {
+        assertThrows(RuntimeException.class, () -> userService.authenticate("  ", "pass"));
+        verifyNoInteractions(userRepository);
+    }
+
+    @DisplayName("Should throw exception when authenticating with null password")
+    @Test
+    void shouldFailAuthenticateWhenPasswordIsNull() {
+        assertThrows(RuntimeException.class, () -> userService.authenticate("user@mail.com", null));
+        verifyNoInteractions(userRepository);
+    }
+
+    @DisplayName("Should throw exception when user not found during authentication")
+    @Test
+    void shouldFailAuthenticateWhenUserNotFound() {
+        when(userRepository.findByEmail("ghost@mail.com")).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class,
+                () -> userService.authenticate("ghost@mail.com", "pass"));
+    }
+
+    @DisplayName("Should throw exception when password is wrong during authentication")
+    @Test
+    void shouldFailAuthenticateWhenPasswordIsWrong() {
+        UserEntity entity = entityWith(1L, "user@mail.com", "User", true);
+        entity.setPasswordUser("correct");
+        entity.setStatus(true);
+
+        when(userRepository.findByEmail("user@mail.com")).thenReturn(Optional.of(entity));
+
+        assertThrows(RuntimeException.class,
+                () -> userService.authenticate("user@mail.com", "wrong"));
+    }
+
+    @DisplayName("Should throw exception when account is inactive during authentication")
+    @Test
+    void shouldFailAuthenticateWhenAccountIsInactive() {
+        UserEntity entity = entityWith(1L, "user@mail.com", "User", false);
+        entity.setPasswordUser("secret");
+        entity.setStatus(false);
+
+        when(userRepository.findByEmail("user@mail.com")).thenReturn(Optional.of(entity));
+
+        assertThrows(RuntimeException.class,
+                () -> userService.authenticate("user@mail.com", "secret"));
+    }
+
+    // ─── createUser - role enforcement ─────────────────────────────────────
+
+    @DisplayName("Should assign PLAYER role by default when creating a user")
+    @Test
+    void shouldAssignPlayerRoleByDefault() {
+        PlayerModel input = new PlayerModel();
+        input.setEmail("player@mail.com");
+        input.setName("Player");
+
+        UserEntity savedEntity = entityWith(1L, "player@mail.com", "Player", true);
+        PlayerModel expectedModel = modelWith(1L, "player@mail.com", "Player", true);
+
+        when(userRepository.existsByEmail("player@mail.com")).thenReturn(false);
+        when(userMapper.toEntity(any())).thenReturn(savedEntity);
+        when(userRepository.save(savedEntity)).thenReturn(savedEntity);
+        when(userMapper.toModel(savedEntity)).thenReturn(expectedModel);
+
+        userService.createUser(input);
+
+        assertEquals("PLAYER", input.getRole());
+    }
+
+    // ─── getUser / updateUser - NotFoundException ───────────────────────────
+
+    @DisplayName("Should throw NotFoundException when user not found by id")
+    @Test
+    void shouldThrowNotFoundWhenUserNotFoundById() {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> userService.getUser(999L));
+    }
+
+    @DisplayName("Should throw NotFoundException when updating non-existing user")
+    @Test
+    void shouldThrowNotFoundWhenUpdatingNonExistingUser() {
+        PlayerModel updatedPayload = new PlayerModel();
+        updatedPayload.setName("Test");
+
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class,
+                () -> userService.updateUser(999L, updatedPayload));
+    }
+
+    // ─── assignRole ─────────────────────────────────────────────────────────
+
+    @DisplayName("Should throw NotFoundException when admin user not found in assignRole")
+    @Test
+    void shouldThrowNotFoundWhenAdminNotFound() {
+        when(userRepository.findById(99L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class,
+                () -> userService.assignRole(1L, "ORGANIZER", 99L));
+    }
+
+    @DisplayName("Should throw exception when caller is not admin in assignRole")
+    @Test
+    void shouldThrowWhenCallerIsNotAdmin() {
+        UserEntity nonAdminEntity = entityWith(2L, "user@mail.com", "User", true);
+        nonAdminEntity.setRole("PLAYER");
+
+        when(userRepository.findById(2L)).thenReturn(Optional.of(nonAdminEntity));
+
+        assertThrows(RuntimeException.class,
+                () -> userService.assignRole(1L, "ORGANIZER", 2L));
+    }
+
+    @DisplayName("Should throw NotFoundException when target user not found in assignRole")
+    @Test
+    void shouldThrowNotFoundWhenTargetUserNotFound() {
+        UserEntity adminEntity = entityWith(1L, "admin@mail.com", "Admin", true);
+        adminEntity.setRole("ADMIN");
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(adminEntity));
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class,
+                () -> userService.assignRole(999L, "ORGANIZER", 1L));
     }
 }

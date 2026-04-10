@@ -45,6 +45,9 @@ public abstract class UserRoleModel {
     /** Género */
     protected String gender;
 
+    /** Rol del usuario en el sistema (e.g. PLAYER, ADMIN, ORGANIZER, REFEREE) */
+    protected String role;
+
     // ===================== GETTERS & SETTERS =====================
 
     public Long getId() { return id; }
@@ -76,6 +79,9 @@ public abstract class UserRoleModel {
 
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     // ===================== MÉTODOS DE DOMINIO =====================
 

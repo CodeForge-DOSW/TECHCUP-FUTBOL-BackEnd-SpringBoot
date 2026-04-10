@@ -1,5 +1,6 @@
 package edu.eci.dosw.tech_cup.controller;
 
+import edu.eci.dosw.tech_cup.exception.NotFoundException;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.service.IUserService;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -88,7 +90,7 @@ public class UserController {
      *
      * @param id   unique user identifier
      * @param user payload containing updated user data
-     * @return 200 with the updated user; 400 with an error message when the update is invalid
+     * @return 200 with the updated user; 404 when user not found; 400 when update data is invalid
      */
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar usuario", description = "Actualiza la informacion de un usuario existente")
@@ -96,6 +98,8 @@ public class UserController {
         try {
             PlayerModel updated = userService.updateUser(id, user);
             return ResponseEntity.ok(updated);
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
@@ -113,8 +117,31 @@ public class UserController {
         try {
             userService.deactivateUser(id);
             return ResponseEntity.ok("User deactivated");
-        } catch (RuntimeException e) {
+        } catch (NotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Assigns a role to a user. Only administrators can call this endpoint.
+     *
+     * @param id          unique identifier of the target user
+     * @param role        new role to assign (PLAYER, ADMIN, ORGANIZER, REFEREE)
+     * @param adminUserId identifier of the administrator performing the operation
+     * @return 200 on success; 404 when a user is not found; 400 when the caller is not an admin
+     */
+    @PutMapping("/{id}/role")
+    @Operation(summary = "Asignar rol", description = "Asigna un rol a un usuario. Solo los administradores pueden realizar esta operación.")
+    public ResponseEntity<?> assignRole(@PathVariable Long id,
+                                        @RequestParam String role,
+                                        @RequestParam Long adminUserId) {
+        try {
+            userService.assignRole(id, role, adminUserId);
+            return ResponseEntity.ok("Role assigned successfully");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 }

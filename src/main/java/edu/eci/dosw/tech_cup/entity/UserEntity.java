@@ -82,6 +82,12 @@ public class UserEntity {
     private Boolean status = true;
 
     /**
+     * Role of the user in the system (e.g. PLAYER, ADMIN, ORGANIZER, REFEREE).
+     */
+    @Column(name = "role", length = 20)
+    private String role = "PLAYER";
+
+    /**
      * Creates an empty user entity required by JPA.
      */
     public UserEntity() {}
@@ -235,4 +241,18 @@ public class UserEntity {
      * @param status new active flag
      */
     public void setStatus(Boolean status) { this.status = status; }
+
+    /**
+     * Returns the user's role.
+     *
+     * @return role value
+     */
+    public String getRole() { return role; }
+
+    /**
+     * Updates the user's role.
+     *
+     * @param role new role value
+     */
+    public void setRole(String role) { this.role = role; }
 }

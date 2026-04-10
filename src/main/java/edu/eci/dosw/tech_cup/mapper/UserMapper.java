@@ -26,6 +26,7 @@ public interface UserMapper {
 
     @Mapping(source = "userId",       target = "id")
     @Mapping(source = "passwordUser", target = "password")
+    @Mapping(source = "role",               target = "role")
     @Mapping(target = "name",               ignore = true)
     @Mapping(target = "available",          ignore = true)
     @Mapping(target = "preferredPositions", ignore = true)
@@ -35,5 +36,6 @@ public interface UserMapper {
 
     @Mapping(source = "id",       target = "userId")
     @Mapping(source = "password", target = "passwordUser")
+    @Mapping(source = "role",     target = "role")
     UserEntity toEntity(PlayerModel model);
 }
