@@ -1,6 +1,7 @@
 package edu.eci.dosw.tech_cup.service;
 
 import edu.eci.dosw.tech_cup.entity.TournamentEntity;
+import edu.eci.dosw.tech_cup.exception.NotFoundException;
 import edu.eci.dosw.tech_cup.mapper.TournamentMapper;
 import edu.eci.dosw.tech_cup.model.TournamentModel;
 import edu.eci.dosw.tech_cup.model.TournamentStatusModel;
@@ -75,7 +76,7 @@ public class TournamentService implements ITournamentService {
     @Override
     public TournamentModel getTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+                .orElseThrow(() -> new NotFoundException("Tournament not found"));
         return tournamentMapper.toModel(entity);
     }
 
@@ -94,7 +95,7 @@ public class TournamentService implements ITournamentService {
         }
 
         TournamentEntity existing = tournamentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+                .orElseThrow(() -> new NotFoundException("Tournament not found"));
 
         TournamentStatusModel currentStatus =
                 TournamentStatusModel.valueOf(existing.getStatus().toUpperCase());
@@ -138,7 +139,7 @@ public class TournamentService implements ITournamentService {
     @Override
     public void cancelTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+                .orElseThrow(() -> new NotFoundException("Tournament not found"));
 
         TournamentStatusModel status =
                 TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());
@@ -153,7 +154,7 @@ public class TournamentService implements ITournamentService {
     @Override
     public void startTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+                .orElseThrow(() -> new NotFoundException("Tournament not found"));
 
         TournamentStatusModel status =
                 TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());
@@ -173,7 +174,7 @@ public class TournamentService implements ITournamentService {
     @Override
     public void finishTournament(Long id) {
         TournamentEntity entity = tournamentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tournament not found"));
+                .orElseThrow(() -> new NotFoundException("Tournament not found"));
 
         TournamentStatusModel status =
                 TournamentStatusModel.valueOf(entity.getStatus().toUpperCase());

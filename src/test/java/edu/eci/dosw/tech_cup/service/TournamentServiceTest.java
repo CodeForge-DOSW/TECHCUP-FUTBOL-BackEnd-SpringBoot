@@ -1,6 +1,7 @@
 package edu.eci.dosw.tech_cup.service;
 
 import edu.eci.dosw.tech_cup.entity.TournamentEntity;
+import edu.eci.dosw.tech_cup.exception.NotFoundException;
 import edu.eci.dosw.tech_cup.mapper.TournamentMapper;
 import edu.eci.dosw.tech_cup.model.TournamentModel;
 import edu.eci.dosw.tech_cup.model.TournamentStatusModel;
@@ -349,5 +350,68 @@ public class TournamentServiceTest {
 
         TournamentModel result = tournamentService.getTournament(1L);
         assertTrue(result.isRunning());
+    }
+
+    // ─── NotFoundException scenarios ────────────────────────────────────────
+
+    @DisplayName("Should throw NotFoundException when getting non-existing tournament")
+    @Test
+    void shouldThrowNotFoundWhenGettingNonExistingTournament() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> tournamentService.getTournament(999L));
+    }
+
+    @DisplayName("Should throw NotFoundException when updating non-existing tournament")
+    @Test
+    void shouldThrowNotFoundWhenUpdatingNonExistingTournament() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class,
+                () -> tournamentService.updateTournament(999L, buildValidTournament("X")));
+    }
+
+    @DisplayName("Should throw NotFoundException when cancelling non-existing tournament")
+    @Test
+    void shouldThrowNotFoundWhenCancellingNonExistingTournament() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> tournamentService.cancelTournament(999L));
+    }
+
+    @DisplayName("Should throw NotFoundException when starting non-existing tournament")
+    @Test
+    void shouldThrowNotFoundWhenStartingNonExistingTournament() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> tournamentService.startTournament(999L));
+    }
+
+    @DisplayName("Should throw NotFoundException when finishing non-existing tournament")
+    @Test
+    void shouldThrowNotFoundWhenFinishingNonExistingTournament() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> tournamentService.finishTournament(999L));
+    }
+
+    @DisplayName("Should throw exception when cancelling a non-DRAFT tournament")
+    @Test
+    void shouldThrowWhenCancellingNonDraftTournament() {
+        TournamentEntity entity = entityWith(1L, "ActiveCup", "active");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(entity));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.cancelTournament(1L));
+    }
+
+    @DisplayName("Should throw exception when finishing a tournament not IN_PROGRESS")
+    @Test
+    void shouldThrowWhenFinishingNonInProgressTournament() {
+        TournamentEntity entity = entityWith(1L, "DraftCup", "draft");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(entity));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.finishTournament(1L));
     }
 }

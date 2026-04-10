@@ -1,5 +1,6 @@
 package edu.eci.dosw.tech_cup.controller;
 
+import edu.eci.dosw.tech_cup.exception.NotFoundException;
 import edu.eci.dosw.tech_cup.model.TournamentModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -82,7 +83,7 @@ public class TournamentController {
     public ResponseEntity<?> getTournament(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(tournamentService.getTournament(id));
-        } catch (RuntimeException e) {
+        } catch (NotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
@@ -92,7 +93,7 @@ public class TournamentController {
      *
      * @param id unique tournament identifier
      * @param tournament payload containing updated tournament data
-     * @return 200 with the updated tournament; 400 with an error message when the update is invalid
+     * @return 200 with the updated tournament; 404 when not found; 400 when the update is invalid
      */
     @PutMapping("/{id}")
     @Operation(summary = "Update tournament", description = "Updates information for an existing tournament")
@@ -101,6 +102,8 @@ public class TournamentController {
         try {
             TournamentModel updated = tournamentService.updateTournament(id, tournament);
             return ResponseEntity.ok(updated);
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
@@ -110,7 +113,7 @@ public class TournamentController {
      * Cancels a tournament.
      *
      * @param id unique tournament identifier
-     * @return 204 No Content when cancellation succeeds; 400 with an error message when it fails
+     * @return 204 No Content when cancellation succeeds; 404 when not found; 400 when it cannot be cancelled
      */
     @DeleteMapping("/{id}")
     @Operation(summary = "Cancel tournament", description = "Cancels an existing tournament")
@@ -118,6 +121,8 @@ public class TournamentController {
         try {
             tournamentService.cancelTournament(id);
             return ResponseEntity.noContent().build();
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
@@ -127,7 +132,7 @@ public class TournamentController {
      * Transitions a tournament to the started state.
      *
      * @param id unique tournament identifier
-     * @return 200 with the updated tournament when successful; 400 with an error message when it fails
+     * @return 200 with the updated tournament when successful; 404 when not found; 400 when it fails
      */
     @PutMapping("/{id}/start")
     @Operation(summary = "Start tournament", description = "Transitions the tournament to the started state")
@@ -135,6 +140,8 @@ public class TournamentController {
         try {
             tournamentService.startTournament(id);
             return ResponseEntity.ok("Tournament started");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
@@ -144,7 +151,7 @@ public class TournamentController {
      * Transitions a tournament to the finished state.
      *
      * @param id unique tournament identifier
-     * @return 200 with the updated tournament when successful; 400 with an error message when it fails
+     * @return 200 with the updated tournament when successful; 404 when not found; 400 when it fails
      */
     @PutMapping("/{id}/finish")
     @Operation(summary = "Finish tournament", description = "Transitions the tournament to the finished state")
@@ -152,6 +159,8 @@ public class TournamentController {
         try {
             tournamentService.finishTournament(id);
             return ResponseEntity.ok("Tournament finished");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }

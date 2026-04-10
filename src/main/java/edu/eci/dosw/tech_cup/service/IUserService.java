@@ -68,4 +68,15 @@ public interface IUserService {
      * @throws RuntimeException si las credenciales son inválidas o la cuenta está inactiva
      */
     void authenticate(String email, String password);
+
+    /**
+     * Asigna un rol a un usuario. Solo puede ser ejecutado por un administrador.
+     *
+     * @param targetUserId identificador del usuario al que se asignará el rol
+     * @param newRole      nuevo rol a asignar (e.g. "PLAYER", "ADMIN", "ORGANIZER", "REFEREE")
+     * @param adminUserId  identificador del usuario administrador que realiza la operación
+     * @throws edu.eci.dosw.tech_cup.exception.NotFoundException si alguno de los usuarios no existe
+     * @throws RuntimeException si el usuario solicitante no tiene rol de administrador
+     */
+    void assignRole(Long targetUserId, String newRole, Long adminUserId);
 }
