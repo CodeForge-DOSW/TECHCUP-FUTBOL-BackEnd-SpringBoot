@@ -421,7 +421,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **ID** | [SCRUM-30](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-30) |
 | **Título** | Modelar entidad Torneo en base de datos |
 | **ID de la Historia de Uso asociada** | SCRUM-26 |
-| **Descripción** | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos. |
+| **Descripción** | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos |
 | **Tareas requisito** | - |
 
 #### TR-02
@@ -430,19 +430,19 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ----- | ----------- |
 | **ID** | [SCRUM-31](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-31) |
 | **Título** | Crear repositorio para gestión de torneos |
-| **ID de la Historia de Uso asociada** | HU-01 |
-| **Descripción** | Implementar la capa de acceso a datos que permita almacenar y consultar torneos en la base de datos. |
-| **Tareas requisito** | TR-01 |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Implementar la capa de acceso a datos que permita almacenar y consultar torneos en la base de datos |
+| **Tareas requisito** | SCRUM-30 |
 
 
 
-| Campo                                 | Descripción                                                                               |
-| ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **ID**                                | TR-03                                                                                     |
-| **Título**                            | Implementar servicio de creación de torneos                                               |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                     |
-| **Descripción**                       | Desarrollar la lógica de negocio que permita registrar nuevos torneos dentro del sistema. |
-| **Tareas requisito**                  | TR-02                                                                                     |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-32](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-32) |
+| **Título** | Implementar servicio de creación de torneos |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Desarrollar la lógica de negocio que permita registrar nuevos torneos dentro del sistema |
+| **Tareas requisito** | SCRUM-31 |
 
 
 | Campo                                 | Descripción                                                                                              |
