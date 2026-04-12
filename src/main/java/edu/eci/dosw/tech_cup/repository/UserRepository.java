@@ -18,9 +18,9 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
      * Used for authentication and duplicate email validation.
      *
      * @param email the email address to search
-     * @return an Optional containing the user if found, empty otherwise
+     * @return the user if found, null otherwise
      */
-    Optional<UserEntity> findByEmail(String email);
+    UserEntity findByEmail(String email);
 
     /**
      * Finds a user by their identification document.

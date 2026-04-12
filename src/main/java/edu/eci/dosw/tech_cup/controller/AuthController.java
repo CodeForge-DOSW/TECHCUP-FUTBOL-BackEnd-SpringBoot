@@ -1,63 +1,60 @@
 package edu.eci.dosw.tech_cup.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import edu.eci.dosw.tech_cup.dto.LoginRequest;
-import edu.eci.dosw.tech_cup.service.IUserService;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import edu.eci.dosw.tech_cup.model.AuthRequest;
+import edu.eci.dosw.tech_cup.model.AuthResponse;
+import edu.eci.dosw.tech_cup.service.JwtService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
 /**
- * REST controller for authentication-related endpoints.
- *
- * <p>This controller currently exposes login functionality and delegates
- * credential validation to {@link IUserService}.</p>
+ * REST controller for authentication-related endpoints using JWT.
  */
 @RestController
-@RequestMapping("/api/auth")
-@Tag(name = "Authentication", description = "Endpoints for user authentication.")
+@RequestMapping("/auth")
 public class AuthController {
 
-    /**
-     * Service that handles user authentication use cases.
-     */
-    private final IUserService userService;
+    private final AuthenticationManager authManager;
+    private final JwtService jwtService;
+    private final UserDetailsService userDetailsService;
 
-    /**
-     * Creates the authentication controller.
-     *
-     * @param userService injected user service implementation
-     */
-    public AuthController(IUserService userService) {
-        this.userService = userService;
+    public AuthController(AuthenticationManager authManager,
+                          JwtService jwtService,
+                          UserDetailsService userDetailsService) {
+        this.authManager = authManager;
+        this.jwtService = jwtService;
+        this.userDetailsService = userDetailsService;
     }
 
     /**
-     * Authenticates a user using email and password.
-     *
-     * <p>Validates credentials against the user database. Returns 200 with a success message
-     * only if both credentials are valid and the user account is active.</p>
-     *
-     * @param loginRequest payload containing login credentials (email and password)
-     * @return 200 with success message when authentication succeeds; 401 with an error message when it fails
+     * ¿Para qué sirve UsernamePasswordAuthenticationToken?
+     * Sirve para encapsular las credenciales (username y password) que se envían
+     * al AuthenticationManager para que Spring Security ejecute el proceso de autenticación.
      */
     @PostMapping("/login")
-    @Operation(
-            summary = "User login",
-            description = "Authenticates a user with email and password. Returns 200 on success and 401 when credentials are invalid."
-    )
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    public AuthResponse login(@RequestBody AuthRequest request) {
         try {
-            userService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
-            return ResponseEntity.ok("Login successful");
+            authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getUsername(),
+                            request.getPassword()
+                    )
+            );
 
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+            UserDetails user = userDetailsService.loadUserByUsername(request.getUsername());
+            String token = jwtService.generateToken(user);
+            return new AuthResponse(token);
+        } catch (AuthenticationException ex) {
+            throw new ResponseStatusException(UNAUTHORIZED, "Credenciales inválidas");
         }
     }
 }
