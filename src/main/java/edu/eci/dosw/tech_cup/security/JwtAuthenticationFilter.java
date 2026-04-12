@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,42 +19,55 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
-    private final UserDetailsService userDetailsService;
+    @Autowired
+    private JwtService jwtService;
 
-    public JwtAuthenticationFilter(JwtService jwtService, UserDetailsService userDetailsService) {
-        this.jwtService = jwtService;
-        this.userDetailsService = userDetailsService;
-    }
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
-        String authHeader = request.getHeader("Authorization");
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
 
+        final String authHeader = request.getHeader("Authorization");
+
+        // Bearer es el esquema estándar del header Authorization para indicar
+        // que el cliente envía un token de acceso (por ejemplo, un JWT).
+        // Sirve para transportar credenciales tokenizadas entre cliente y servidor.
+        // 1. Validar si existe el header
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        String jwt = authHeader.substring(7);
-        String username;
+        // 2. Extraer token
+        String token = authHeader.substring(7);
 
-        try {
-            username = jwtService.extractUsername(jwt);
-        } catch (Exception ex) {
-            filterChain.doFilter(request, response);
-            return;
-        }
+        // 3. Extraer username
+        String username = jwtService.extractUsername(token);
 
+        // SecurityContextHolder mantiene el contexto de seguridad del hilo actual.
+        // Sirve para consultar y registrar la autenticación del usuario durante la request.
+        // 4. Validar si no está autenticado aún
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            if (jwtService.isTokenValid(jwt, userDetails)) {
+            // (validación básica)
+            if (jwtService.extractUsername(token).equals(userDetails.getUsername())) {
                 UsernamePasswordAuthenticationToken authToken =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities()
+                        );
+
+                // WebAuthenticationDetailsSource construye detalles de la request
+                // (IP remota, sesión, etc.) y los asocia al token autenticado.
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                // 5. Registrar usuario como autenticado
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
