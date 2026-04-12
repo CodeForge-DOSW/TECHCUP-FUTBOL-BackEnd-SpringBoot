@@ -5,20 +5,19 @@ import edu.eci.dosw.tech_cup.mapper.UserMapper;
 import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.repository.UserRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,6 +28,9 @@ public class UserServiceTest {
 
     @Mock
     private UserMapper userMapper;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private UserService userService;
@@ -68,12 +70,14 @@ public class UserServiceTest {
     void shouldCreateUser() {
         PlayerModel input = new PlayerModel();
         input.setEmail("juan@mail.com");
+        input.setPassword("123456");
         input.setName("Juan");
 
         UserEntity savedEntity = entityWith(1L, "juan@mail.com", "Juan", true);
         PlayerModel expectedModel = modelWith(1L, "juan@mail.com", "Juan", true);
 
         when(userRepository.existsByEmail("juan@mail.com")).thenReturn(false);
+        when(passwordEncoder.encode("123456")).thenReturn("$2a$10$abcdefghijklmnopqrstuv12345678901234567890123456789012");
         when(userMapper.toEntity(input)).thenReturn(savedEntity);
         when(userRepository.save(savedEntity)).thenReturn(savedEntity);
         when(userMapper.toModel(savedEntity)).thenReturn(expectedModel);
@@ -117,6 +121,7 @@ public class UserServiceTest {
     void shouldFailCreateWhenEmailExists() {
         PlayerModel user = new PlayerModel();
         user.setEmail("test@mail.com");
+        user.setPassword("123456");
 
         when(userRepository.existsByEmail("test@mail.com")).thenReturn(true);
 
@@ -242,7 +247,6 @@ public class UserServiceTest {
     @Test
     void shouldDeactivateUser() {
         UserEntity entity = entityWith(1L, "test@mail.com", "Test", true);
-        PlayerModel deactivatedModel = modelWith(1L, "test@mail.com", "Test", false);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(entity));
         when(userRepository.save(entity)).thenReturn(entity);

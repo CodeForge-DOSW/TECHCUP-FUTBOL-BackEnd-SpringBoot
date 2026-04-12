@@ -53,10 +53,10 @@ class UserRepositoryTest {
     void shouldFindByEmail() {
         userRepository.save(buildUser("ana@mail.escuelaing.edu.co", "1002"));
 
-        Optional<UserEntity> found = userRepository.findByEmail("ana@mail.escuelaing.edu.co");
+        UserEntity found = userRepository.findByEmail("ana@mail.escuelaing.edu.co");
 
-        assertTrue(found.isPresent());
-        assertEquals("Juan", found.map(UserEntity::getFirstName).orElse(""));
+        assertNotNull(found);
+        assertEquals("Juan", found.getFirstName());
     }
 
     @DisplayName("Should return true when email already exists")

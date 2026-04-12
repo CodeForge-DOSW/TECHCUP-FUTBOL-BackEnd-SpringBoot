@@ -64,6 +64,14 @@ CAPTURA DE PANTALLA SWAGGER
 
 <img width="1919" height="988" alt="image" src="https://github.com/user-attachments/assets/8fc7d7ab-9bff-4ed7-9a6c-34b5a4ce4060" />
 
+CAPTURA DE PANTALLA SERVICIO JWT
+![Error 403 sin token](src/main/resources/docs/images/jwt-error-403.png)
+
+![POST de login para obtener token](src/main/resources/docs/images/jwt-login-post.png)
+
+![GET de usuarios con Authorization Bearer](src/main/resources/docs/images/jwt-get-users-authorization.png)
+
+
 
 # Bibliografía (Normas APA)
 

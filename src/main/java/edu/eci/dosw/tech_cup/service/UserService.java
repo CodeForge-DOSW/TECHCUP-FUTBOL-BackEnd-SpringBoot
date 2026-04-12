@@ -7,9 +7,15 @@ import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -22,16 +28,18 @@ import java.util.stream.Collectors;
  * </pre>
  */
 @Service
-public class UserService implements IUserService {
+public class UserService implements IUserService, UserDetailsService {
 
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
+    public UserService(UserRepository userRepository, UserMapper userMapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -44,6 +52,9 @@ public class UserService implements IUserService {
         if (user.getEmail() == null || user.getEmail().trim().isEmpty()) {
             throw new RuntimeException("Email is required");
         }
+        if (user.getPassword() == null || user.getPassword().trim().isEmpty()) {
+            throw new RuntimeException("Password is required");
+        }
         if (!user.getEmail().contains("@")) {
             throw new RuntimeException("Invalid email format");
         }
@@ -52,6 +63,7 @@ public class UserService implements IUserService {
         }
 
         UserEntity entity = userMapper.toEntity(user);
+        entity.setPasswordUser(passwordEncoder.encode(user.getPassword()));
         entity.setStatus(true);
 
         UserEntity saved = userRepository.save(entity);
@@ -90,7 +102,7 @@ public class UserService implements IUserService {
             if (!updatedUser.getEmail().contains("@")) {
                 throw new RuntimeException("Invalid email format");
             }
-            boolean emailTaken = userRepository.findByEmail(updatedUser.getEmail())
+            boolean emailTaken = Optional.ofNullable(userRepository.findByEmail(updatedUser.getEmail()))
                     .filter(u -> !u.getUserId().equals(id))
                     .isPresent();
             if (emailTaken) {
@@ -130,10 +142,12 @@ public class UserService implements IUserService {
             throw new RuntimeException("Password is required");
         }
 
-        UserEntity user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+        UserEntity user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new RuntimeException("Invalid credentials");
+        }
 
-        if (!user.getPasswordUser().equals(password)) {
+        if (!matchesPassword(password, user.getPasswordUser())) {
             throw new RuntimeException("Invalid credentials");
         }
         if (!Boolean.TRUE.equals(user.getStatus())) {
@@ -141,5 +155,51 @@ public class UserService implements IUserService {
         }
 
         log.info("User {} authenticated successfully", email);
+    }
+
+    /**
+     * a. Objetivo de loadUserByUsername: adaptar nuestro criterio de login (email)
+     * al contrato de Spring Security, que siempre solicita un "username" para cargar
+     * el usuario que va a autenticarse.
+     * b. UserDetails representa el usuario en el contexto de seguridad: contiene
+     * username, password y autoridades para que Spring valide credenciales y permisos.
+     * c. SimpleGrantedAuthority representa una autoridad/rol concreto (por ejemplo,
+     * ROLE_USER) que Spring Security usa para decisiones de autorización.
+     */
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserEntity user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with email: " + email);
+        }
+
+        String storedPassword = user.getPasswordUser();
+        if (storedPassword == null || storedPassword.isBlank()) {
+            throw new UsernameNotFoundException("User has no valid password: " + email);
+        }
+
+        String passwordForSecurity = isBcryptHash(storedPassword)
+                ? storedPassword
+                : passwordEncoder.encode(storedPassword);
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),
+                passwordForSecurity,
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+        );
+    }
+
+    private boolean matchesPassword(String rawPassword, String storedPassword) {
+        if (storedPassword == null || storedPassword.isBlank()) {
+            return false;
+        }
+        if (isBcryptHash(storedPassword)) {
+            return passwordEncoder.matches(rawPassword, storedPassword);
+        }
+        return rawPassword.equals(storedPassword);
+    }
+
+    private boolean isBcryptHash(String value) {
+        return value.startsWith("$2a$") || value.startsWith("$2b$") || value.startsWith("$2y$");
     }
 }
