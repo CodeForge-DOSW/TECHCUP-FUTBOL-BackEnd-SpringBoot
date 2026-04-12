@@ -474,14 +474,15 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Registrar el torneo creado en la base de datos para que esté disponible dentro del sistema |
 | **Tareas requisito** | SCRUM-32, SCRUM-34 |
 
+#### TR-07
 
-| Campo                                 | Descripción                                                                                                                                      |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-07                                                                                                                                            |
-| **Título**                            | Diseñar estructura de reglamento del torneo                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                                                                            |
-| **Descripción**                       | Definir los atributos necesarios para almacenar el reglamento del torneo, incluyendo reglas generales, sanciones y condiciones de participación. |
-| **Tareas requisito**                  | -                                                                                                                                                |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-36](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-36) |
+| **Título** | Diseñar estructura de reglamento del torneo |
+| **ID de la Historia de Uso asociada** | SCRUM-27 |
+| **Descripción** | Definir los atributos necesarios para almacenar el reglamento del torneo, incluyendo reglas generales, sanciones y condiciones de participación |
+| **Tareas requisito** | - |
 
 
 | Campo                                 | Descripción                                                                                  |
