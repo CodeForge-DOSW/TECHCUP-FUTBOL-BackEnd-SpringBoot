@@ -171,3 +171,20 @@ Representa equipos y define relaciones entre entidades.
 
 12. Resultado de la solicitud de autenticación con el token JWT configurado usuario y contraseña
 ![img_3.png](src/main/resources/docs/images/lab10/img_3.png)
+
+# Laboratorio JWT Filter
+
+## a. ¿Qué es un filtro JWT?
+
+Un filtro JWT es un componente del pipeline de seguridad (por ejemplo, en Spring Security) que intercepta cada solicitud HTTP para leer y procesar un token JWT enviado por el cliente.
+
+## b. ¿Para qué sirven los filtros JWT?
+
+Sirven para validar la autenticidad e integridad del token, extraer la identidad del usuario y registrar su autenticación en el contexto de seguridad. Gracias a esto, los endpoints protegidos pueden autorizar o rechazar solicitudes sin manejar sesiones tradicionales en servidor.
+
+## c. Bibliografía en formato APA
+
+- Jones, M., Bradley, J., & Sakimura, N. (2015). *JSON Web Token (JWT)* (RFC 7519). Internet Engineering Task Force. https://doi.org/10.17487/RFC7519
+- Spring. (2024). *Spring Security Reference Documentation*. https://docs.spring.io/spring-security/reference/
+- Walls, C. (2022). *Spring in Action* (6th ed.). Manning Publications.
+- Oracle. (2024). *Java Platform, Standard Edition Documentation*. https://docs.oracle.com/en/java/
