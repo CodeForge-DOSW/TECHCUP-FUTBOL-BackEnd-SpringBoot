@@ -414,13 +414,13 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 ### 3. Tareas:
 
-| Campo                                 | Descripción                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-01                                                                                                                                                                          |
-| **Título**                            | Modelar entidad Torneo en base de datos                                                                                                                                        |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                                                                                          |
-| **Descripción**                       | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos. |
-| **Tareas requisito**                  | -                                                                                                                                                                              |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [TR-01](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-30) |
+| **Título** | Modelar entidad Torneo en base de datos |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos. |
+| **Tareas requisito** | - |
 
 
 | Campo                                 | Descripción                                                                                          |
