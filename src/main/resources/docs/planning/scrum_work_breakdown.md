@@ -434,7 +434,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Implementar la capa de acceso a datos que permita almacenar y consultar torneos en la base de datos |
 | **Tareas requisito** | SCRUM-30 |
 
-
+#### TR-03
 
 | Campo | Descripción |
 | ----- | ----------- |
@@ -444,14 +444,15 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Desarrollar la lógica de negocio que permita registrar nuevos torneos dentro del sistema |
 | **Tareas requisito** | SCRUM-31 |
 
+#### TR-04
 
-| Campo                                 | Descripción                                                                                              |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-04                                                                                                    |
-| **Título**                            | Crear formulario de creación de torneo                                                                   |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                    |
-| **Descripción**                       | Diseñar la interfaz donde el organizador pueda ingresar los datos necesarios para crear un nuevo torneo. |
-| **Tareas requisito**                  | -                                                                                                        |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-33](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-33) |
+| **Título** | Crear formulario de creación de torneo |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Diseñar la interfaz donde el organizador pueda ingresar los datos necesarios para crear un nuevo torneo |
+| **Tareas requisito** | - |
 
 
 | Campo                                 | Descripción                                                                                                                  |
