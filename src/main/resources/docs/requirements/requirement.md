@@ -6,7 +6,7 @@ El sistema de TECHCUP FUTBOL tiene los siguientes requerimientos (descripción a
 
 ### 1.1 Requerimientos funcionales
 
-El sistema de Bankify debe tener la capacidad de:
+El sistema de TECHCUP FUTBOL debe tener la capacidad de:
 
 1. Gestión del Torneo
 
