@@ -464,14 +464,15 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Descripción** | Implementar validaciones para verificar que los datos ingresados por el organizador sean correctos antes de crear el torneo |
 | **Tareas requisito** | SCRUM-32, SCRUM-33 |
 
+#### TR-06
 
-| Campo                                 | Descripción                                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-06                                                                                       |
-| **Título**                            | Guardar torneo en el sistema                                                                |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                       |
-| **Descripción**                       | Registrar el torneo creado en la base de datos para que esté disponible dentro del sistema. |
-| **Tareas requisito**                  | TR-03, TR-05                                                                                |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-35](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-35) |
+| **Título** | Guardar torneo en el sistema |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Registrar el torneo creado en la base de datos para que esté disponible dentro del sistema |
+| **Tareas requisito** | SCRUM-32, SCRUM-34 |
 
 
 | Campo                                 | Descripción                                                                                                                                      |
