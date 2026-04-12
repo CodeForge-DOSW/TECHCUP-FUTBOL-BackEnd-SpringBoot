@@ -17,6 +17,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Repository integration tests for {@link TeamRepository}.
+ *
+ * <p>This test suite verifies the derived JPA queries and basic persistence
+ * behavior for {@link TeamEntity}, including filtering by tournament, captain,
+ * and status.</p>
+ */
 @DataJpaTest
 @ActiveProfiles("test")
 class TeamRepositoryTest {
@@ -33,8 +40,9 @@ class TeamRepositoryTest {
     private TournamentEntity tournament;
     private UserEntity captain;
 
-    
-
+    /**
+     * Creates the shared tournament and captain records required by the tests.
+     */
     @BeforeEach
     void setUp() {
         TournamentEntity t = new TournamentEntity();
@@ -54,9 +62,16 @@ class TeamRepositoryTest {
         u.setIdentification("5001");
         u.setDateBirth(LocalDate.of(1998, 5, 20));
         u.setStatus(true);
+        u.setUserType("student");
         captain = userRepository.save(u);
     }
 
+    /**
+     * Builds a valid team instance associated with the shared tournament.
+     *
+     * @param name team name to assign
+     * @return a non-persisted team entity ready for repository operations
+     */
     private TeamEntity buildTeam(String name) {
         TeamEntity team = new TeamEntity();
         team.setName(name);
@@ -68,8 +83,9 @@ class TeamRepositoryTest {
         return team;
     }
 
-    
-
+    /**
+     * Verifies that saving a team persists the entity and generates its identifier.
+     */
     @DisplayName("Should save a team and assign an auto-generated id")
     @Test
     void shouldSaveTeam() {
@@ -82,8 +98,9 @@ class TeamRepositoryTest {
         assertTrue(saved.getStatus());
     }
 
-    // ─── 2. Prueba de consulta ───────────────────────────────────────────────
-
+    /**
+     * Verifies that teams can be retrieved by their related tournament identifier.
+     */
     @DisplayName("Should find teams by tournament id")
     @Test
     void shouldFindByTournamentId() {
@@ -95,6 +112,9 @@ class TeamRepositoryTest {
         assertEquals(2, teams.size());
     }
 
+    /**
+     * Verifies that the repository filters teams by their active flag.
+     */
     @DisplayName("Should find teams by status")
     @Test
     void shouldFindByStatus() {
@@ -109,8 +129,9 @@ class TeamRepositoryTest {
         assertEquals(1, teamRepository.findByStatus(false).size());
     }
 
-  
-
+    /**
+     * Verifies that a team can be resolved through the identifier of its captain.
+     */
     @DisplayName("Should find a team by captain user id")
     @Test
     void shouldFindByCaptainUserId() {
@@ -125,6 +146,9 @@ class TeamRepositoryTest {
         assertEquals(captain.getUserId(), found.get().getCaptain().getUserId());
     }
 
+    /**
+     * Verifies the existence query used to enforce unique team names per tournament.
+     */
     @DisplayName("Should verify team name is unique within a tournament")
     @Test
     void shouldCheckNameExistsInTournament() {
@@ -136,6 +160,9 @@ class TeamRepositoryTest {
                 "Otro Nombre", tournament.getTournamentId()));
     }
 
+    /**
+     * Verifies that the tournament relationship is persisted together with the team.
+     */
     @DisplayName("Should persist team with its tournament relationship")
     @Test
     void shouldPersistTeamWithTournament() {
@@ -146,8 +173,9 @@ class TeamRepositoryTest {
         assertEquals(tournament.getTournamentId(), saved.getTournament().getTournamentId());
     }
 
-    
-
+    /**
+     * Verifies that updating and saving a managed team persists the new name.
+     */
     @DisplayName("Should update team name")
     @Test
     void shouldUpdateTeamName() {
@@ -159,6 +187,9 @@ class TeamRepositoryTest {
         assertEquals("Nombre Nuevo", updated.getName());
     }
 
+    /**
+     * Verifies that deleting a team by identifier removes it from the repository.
+     */
     @DisplayName("Should delete a team by id")
     @Test
     void shouldDeleteTeam() {

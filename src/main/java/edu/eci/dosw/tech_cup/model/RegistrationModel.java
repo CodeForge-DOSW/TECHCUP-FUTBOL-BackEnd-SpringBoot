@@ -3,59 +3,58 @@ package edu.eci.dosw.tech_cup.model;
 import java.time.LocalDateTime;
 
 /**
- * Representa la inscripción de un equipo a un torneo.
+ * Represents the registration of a team in a tournament.
  *
- * Esta clase gestiona el proceso de registro, incluyendo el envío
- * del comprobante de pago, el estado de la inscripción y su validación
- * por parte del organizador.
+ * <p>This model manages the registration workflow, including payment proof
+ * submission, registration status, and organizer validation.</p>
  */
 public class RegistrationModel {
 
-    /** Identificador único de la inscripción */
+    /** Unique identifier of the registration. */
     private Long id;
 
-    /** Equipo que se inscribe */
+    /** Team being registered. */
     private TeamModel team;
 
-    /** Torneo al que se realiza la inscripción */
+    /** Tournament associated with the registration. */
     private TournamentModel tournament;
 
-    /** URL del comprobante de pago */
+    /** URL of the payment proof. */
     private String paymentProofUrl;
 
-    /** Estado actual de la inscripción */
+    /** Current registration status. */
     private RegistrationStatusModel status;
 
-    /** Fecha de creación de la inscripción */
+    /** Registration creation date. */
     private LocalDateTime createdAt;
 
     /**
-     * Envía el comprobante de pago de la inscripción.
+     * Submits the payment proof for the registration.
      *
-     * @param url URL del comprobante
+     * @param url payment proof URL
      */
     public void submitProof(String url) {
     }
 
     /**
-     * Marca la inscripción como en revisión.
+     * Marks the registration as under review.
      */
     public void markInReview() {  }
 
     /**
-     * Aprueba la inscripción.
+     * Approves the registration.
      */
     public void approve() { }
 
     /**
-     * Rechaza la inscripción.
+     * Rejects the registration.
      */
     public void reject() {  }
 
     /**
-     * Verifica si la inscripción está aprobada.
+     * Indicates whether the registration is approved.
      *
-     * @return true si el estado es APPROVED
+     * @return {@code true} if the status is {@link RegistrationStatusModel#APPROVED}
      */
     public boolean isApproved() { return false; }
 }

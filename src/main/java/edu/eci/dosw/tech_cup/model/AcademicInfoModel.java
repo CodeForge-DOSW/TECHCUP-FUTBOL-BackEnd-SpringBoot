@@ -2,68 +2,67 @@ package edu.eci.dosw.tech_cup.model;
 
 
 /**
- * Representa la información académica de un jugador dentro del sistema.
+ * Represents the academic information of a player within the system.
  *
- * Esta clase encapsula la afiliación institucional del usuario, su carrera
- * y su estado académico, permitiendo validar reglas del torneo como
- * elegibilidad y composición de equipos.
+ * <p>This model encapsulates the user's academic context, helping validate
+ * tournament rules such as eligibility and team composition.</p>
  */
 public class AcademicInfoModel {
 
     /**
-     *  Semestre academico cursado
+     * Academic semester currently attended by the player.
      */
     private String semester;
 
     /**
-     * Obtiene el semestre academico registrado.
+     * Returns the registered academic semester.
      *
-     * @return semestre academico
+     * @return academic semester
      */
     public String getSemester() {
         return null;
     }
 
     /**
-     * Asigna el semestre academico del jugador.
+     * Sets the academic semester of the player.
      *
-     * @param semester semestre academico
+     * @param semester academic semester
      */
     public void setSemester(String semester) {
 
     }
 
     /**
-     * Verifica si existe informacion de semestre.
+     * Indicates whether semester information exists.
      *
-     * @return true si tiene semestre registrado
+     * @return {@code true} if a semester has been registered
      */
     public boolean hasSemester() {
         return false;
     }
 
     /**
-     * Verifica si el formato del semestre es valido.
+     * Indicates whether the semester format is valid.
      *
-     * @return true si el semestre cumple el formato esperado
+     * @return {@code true} if the semester follows the expected format
      */
     public boolean isValidSemester() {
         return false;
     }
 
     /**
-     * Indica si la informacion academica esta completa.
+     * Indicates whether the academic information is complete.
      *
-     * @return true si cumple los datos minimos requeridos
+     * @return {@code true} if the minimum required data is present
      */
     public boolean isComplete() {
         return false;
     }
 
     /**
-     * Verifica si la informacion academica es valida para el torneo.
+     * Indicates whether the academic information is valid for tournament participation.
      *
-     * @return true si cumple reglas de elegibilidad
+     * @return {@code true} if the eligibility rules are satisfied
      */
     public boolean isEligibleForTournament() {
         return false;

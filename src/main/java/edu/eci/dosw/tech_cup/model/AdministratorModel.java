@@ -3,102 +3,102 @@ package edu.eci.dosw.tech_cup.model;
 import java.util.List;
 
 /**
- * Representa un administrador del sistema.
+ * Represents a system administrator.
  *
- * Es responsable de gestionar elementos académicos como las carreras,
- * así como de asignar roles a los usuarios dentro del sistema.
+ * <p>This role is responsible for managing academic catalog elements such as
+ * careers, as well as assigning roles to users within the system.</p>
  */
 public class AdministratorModel extends UserRoleModel {
 
     /**
-     * Cambia el rol de un usuario dentro del sistema.
+     * Changes the role of a user within the system.
      *
-     * @param user usuario al que se le asigna el rol
-     * @param role nuevo rol del usuario
+     * @param user user whose role will be changed
+     * @param role new role to assign
      */
     public void changeUserRole(PlayerModel user, UserRoleModel role) {
 
     }
 
     /**
-     * Crea una nueva carrera académica.
+     * Creates a new academic program.
      *
-     * @param name nombre de la carrera
-     * @return nueva instancia de CareerModel
+     * @param name academic program name
+     * @return new {@link CareerModel} instance
      */
     public CareerModel createCareer(String name) {
         return null;
     }
 
     /**
-     * Actualiza la información de una carrera existente.
+     * Updates the information of an existing academic program.
      *
-     * @param career carrera a actualizar
+     * @param career academic program to update
      */
     public void updateCareer(CareerModel career) {
 
     }
 
     /**
-     * Elimina una carrera del sistema.
+     * Deletes an academic program from the system.
      *
-     * @param career carrera a eliminar
+     * @param career academic program to delete
      */
     public void deleteCareer(CareerModel career) {
 
     }
 
     /**
-     * Obtiene la lista de todas las carreras registradas.
+     * Returns the list of all registered academic programs.
      *
-     * @return lista de carreras
+     * @return list of academic programs
      */
     public List<CareerModel> getCareers() { return null; }
 
     /**
-     * Busca una carrera por su nombre.
+     * Finds an academic program by its name.
      *
-     * @param name nombre de la carrera a buscar
-     * @return carrera encontrada o null si no existe
+     * @param name academic program name to search
+     * @return matching academic program, or {@code null} if it does not exist
      */
     public CareerModel findCareerByName(String name) {
         return null;
     }
 
     /**
-     * Verifica si una carrera ya existe en el sistema.
+     * Indicates whether an academic program already exists in the system.
      *
-     * @param name nombre de la carrera
-     * @return true si la carrera existe
+     * @param name academic program name
+     * @return {@code true} if the academic program exists
      */
     public boolean careerExists(String name) {
         return false;
     }
 
     /**
-     * Asigna una carrera a un usuario del sistema.
+     * Assigns an academic program to a system user.
      *
-     * @param user usuario al que se asigna la carrera
-     * @param career carrera a asignar
+     * @param user user receiving the academic program
+     * @param career academic program to assign
      */
     public void assignCareerToUser(PlayerModel user, CareerModel career) {
 
     }
 
     /**
-     * Remueve el rol actual de un usuario.
+     * Removes the current role from a user.
      *
-     * @param user usuario al que se le remueve el rol
+     * @param user user whose role will be removed
      */
     public void removeUserRole(PlayerModel user) {
 
     }
 
     /**
-     * Obtiene los usuarios que tienen un rol específico.
+     * Returns users who have a specific role.
      *
-     * @param role rol a consultar
-     * @return lista de usuarios con el rol indicado
+     * @param role role to query
+     * @return list of users with the requested role
      */
     public List<PlayerModel> getUsersByRole(UserRoleModel role) {
         return null;

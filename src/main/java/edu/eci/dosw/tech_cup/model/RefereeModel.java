@@ -4,22 +4,22 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Representa un árbitro dentro del sistema.
+ * Represents a referee within the system.
  *
- * Esta clase permite gestionar los partidos asignados al árbitro,
- * así como registrar resultados y consultar detalles de los encuentros.
+ * <p>This role manages the matches assigned to the referee, including result
+ * registration and match detail lookup.</p>
  */
 public class RefereeModel extends UserRoleModel {
 
-    /** Lista de partidos asignados al árbitro */
+    /** List of matches assigned to the referee. */
     private List<MatchModel> matches;
 
 
     /**
-     * Registra los resultados de los partidos asignados.
+     * Registers results for the matches assigned to the referee.
      *
-     * Permite al árbitro actualizar información relevante del partido,
-     * como marcador y eventos.
+     * <p>This method updates relevant match information by marking in-progress
+     * matches as finished.</p>
      */
     public void registerMatchResults() {
         if (matches == null) {
@@ -33,19 +33,19 @@ public class RefereeModel extends UserRoleModel {
     }
 
     /**
-     * Obtiene la lista de partidos asignados al árbitro.
+     * Returns the list of matches assigned to the referee.
      *
-     * @return lista de partidos
+     * @return assigned match list
      */
     public List<MatchModel> getAssignedMatches() {
         return matches == null ? new ArrayList<>() : new ArrayList<>(matches);
     }
 
     /**
-     * Obtiene los detalles de un partido específico.
+     * Returns the details of a specific assigned match.
      *
-     * @param match partido a consultar
-     * @return partido con sus detalles
+     * @param match match to inspect
+     * @return the same match if it is assigned to the referee; {@code null} otherwise
      */
     public MatchModel getMatchDetails(MatchModel match) {
         if (match == null || matches == null || !matches.contains(match)) {

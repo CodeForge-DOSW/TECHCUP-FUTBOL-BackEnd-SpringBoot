@@ -8,148 +8,147 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Representa la alineación de un equipo para un partido.
+ * Represents the lineup of a team for a match.
  *
- * Esta clase permite gestionar los jugadores titulares y suplentes,
- * así como la asignación de posiciones en el campo, validando que
- * la formación cumpla con las reglas del sistema.
+ * <p>This model manages starters, substitutes, and positional assignments,
+ * validating that the formation complies with system rules.</p>
  */
 public class LineupModel {
 
     private static final int STARTERS_REQUIRED = 6;
     private static final int MAX_SUBSTITUTES = 6;
 
-    /** Identificador único de la alineación */
+    /** Unique identifier of the lineup. */
     private Long id;
 
-    /** Equipo al que pertenece la alineación */
+    /** Team associated with the lineup. */
     private TeamModel team;
 
-    /** Partido en el que se utiliza la alineación */
+    /** Match in which the lineup is used. */
     private MatchModel match;
 
-    /** Jugadores titulares */
+    /** Starting players. */
     private List<PlayerModel> starters;
 
-    /** Jugadores suplentes */
+    /** Substitute players. */
     private List<PlayerModel> substitutes;
 
-    /** Asignación de posiciones a jugadores */
+    /** Position assignments per player. */
     private Map<PlayerModel, PositionModel> assignments;
 
-    /** Tipo de formación táctica */
+    /** Tactical formation type. */
     private FormationTypeModel formation;
 
     /**
-     * Verifica si la alineación es válida.
+     * Indicates whether the lineup is valid.
      *
-     * @return true si cumple todas las reglas
+     * @return {@code true} if the lineup satisfies all rules
      */
     public boolean isValidLineup() {
         return false;
     }
 
     /**
-     * Verifica si tiene la cantidad válida de jugadores titulares.
+     * Indicates whether the lineup has the required number of starters.
      *
-     * @return true si cumple la cantidad requerida
+     * @return {@code true} if the required starter count is satisfied
      */
     public boolean hasValidStarters() { return false; }
 
     /**
-     * Verifica si existe un portero en la alineación.
+     * Indicates whether the lineup includes a valid goalkeeper.
      *
-     * @return true si hay portero
+     * @return {@code true} if a goalkeeper is present
      */
     public boolean hasValidGoalkeeper() {
         return false;
     }
 
     /**
-     * Verifica si la formación es válida.
+     * Indicates whether the formation is valid.
      *
-     * @return true si la formación es correcta
+     * @return {@code true} if the formation is correct
      */
     public boolean validateFormation() {
         return false;
     }
 
     /**
-     * Verifica que no haya jugadores duplicados.
+     * Indicates whether there are no duplicated players in the lineup.
      *
-     * @return true si no hay duplicados
+     * @return {@code true} if there are no duplicated players
      */
     public boolean hasNoDuplicates() {
         return false;
     }
 
     /**
-     * Verifica si los suplentes son válidos.
+     * Indicates whether the substitutes are valid.
      *
-     * @return true si cumplen las reglas
+     * @return {@code true} if substitute rules are satisfied
      */
     public boolean hasValidSubstitutes() { return false; }
 
     /**
-     * Agrega un jugador titular.
+     * Adds a starter to the lineup.
      *
-     * @param player jugador a agregar
+     * @param player player to add
      */
     public void addStarter(PlayerModel player) {
 
     }
 
     /**
-     * Agrega un jugador suplente.
+     * Adds a substitute to the lineup.
      *
-     * @param player jugador a agregar
+     * @param player player to add
      */
     public void addSubstitute(PlayerModel player) {
 
     }
 
     /**
-     * Asigna una posición a un jugador.
+     * Assigns a position to a player.
      *
-     * @param player jugador
-     * @param position posición asignada
+     * @param player player to assign
+     * @param position assigned position
      */
     public void assignPosition(PlayerModel player, PositionModel position) {
 
     }
 
     /**
-     * Elimina un jugador titular.
+     * Removes a starter from the lineup.
      *
-     * @param player jugador a eliminar
+     * @param player player to remove
      */
     public void removeStarter(PlayerModel player) {
 
     }
 
     /**
-     * Elimina un jugador suplente.
+     * Removes a substitute from the lineup.
      *
-     * @param player jugador a eliminar
+     * @param player player to remove
      */
     public void removeSubstitute(PlayerModel player) {
 
     }
 
     /**
-     * Verifica si un jugador está en la alineación.
+     * Indicates whether a player is already part of the lineup.
      *
-     * @param player jugador a verificar
-     * @return true si está en titulares o suplentes
+     * @param player player to verify
+     * @return {@code true} if the player is in starters or substitutes
      */
     public boolean isPlayerInLineup(PlayerModel player) {
         return false;
     }
 
     /**
-     * Verifica si la alineación puede ser modificada.
+     * Indicates whether the lineup can still be modified.
      *
-     * @return true si es editable
+     * @return {@code true} if the lineup is editable
      */
     public boolean isEditable() {
        return false;

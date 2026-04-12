@@ -1,64 +1,64 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los estados en los que puede encontrarse un torneo.
+ * Enumerates the possible lifecycle states of a tournament.
  *
- * Este enum permite gestionar el ciclo de vida del TournamentModel,
- * desde su creación hasta su finalización.
+ * <p>This enum is used to manage the state transitions of {@code TournamentModel}
+ * from initial setup to final completion.</p>
  */
 public enum TournamentStatusModel {
 
-    /** Torneo en fase de configuración */
+    /** Tournament is still in configuration stage. */
     DRAFT,
 
-    /** Torneo activo (inscripciones abiertas o en preparación) */
+    /** Tournament is active and ready for progression. */
     ACTIVE,
 
-    /** Torneo en curso */
+    /** Tournament is currently in progress. */
     IN_PROGRESS,
 
-    /** Torneo finalizado */
+    /** Tournament has already finished. */
     FINISHED;
 
     /**
-     * Verifica si el torneo está en fase de borrador.
+     * Indicates whether the tournament is in draft state.
      *
-     * @return true si es DRAFT
+     * @return {@code true} if the status is {@link #DRAFT}; {@code false} otherwise
      */
     public boolean isDraft() { return this == DRAFT; }
 
     /**
-     * Verifica si el torneo está activo.
+     * Indicates whether the tournament is active.
      *
-     * @return true si es ACTIVE
+     * @return {@code true} if the status is {@link #ACTIVE}; {@code false} otherwise
      */
     public boolean isActive() { return this == ACTIVE; }
 
     /**
-     * Verifica si el torneo está en progreso.
+     * Indicates whether the tournament is currently in progress.
      *
-     * @return true si es IN_PROGRESS
+     * @return {@code true} if the status is {@link #IN_PROGRESS}; {@code false} otherwise
      */
     public boolean isInProgress() { return this == IN_PROGRESS; }
 
     /**
-     * Verifica si el torneo ha finalizado.
+     * Indicates whether the tournament has finished.
      *
-     * @return true si es FINISHED
+     * @return {@code true} if the status is {@link #FINISHED}; {@code false} otherwise
      */
     public boolean isFinished() { return this == FINISHED; }
 
     /**
-     * Verifica si el torneo puede iniciar.
+     * Indicates whether the tournament can be started.
      *
-     * @return true si está activo
+     * @return {@code true} when the current status allows starting
      */
     public boolean canStart() { return isActive(); }
 
     /**
-     * Verifica si el torneo ya no admite cambios.
+     * Indicates whether the tournament is closed to further changes.
      *
-     * @return true si está finalizado
+     * @return {@code true} when the tournament is finished
      */
     public boolean isClosed() { return isFinished(); }
 }

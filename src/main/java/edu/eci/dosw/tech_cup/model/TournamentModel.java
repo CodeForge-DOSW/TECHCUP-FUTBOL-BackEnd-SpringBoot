@@ -3,6 +3,12 @@ package edu.eci.dosw.tech_cup.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * Represents a tournament managed by the application.
+ *
+ * <p>This model stores the main planning information of a tournament, including
+ * its schedule, capacity, registration cost, and current lifecycle status.</p>
+ */
 public class TournamentModel {
 
     private Long id;
@@ -18,8 +24,10 @@ public class TournamentModel {
     // =========================
 
     /**
-     * Inicia el torneo.
-     * Regla: solo se puede iniciar si está en ACTIVE. Cambia a IN_PROGRESS.
+     * Starts the tournament by moving it from {@link TournamentStatusModel#ACTIVE}
+     * to {@link TournamentStatusModel#IN_PROGRESS}.
+     *
+     * @throws RuntimeException if the tournament is not currently active
      */
     public void start() {
         if (!status.canStart()) {
@@ -29,7 +37,9 @@ public class TournamentModel {
     }
 
     /**
-     * Finaliza el torneo. Regla: solo si está en IN_PROGRESS.
+     * Finishes the tournament by moving it to {@link TournamentStatusModel#FINISHED}.
+     *
+     * @throws RuntimeException if the tournament is not currently in progress
      */
     public void finish() {
         if (!status.isInProgress()) {
@@ -39,7 +49,9 @@ public class TournamentModel {
     }
 
     /**
-     * Indica si el torneo está activo en el sistema (ACTIVE o IN_PROGRESS).
+     * Indicates whether the tournament is currently running.
+     *
+     * @return {@code true} when the tournament is either active or in progress
      */
     public boolean isRunning() {
         return status == TournamentStatusModel.ACTIVE

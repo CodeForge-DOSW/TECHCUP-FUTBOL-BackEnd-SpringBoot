@@ -1,64 +1,64 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los estados en los que puede encontrarse un equipo dentro del sistema.
+ * Enumerates the possible statuses of a team within the system.
  *
- * Este enum permite gestionar el ciclo de vida de un equipo,
- * desde su creación hasta su aprobación o expiración.
+ * <p>This enum describes the approval lifecycle of a team, from pending review
+ * to acceptance, rejection, or expiration.</p>
  */
 public enum TeamStatusModel {
 
-    /** Equipo pendiente de validación */
+    /** Team is waiting for validation or approval. */
     PENDING,
 
-    /** Equipo aceptado para participar */
+    /** Team has been accepted to participate. */
     ACCEPTED,
 
-    /** Equipo rechazado */
+    /** Team has been rejected. */
     REJECTED,
 
-    /** Estado expirado */
+    /** Team status has expired. */
     EXPIRED;
 
     /**
-     * Verifica si el equipo está pendiente.
+     * Indicates whether the team is pending.
      *
-     * @return true si es PENDING
+     * @return {@code true} if the status is {@link #PENDING}; {@code false} otherwise
      */
     public boolean isPending() { return this == PENDING; }
 
     /**
-     * Verifica si el equipo ha sido aceptado.
+     * Indicates whether the team has been accepted.
      *
-     * @return true si es ACCEPTED
+     * @return {@code true} if the status is {@link #ACCEPTED}; {@code false} otherwise
      */
     public boolean isAccepted() { return this == ACCEPTED; }
 
     /**
-     * Verifica si el equipo ha sido rechazado.
+     * Indicates whether the team has been rejected.
      *
-     * @return true si es REJECTED
+     * @return {@code true} if the status is {@link #REJECTED}; {@code false} otherwise
      */
     public boolean isRejected() { return this == REJECTED; }
 
     /**
-     * Verifica si el estado ha expirado.
+     * Indicates whether the team status has expired.
      *
-     * @return true si es EXPIRED
+     * @return {@code true} if the status is {@link #EXPIRED}; {@code false} otherwise
      */
     public boolean isExpired() { return this == EXPIRED; }
 
     /**
-     * Verifica si el equipo ya fue procesado.
+     * Indicates whether the team has already reached a final state.
      *
-     * @return true si está aceptado, rechazado o expirado
+     * @return {@code true} if the team is accepted, rejected, or expired
      */
     public boolean isFinalized() { return isAccepted() || isRejected() || isExpired(); }
 
     /**
-     * Verifica si el equipo puede participar.
+     * Indicates whether the team is allowed to participate.
      *
-     * @return true si está aceptado
+     * @return {@code true} when the team has been accepted
      */
     public boolean canParticipate() { return isAccepted(); }
 }

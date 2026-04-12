@@ -1,58 +1,57 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define las fases en las que puede estar un partido dentro del torneo.
+ * Enumerates the phases a match can belong to within the tournament.
  *
- * Este enum permite clasificar los partidos según su etapa en la competencia,
- * como fase de grupos o eliminatorias, facilitando la organización y
- * generación de llaves.
+ * <p>This enum classifies matches by competition stage, such as group phase or
+ * knockout rounds, helping organize brackets and tournament structure.</p>
  */
 public enum MatchPhaseModel {
 
-    /** Fase de grupos */
+    /** Group stage phase. */
     GROUP_STAGE,
 
-    /** Cuartos de final */
+    /** Quarterfinal phase. */
     QUARTERFINAL,
 
-    /** Semifinal */
+    /** Semifinal phase. */
     SEMIFINAL,
 
-    /** Final del torneo */
+    /** Tournament final phase. */
     FINAL;
 
     /**
-     * Verifica si el partido pertenece a fase de grupos.
+     * Indicates whether the match belongs to the group stage.
      *
-     * @return true si es GROUP_STAGE
+     * @return {@code true} if the phase is {@link #GROUP_STAGE}
      */
     public boolean isGroupStage() { return this == GROUP_STAGE; }
 
     /**
-     * Verifica si el partido pertenece a una fase eliminatoria.
+     * Indicates whether the match belongs to a knockout stage.
      *
-     * @return true si es QUARTERFINAL, SEMIFINAL o FINAL
+     * @return {@code true} if the phase is quarterfinal, semifinal, or final
      */
     public boolean isKnockoutStage() { return this == QUARTERFINAL || this == SEMIFINAL || this == FINAL; }
 
     /**
-     * Verifica si el partido es una fase final.
+     * Indicates whether the match is the final.
      *
-     * @return true si es FINAL
+     * @return {@code true} if the phase is {@link #FINAL}
      */
     public boolean isFinal() { return this == FINAL; }
 
     /**
-     * Verifica si el partido es semifinal.
+     * Indicates whether the match is a semifinal.
      *
-     * @return true si es SEMIFINAL
+     * @return {@code true} if the phase is {@link #SEMIFINAL}
      */
     public boolean isSemifinal() { return this == SEMIFINAL; }
 
     /**
-     * Verifica si el partido es de cuartos de final.
+     * Indicates whether the match is a quarterfinal.
      *
-     * @return true si es QUARTERFINAL
+     * @return {@code true} if the phase is {@link #QUARTERFINAL}
      */
     public boolean isQuarterfinal() { return this == QUARTERFINAL; }
 }

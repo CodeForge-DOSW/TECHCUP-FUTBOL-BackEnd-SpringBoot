@@ -1,92 +1,92 @@
 package edu.eci.dosw.tech_cup.model;
 
 /**
- * Define los estados de una inscripción dentro del torneo.
+ * Enumerates the statuses of a registration within the tournament.
  *
- * Este enum permite gestionar el proceso de registro de equipos,
- * desde la solicitud inicial hasta su aprobación o rechazo.
+ * <p>This enum models the registration workflow of teams, from the initial
+ * request through review, approval, or rejection.</p>
  */
 public enum RegistrationStatusModel {
 
-    /** Inscripción pendiente de revisión */
+    /** Registration is waiting for review. */
     PENDING,
 
-    /** Inscripción en proceso de revisión */
+    /** Registration is currently under review. */
     IN_REVIEW,
 
-    /** Inscripción aprobada */
+    /** Registration has been approved. */
     APPROVED,
 
-    /** Inscripción rechazada */
+    /** Registration has been rejected. */
     REJECTED;
 
     /**
-     * Verifica si la inscripción está pendiente de revisión.
+     * Indicates whether the registration is pending review.
      *
-     * @return true si está en estado pendiente
+     * @return {@code true} if the registration is pending
      */
     public boolean isPending() {
         return false;
     }
 
     /**
-     * Verifica si la inscripción está en revisión.
+     * Indicates whether the registration is under review.
      *
-     * @return true si está en revisión
+     * @return {@code true} if the registration is in review
      */
     public boolean isInReview() {
         return false;
     }
 
     /**
-     * Verifica si la inscripción fue aprobada.
+     * Indicates whether the registration was approved.
      *
-     * @return true si está aprobada
+     * @return {@code true} if the registration is approved
      */
     public boolean isApproved() {
         return false;
     }
 
     /**
-     * Verifica si la inscripción fue rechazada.
+     * Indicates whether the registration was rejected.
      *
-     * @return true si está rechazada
+     * @return {@code true} if the registration is rejected
      */
     public boolean isRejected() {
         return false;
     }
 
     /**
-     * Verifica si la inscripción está finalizada.
+     * Indicates whether the registration has reached a final state.
      *
-     * @return true si el estado es terminal
+     * @return {@code true} if the status is terminal
      */
     public boolean isFinalized() {
         return false;
     }
 
     /**
-     * Determina si el estado permite pasar a revisión.
+     * Indicates whether the registration can move to review status.
      *
-     * @return true si puede cambiar a IN_REVIEW
+     * @return {@code true} if a transition to {@link #IN_REVIEW} is allowed
      */
     public boolean canMoveToReview() {
         return false;
     }
 
     /**
-     * Determina si el estado permite aprobar la inscripción.
+     * Indicates whether the registration can be approved.
      *
-     * @return true si puede cambiar a APPROVED
+     * @return {@code true} if a transition to {@link #APPROVED} is allowed
      */
     public boolean canApprove() {
         return false;
     }
 
     /**
-     * Determina si el estado permite rechazar la inscripción.
+     * Indicates whether the registration can be rejected.
      *
-     * @return true si puede cambiar a REJECTED
+     * @return {@code true} if a transition to {@link #REJECTED} is allowed
      */
     public boolean canReject() {
         return false;
