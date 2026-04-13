@@ -228,6 +228,12 @@
 				</executions>
 			</plugin>
 
+			<!-- Spring Boot: empaqueta un fat JAR ejecutable con Main-Class en el MANIFEST -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
 			<!-- Sonar -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
