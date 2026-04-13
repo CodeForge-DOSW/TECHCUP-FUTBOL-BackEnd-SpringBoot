@@ -22,6 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     @Autowired
+    @org.springframework.context.annotation.Lazy
     private JwtAuthenticationFilter jwtFilter;
 
     /**

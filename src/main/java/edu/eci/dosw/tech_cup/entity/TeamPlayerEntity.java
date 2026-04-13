@@ -19,7 +19,7 @@ public class TeamPlayerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "team_player_id", columnDefinition = "serial")
+    @Column(name = "team_player_id")
     private Integer teamPlayerId;
 
     @ManyToOne(fetch = FetchType.LAZY)

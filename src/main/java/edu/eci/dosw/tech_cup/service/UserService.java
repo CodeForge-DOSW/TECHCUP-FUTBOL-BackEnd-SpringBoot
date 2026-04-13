@@ -262,6 +262,7 @@ public class UserService implements IUserService, UserDetailsService {
      * ROLE_USER) que Spring Security usa para decisiones de autorización.
      */
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity user = userRepository.findByEmail(email);
         if (user == null) {
@@ -277,10 +278,18 @@ public class UserService implements IUserService, UserDetailsService {
                 ? storedPassword
                 : passwordEncoder.encode(storedPassword);
 
+        List<SimpleGrantedAuthority> authorities = user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRoleName()))
+                .collect(Collectors.toList());
+
+        if (authorities.isEmpty()) {
+            authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }
+
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 passwordForSecurity,
-                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                authorities
         );
     }
 

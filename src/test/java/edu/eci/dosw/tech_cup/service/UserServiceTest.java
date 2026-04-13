@@ -84,14 +84,14 @@ public class UserServiceTest {
     @Test
     void shouldCreateUser() {
         PlayerModel input = new PlayerModel();
-        input.setEmail("juan@mail.com");
+        input.setEmail("juan@mail.escuelaing.edu.co");
         input.setPassword("123456");
         input.setName("Juan");
 
         UserEntity savedEntity = entityWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
         PlayerModel expectedModel = modelWith(1L, "juan@mail.escuelaing.edu.co", "Juan", true);
 
-        when(userRepository.existsByEmail("juan@mail.com")).thenReturn(false);
+        when(userRepository.existsByEmail("juan@mail.escuelaing.edu.co")).thenReturn(false);
         when(passwordEncoder.encode("123456")).thenReturn("$2a$10$abcdefghijklmnopqrstuv12345678901234567890123456789012");
         when(userMapper.toEntity(input)).thenReturn(savedEntity);
         when(userRepository.save(savedEntity)).thenReturn(savedEntity);
