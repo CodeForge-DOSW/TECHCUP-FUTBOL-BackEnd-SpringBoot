@@ -207,9 +207,9 @@
 							     los mappers son generados por MapStruct en compilación.
 							     Se excluyen de la regla de cobertura mínima. -->
 							<excludes>
-								<exclude>edu/eci/dosw/tech_cup/dto/**</exclude>
-								<exclude>edu/eci/dosw/tech_cup/model/**</exclude>
-								<exclude>edu/eci/dosw/tech_cup/mapper/**</exclude>
+								<exclude>edu/eci/dosw/tech_cup/dto/*</exclude>
+								<exclude>edu/eci/dosw/tech_cup/model/*</exclude>
+								<exclude>edu/eci/dosw/tech_cup/mapper/*</exclude>
 							</excludes>
 							<rules>
 								<rule>
