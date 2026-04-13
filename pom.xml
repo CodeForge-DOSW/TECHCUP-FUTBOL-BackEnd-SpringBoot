@@ -203,6 +203,14 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+							<!-- DTOs, models y mappers son clases de datos sin lógica de negocio;
+							     los mappers son generados por MapStruct en compilación.
+							     Se excluyen de la regla de cobertura mínima. -->
+							<excludes>
+								<exclude>edu/eci/dosw/tech_cup/dto/**</exclude>
+								<exclude>edu/eci/dosw/tech_cup/model/**</exclude>
+								<exclude>edu/eci/dosw/tech_cup/mapper/**</exclude>
+							</excludes>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>

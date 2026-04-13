@@ -5603,3 +5603,300 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2026-04-12T22:05:59.269-05:00  INFO 16740 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-04-12T22:05:59.279-05:00  INFO 16740 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2026-04-12T22:05:59.285-05:00  INFO 16740 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:42:57.490-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Starting AuthIntegrationTest using Java 21.0.9 with PID 26040 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:42:57.491-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : The following 1 profile is active: "test"
+2026-04-12T22:42:58.565-05:00  INFO 26040 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:42:58.640-05:00  INFO 26040 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:42:59.259-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:42:59.354-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-04-12T22:43:00.085-05:00  INFO 26040 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:43:00.139-05:00  INFO 26040 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-12T22:43:00.536-05:00  INFO 26040 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tech_cup_testdb user=SA
+2026-04-12T22:43:00.538-05:00  INFO 26040 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-12T22:43:00.580-05:00  WARN 26040 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:43:00.618-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tech_cup_testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TECH_CUP_TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:43:02.134-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:43:02.238-05:00  INFO 26040 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:02.275-05:00  WARN 26040 --- [tech_cup] [main] o.s.aop.framework.CglibAopProxy          : Unable to proxy interface-implementing method [public final void org.springframework.web.filter.GenericFilterBean.init(jakarta.servlet.FilterConfig) throws jakarta.servlet.ServletException] because it is marked as final, consider using interface-based JDK proxies instead.
+2026-04-12T22:43:02.430-05:00  INFO 26040 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-12T22:43:02.674-05:00  INFO 26040 --- [tech_cup] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2026-04-12T22:43:02.933-05:00  WARN 26040 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-12T22:43:03.797-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Started AuthIntegrationTest in 6.738 seconds (process running for 9.458)
+2026-04-12T22:43:04.161-05:00  INFO 26040 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:04.162-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:04.163-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:04.629-05:00  INFO 26040 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:04.630-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:04.631-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:05.444-05:00  INFO 26040 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:05.445-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:05.446-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:05.825-05:00  INFO 26040 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:05.825-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:05.826-05:00  INFO 26040 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:06.013-05:00  INFO 26040 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TeamRepositoryTest]: TeamRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:06.054-05:00  INFO 26040 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TeamRepositoryTest
+2026-04-12T22:43:06.094-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Starting TeamRepositoryTest using Java 21.0.9 with PID 26040 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:43:06.095-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : The following 1 profile is active: "test"
+2026-04-12T22:43:06.177-05:00  INFO 26040 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:43:06.197-05:00  INFO 26040 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:43:06.211-05:00  INFO 26040 --- [tech_cup] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-04-12T22:43:06.233-05:00  INFO 26040 --- [tech_cup] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:1a92d0a3-2adf-4a2c-874f-8907b7a90793;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-04-12T22:43:06.255-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:43:06.284-05:00  INFO 26040 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:43:06.287-05:00  WARN 26040 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:43:06.288-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:1a92d0a3-2adf-4a2c-874f-8907b7a90793]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 1A92D0A3-2ADF-4A2C-874F-8907B7A90793/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:43:06.362-05:00  INFO 26040 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:43:06.386-05:00  INFO 26040 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:06.446-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Started TeamRepositoryTest in 0.384 seconds (process running for 12.107)
+2026-04-12T22:43:06.648-05:00  INFO 26040 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest]: TournamentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:06.673-05:00  INFO 26040 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest
+2026-04-12T22:43:06.890-05:00  INFO 26040 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:06.907-05:00  INFO 26040 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.UserRepositoryTest
+2026-04-12T22:43:08.050-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team 1 deactivated
+2026-04-12T22:43:08.092-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:43:08.116-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:43:08.237-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:08.252-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:08.253-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:08.254-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 finished
+2026-04-12T22:43:08.262-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:08.268-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:08.272-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:08.278-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:08.279-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 2
+2026-04-12T22:43:08.289-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:08.289-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:08.298-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:08.302-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:08.302-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:08.306-05:00  INFO 26040 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:08.459-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:43:08.468-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User created with id: 1
+2026-04-12T22:43:08.535-05:00  INFO 26040 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:43:08.546-05:00  INFO 26040 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.TechCupApplicationTests]: TechCupApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:08.569-05:00  INFO 26040 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.TechCupApplicationTests
+2026-04-12T22:43:08.611-05:00  INFO 26040 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:09.035-05:00  INFO 26040 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-12T22:43:09.042-05:00  INFO 26040 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-12T22:43:09.048-05:00  INFO 26040 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:25.449-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Starting AuthIntegrationTest using Java 21.0.9 with PID 23928 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:43:25.452-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : The following 1 profile is active: "test"
+2026-04-12T22:43:26.518-05:00  INFO 23928 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:43:26.591-05:00  INFO 23928 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:43:27.209-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:43:27.283-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-04-12T22:43:27.978-05:00  INFO 23928 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:43:28.026-05:00  INFO 23928 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-12T22:43:28.395-05:00  INFO 23928 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tech_cup_testdb user=SA
+2026-04-12T22:43:28.397-05:00  INFO 23928 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-12T22:43:28.427-05:00  WARN 23928 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:43:28.458-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tech_cup_testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TECH_CUP_TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:43:29.875-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:43:29.972-05:00  INFO 23928 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:30.003-05:00  WARN 23928 --- [tech_cup] [main] o.s.aop.framework.CglibAopProxy          : Unable to proxy interface-implementing method [public final void org.springframework.web.filter.GenericFilterBean.init(jakarta.servlet.FilterConfig) throws jakarta.servlet.ServletException] because it is marked as final, consider using interface-based JDK proxies instead.
+2026-04-12T22:43:30.130-05:00  INFO 23928 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-12T22:43:30.356-05:00  INFO 23928 --- [tech_cup] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2026-04-12T22:43:30.574-05:00  WARN 23928 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-12T22:43:31.388-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Started AuthIntegrationTest in 6.308 seconds (process running for 8.799)
+2026-04-12T22:43:31.755-05:00  INFO 23928 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:31.755-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:31.756-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:32.263-05:00  INFO 23928 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:32.263-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:32.264-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:33.025-05:00  INFO 23928 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:33.025-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:33.026-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:33.402-05:00  INFO 23928 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:43:33.402-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:43:33.403-05:00  INFO 23928 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:43:33.585-05:00  INFO 23928 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TeamRepositoryTest]: TeamRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:33.623-05:00  INFO 23928 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TeamRepositoryTest
+2026-04-12T22:43:33.663-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Starting TeamRepositoryTest using Java 21.0.9 with PID 23928 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:43:33.663-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : The following 1 profile is active: "test"
+2026-04-12T22:43:33.743-05:00  INFO 23928 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:43:33.765-05:00  INFO 23928 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:43:33.777-05:00  INFO 23928 --- [tech_cup] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-04-12T22:43:33.797-05:00  INFO 23928 --- [tech_cup] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:9ed75fa1-c390-444e-a6b7-2de216655781;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-04-12T22:43:33.818-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:43:33.843-05:00  INFO 23928 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:43:33.845-05:00  WARN 23928 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:43:33.846-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:9ed75fa1-c390-444e-a6b7-2de216655781]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 9ED75FA1-C390-444E-A6B7-2DE216655781/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:43:33.929-05:00  INFO 23928 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:43:33.951-05:00  INFO 23928 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:34.001-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Started TeamRepositoryTest in 0.37 seconds (process running for 11.412)
+2026-04-12T22:43:34.190-05:00  INFO 23928 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest]: TournamentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:34.209-05:00  INFO 23928 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest
+2026-04-12T22:43:34.388-05:00  INFO 23928 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:34.404-05:00  INFO 23928 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.UserRepositoryTest
+2026-04-12T22:43:35.534-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team 1 deactivated
+2026-04-12T22:43:35.571-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:43:35.590-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:43:35.704-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:35.721-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:35.721-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:35.722-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 finished
+2026-04-12T22:43:35.729-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:35.734-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:35.739-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:35.743-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:35.743-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 2
+2026-04-12T22:43:35.750-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:35.751-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:35.761-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:35.765-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:43:35.766-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:43:35.769-05:00  INFO 23928 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:43:35.909-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:43:35.919-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User created with id: 1
+2026-04-12T22:43:35.977-05:00  INFO 23928 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:43:35.986-05:00  INFO 23928 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.TechCupApplicationTests]: TechCupApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:43:36.006-05:00  INFO 23928 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.TechCupApplicationTests
+2026-04-12T22:43:36.048-05:00  INFO 23928 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:43:36.434-05:00  INFO 23928 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-12T22:43:36.439-05:00  INFO 23928 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-12T22:43:36.442-05:00  INFO 23928 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:45:05.868-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Starting AuthIntegrationTest using Java 21.0.9 with PID 2728 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:45:05.870-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : The following 1 profile is active: "test"
+2026-04-12T22:45:06.893-05:00  INFO 2728 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:45:06.969-05:00  INFO 2728 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:45:07.551-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:45:07.626-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-04-12T22:45:08.293-05:00  INFO 2728 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:45:08.347-05:00  INFO 2728 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-12T22:45:08.711-05:00  INFO 2728 --- [tech_cup] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tech_cup_testdb user=SA
+2026-04-12T22:45:08.714-05:00  INFO 2728 --- [tech_cup] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-12T22:45:08.745-05:00  WARN 2728 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:45:08.778-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:tech_cup_testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TECH_CUP_TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:45:10.220-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:45:10.312-05:00  INFO 2728 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:45:10.346-05:00  WARN 2728 --- [tech_cup] [main] o.s.aop.framework.CglibAopProxy          : Unable to proxy interface-implementing method [public final void org.springframework.web.filter.GenericFilterBean.init(jakarta.servlet.FilterConfig) throws jakarta.servlet.ServletException] because it is marked as final, consider using interface-based JDK proxies instead.
+2026-04-12T22:45:10.466-05:00  INFO 2728 --- [tech_cup] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-12T22:45:10.727-05:00  INFO 2728 --- [tech_cup] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2026-04-12T22:45:10.964-05:00  WARN 2728 --- [tech_cup] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-12T22:45:11.911-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.controller.AuthIntegrationTest   : Started AuthIntegrationTest in 6.445 seconds (process running for 9.045)
+2026-04-12T22:45:12.277-05:00  INFO 2728 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:45:12.278-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:45:12.279-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:45:12.750-05:00  INFO 2728 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:45:12.750-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:45:12.752-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-04-12T22:45:13.498-05:00  INFO 2728 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:45:13.498-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:45:13.499-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:45:13.859-05:00  INFO 2728 --- [tech_cup] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-12T22:45:13.859-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-12T22:45:13.860-05:00  INFO 2728 --- [tech_cup] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-12T22:45:14.044-05:00  INFO 2728 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TeamRepositoryTest]: TeamRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:45:14.085-05:00  INFO 2728 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TeamRepositoryTest
+2026-04-12T22:45:14.129-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Starting TeamRepositoryTest using Java 21.0.9 with PID 2728 (started by alvar in C:\Users\alvar\OneDrive - ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO\Desktop\Proyecto)
+2026-04-12T22:45:14.130-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : The following 1 profile is active: "test"
+2026-04-12T22:45:14.210-05:00  INFO 2728 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-12T22:45:14.231-05:00  INFO 2728 --- [tech_cup] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2026-04-12T22:45:14.245-05:00  INFO 2728 --- [tech_cup] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-04-12T22:45:14.264-05:00  INFO 2728 --- [tech_cup] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:c01141c9-3cba-46fd-8706-70087e76ae2b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-04-12T22:45:14.283-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-12T22:45:14.309-05:00  INFO 2728 --- [tech_cup] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-12T22:45:14.311-05:00  WARN 2728 --- [tech_cup] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T22:45:14.311-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:c01141c9-3cba-46fd-8706-70087e76ae2b]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: C01141C9-3CBA-46FD-8706-70087E76AE2B/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-12T22:45:14.381-05:00  INFO 2728 --- [tech_cup] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-12T22:45:14.403-05:00  INFO 2728 --- [tech_cup] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:45:14.451-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.repository.TeamRepositoryTest    : Started TeamRepositoryTest in 0.359 seconds (process running for 11.586)
+2026-04-12T22:45:14.651-05:00  INFO 2728 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest]: TournamentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:45:14.668-05:00  INFO 2728 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.TournamentRepositoryTest
+2026-04-12T22:45:14.860-05:00  INFO 2728 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:45:14.874-05:00  INFO 2728 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.repository.UserRepositoryTest
+2026-04-12T22:45:15.988-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team 1 deactivated
+2026-04-12T22:45:16.030-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:45:16.052-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.TeamService  : Team created with id: 1
+2026-04-12T22:45:16.162-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:45:16.177-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:45:16.178-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:45:16.179-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 finished
+2026-04-12T22:45:16.187-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:45:16.193-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:45:16.197-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:45:16.200-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:45:16.201-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 2
+2026-04-12T22:45:16.207-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:45:16.207-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:45:16.217-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:45:16.220-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: active
+2026-04-12T22:45:16.221-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament 1 advanced to status: in_progress
+2026-04-12T22:45:16.224-05:00  INFO 2728 --- [tech_cup] [main] e.e.d.t.service.TournamentService        : Tournament created with id: 1
+2026-04-12T22:45:16.383-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:45:16.395-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User created with id: 1
+2026-04-12T22:45:16.449-05:00  INFO 2728 --- [tech_cup] [main] e.eci.dosw.tech_cup.service.UserService  : User 1 deactivated
+2026-04-12T22:45:16.460-05:00  INFO 2728 --- [tech_cup] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.eci.dosw.tech_cup.TechCupApplicationTests]: TechCupApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-12T22:45:16.481-05:00  INFO 2728 --- [tech_cup] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.eci.dosw.tech_cup.TechCupApplication for test class edu.eci.dosw.tech_cup.TechCupApplicationTests
+2026-04-12T22:45:16.521-05:00  INFO 2728 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-12T22:45:16.892-05:00  INFO 2728 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-12T22:45:16.896-05:00  INFO 2728 --- [tech_cup] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-12T22:45:16.899-05:00  INFO 2728 --- [tech_cup] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
