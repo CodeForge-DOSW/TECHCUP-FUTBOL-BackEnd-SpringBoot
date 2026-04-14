@@ -6,7 +6,7 @@ El sistema de TECHCUP FUTBOL tiene los siguientes requerimientos (descripción a
 
 ### 1.1 Requerimientos funcionales
 
-El sistema de Bankify debe tener la capacidad de:
+El sistema de TECHCUP FUTBOL debe tener la capacidad de:
 
 1. Gestión del Torneo
 
@@ -47,15 +47,16 @@ El sistema de TECHCUP FUTBOL debe tener:
 ### 2.1 Requerimiento Funcional 1
 
 | Campo | Descripción |
-|-------| ----------- |
-| **ID**| RF-01 |
+| ----- | ----------- |
+| **ID** | RF-01 |
 | **Nombre del requerimiento** | Gestión Integral del Torneo |
-| **Descripción** | *El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma.*  |
-| **Precondiciones** | *Para que el sistema cumpla con este requerimiento, TECHCUP debe tener usuarios registrados con rol de Organizador o Administrador y acceso autenticado al sistema.* |
-| **Actor** | Organizador / Administrador |
-| **Flujo principal** | 1. El actor accede al módulo de gestión de torneos.<br>2. El sistema muestra las opciones de crear, consultar, actualizar o cancelar torneo.<br>3. El actor registra o modifica la información del torneo.<br>4. El sistema valida los datos ingresados.<br>5. El sistema guarda los cambios y actualiza el estado del torneo.<br>6. El sistema confirma la operación realizada | 
+| **Descripción** | El sistema debe permitir a los organizadores crear, consultar, actualizar y cancelar torneos, definiendo sus características, reglamento, fechas y estado dentro de la plataforma, garantizando que: <br>  - No existan torneos con fechas solapadas <br> - El número de equipos no exceda el límite definido <br> - Solo se puedan modificar torneos en estado **Pendiente** |
+| **Precondiciones** | El sistema debe contar con usuarios registrados con rol de **Organizador** o **Administrador**, autenticados correctamente, y con permisos habilitados para la gestión de torneos |
+| **Actor** | Organizador / Administrador  |
+| **Flujo principal** | 1. El actor accede al módulo de gestión de torneos.<br>2. El sistema muestra las opciones de crear, consultar, actualizar o cancelar torneo.<br>3. El actor registra o modifica la información del torneo.<br>4. El sistema valida los datos ingresados según las reglas definidas.<br>5. El sistema guarda los cambios en la base de datos.<br>6. El sistema actualiza el estado del torneo.<br>7. El sistema confirma la operación realizada al usuario. |
 | **Diagrama de caso de uso**  | ![Diagrama de caso de uso - Gestión del Torneo](../uml/useCase/rf01ManageTournamentUseCaseDiagram.png) |
-| **Poscondiciones** | *Se espera como resultado que el torneo quede registrado o actualizado correctamente y disponible para su consulta según los permisos definidos.* |
+| **Poscondiciones** | El torneo queda persistido en la base de datos con su estado actualizado, disponible para consulta por los usuarios autorizados y listo para su uso en los módulos de inscripción, gestión de equipos y programación de partidos |
+
 ### 2.2 Requerimiento Funcional 2
 
 | Campo | Descripción |
@@ -66,8 +67,7 @@ El sistema de TECHCUP FUTBOL debe tener:
 | **Precondiciones** | Para que el sistema cumpla con este requerimiento, el usuario debe contar con un correo institucional estudiante, graduado, profesor o personal administrativo o un correo Gmail si es familiar de alguien de la Escuela. |
 | **Actor** | Estudiante, Graduado, Profesor, Personal Administrativo, Familiar |
 | **Flujo principal** | 1. El usuario ingresa a la plataforma y selecciona la opción de registro.<br>2. El usuario ingresa su correo y completa los datos del formulario.<br>3. El sistema valida el tipo de correo y asigna el rol correspondiente.<br>4. El usuario completa su perfil deportivo (foto, dorsal, posiciones de juego).<br>5. El sistema guarda la información y activa la cuenta.<br>6. El usuario inicia sesión con sus credenciales.<br>7. El usuario puede marcar su disponibilidad para que los capitanes lo encuentren. |
-| **Diagrama de caso de uso** |<img width="487" height="556" alt="image" src="https://github.com/user-attachments/assets/8d416d5c-4871-4ef6-8df1-9f5632b4694e" />
-|
+| **Diagrama de caso de uso** |<img width="487" height="556" alt="image" src="https://github.com/user-attachments/assets/8d416d5c-4871-4ef6-8df1-9f5632b4694e" /> |
 | **Poscondiciones** | El usuario queda registrado con su perfil deportivo activo y el rol asignado según el tipo de correo con el que se registró. |
 
 ### 2.3 Requerimiento Funcional 3
