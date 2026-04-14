@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -427,5 +428,292 @@ public class TournamentServiceTest {
 
         TournamentModel result = tournamentService.getTournament(1L);
         assertTrue(result.isRunning());
+    }
+
+    // =========================================================
+    // getTournament
+    // =========================================================
+
+    @DisplayName("Should return tournament by id")
+    @Test
+    void shouldGetTournamentById() {
+        TournamentEntity entity = entityWith(1L, "TechCup", "draft");
+        TournamentModel model = modelWith(1L, "TechCup", TournamentStatusModel.DRAFT);
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(entity));
+        when(tournamentMapper.toModel(entity)).thenReturn(model);
+
+        TournamentModel result = tournamentService.getTournament(1L);
+
+        assertEquals("TechCup", result.getName());
+        assertEquals(TournamentStatusModel.DRAFT, result.getStatus());
+    }
+
+    @DisplayName("Should throw exception when tournament not found by id")
+    @Test
+    void shouldFailGetTournamentNotFound() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> tournamentService.getTournament(999L));
+    }
+
+    // =========================================================
+    // getAllTournaments
+    // =========================================================
+
+    @DisplayName("Should return all tournaments")
+    @Test
+    void shouldGetAllTournaments() {
+        TournamentEntity e1 = entityWith(1L, "Cup A", "draft");
+        TournamentEntity e2 = entityWith(2L, "Cup B", "active");
+        TournamentModel m1 = modelWith(1L, "Cup A", TournamentStatusModel.DRAFT);
+        TournamentModel m2 = modelWith(2L, "Cup B", TournamentStatusModel.ACTIVE);
+
+        when(tournamentRepository.findAll()).thenReturn(List.of(e1, e2));
+        when(tournamentMapper.toModel(e1)).thenReturn(m1);
+        when(tournamentMapper.toModel(e2)).thenReturn(m2);
+
+        List<TournamentModel> result = tournamentService.getAllTournaments();
+
+        assertEquals(2, result.size());
+    }
+
+    @DisplayName("Should return empty list when no tournaments exist")
+    @Test
+    void shouldReturnEmptyListWhenNoTournaments() {
+        when(tournamentRepository.findAll()).thenReturn(List.of());
+
+        assertTrue(tournamentService.getAllTournaments().isEmpty());
+    }
+
+    // =========================================================
+    // updateTournament
+    // =========================================================
+
+    @DisplayName("Should update tournament name successfully")
+    @Test
+    void shouldUpdateTournamentName() {
+        TournamentEntity existing = entityWith(1L, "Old Name", "draft");
+        TournamentEntity saved   = entityWith(1L, "New Name", "draft");
+        TournamentModel result   = modelWith(1L, "New Name", TournamentStatusModel.DRAFT);
+
+        TournamentModel payload = new TournamentModel();
+        payload.setName("New Name");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(tournamentRepository.findByNameIgnoreCase("New Name")).thenReturn(Optional.empty());
+        when(tournamentRepository.save(existing)).thenReturn(saved);
+        when(tournamentMapper.toModel(saved)).thenReturn(result);
+
+        TournamentModel updated = tournamentService.updateTournament(1L, payload);
+
+        assertEquals("New Name", updated.getName());
+    }
+
+    @DisplayName("Should update tournament cost and dates")
+    @Test
+    void shouldUpdateTournamentCostAndDates() {
+        TournamentEntity existing = entityWith(1L, "Cup", "active");
+        TournamentEntity saved    = entityWith(1L, "Cup", "active");
+        TournamentModel result    = modelWith(1L, "Cup", TournamentStatusModel.ACTIVE);
+
+        TournamentModel payload = new TournamentModel();
+        payload.setEndDate(FUTURE_END.plusDays(5));
+        payload.setTeamCost(new BigDecimal("75000"));
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(tournamentRepository.save(existing)).thenReturn(saved);
+        when(tournamentMapper.toModel(saved)).thenReturn(result);
+
+        assertNotNull(tournamentService.updateTournament(1L, payload));
+    }
+
+    @DisplayName("Should throw exception when updating with null payload")
+    @Test
+    void shouldFailUpdateWhenPayloadIsNull() {
+        assertThrows(RuntimeException.class, () -> tournamentService.updateTournament(1L, null));
+        verifyNoInteractions(tournamentRepository, tournamentMapper);
+    }
+
+    @DisplayName("Should throw exception when updating a non-existing tournament")
+    @Test
+    void shouldFailUpdateWhenTournamentNotFound() {
+        TournamentModel payload = new TournamentModel();
+        payload.setName("Anything");
+
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> tournamentService.updateTournament(999L, payload));
+    }
+
+    @DisplayName("Should throw exception when updating a FINISHED tournament")
+    @Test
+    void shouldFailUpdateFinishedTournament() {
+        TournamentEntity finished = entityWith(1L, "Done", "finished");
+        TournamentModel payload   = new TournamentModel();
+        payload.setName("New Name");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(finished));
+
+        RuntimeException ex = assertThrows(RuntimeException.class,
+                () -> tournamentService.updateTournament(1L, payload));
+        assertTrue(ex.getMessage().contains("FINISHED"));
+    }
+
+    @DisplayName("Should throw exception when new name is already used by another tournament")
+    @Test
+    void shouldFailUpdateWhenNameTakenByOther() {
+        TournamentEntity existing = entityWith(1L, "My Cup", "draft");
+        TournamentEntity other    = entityWith(2L, "Taken Name", "draft");
+
+        TournamentModel payload = new TournamentModel();
+        payload.setName("Taken Name");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+        when(tournamentRepository.findByNameIgnoreCase("Taken Name"))
+                .thenReturn(Optional.of(other));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.updateTournament(1L, payload));
+    }
+
+    @DisplayName("Should throw exception when updated end date is before current start date")
+    @Test
+    void shouldFailUpdateWhenEndDateBeforeStartDate() {
+        TournamentEntity existing = entityWith(1L, "Cup", "draft");
+
+        TournamentModel payload = new TournamentModel();
+        payload.setEndDate(LocalDate.now().minusDays(5));
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.updateTournament(1L, payload));
+    }
+
+    @DisplayName("Should throw exception when updated team cost is negative")
+    @Test
+    void shouldFailUpdateWhenNegativeTeamCost() {
+        TournamentEntity existing = entityWith(1L, "Cup", "draft");
+
+        TournamentModel payload = new TournamentModel();
+        payload.setTeamCost(new BigDecimal("-500"));
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.updateTournament(1L, payload));
+    }
+
+    @DisplayName("Should allow updating name to the same name of the same tournament")
+    @Test
+    void shouldAllowUpdateWithSameNameForSameTournament() {
+        TournamentEntity existing = entityWith(1L, "My Cup", "draft");
+        TournamentEntity saved    = entityWith(1L, "My Cup", "draft");
+        TournamentModel result    = modelWith(1L, "My Cup", TournamentStatusModel.DRAFT);
+
+        TournamentModel payload = new TournamentModel();
+        payload.setName("My Cup");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(existing));
+        // findByNameIgnoreCase returns the same tournament (id = 1), so no conflict
+        when(tournamentRepository.findByNameIgnoreCase("My Cup"))
+                .thenReturn(Optional.of(existing));
+        when(tournamentRepository.save(existing)).thenReturn(saved);
+        when(tournamentMapper.toModel(saved)).thenReturn(result);
+
+        assertNotNull(tournamentService.updateTournament(1L, payload));
+    }
+
+    // =========================================================
+    // cancelTournament
+    // =========================================================
+
+    @DisplayName("Should cancel a DRAFT tournament successfully")
+    @Test
+    void shouldCancelDraftTournament() {
+        TournamentEntity entity = entityWith(1L, "ToBeCancelled", "draft");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(entity));
+
+        tournamentService.cancelTournament(1L);
+
+        verify(tournamentRepository).delete(entity);
+    }
+
+    @DisplayName("Should throw exception when cancelling a non-DRAFT tournament")
+    @Test
+    void shouldFailCancelNonDraftTournament() {
+        TournamentEntity active = entityWith(1L, "Running", "active");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(active));
+
+        RuntimeException ex = assertThrows(RuntimeException.class,
+                () -> tournamentService.cancelTournament(1L));
+        assertTrue(ex.getMessage().contains("DRAFT"));
+        verify(tournamentRepository, never()).delete(any());
+    }
+
+    @DisplayName("Should throw exception when cancelling a non-existing tournament")
+    @Test
+    void shouldFailCancelTournamentNotFound() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> tournamentService.cancelTournament(999L));
+    }
+
+    // =========================================================
+    // startTournament – error paths
+    // =========================================================
+
+    @DisplayName("Should throw exception when starting a non-existing tournament")
+    @Test
+    void shouldFailStartTournamentNotFound() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> tournamentService.startTournament(999L));
+    }
+
+    @DisplayName("Should throw exception when trying to start a FINISHED tournament")
+    @Test
+    void shouldFailStartFromFinishedStatus() {
+        TournamentEntity finished = entityWith(1L, "Done", "finished");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(finished));
+
+        RuntimeException ex = assertThrows(RuntimeException.class,
+                () -> tournamentService.startTournament(1L));
+        assertTrue(ex.getMessage().contains("cannot be started"));
+    }
+
+    // =========================================================
+    // finishTournament – error paths
+    // =========================================================
+
+    @DisplayName("Should throw exception when finishing a non-existing tournament")
+    @Test
+    void shouldFailFinishTournamentNotFound() {
+        when(tournamentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> tournamentService.finishTournament(999L));
+    }
+
+    @DisplayName("Should throw exception when finishing a DRAFT tournament")
+    @Test
+    void shouldFailFinishFromDraftStatus() {
+        TournamentEntity draft = entityWith(1L, "NotStarted", "draft");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(draft));
+
+        RuntimeException ex = assertThrows(RuntimeException.class,
+                () -> tournamentService.finishTournament(1L));
+        assertTrue(ex.getMessage().contains("IN_PROGRESS"));
+    }
+
+    @DisplayName("Should throw exception when finishing an ACTIVE tournament")
+    @Test
+    void shouldFailFinishFromActiveStatus() {
+        TournamentEntity active = entityWith(1L, "ActiveCup", "active");
+
+        when(tournamentRepository.findById(1L)).thenReturn(Optional.of(active));
+
+        assertThrows(RuntimeException.class, () -> tournamentService.finishTournament(1L));
     }
 }

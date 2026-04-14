@@ -4,6 +4,7 @@ import edu.eci.dosw.tech_cup.model.PlayerModel;
 import edu.eci.dosw.tech_cup.model.UserRoleModel;
 import edu.eci.dosw.tech_cup.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @Tag(name = "Usuarios", description = "Operaciones relacionadas con usuarios")
+@SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
     private final IUserService userService;

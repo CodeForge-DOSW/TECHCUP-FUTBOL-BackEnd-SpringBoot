@@ -3,6 +3,10 @@ package edu.eci.dosw.tech_cup.controller;
 import edu.eci.dosw.tech_cup.model.AuthRequest;
 import edu.eci.dosw.tech_cup.model.AuthResponse;
 import edu.eci.dosw.tech_cup.service.JwtService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -21,6 +25,7 @@ import static org.springframework.http.HttpStatus.UNAUTHORIZED;
  */
 @RestController
 @RequestMapping("/auth")
+@Tag(name = "Autenticación", description = "Operaciones para autenticación y generación de JWT")
 public class AuthController {
 
     private final AuthenticationManager authManager;
@@ -41,6 +46,11 @@ public class AuthController {
      * al AuthenticationManager para que Spring Security ejecute el proceso de autenticación.
      */
     @PostMapping("/login")
+    @Operation(summary = "Iniciar sesión", description = "Valida credenciales y retorna un token JWT")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Autenticación exitosa"),
+            @ApiResponse(responseCode = "401", description = "Credenciales inválidas")
+    })
     public AuthResponse login(@RequestBody AuthRequest request) {
         try {
             authManager.authenticate(

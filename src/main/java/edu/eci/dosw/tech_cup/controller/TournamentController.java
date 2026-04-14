@@ -2,6 +2,7 @@ package edu.eci.dosw.tech_cup.controller;
 
 import edu.eci.dosw.tech_cup.model.TournamentModel;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import edu.eci.dosw.tech_cup.service.ITournamentService;
 
@@ -27,6 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/tournaments")
 @Tag(name = "Tournaments", description = "Endpoints for tournament management operations")
+@SecurityRequirement(name = "bearerAuth")
 public class TournamentController {
 
     /**

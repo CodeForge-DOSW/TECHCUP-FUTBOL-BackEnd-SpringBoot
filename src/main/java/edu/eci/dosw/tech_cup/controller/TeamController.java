@@ -3,6 +3,7 @@ package edu.eci.dosw.tech_cup.controller;
 import edu.eci.dosw.tech_cup.model.TeamResponseModel;
 import edu.eci.dosw.tech_cup.service.ITeamService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/teams")
 @Tag(name = "Teams", description = "Endpoints for team management operations")
+@SecurityRequirement(name = "bearerAuth")
 public class TeamController {
 
     private final ITeamService teamService;
