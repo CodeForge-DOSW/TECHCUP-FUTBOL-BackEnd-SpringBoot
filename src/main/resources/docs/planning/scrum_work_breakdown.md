@@ -487,26 +487,26 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo                                 | Descripción                                                                                  |
 | ------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-08                                                                                        |
+| **ID**                                | [SCRUM-81](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-81)                                                                                     |
 | **Título**                            | Implementar entidad de reglamento en base de datos                                           |
 | **ID de la Historia de Uso asociada** | SCRUM-27                                                                                     |
 | **Descripción**                       | Crear la estructura en la base de datos para almacenar el reglamento asociado a cada torneo. |
-| **Tareas requisito**                  | TR-07                                                                                        |
+| **Tareas requisito**                  | SCRUM-36                                                                                       |
 
 
 
 | Campo                                 | Descripción                                                                                                                                     |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-09                                                                                                                                           |
+| **ID**                                | [SCRUM-82](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-82)                                                                                                            |
 | **Título**                            | Implementar funcionalidad para definir fechas del torneo                                                                                        |
 | **ID de la Historia de Uso asociada** | SCRUM-27                                                                                                                                          |
 | **Descripción**                       | Desarrollar la lógica que permita registrar y actualizar las fechas importantes del torneo como inicio, cierre de inscripciones y finalización. |
-| **Tareas requisito**                  | TR-01                                                                                                                                           |
+| **Tareas requisito**                  | SCRUM-81                                                                                                                                          |
 
 
 | Campo                                 | Descripción                                                                                         |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-10                                                                                               |
+| **ID**                                | [SCRUM-83](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-83)                                                                                              |
 | **Título**                            | Crear interfaz para configurar reglamento y fechas                                                  |
 | **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde el organizador pueda ingresar y modificar las reglas y fechas del torneo. |
@@ -514,34 +514,34 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo                                 | Descripción                                                                                       |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-11                                                                                             |
+| **ID**                                | [SCRUM-84](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-84)                                                                                             |
 | **Título**                            | Guardar configuración del reglamento del torneo                                                   |
 | **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Implementar el almacenamiento de la configuración del reglamento y las fechas dentro del sistema. |
-| **Tareas requisito**                  | TR-08, TR-09, TR-10                                                                               |
+| **Tareas requisito**                  | SCRUM-81, SCRUM-82, SCRUM-83                                                                              |
 
 
 | Campo                                 | Descripción                                                                                                    |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-12                                                                                                          |
+| **ID**                                | [SCRUM-85](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-85)                                                                                                          |
 | **Título**                            | Definir estados del torneo                                                                                     |
 | **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                         |
 | **Descripción**                       | Definir los posibles estados del torneo dentro del sistema como creado, en inscripción, en curso y finalizado. |
-| **Tareas requisito**                  | TR-01                                                                                                          |
+| **Tareas requisito**                  | SCRUM-30                                                                                                          |
 
 
 | Campo                                 | Descripción                                                                                          |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-13                                                                                                |
+| **ID**                                | [SCRUM-86](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-86)                                                                                               |
 | **Título**                            | Implementar lógica para actualizar estado del torneo                                                 |
 | **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                              |
 | **Descripción**                       | Desarrollar la lógica que permita modificar el estado del torneo según las acciones del organizador. |
-| **Tareas requisito**                  | TR-12                                                                                                |
+| **Tareas requisito**                  | SCRUM-85                                                                                               |
 
 
 | Campo                                 | Descripción                                                                                                   |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-14                                                                                                         |
+| **ID**                                | [SCRUM-87](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-87)                                                                                                         |
 | **Título**                            | Crear opción en la interfaz para cambiar estado del torneo                                                    |
 | **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                        |
 | **Descripción**                       | Implementar en la interfaz del sistema la opción para que el organizador pueda iniciar o finalizar el torneo. |
@@ -550,15 +550,15 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo                                 | Descripción                                                                                                                                              |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-15                                                                                                                                                    |
+| **ID**                                | [SCRUM-88](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-88)                                                                                                      |
 | **Título**                            | Validar condiciones para iniciar o finalizar torneo                                                                                                      |
 | **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                                                                   |
 | **Descripción**                       | Implementar validaciones para verificar que el torneo cumpla condiciones necesarias antes de cambiar su estado, como número mínimo de equipos inscritos. |
-| **Tareas requisito**                  | TR-13                                                                                                                                                    |
+| **Tareas requisito**                  | SCRUM-87                                                                                                                                                    |
 
 | Campo                                 | Descripción                                                                                                                       |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-16                                                                                                                             |
+| **ID**                                | [SCRUM-89](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-89)                                                               |
 | **Título**                            | Modelar entidad Usuario en base de datos                                                                                          |
 | **ID de la Historia de Uso asociada** | SCRUM-29                                                                                                                            |
 | **Descripción**                       | Diseñar la estructura de la entidad Usuario con atributos como nombre, correo electrónico, contraseña, rol y estado de la cuenta. |
@@ -566,23 +566,23 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo                                 | Descripción                                                                                                       |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-17                                                                                                             |
+| **ID**                                | [SCRUM-90](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-90)                                                                                  |
 | **Título**                            | Crear repositorio para gestión de usuarios                                                                        |
 | **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                            |
 | **Descripción**                       | Implementar la capa de acceso a datos que permita registrar, consultar y actualizar usuarios en la base de datos. |
-| **Tareas requisito**                  | TR-16                                                                                                             |
+| **Tareas requisito**                  | SCRUM-89                                                                                                            |
 
 | Campo                                 | Descripción                                                                                |
 | ------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-18                                                                                      |
+| **ID**                                | [SCRUM-91](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-91)                                                                                      |
 | **Título**                            | Implementar servicio de registro de usuarios                                               |
 | **ID de la Historia de Uso asociada** | SCRUM-28                                                                                       |
 | **Descripción**                       | Desarrollar la lógica de negocio que permita registrar nuevos usuarios dentro del sistema. |
-| **Tareas requisito**                  | TR-17                                                                                      |
+| **Tareas requisito**                  | SCRUM-90                                                                                     |
 
 | Campo                                 | Descripción                                                                                      |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-19                                                                                            |
+| **ID**                                | [SCRUM-92](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-92)                                                                                            |
 | **Título**                            | Crear formulario de registro de usuario                                                          |
 | **ID de la Historia de Uso asociada** | SCRUM-28                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde los usuarios puedan ingresar sus datos para registrarse en el sistema. |
@@ -590,11 +590,11 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 
 | Campo                                 | Descripción                                                                                                                                       |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-20                                                                                                                                             |
+| **ID**                                | [SCRUM-93](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-93)                                                                                |
 | **Título**                            | Implementar validación de datos del registro                                                                                                      |
 | **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                                                            |
 | **Descripción**                       | Implementar validaciones para verificar que los datos ingresados por el usuario sean correctos, como formato de correo y seguridad de contraseña. |
-| **Tareas requisito**                  | TR-18, TR-19                                                                                                                                      |
+| **Tareas requisito**                  | SCRUM-91, SCRUM-92                                                                                                                                     |
 
 
 | Campo                                 | Descripción                                                                                                                                             |
