@@ -412,182 +412,189 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | **Priority** | Medium |
 | **Estimate** | 5 points |
 
-### 3. Tareas:
+### 3. Task:
 
-| Campo                                 | Descripción                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-01                                                                                                                                                                          |
-| **Título**                            | Modelar entidad Torneo en base de datos                                                                                                                                        |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                                                                                          |
-| **Descripción**                       | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos. |
-| **Tareas requisito**                  | -                                                                                                                                                                              |
+#### TR-01
 
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-30](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-30) |
+| **Título** | Modelar entidad Torneo en base de datos |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Diseñar y crear la estructura de la entidad Torneo con atributos como nombre, fecha de inicio, fecha de finalización, estado, costo de inscripción y número máximo de equipos |
+| **Tareas requisito** | - |
 
-| Campo                                 | Descripción                                                                                          |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-02                                                                                                |
-| **Título**                            | Crear repositorio para gestión de torneos                                                            |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                |
-| **Descripción**                       | Implementar la capa de acceso a datos que permita almacenar y consultar torneos en la base de datos. |
-| **Tareas requisito**                  | TR-01                                                                                                |
+#### TR-02
 
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-31](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-31) |
+| **Título** | Crear repositorio para gestión de torneos |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Implementar la capa de acceso a datos que permita almacenar y consultar torneos en la base de datos |
+| **Tareas requisito** | SCRUM-30 |
 
+#### TR-03
 
-| Campo                                 | Descripción                                                                               |
-| ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **ID**                                | TR-03                                                                                     |
-| **Título**                            | Implementar servicio de creación de torneos                                               |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                     |
-| **Descripción**                       | Desarrollar la lógica de negocio que permita registrar nuevos torneos dentro del sistema. |
-| **Tareas requisito**                  | TR-02                                                                                     |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-32](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-32) |
+| **Título** | Implementar servicio de creación de torneos |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Desarrollar la lógica de negocio que permita registrar nuevos torneos dentro del sistema |
+| **Tareas requisito** | SCRUM-31 |
 
+#### TR-04
 
-| Campo                                 | Descripción                                                                                              |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-04                                                                                                    |
-| **Título**                            | Crear formulario de creación de torneo                                                                   |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                    |
-| **Descripción**                       | Diseñar la interfaz donde el organizador pueda ingresar los datos necesarios para crear un nuevo torneo. |
-| **Tareas requisito**                  | -                                                                                                        |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-33](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-33) |
+| **Título** | Crear formulario de creación de torneo |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Diseñar la interfaz donde el organizador pueda ingresar los datos necesarios para crear un nuevo torneo |
+| **Tareas requisito** | - |
 
+#### TR-05
 
-| Campo                                 | Descripción                                                                                                                  |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-05                                                                                                                        |
-| **Título**                            | Validar datos ingresados del torneo                                                                                          |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                                                        |
-| **Descripción**                       | Implementar validaciones para verificar que los datos ingresados por el organizador sean correctos antes de crear el torneo. |
-| **Tareas requisito**                  | TR-03, TR-04                                                                                                                 |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-34](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-34) |
+| **Título** | Validar datos ingresados del torneo |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Implementar validaciones para verificar que los datos ingresados por el organizador sean correctos antes de crear el torneo |
+| **Tareas requisito** | SCRUM-32, SCRUM-33 |
 
+#### TR-06
 
-| Campo                                 | Descripción                                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-06                                                                                       |
-| **Título**                            | Guardar torneo en el sistema                                                                |
-| **ID de la Historia de Uso asociada** | HU-01                                                                                       |
-| **Descripción**                       | Registrar el torneo creado en la base de datos para que esté disponible dentro del sistema. |
-| **Tareas requisito**                  | TR-03, TR-05                                                                                |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-35](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-35) |
+| **Título** | Guardar torneo en el sistema |
+| **ID de la Historia de Uso asociada** | SCRUM-26 |
+| **Descripción** | Registrar el torneo creado en la base de datos para que esté disponible dentro del sistema |
+| **Tareas requisito** | SCRUM-32, SCRUM-34 |
 
+#### TR-07
 
-| Campo                                 | Descripción                                                                                                                                      |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-07                                                                                                                                            |
-| **Título**                            | Diseñar estructura de reglamento del torneo                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                                                                            |
-| **Descripción**                       | Definir los atributos necesarios para almacenar el reglamento del torneo, incluyendo reglas generales, sanciones y condiciones de participación. |
-| **Tareas requisito**                  | -                                                                                                                                                |
+| Campo | Descripción |
+| ----- | ----------- |
+| **ID** | [SCRUM-36](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-36) |
+| **Título** | Diseñar estructura de reglamento del torneo |
+| **ID de la Historia de Uso asociada** | SCRUM-27 |
+| **Descripción** | Definir los atributos necesarios para almacenar el reglamento del torneo, incluyendo reglas generales, sanciones y condiciones de participación |
+| **Tareas requisito** | - |
 
 
 | Campo                                 | Descripción                                                                                  |
 | ------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-08                                                                                        |
+| **ID**                                | [SCRUM-81](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-81)                                                                                     |
 | **Título**                            | Implementar entidad de reglamento en base de datos                                           |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                        |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                     |
 | **Descripción**                       | Crear la estructura en la base de datos para almacenar el reglamento asociado a cada torneo. |
-| **Tareas requisito**                  | TR-07                                                                                        |
+| **Tareas requisito**                  | SCRUM-36                                                                                       |
 
 
 
 | Campo                                 | Descripción                                                                                                                                     |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-09                                                                                                                                           |
+| **ID**                                | [SCRUM-82](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-82)                                                                                                            |
 | **Título**                            | Implementar funcionalidad para definir fechas del torneo                                                                                        |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                                                                           |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                                                                          |
 | **Descripción**                       | Desarrollar la lógica que permita registrar y actualizar las fechas importantes del torneo como inicio, cierre de inscripciones y finalización. |
-| **Tareas requisito**                  | TR-01                                                                                                                                           |
+| **Tareas requisito**                  | SCRUM-81                                                                                                                                          |
 
 
 | Campo                                 | Descripción                                                                                         |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-10                                                                                               |
+| **ID**                                | [SCRUM-83](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-83)                                                                                              |
 | **Título**                            | Crear interfaz para configurar reglamento y fechas                                                  |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                               |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde el organizador pueda ingresar y modificar las reglas y fechas del torneo. |
 | **Tareas requisito**                  | -                                                                                                   |
 
 | Campo                                 | Descripción                                                                                       |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-11                                                                                             |
+| **ID**                                | [SCRUM-84](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-84)                                                                                             |
 | **Título**                            | Guardar configuración del reglamento del torneo                                                   |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Implementar el almacenamiento de la configuración del reglamento y las fechas dentro del sistema. |
-| **Tareas requisito**                  | TR-08, TR-09, TR-10                                                                               |
+| **Tareas requisito**                  | SCRUM-81, SCRUM-82, SCRUM-83                                                                              |
 
 
 | Campo                                 | Descripción                                                                                                    |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-12                                                                                                          |
+| **ID**                                | [SCRUM-85](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-85)                                                                                                          |
 | **Título**                            | Definir estados del torneo                                                                                     |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                          |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                         |
 | **Descripción**                       | Definir los posibles estados del torneo dentro del sistema como creado, en inscripción, en curso y finalizado. |
-| **Tareas requisito**                  | TR-01                                                                                                          |
+| **Tareas requisito**                  | SCRUM-30                                                                                                          |
 
 
 | Campo                                 | Descripción                                                                                          |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-13                                                                                                |
+| **ID**                                | [SCRUM-86](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-86)                                                                                               |
 | **Título**                            | Implementar lógica para actualizar estado del torneo                                                 |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                              |
 | **Descripción**                       | Desarrollar la lógica que permita modificar el estado del torneo según las acciones del organizador. |
-| **Tareas requisito**                  | TR-12                                                                                                |
+| **Tareas requisito**                  | SCRUM-85                                                                                               |
 
 
 | Campo                                 | Descripción                                                                                                   |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-14                                                                                                         |
+| **ID**                                | [SCRUM-87](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-87)                                                                                                         |
 | **Título**                            | Crear opción en la interfaz para cambiar estado del torneo                                                    |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                         |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                        |
 | **Descripción**                       | Implementar en la interfaz del sistema la opción para que el organizador pueda iniciar o finalizar el torneo. |
 | **Tareas requisito**                  | -                                                                                                             |
 
 
 | Campo                                 | Descripción                                                                                                                                              |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-15                                                                                                                                                    |
+| **ID**                                | [SCRUM-88](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-88)                                                                                                      |
 | **Título**                            | Validar condiciones para iniciar o finalizar torneo                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                                                                    |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                                                                   |
 | **Descripción**                       | Implementar validaciones para verificar que el torneo cumpla condiciones necesarias antes de cambiar su estado, como número mínimo de equipos inscritos. |
-| **Tareas requisito**                  | TR-13                                                                                                                                                    |
+| **Tareas requisito**                  | SCRUM-87                                                                                                                                                    |
 
 | Campo                                 | Descripción                                                                                                                       |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-16                                                                                                                             |
+| **ID**                                | [SCRUM-89](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-89)                                                               |
 | **Título**                            | Modelar entidad Usuario en base de datos                                                                                          |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-29                                                                                                                            |
 | **Descripción**                       | Diseñar la estructura de la entidad Usuario con atributos como nombre, correo electrónico, contraseña, rol y estado de la cuenta. |
 | **Tareas requisito**                  | -                                                                                                                                 |
 
 | Campo                                 | Descripción                                                                                                       |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-17                                                                                                             |
+| **ID**                                | [SCRUM-90](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-90)                                                                                  |
 | **Título**                            | Crear repositorio para gestión de usuarios                                                                        |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                            |
 | **Descripción**                       | Implementar la capa de acceso a datos que permita registrar, consultar y actualizar usuarios en la base de datos. |
-| **Tareas requisito**                  | TR-16                                                                                                             |
+| **Tareas requisito**                  | SCRUM-89                                                                                                            |
 
 | Campo                                 | Descripción                                                                                |
 | ------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-18                                                                                      |
+| **ID**                                | [SCRUM-91](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-91)                                                                                      |
 | **Título**                            | Implementar servicio de registro de usuarios                                               |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                      |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                       |
 | **Descripción**                       | Desarrollar la lógica de negocio que permita registrar nuevos usuarios dentro del sistema. |
-| **Tareas requisito**                  | TR-17                                                                                      |
+| **Tareas requisito**                  | SCRUM-90                                                                                     |
 
 | Campo                                 | Descripción                                                                                      |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **ID**                                | TR-19                                                                                            |
+| **ID**                                | [SCRUM-92](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-92)                                                                                            |
 | **Título**                            | Crear formulario de registro de usuario                                                          |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                            |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde los usuarios puedan ingresar sus datos para registrarse en el sistema. |
 | **Tareas requisito**                  | -                                                                                                |
 
 | Campo                                 | Descripción                                                                                                                                       |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ID**                                | TR-20                                                                                                                                             |
+| **ID**                                | [SCRUM-93](https://codeforge-squad-dosw.atlassian.net/browse/SCRUM-93)                                                                                |
 | **Título**                            | Implementar validación de datos del registro                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                                                            |
 | **Descripción**                       | Implementar validaciones para verificar que los datos ingresados por el usuario sean correctos, como formato de correo y seguridad de contraseña. |
-| **Tareas requisito**                  | TR-18, TR-19                                                                                                                                      |
+| **Tareas requisito**                  | SCRUM-91, SCRUM-92                                                                                                                                     |
 
 
 | Campo                                 | Descripción                                                                                                                                             |
