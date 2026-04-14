@@ -489,7 +489,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | -------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-08                                                                                        |
 | **Título**                            | Implementar entidad de reglamento en base de datos                                           |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                        |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                     |
 | **Descripción**                       | Crear la estructura en la base de datos para almacenar el reglamento asociado a cada torneo. |
 | **Tareas requisito**                  | TR-07                                                                                        |
 
@@ -499,7 +499,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-09                                                                                                                                           |
 | **Título**                            | Implementar funcionalidad para definir fechas del torneo                                                                                        |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                                                                           |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                                                                          |
 | **Descripción**                       | Desarrollar la lógica que permita registrar y actualizar las fechas importantes del torneo como inicio, cierre de inscripciones y finalización. |
 | **Tareas requisito**                  | TR-01                                                                                                                                           |
 
@@ -508,7 +508,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-10                                                                                               |
 | **Título**                            | Crear interfaz para configurar reglamento y fechas                                                  |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                               |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde el organizador pueda ingresar y modificar las reglas y fechas del torneo. |
 | **Tareas requisito**                  | -                                                                                                   |
 
@@ -516,7 +516,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-11                                                                                             |
 | **Título**                            | Guardar configuración del reglamento del torneo                                                   |
-| **ID de la Historia de Uso asociada** | HU-02                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-27                                                                                            |
 | **Descripción**                       | Implementar el almacenamiento de la configuración del reglamento y las fechas dentro del sistema. |
 | **Tareas requisito**                  | TR-08, TR-09, TR-10                                                                               |
 
@@ -525,7 +525,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-12                                                                                                          |
 | **Título**                            | Definir estados del torneo                                                                                     |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                          |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                         |
 | **Descripción**                       | Definir los posibles estados del torneo dentro del sistema como creado, en inscripción, en curso y finalizado. |
 | **Tareas requisito**                  | TR-01                                                                                                          |
 
@@ -534,7 +534,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-13                                                                                                |
 | **Título**                            | Implementar lógica para actualizar estado del torneo                                                 |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                              |
 | **Descripción**                       | Desarrollar la lógica que permita modificar el estado del torneo según las acciones del organizador. |
 | **Tareas requisito**                  | TR-12                                                                                                |
 
@@ -543,7 +543,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-14                                                                                                         |
 | **Título**                            | Crear opción en la interfaz para cambiar estado del torneo                                                    |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                         |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                        |
 | **Descripción**                       | Implementar en la interfaz del sistema la opción para que el organizador pueda iniciar o finalizar el torneo. |
 | **Tareas requisito**                  | -                                                                                                             |
 
@@ -552,7 +552,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-15                                                                                                                                                    |
 | **Título**                            | Validar condiciones para iniciar o finalizar torneo                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-03                                                                                                                                                    |
+| **ID de la Historia de Uso asociada** |  SCRUM-28                                                                                                                                                   |
 | **Descripción**                       | Implementar validaciones para verificar que el torneo cumpla condiciones necesarias antes de cambiar su estado, como número mínimo de equipos inscritos. |
 | **Tareas requisito**                  | TR-13                                                                                                                                                    |
 
@@ -560,7 +560,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-16                                                                                                                             |
 | **Título**                            | Modelar entidad Usuario en base de datos                                                                                          |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-29                                                                                                                            |
 | **Descripción**                       | Diseñar la estructura de la entidad Usuario con atributos como nombre, correo electrónico, contraseña, rol y estado de la cuenta. |
 | **Tareas requisito**                  | -                                                                                                                                 |
 
@@ -568,7 +568,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-17                                                                                                             |
 | **Título**                            | Crear repositorio para gestión de usuarios                                                                        |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                            |
 | **Descripción**                       | Implementar la capa de acceso a datos que permita registrar, consultar y actualizar usuarios en la base de datos. |
 | **Tareas requisito**                  | TR-16                                                                                                             |
 
@@ -576,7 +576,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ------------------------------------------------------------------------------------------ |
 | **ID**                                | TR-18                                                                                      |
 | **Título**                            | Implementar servicio de registro de usuarios                                               |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                      |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                       |
 | **Descripción**                       | Desarrollar la lógica de negocio que permita registrar nuevos usuarios dentro del sistema. |
 | **Tareas requisito**                  | TR-17                                                                                      |
 
@@ -584,7 +584,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | **ID**                                | TR-19                                                                                            |
 | **Título**                            | Crear formulario de registro de usuario                                                          |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                            |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                            |
 | **Descripción**                       | Diseñar la interfaz donde los usuarios puedan ingresar sus datos para registrarse en el sistema. |
 | **Tareas requisito**                  | -                                                                                                |
 
@@ -592,7 +592,7 @@ The implementation of the identified requirements of TECHCUP FUTBOL is broken do
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **ID**                                | TR-20                                                                                                                                             |
 | **Título**                            | Implementar validación de datos del registro                                                                                                      |
-| **ID de la Historia de Uso asociada** | HU-04                                                                                                                                             |
+| **ID de la Historia de Uso asociada** | SCRUM-28                                                                                                                                            |
 | **Descripción**                       | Implementar validaciones para verificar que los datos ingresados por el usuario sean correctos, como formato de correo y seguridad de contraseña. |
 | **Tareas requisito**                  | TR-18, TR-19                                                                                                                                      |
 
