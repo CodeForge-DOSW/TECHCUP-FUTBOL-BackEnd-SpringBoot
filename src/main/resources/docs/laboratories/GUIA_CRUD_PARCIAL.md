@@ -572,3 +572,5 @@ Antes de entregar, verifica:
 | 1:30 – 2:15   | Controllers + probar con Postman               |
 | 2:15 – 2:45   | Tests con H2 + capturas de Postman en README   |
 | 2:45 – 3:00   | Revisar, commit final, PR a develop            |
+
+Revisar los archivos markdown para mas informacion de cada laboratorio 
