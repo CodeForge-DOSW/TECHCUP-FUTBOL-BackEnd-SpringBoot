@@ -1,83 +1,72 @@
-# TECHCUP FUTBOL
+# TechCup Fútbol: Backend (Spring Boot)
 
-> [!IMPORTANT]
-> This repository contains the **Backend service** for the **TECHCUP-FUTBOL** project.
+Backend del proyecto TechCup Fútbol: API REST para la gestión de torneos de fútbol, equipos, jugadores, partidos y usuarios, con autenticación JWT.
 
----
+## Autores
 
-## 🧰 Technologies
+JUAN SEBASTIÁN GUAYAZÁN CLAVIJO, BRAYAN LOAIZA, JUAN CRUZ, JUAN JOSÉ LAVERDE y JUAN MANUEL VILLEGAS
+Desarrollo y Operaciones Software (ISIS DOSW-301)
+Decanatura Ingeniería de Sistemas
+Ingeniería de Sistemas
+Escuela Colombiana de Ingeniería Julio Garavito
+2026-1
 
-| Technology | Description |
-| ---------- | ----------- |
-| **Java 17+** | Main programming language used to develop the backend application |
-| **Spring Boot** | Framework that simplifies the development of Java applications and RESTful APIs |
-| **Maven** | Dependency management and build automation tool used to build and manage the project |
-| **Swagger UI** | Provides interactive API documentation and allows developers to test endpoints directly from the browser |
-| **JaCoCo** | Tool used to measure test coverage within the codebase |
-| **SonarQube** | Static code analysis platform used to detect bugs, vulnerabilities, and maintain code quality |
-| **Swagger (OpenAPI)** | Interactive API documentation used to explore and test REST endpoints directly from the browser (Swagger UI) |
-
-## 📁 Project structure
+## Estructura del proyecto
 
 ```
-📦 TECHCUP-FUTBOL-BackEnd-SpringBoot/
-├── 📂 src/
-│   ├── 📂 main/
-│   │   ├── 📂 java/
-│   │   │   └── 📂 edu/eci/dosw/project-name/
-│   │   │       ├── 📄 Application.java        # Main class with @SpringBootApplication
-│   │   │       ├── 📂 config/                 # Configuration (Security, Web, etc.)
-│   │   │       ├── 📂 controller/             # REST controllers (@RestController)
-│   │   │       ├── 📂 service/                # Business logic (@Service)
-│   │   │       ├── 📂 repository/             # Data access (@Repository / JPA)
-│   │   │       ├── 📂 entity/                 # JPA entities (database layer)
-│   │   │       ├── 📂 model/                  # Core domain models
-│   │   │       ├── 📂 dto/                    # Data Transfer Objects
-│   │   │       └── 📂 exception/              # Exception handling (@ControllerAdvice)
-│   │   └── 📂 resources/
-│   │       ├── 📄 application.properties     # or application.yml
-│   │       └── 📂 docs/
-│   │           ├── 📂 uml/
-│   │           ├── 📂 images/
-│   │           └── 📂 requirements/
-│   └── 📂 test/
-│       └── 📂 java/                          # Tests (same package structure)
-├── 📄 pom.xml                                # Maven configuration
-└── 📄 README.md
-``` 
+TECHCUP-FUTBOL-BackEnd-SpringBoot/
+├── pom.xml
+├── src/main/java/edu/eci/dosw/tech_cup/
+│   ├── TechCupApplication.java
+│   ├── config/SwaggerConfig.java
+│   ├── controller/          # AuthController, TeamController, TournamentController, UserController
+│   ├── security/            # JwtAuthenticationFilter, SecurityConfig
+│   ├── service/             # JwtService, TeamService, TournamentService, UserService (+ interfaces)
+│   ├── repository/          # TeamRepository, TournamentRepository, UserRepository, TeamPlayerRepository
+│   ├── entity/               # TeamEntity, TournamentEntity, UserEntity, RoleEntity, PermissionEntity, TeamPlayerEntity
+│   ├── model/                 # ~35 modelos de dominio: torneos, partidos, equipos, jugadores, árbitros, sanciones, etc.
+│   ├── mapper/                 # TeamMapper, TournamentMapper, UserMapper
+│   └── dto/                    # LoginRequest
+├── src/main/resources/
+│   └── docs/
+│       ├── uml/                # Diagramas de clases, ER, casos de uso
+│       ├── planning/            # Desglose de trabajo, acuerdos de equipo
+│       ├── requirements/         # Alcance y requerimientos
+│       └── laboratories/          # Notas de los laboratorios del curso aplicados al proyecto
+└── src/test/java/edu/eci/dosw/tech_cup/
+    ├── controller/AuthIntegrationTest.java
+    ├── repository/               # Tests de TeamRepository, TournamentRepository, UserRepository
+    └── service/                  # Tests de TeamService, TournamentService, UserService
+```
 
-# Laboratorio-9
+## Cómo ejecutar
 
-## Parte 1
+```bash
+./mvnw spring-boot:run
+./mvnw test
+```
 
-1. Postman
+Documentación interactiva de la API disponible en Swagger UI una vez la aplicación está corriendo.
 
-![img.png](src/main/resources/docs/images/lab10/img.png)
+## Contexto y conceptos clave
 
-## Parte 2
+### Resumen
 
-4. Request de Users en Postman solicitando usuario y contraseña
-![img_1.png](src/main/resources/docs/images/lab10/img_1.png)
+Backend del sistema de gestión de torneos de fútbol TechCup: administra torneos, equipos, invitaciones de jugadores, partidos (alineaciones, eventos, resultados) y usuarios, con control de acceso basado en roles y permisos. La autenticación se implementa con JWT: `AuthController` expone el login, `JwtService` genera y valida los tokens, y `JwtAuthenticationFilter` intercepta cada solicitud para autenticar al usuario antes de llegar a los controladores protegidos.
 
-7. Resultado de la solicitud de autenticación con el token JWT
-![img_2.png](src/main/resources/docs/images/lab10/img_2.png)
+### Conceptos clave
 
-12. Resultado de la solicitud de autenticación con el token JWT configurado usuario y contraseña
-![img_3.png](src/main/resources/docs/images/lab10/img_3.png)
+- API REST con Spring Boot (`@RestController`, `@Service`, `@Repository`)
+- Autenticación y autorización con JWT (filtro de seguridad, `SecurityConfig`)
+- Modelo de dominio de un sistema de torneos deportivos: equipos, jugadores, partidos, árbitros, sanciones, tabla de posiciones
+- Mapeo entre entidades de persistencia y modelos de dominio (`mapper/`)
+- Documentación de API con Swagger/OpenAPI
+- Diseño respaldado por diagramas UML (clases, entidad-relación, casos de uso) versionados en `docs/uml/`
 
-# Laboratorio JWT Filter
+### Filtro JWT
 
-## a. ¿Qué es un filtro JWT?
+Un filtro JWT es un componente del pipeline de seguridad de Spring Security que intercepta cada solicitud HTTP para leer y procesar el token JWT enviado por el cliente: valida su autenticidad e integridad, extrae la identidad del usuario y registra su autenticación en el contexto de seguridad. Gracias a esto, los endpoints protegidos pueden autorizar o rechazar solicitudes sin manejar sesiones tradicionales en el servidor.
 
-Un filtro JWT es un componente del pipeline de seguridad (por ejemplo, en Spring Security) que intercepta cada solicitud HTTP para leer y procesar un token JWT enviado por el cliente.
+### Resultados
 
-## b. ¿Para qué sirven los filtros JWT?
-
-Sirven para validar la autenticidad e integridad del token, extraer la identidad del usuario y registrar su autenticación en el contexto de seguridad. Gracias a esto, los endpoints protegidos pueden autorizar o rechazar solicitudes sin manejar sesiones tradicionales en servidor.
-
-## c. Bibliografía en formato APA
-
-- Jones, M., Bradley, J., & Sakimura, N. (2015). *JSON Web Token (JWT)* (RFC 7519). Internet Engineering Task Force. https://doi.org/10.17487/RFC7519
-- Spring. (2024). *Spring Security Reference Documentation*. https://docs.spring.io/spring-security/reference/
-- Walls, C. (2022). *Spring in Action* (6th ed.). Manning Publications.
-- Oracle. (2024). *Java Platform, Standard Edition Documentation*. https://docs.oracle.com/en/java/
+La API expone endpoints de autenticación (login con JWT), gestión de equipos, torneos y usuarios, con pruebas de integración y unitarias sobre los repositorios y servicios principales.
