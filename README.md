@@ -42,6 +42,11 @@ TECHCUP-FUTBOL-BackEnd-SpringBoot/
 ## Cómo ejecutar
 
 ```bash
+git clone https://github.com/CodeForge-DOSW/TECHCUP-FUTBOL-BackEnd-SpringBoot.git
+cd TECHCUP-FUTBOL-BackEnd-SpringBoot
+```
+
+```bash
 ./mvnw spring-boot:run
 ./mvnw test
 ```
