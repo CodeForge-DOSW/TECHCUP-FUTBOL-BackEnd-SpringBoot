@@ -1,5 +1,7 @@
 # TechCup Fútbol: Backend (Spring Boot)
 
+![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white) ![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white) ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black)
+
 Backend del proyecto TechCup Fútbol: API REST para la gestión de torneos de fútbol, equipos, jugadores, partidos y usuarios, con autenticación JWT.
 
 ## Autores
@@ -75,3 +77,15 @@ Un filtro JWT es un componente del pipeline de seguridad de Spring Security que 
 ### Resultados
 
 La API expone endpoints de autenticación (login con JWT), gestión de equipos, torneos y usuarios, con pruebas de integración y unitarias sobre los repositorios y servicios principales.
+
+## Diagramas
+
+### Diagrama de clases
+
+![Diagrama de clases](src/main/resources/docs/uml/classDiagram/classDiagram.png)
+
+### Diagrama entidad-relación
+
+![Diagrama ER](src/main/resources/docs/uml/dataBaseDiagram/DiagramER.png)
+
+Diagramas de casos de uso adicionales en [`docs/uml/useCase/`](src/main/resources/docs/uml/useCase/).
